@@ -1,5 +1,49 @@
 # Sort functions by type or use the alphabetical order.
 
+test_data <- function(data, package) {
+    checkmate::assert_string(data)
+    checkmate::assert_string(package)
+    require_pkg("utils")
+
+    assert_namespace(package)
+    shush(utils::data(list = data, package = package, envir = environment()))
+
+    data %in% ls()
+}
+
+assert_data <- function(data, package, alert = NULL) {
+    checkmate::assert_string(data)
+    checkmate::assert_string(package)
+
+    choices <- c("gipso_1", "gipso_2")
+    if (!is.null(alert)) alert <- tolower(alert)
+    checkmate::assert_choice(alert, choices, null.ok = TRUE)
+
+    alert_null <- paste0(
+        "There's no ",  single_quote_(data), " data in ",
+        single_quote_(package), " namespace."
+    )
+
+    alert_gipso_1 <- paste0(
+        "There's no ", single_quote_(data), " data in the ",
+        single_quote_(package), " package namespace. ",
+        "See ?write_metadata() for instructions."
+    )
+
+    alert_gipso_2 <- paste0(
+        "There's no ", single_quote_(data), " data in ",
+        single_quote_(package), " package namespace. ",
+        "Have you forgotten to run 'write_sheet()'?."
+    )
+
+    if (isFALSE(test_data(data, package))) {
+        if (is.null(alert)) alert <- "null"
+        stop(get(paste0("alert_", alert)), call. = FALSE)
+    } else {
+        invisible(TRUE)
+    }
+}
+
 test_has_length <- function(x) if (length(x) >= 1) TRUE else FALSE
 
 check_has_length <- function(x, any.missing = TRUE,
