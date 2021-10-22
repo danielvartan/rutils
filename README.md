@@ -5,8 +5,9 @@
 
 <!-- badges: start -->
 
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
+![CRAN status](https://www.r-pkg.org/badges/version/gutils) [![Project
+Status: WIP – Initial development is in progress, but there has not yet
+been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -15,22 +16,19 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 coverage](https://codecov.io/gh/gipso/gutils/branch/main/graph/badge.svg)](https://codecov.io/gh/gipso/gutils?branch=main)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
+[![Contributor
+Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://gipso.github.io/gutils/CODE_OF_CONDUCT.html)
+[![Buy Me A Coffee donate
+button](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://ko-fi.com/danielvartan)
 <!-- badges: end -->
+
+## Overview
 
 `gutils` is an R package to store and to organize utility functions
 created by the GIPSO developer team.
 
 Please note that some utility functions are not documented. Access the
 source code to see them all.
-
-See also other utility or extension packages created by the GIPSO
-developer team:
-
--   [`encryptrpak`](https://github.com/gipso/encryptrpak): an R package
-    to encrypt/decrypt files of R packages.
--   [`lubritime`](https://github.com/gipso/lubritime): an extension for
-    the [lubridate](https://github.com/tidyverse/lubridate) package to
-    deal with time in R.
 
 ## Installation
 
@@ -70,3 +68,24 @@ citation("gutils")
 #>     note = {Lifecycle: experimental},
 #>   }
 ```
+
+## Support `gutils`
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/danielvartan)
+
+Working with science in Brazil is a daily challenge. There are few
+funding opportunities available and their value is not enough to live
+on. Added to this, every day Brazilian science suffers from deep cuts in
+funding, which requires researchers to always look for other sources of
+income.
+
+If this package helps you in any way or you simply want to support the
+author’s work, please consider donating or even creating a membership
+subscription (if you can!). Your support will help with the author’s
+scientific pursuit and with the package maintenance.
+
+To make a donation click on the [Ko-fi](https://ko-fi.com/danielvartan)
+button above. Please indicate the `gutils` package in your donation
+message.
+
+Thank you!
