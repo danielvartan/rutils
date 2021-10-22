@@ -17,10 +17,10 @@ coverage](https://codecov.io/gh/gipso/gutils/branch/main/graph/badge.svg)](https
 MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
 <!-- badges: end -->
 
-`gutils` is an R package to store and organize utility functions created
-by the GIPSO developer team.
+`gutils` is an R package to store and to organize utility functions
+created by the GIPSO developer team.
 
-Please note that some utils functions are not documented. Access the
+Please note that some utility functions are not documented. Access the
 source code to see them all.
 
 See also other utility or extension packages created by the GIPSO
