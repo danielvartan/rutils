@@ -50,7 +50,7 @@ Suggests:
     testthat (>= 3.0.0),
     utils
 Remotes: 
-    github::gipso/lubritime
+    github::gipso/lubritime,
     github::gipso/mctq
 VignetteBuilder: 
     knitr
