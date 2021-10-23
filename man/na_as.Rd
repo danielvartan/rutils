@@ -13,6 +13,7 @@
 \alias{na_as.Date}
 \alias{na_as.POSIXct}
 \alias{na_as.POSIXlt}
+\alias{na_as.Interval}
 \title{Return a \code{NA} value with the same characteristics of an R object}
 \usage{
 na_as(x)
@@ -35,11 +36,11 @@ na_as(x)
 
 \method{na_as}{Date}(x)
 
-\method{na_as}{hms}(x)
-
 \method{na_as}{POSIXct}(x)
 
 \method{na_as}{POSIXlt}(x)
+
+\method{na_as}{Interval}(x)
 }
 \arguments{
 \item{x}{An \link[checkmate:checkAtomicVector]{atomic vector}, provided that

@@ -47,7 +47,14 @@ test_that("na_as.POSIXct() | general test", {
 
 })
 
-test_that("na_as.POSIXlt() | general test", {
-    expect_equal(na_as(as.POSIXlt(1, tz = "UTC", origin = lubridate::origin)),
-                 as.POSIXlt(NA, tz = "UTC"))
+test_that("na_as.POSIXct() | general test", {
+    expect_equal(na_as(as.POSIXct(1, tz = "UTC", origin = lubridate::origin)),
+                 as.POSIXct(NA, tz = "UTC"))
+
+})
+
+test_that("na_as.Interval() | general test", {
+    expect_equal(na_as(lubridate::as.interval(lubridate::dhours(1),
+                                              lubridate::ymd("2020-01-01"))),
+                 lubridate::interval(NA, NA, tz = "UTC"))
 })

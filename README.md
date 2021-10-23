@@ -32,7 +32,7 @@ source code to see them all.
 
 ## Installation
 
-`gutils` will be always at the
+`gutils` will always be at the
 [experimental](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 stage of development. We don’t intend to publish this package to CRAN.
 

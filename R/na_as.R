@@ -69,12 +69,14 @@ na_as.Date <- function(x) as.Date(NA)
 
 #' @rdname na_as
 #' @export
-na_as.hms <- function(x) hms::as_hms(NA)
-
-#' @rdname na_as
-#' @export
 na_as.POSIXct <- function(x) as.POSIXct(NA, tz = attributes(x)$tzone)
 
 #' @rdname na_as
 #' @export
 na_as.POSIXlt <- function(x) as.POSIXlt(NA, tz = attributes(x)$tzone)
+
+#' @rdname na_as
+#' @export
+na_as.Interval <- function(x) {
+    lubridate::interval(NA, NA, tz = attributes(x)$tzone)
+}

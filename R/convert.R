@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
+#' `r lifecycle::badge("experimental")`
 #'
 #' `convert()` converts an object to another object of a predefined class. Its
 #' mission is to facilitate conversions between any kind of object in a

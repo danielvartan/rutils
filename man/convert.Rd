@@ -193,7 +193,7 @@ that flags the column names in \code{x} to transform them (default: \code{NULL})
 An object of the indicated class in \code{class}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 \code{convert()} converts an object to another object of a predefined class. Its
 mission is to facilitate conversions between any kind of object in a
