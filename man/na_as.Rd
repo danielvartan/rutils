@@ -55,7 +55,6 @@ A \code{NA} value with the same class and attributes of \code{x}.
 \code{na_as()} was made for situations where you need to assign \code{NA}s dynamically.
 }
 \examples{
-
 na_as(TRUE)
 #> [1] NA # Expected
 class(na_as(TRUE))

@@ -15,7 +15,6 @@
 #' @export
 #'
 #' @examples
-#'
 #' na_as(TRUE)
 #' #> [1] NA # Expected
 #' class(na_as(TRUE))
