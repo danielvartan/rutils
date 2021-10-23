@@ -17,9 +17,18 @@ navbar:
     articles: ~
 
 reference:
+- title: Parsing/conversion
+  contents:
+  - convert
+  - na_as
+
 - title: Subsetting
   contents:
   - cutter
+
+- title: Visualization
+  contents:
+  - qplot_walk
 
 - title: R system
   contents:

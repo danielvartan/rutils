@@ -4,7 +4,7 @@
 #'
 #' `r lifecycle::badge("experimental")`
 #'
-#' `cutter()` cut vector objects into pieces by cutting points/indexes.
+#' `cutter()` cut vectors into pieces by cutting points/indexes.
 #'
 #' @details
 #'
@@ -71,10 +71,10 @@
 #' @param between (optional) A string object indicating the direction of the cut
 #'   (choices: `"left"`, `"right"`). This argument only need to be assigned if
 #'   the cut must be performed between the indexes values (default: `NULL`).
-#' @param rm_start (optional) a `logical` value indicating if the start element
-#'   of the cut must be removed (default: `FALSE`).
-#' @param rm_end (optional) a `logical` value indicating if the end element
-#'   of the cut must be removed (default: `FALSE`).
+#' @param rm_start (optional) a [`logical`][logical()] value indicating if the
+#'   start element of the cut must be removed (default: `FALSE`).
+#' @param rm_end (optional) a [`logical`][logical()] value indicating if the end
+#'   element of the cut must be removed (default: `FALSE`).
 #'
 #' @return A `list` object with the cut pieces as elements.
 #'
@@ -114,8 +114,11 @@ cutter <- function(x, index, between = NULL, rm_start = FALSE,
     }
 
     if ((isTRUE(rm_start) || isTRUE(rm_end)) && length(x) == 1) {
-        stop("The cut process returned just one piece. In those cases, ",
-             "'rm_start' and 'rm_end' cannot be 'TRUE'", call. = FALSE)
+        cli::cli_abort(paste0(
+            "The cut process returned just one piece. In those cases, ",
+            "{cli::col_blue('rm_start')} and {cli::col_blue('rm_end')} ",
+            "cannot be {cli::col_red('TRUE')}."
+        ))
     }
 
     if (isTRUE(rm_start) && !length(x) == 1) {
@@ -190,13 +193,17 @@ cut_by <- function(x, index) {
                                  unique = TRUE)
 
     if (index[1] == 1 || index[length(index)] == length(x)) {
-        stop("When 'between = NULL', an index cannot be in the ",
-             "start or at the end of an object.", call. = FALSE)
+        cli::cli_abort(paste0(
+            "When {cli::col_red('between = NULL')}, an index cannot be ",
+            "in the start or at the end of an object."
+        ))
     }
 
     if (any(Reduce("-", index) == -1)) {
-        stop("When 'between = NULL', indexes must have at least ",
-             "a distance of 1 between each other.", call. = FALSE)
+        cli::cli_abort(paste0(
+            "When {cli::col_red('between = NULL')}, indexes must have at ",
+            "least a distance of {cli::col_red(1)} between each other."
+        ))
     }
 
     out <- list()

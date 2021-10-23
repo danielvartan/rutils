@@ -1,6 +1,6 @@
 # Sort tests by type or use the alphabetical order.
 
-test_that("dialog_line_1() | general test", {
+test_that("dialog_line() | general test", {
     # ## Don't forget to run devtools::load_all(".") and uncomment the variables
     # ## before trying to run the tests interactively.
     #
@@ -11,7 +11,7 @@ test_that("dialog_line_1() | general test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) FALSE,
-            dialog_line_1(1))
+            dialog_line(1))
     }
 
     # mock()
@@ -20,7 +20,7 @@ test_that("dialog_line_1() | general test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            dialog_line_1(1, abort = TRUE))
+            dialog_line(1, abort = TRUE))
     }
 
     # mock()
@@ -31,7 +31,7 @@ test_that("dialog_line_1() | general test", {
             is_interactive = function(...) TRUE,
             require_namespace = function(...) TRUE,
             read_line = function(...) TRUE,
-            dialog_line_1(1, combined_styles = "red", space_above = TRUE,
+            dialog_line(1, combined_styles = "red", space_above = TRUE,
                         space_below = TRUE))
     }
 
@@ -39,12 +39,12 @@ test_that("dialog_line_1() | general test", {
     expect_equal(utils::capture.output(mock()), c("", "", "[1] TRUE"))
 })
 
-test_that("dialog_line_1() | error test", {
-    expect_error(dialog_line_1(), "Assertion on 'list\\(...\\)' failed")
-    expect_error(dialog_line_1(1, space_above = ""),
+test_that("dialog_line() | error test", {
+    expect_error(dialog_line(), "Assertion on 'list\\(...\\)' failed")
+    expect_error(dialog_line(1, space_above = ""),
                  "Assertion on 'space_above' failed")
-    expect_error(dialog_line_1(1, space_below = ""),
+    expect_error(dialog_line(1, space_below = ""),
                  "Assertion on 'space_below' failed")
-    expect_error(dialog_line_1(1, abort = ""),
+    expect_error(dialog_line(1, abort = ""),
                  "Assertion on 'abort' failed")
 })

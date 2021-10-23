@@ -1,5 +1,6 @@
 library(checkmate)
 library(gutils)
+library(mockr)
 library(testthat)
 
 test_check("gutils")

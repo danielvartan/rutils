@@ -11,34 +11,15 @@ test_data <- function(data, package) {
     data %in% ls()
 }
 
-assert_data <- function(data, package, alert = NULL) {
+assert_data <- function(data, package) {
     checkmate::assert_string(data)
     checkmate::assert_string(package)
 
-    choices <- c("gipso_1", "gipso_2")
-    if (!is.null(alert)) alert <- tolower(alert)
-    checkmate::assert_choice(alert, choices, null.ok = TRUE)
-
-    alert_null <- paste0(
-        "There's no ",  single_quote_(data), " data in ",
-        single_quote_(package), " namespace."
-    )
-
-    alert_gipso_1 <- paste0(
-        "There's no ", single_quote_(data), " data in the ",
-        single_quote_(package), " package namespace. ",
-        "See ?write_metadata() for instructions."
-    )
-
-    alert_gipso_2 <- paste0(
-        "There's no ", single_quote_(data), " data in ",
-        single_quote_(package), " package namespace. ",
-        "Have you forgotten to run 'write_sheet()'?."
-    )
-
     if (isFALSE(test_data(data, package))) {
-        if (is.null(alert)) alert <- "null"
-        stop(get(paste0("alert_", alert)), call. = FALSE)
+        cli::cli_abort(paste0(
+            "There's no {cli::col_red(data)} data in ",
+            "{cli::col_blue(package)} namespace."
+        ))
     } else {
         invisible(TRUE)
     }

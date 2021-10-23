@@ -17,11 +17,11 @@ or an \code{integer} object with the indexes/cutting points.}
 (choices: \code{"left"}, \code{"right"}). This argument only need to be assigned if
 the cut must be performed between the indexes values (default: \code{NULL}).}
 
-\item{rm_start}{(optional) a \code{logical} value indicating if the start element
-of the cut must be removed (default: \code{FALSE}).}
+\item{rm_start}{(optional) a \code{\link[=logical]{logical}} value indicating if the
+start element of the cut must be removed (default: \code{FALSE}).}
 
-\item{rm_end}{(optional) a \code{logical} value indicating if the end element
-of the cut must be removed (default: \code{FALSE}).}
+\item{rm_end}{(optional) a \code{\link[=logical]{logical}} value indicating if the end
+element of the cut must be removed (default: \code{FALSE}).}
 }
 \value{
 A \code{list} object with the cut pieces as elements.
@@ -29,7 +29,7 @@ A \code{list} object with the cut pieces as elements.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-\code{cutter()} cut vector objects into pieces by cutting points/indexes.
+\code{cutter()} cut vectors into pieces by cutting points/indexes.
 }
 \details{
 \code{cutter()} can perform different kinds of cuts. Here are some examples.
@@ -94,5 +94,10 @@ cutter(seq(10), c(3, 9), between = "right")
 cutter(seq(10), c(3, 9), rm_start = TRUE)
 
 cutter(seq(10), c(3, 9), rm_end = TRUE)
+}
+\seealso{
+Other utility functions: 
+\code{\link{convert}()},
+\code{\link{na_as}()}
 }
 \concept{utility functions}

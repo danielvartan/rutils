@@ -32,18 +32,26 @@ Imports:
     hms (>= 1.1.1),
     lifecycle (>= 1.0.1),
     lubridate (>= 1.8.0),
+    lubritime,
+    mctq,
     stringr (>= 1.4.0)
 Suggests: 
     covr,
     crayon,
+    datasets,
     emojifont,
+    ggplot2,
+    grDevices,
     knitr,
     mockr,
-    readr,
     rmarkdown,
     rstudioapi,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    utils
+Remotes: 
+    github::gipso/lubritime
+    github::gipso/mctq
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
