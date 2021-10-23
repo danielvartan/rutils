@@ -821,7 +821,7 @@ convert.data.frame <- function(x, class, ..., cols = NULL, where = NULL,
 #' @rdname convert
 #' @export
 convert_tu <- function(x, output_unit, ...) {
-    lubritime:::assert_temporal(x)
+    assert_temporal(x)
 
     convert(x, class = "numeric", output_unit = output_unit, ... = ...)
 }
@@ -1100,7 +1100,7 @@ convert_to_seconds <- function(x, input_unit = NULL,
     checkmate::assert_flag(ignore_date)
     checkmate::assert_flag(quiet)
 
-    if (!lubritime:::test_temporal(x) && is.null(input_unit)) {
+    if (!test_temporal(x) && is.null(input_unit)) {
         cli::cli_abort(paste0(
             "When 'x' is 'integer' or 'numeric', 'input_unit' cannot be ",
             "'NULL'."
@@ -1132,7 +1132,7 @@ convert_to_seconds <- function(x, input_unit = NULL,
         } else if (input_unit == "deg") {
             x / deg_second
         }
-    } else if (lubritime:::test_temporal(x)) {
+    } else if (test_temporal(x)) {
         if (lubridate::is.duration(x) || lubridate::is.period(x) ||
             hms::is_hms(x) || lubridate::is.interval(x)) {
             as.numeric(x)
@@ -1203,7 +1203,7 @@ convert_to_date_time <- function(x, class, input_unit, tz = "UTC",
                                  month_length = lubridate::dmonths(),
                                  year_length = lubridate:: dyears(),
                                  close_round = TRUE, quiet = FALSE) {
-    lubritime:::assert_numeric_(x)
+    assert_numeric_(x)
 
     if (!(input_unit == "S")) {
         x <- convert_to_seconds(x, input_unit = input_unit,
@@ -1225,7 +1225,7 @@ test_custom_1 <- function(x, any.missing = TRUE, null.ok = FALSE) {
     } else if (any(is.na(x)) && isFALSE(any.missing)) {
         FALSE
     } else {
-        is.character(x) || lubritime:::test_numeric_(x)
+        is.character(x) || test_numeric_(x)
     }
 }
 

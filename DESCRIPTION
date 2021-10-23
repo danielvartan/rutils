@@ -32,7 +32,6 @@ Imports:
     hms (>= 1.1.1),
     lifecycle (>= 1.0.1),
     lubridate (>= 1.8.0),
-    lubritime,
     mctq,
     stringr (>= 1.4.0)
 Suggests: 
@@ -50,7 +49,6 @@ Suggests:
     testthat (>= 3.0.0),
     utils
 Remotes: 
-    github::gipso/lubritime,
     github::gipso/mctq
 VignetteBuilder: 
     knitr

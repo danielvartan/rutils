@@ -1,30 +1,5 @@
 # Sort functions by type or use the alphabetical order.
 
-test_data <- function(data, package) {
-    checkmate::assert_string(data)
-    checkmate::assert_string(package)
-    require_pkg("utils")
-
-    assert_namespace(package)
-    shush(utils::data(list = data, package = package, envir = environment()))
-
-    data %in% ls()
-}
-
-assert_data <- function(data, package) {
-    checkmate::assert_string(data)
-    checkmate::assert_string(package)
-
-    if (isFALSE(test_data(data, package))) {
-        cli::cli_abort(paste0(
-            "There's no {cli::col_red(data)} data in ",
-            "{cli::col_blue(package)} namespace."
-        ))
-    } else {
-        invisible(TRUE)
-    }
-}
-
 test_has_length <- function(x) if (length(x) >= 1) TRUE else FALSE
 
 check_has_length <- function(x, any.missing = TRUE,
@@ -83,15 +58,6 @@ assert_identical <- function(..., type = "value", any.missing = TRUE,
     }
 }
 
-assert_interactive <- function(){
-    if (!is_interactive()) {
-        stop("You must be in a interactive R session to use this function",
-             call. = FALSE)
-    }
-
-    invisible(TRUE)
-}
-
 test_length_one <- function(x) if (length(x) == 1) TRUE else FALSE
 
 check_length_one <- function(x, name = deparse(substitute(x))) {
@@ -104,6 +70,40 @@ check_length_one <- function(x, name = deparse(substitute(x))) {
 }
 
 assert_length_one <- checkmate::makeAssertionFunction(check_length_one)
+
+test_data <- function(data, package) {
+    checkmate::assert_string(data)
+    checkmate::assert_string(package)
+    require_pkg("utils")
+
+    assert_namespace(package)
+    shush(utils::data(list = data, package = package, envir = environment()))
+
+    data %in% ls()
+}
+
+assert_data <- function(data, package) {
+    checkmate::assert_string(data)
+    checkmate::assert_string(package)
+
+    if (isFALSE(test_data(data, package))) {
+        cli::cli_abort(paste0(
+            "There's no {cli::col_red(data)} data in ",
+            "{cli::col_blue(package)} namespace."
+        ))
+    } else {
+        invisible(TRUE)
+    }
+}
+
+assert_interactive <- function(){
+    if (!is_interactive()) {
+        stop("You must be in a interactive R session to use this function",
+             call. = FALSE)
+    }
+
+    invisible(TRUE)
+}
 
 test_namespace <- function(x) {
     checkmate::assert_string(x)
@@ -163,3 +163,225 @@ check_whole_number <- function(x, any.missing = TRUE, null.ok = FALSE,
 }
 
 assert_whole_number <- checkmate::makeAssertionFunction(check_whole_number)
+
+# `*_numeric_()` was created as a workaround to deal with cases like
+# `is.numeric(lubridate::duration())`. See
+# https://github.com/tidyverse/lubridate/issues/942 to learn more.
+
+test_numeric_ <- function(x, lower = -Inf, upper = Inf, any.missing = TRUE,
+                          null.ok = FALSE) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    classes <- c("integer", "double", "numeric")
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        FALSE
+    } else if (checkmate::test_subset(class(x)[1], classes) &&
+               !all(x >= lower & x <= upper, na.rm = TRUE)) {
+        FALSE
+    } else {
+        checkmate::test_subset(class(x)[1], classes)
+    }
+}
+
+check_numeric_ <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
+                           null.ok = FALSE,
+                           name = deparse(substitute(x))) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    classes <- c("integer", "double", "numeric")
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        paste0(single_quote_(name), " cannot have missing values")
+    } else if (is.null(x) && isFALSE(null.ok)) {
+        paste0(single_quote_(name), " cannot have 'NULL' values")
+    } else if (checkmate::test_subset(class(x)[1], classes) &&
+               !all(x >= lower, na.rm = TRUE)) {
+        paste0("Element ", which(x < lower)[1], " is not >= ", lower)
+    } else if (checkmate::test_subset(class(x)[1], classes) &&
+               !all(x <= upper, na.rm = TRUE)) {
+        paste0("Element ", which(x > upper)[1], " is not <= ", upper)
+    } else  if (!test_numeric_(x)) {
+        paste0("Must be of type 'numeric', not ", class_collapse(x))
+    } else {
+        TRUE
+    }
+}
+
+assert_numeric_ <- checkmate::makeAssertionFunction(check_numeric_)
+
+test_duration <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
+                          null.ok = FALSE) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        FALSE
+    } else if (lubridate::is.duration(x) &&
+               !all(x >= lower & x <= upper, na.rm = TRUE)) {
+        FALSE
+    } else {
+        lubridate::is.duration(x)
+    }
+}
+
+check_duration <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
+                           null.ok = FALSE,
+                           name = deparse(substitute(x))) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        paste0(single_quote_(name), " cannot have missing values")
+    } else if (is.null(x) && isFALSE(null.ok)) {
+        paste0(single_quote_(name), " cannot have 'NULL' values")
+    } else if (lubridate::is.duration(x) && !all(x >= lower, na.rm = TRUE)) {
+        paste0("Element ", which(x < lower)[1], " is not >= ", lower)
+    } else if (lubridate::is.duration(x) && !all(x <= upper, na.rm = TRUE)) {
+        paste0("Element ", which(x > upper)[1], " is not <= ", upper)
+    } else  if (!test_duration(x)) {
+        paste0("Must be of type 'Duration', not ", class_collapse(x))
+    } else {
+        TRUE
+    }
+}
+
+assert_duration <- checkmate::makeAssertionFunction(check_duration)
+
+test_hms <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
+                     null.ok = FALSE) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        FALSE
+    } else if (hms::is_hms(x) &&
+               !all(x >= lower & x <= upper, na.rm = TRUE)) {
+        FALSE
+    } else {
+        hms::is_hms(x)
+    }
+}
+
+check_hms <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
+                      null.ok = FALSE,
+                      name = deparse(substitute(x))) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        paste0(single_quote_(name), " cannot have missing values")
+    } else if (is.null(x) && isFALSE(null.ok)) {
+        paste0(single_quote_(name), " cannot have 'NULL' values")
+    } else if (hms::is_hms(x) && !all(x >= lower, na.rm = TRUE)) {
+        paste0("Element ", which(x < lower)[1], " is not >= ", lower)
+    } else if (hms::is_hms(x) && !all(x <= upper, na.rm = TRUE)) {
+        paste0("Element ", which(x > upper)[1], " is not <= ", upper)
+    } else  if (!test_hms(x)) {
+        paste0("Must be of type 'hms', not ", class_collapse(x))
+    } else {
+        TRUE
+    }
+}
+
+assert_hms <- checkmate::makeAssertionFunction(check_hms)
+
+test_posixt <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
+                        null.ok = FALSE) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        FALSE
+    } else if (lubridate::is.POSIXt(x) &&
+               !all(x >= lower & x <= upper, na.rm = TRUE)) {
+        FALSE
+    } else {
+        lubridate::is.POSIXt(x)
+    }
+}
+
+check_posixt <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
+                         null.ok = FALSE,
+                         name = deparse(substitute(x))) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        paste0(single_quote_(name), " cannot have missing values")
+    } else if (is.null(x) && isFALSE(null.ok)) {
+        paste0(single_quote_(name), " cannot have 'NULL' values")
+    } else if (lubridate::is.POSIXt(x) && !all(x >= lower, na.rm = TRUE)) {
+        paste0("Element ", which(x < lower)[1], " is not >= ", lower)
+    } else if (lubridate::is.POSIXt(x) && !all(x <= upper, na.rm = TRUE)) {
+        paste0("Element ", which(x > upper)[1], " is not <= ", upper)
+    } else  if (!test_posixt(x)) {
+        paste0("Must be of type 'POSIXct' or 'POSIXlt', not ",
+               class_collapse(x))
+    } else {
+        TRUE
+    }
+}
+
+assert_posixt <- checkmate::makeAssertionFunction(check_posixt)
+
+test_temporal <- function(x, any.missing = TRUE, null.ok = FALSE, rm = NULL) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+    checkmate::assert_character(rm, any.missing = FALSE, null.ok = TRUE)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        FALSE
+    } else {
+        classes <- c("Duration", "Period", "difftime", "hms", "Date", "POSIXct",
+                     "POSIXlt", "Interval")
+
+        if (!is.null(rm)) {
+            rm <- paste0("^", rm, "$", collapse = "|")
+            classes <- str_subset_(classes, rm, negate = TRUE)
+        }
+
+        checkmate::test_subset(class(x)[1], classes)
+    }
+}
+
+check_temporal <- function(x, any.missing = TRUE, null.ok = FALSE,
+                           name = deparse(substitute(x))) {
+    checkmate::assert_flag(any.missing)
+    checkmate::assert_flag(null.ok)
+
+    if (is.null(x) && isTRUE(null.ok)) {
+        TRUE
+    } else if (any(is.na(x)) && isFALSE(any.missing)) {
+        paste0(single_quote_(name), " cannot have missing values")
+    } else if (is.null(x) && isFALSE(null.ok)) {
+        paste0(single_quote_(name), " cannot have 'NULL' values")
+    } else if (!test_temporal(x)) {
+        paste0("Must be a temporal object (see 'test_temporal()'), ",
+               "not ", class_collapse(x))
+    } else {
+        TRUE
+    }
+}
+
+assert_temporal <- checkmate::makeAssertionFunction(check_temporal)
