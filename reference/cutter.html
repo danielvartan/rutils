@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Cut a vector into pieces — cutter" />
 <meta property="og:description" content="
-cutter() cut vector objects into pieces by cutting points/indexes." />
+cutter() cut vectors into pieces by cutting points/indexes." />
 <meta property="og:image" content="https://gipso.github.io/gutils/logo.png" />
 
 
@@ -128,7 +128,7 @@ cutter() cut vector objects into pieces by cutting points/indexes." />
 
     <div class="ref-description">
     <p><a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='[Experimental]' /></a></p>
-<p><code>cutter()</code> cut vector objects into pieces by cutting points/indexes.</p>
+<p><code>cutter()</code> cut vectors into pieces by cutting points/indexes.</p>
     </div>
 
     <pre class="usage"><span class='fu'>cutter</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>index</span>, between <span class='op'>=</span> <span class='cn'>NULL</span>, rm_start <span class='op'>=</span> <span class='cn'>FALSE</span>, rm_end <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -154,13 +154,13 @@ the cut must be performed between the indexes values (default: <code>NULL</code>
     </tr>
     <tr>
       <th>rm_start</th>
-      <td><p>(optional) a <code>logical</code> value indicating if the start element
-of the cut must be removed (default: <code>FALSE</code>).</p></td>
+      <td><p>(optional) a <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> value indicating if the
+start element of the cut must be removed (default: <code>FALSE</code>).</p></td>
     </tr>
     <tr>
       <th>rm_end</th>
-      <td><p>(optional) a <code>logical</code> value indicating if the end element
-of the cut must be removed (default: <code>FALSE</code>).</p></td>
+      <td><p>(optional) a <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> value indicating if the end
+element of the cut must be removed (default: <code>FALSE</code>).</p></td>
     </tr>
     </table>
 
@@ -217,6 +217,11 @@ Element 1: 8, 9, 10, 11, 12, 13, 14, 15
 </pre>
 
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other utility functions: 
+<code><a href='convert.html'>convert</a>()</code>,
+<code><a href='na_as.html'>na_as</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Cutting by index values</span>

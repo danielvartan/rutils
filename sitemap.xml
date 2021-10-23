@@ -4,13 +4,22 @@
     <loc>https://gipso.github.io/gutils//index.html</loc>
   </url>
   <url>
+    <loc>https://gipso.github.io/gutils//reference/convert.html</loc>
+  </url>
+  <url>
     <loc>https://gipso.github.io/gutils//reference/cutter.html</loc>
   </url>
   <url>
     <loc>https://gipso.github.io/gutils//reference/gutils-package.html</loc>
   </url>
   <url>
+    <loc>https://gipso.github.io/gutils//reference/na_as.html</loc>
+  </url>
+  <url>
     <loc>https://gipso.github.io/gutils//reference/normalize_extdata.html</loc>
+  </url>
+  <url>
+    <loc>https://gipso.github.io/gutils//reference/qplot_walk.html</loc>
   </url>
   <url>
     <loc>https://gipso.github.io/gutils//reference/raw_data_1.html</loc>

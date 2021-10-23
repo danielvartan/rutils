@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • gutils</title>
+<title>Return a NA value with the same characteristics of an R object — na_as • gutils</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Return a NA value with the same characteristics of an R object — na_as" />
+<meta property="og:description" content="na_as() returns a NA value of the same characteristics of an R object.
+na_as() was made for situations where you need to assign NAs dynamically." />
 <meta property="og:image" content="https://gipso.github.io/gutils/logo.png" />
 
 
@@ -76,7 +78,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -117,117 +119,88 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Return a <code>NA</code> value with the same characteristics of an R object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/gipso/gutils/blob/master/R/na_as.R'><code>R/na_as.R</code></a></small>
+    <div class="hidden name"><code>na_as.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p><code>na_as()</code> returns a <code>NA</code> value of the same characteristics of an R object.</p>
+<p><code>na_as()</code> was made for situations where you need to assign <code>NA</code>s dynamically.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-parsing-conversion" class="hasAnchor"><a href="#section-parsing-conversion" class="anchor"></a>Parsing/conversion</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="convert.html">convert()</a></code> <code><a href="convert.html">convert_tu()</a></code> <code><a href="convert.html">convert_ut()</a></code> <code><a href="convert.html">convert_uu()</a></code> <code><a href="convert.html">convert_pt()</a></code> <code><a href="convert.html">convert_pu()</a></code> </p>
-        </td>
-        <td><p>Convert an object to another</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="na_as.html">na_as()</a></code> </p>
-        </td>
-        <td><p>Return a <code>NA</code> value with the same characteristics of an R object</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-subsetting" class="hasAnchor"><a href="#section-subsetting" class="anchor"></a>Subsetting</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="cutter.html">cutter()</a></code> </p>
-        </td>
-        <td><p>Cut a vector into pieces</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-visualization" class="hasAnchor"><a href="#section-visualization" class="anchor"></a>Visualization</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="qplot_walk.html">qplot_walk</a></code> </p>
-        </td>
-        <td><p>Walk through distribution plots</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-r-system" class="hasAnchor"><a href="#section-r-system" class="anchor"></a>R system</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="normalize_extdata.html">normalize_extdata()</a></code> </p>
-        </td>
-        <td><p>Normalize file names from the <code>extdata</code> folder</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="raw_data_1.html">raw_data_1()</a></code> </p>
-        </td>
-        <td><p>Get paths to <code>insert_package_name</code> raw data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="raw_data_2.html">raw_data_2()</a></code> </p>
-        </td>
-        <td><p>Get paths to <code>insert_package_name</code> raw data</p></td>
-      </tr>
-    </tbody>
+<span class='co'># S3 method for logical</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for character</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for integer</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for numeric</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for Duration</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for Period</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for difftime</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for hms</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for Date</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for hms</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for POSIXct</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S3 method for POSIXlt</span>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>An <a href='https://rdrr.io/pkg/checkmate/man/checkAtomicVector.html'>atomic vector</a>, provided that
+<code>na_as()</code> have a method for it.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code>NA</code> value with the same class and attributes of <code>x</code>.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other utility functions: 
+<code><a href='convert.html'>convert</a>()</code>,
+<code><a href='cutter.html'>cutter</a>()</code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'>na_as</span><span class='op'>(</span><span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='co'>#&gt; [1] NA # Expected</span>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='fu'>na_as</span><span class='op'>(</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "logical"</div><div class='input'><span class='co'>#&gt; [1] "logical" # Expected</span>
+
+<span class='fu'>na_as</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"2020-01-01"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] NA</div><div class='input'><span class='co'>#&gt; [1] NA # Expected</span>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='fu'>na_as</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.Date.html'>as.Date</a></span><span class='op'>(</span><span class='st'>"2020-01-01"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "Date"</div><div class='input'><span class='co'>#&gt; [1] "Date"  # Expected</span>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
