@@ -49,7 +49,7 @@ Suggests:
     testthat (>= 3.0.0),
     utils
 Remotes: 
-    github::gipso/mctq
+    github::ropensci/mctq
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3

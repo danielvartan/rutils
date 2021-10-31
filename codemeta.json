@@ -1,16 +1,11 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
   "@type": "SoftwareSourceCode",
   "identifier": "gutils",
   "description": "An R package to store and organize utility functions created by \n     the GIPSO developer team.",
   "name": "gutils: An R Package with Utility Functions Created by the GIPSO Dev Team",
   "codeRepository": "https://github.com/gipso/gutils/",
-  "relatedLink": [
-    "https://gipso.github.io/gutils/"
-  ],
+  "relatedLink": "https://gipso.github.io/gutils/",
   "issueTracker": "https://github.com/gipso/gutils/issues/",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9000",
@@ -290,14 +285,9 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "lubritime",
-      "name": "lubritime"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "mctq",
       "name": "mctq",
-      "sameAs": "https://github.com/gipso/lubritime\n    gipso/mctq"
+      "sameAs": "https://github.com/ropensci/mctq"
     },
     {
       "@type": "SoftwareApplication",
@@ -313,10 +303,12 @@
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     }
   ],
-  "fileSize": "184.539KB",
+  "releaseNotes": "https://github.com/gipso/gutils/blob/master/NEWS.md",
+  "readme": "https://github.com/gipso/gutils/blob/main/README.md",
+  "fileSize": "202.688KB",
   "contIntegration": ["https://github.com/gipso/gutils/actions", "https://codecov.io/gh/gipso/gutils?branch=main"],
   "developmentStatus": ["https://www.repostatus.org/#wip", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
-  "releaseNotes": "https://github.com/gipso/gutils/blob/master/NEWS.md",
+  "keywords": ["r-package", "utilities", "r", "rstats"],
   "citation": [
     {
       "@type": "CreativeWork",
@@ -337,13 +329,5 @@
       "url": "https://gipso.github.io/gutils/",
       "description": "Lifecycle: experimental"
     }
-  ],
-  "keywords": [
-    "r",
-    "sleep",
-    "chronobiology",
-    "r-package",
-    "utilities"
-  ],
-  "readme": "https://github.com/gipso/gutils/blob/main/README.md"
+  ]
 }
