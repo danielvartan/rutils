@@ -16,7 +16,6 @@ Authors@R:
              role = "fnd"),
       person(given = "University of Sao Paulo (USP)",
              role = "fnd"))
-Maintainer: Daniel Vartanian <danvartan@gmail.com>
 Description: An R package to store and organize utility functions created by 
      the GIPSO developer team.
 License: MIT + file LICENSE
@@ -32,7 +31,7 @@ Imports:
     hms (>= 1.1.1),
     lifecycle (>= 1.0.1),
     lubridate (>= 1.8.0),
-    mctq,
+    mctq (>= 0.1.0),
     stringr (>= 1.4.0)
 Suggests: 
     covr,
@@ -48,8 +47,6 @@ Suggests:
     spelling,
     testthat (>= 3.0.0),
     utils
-Remotes: 
-    github::ropensci/mctq
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3

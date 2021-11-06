@@ -36,7 +36,7 @@ Please note that some utility functions are not documented. Access the source co
 
 ## Installation
 
-`gutils` will always be at the [experimental](https://lifecycle.r-lib.org/articles/stages.html#experimental) stage of development. We don't intend to publish this package to CRAN.
+`gutils` is still at the [experimental](https://lifecycle.r-lib.org/articles/stages.html#experimental) stage of development. That means people can use the package and provide feedback, but it comes with no promises for long term stability.
 
 You can install `gutils` from GitHub with:
 
@@ -44,6 +44,8 @@ You can install `gutils` from GitHub with:
 # install.packages("remotes")
 remotes::install_github("gipso/gutils")
 ```
+
+We don’t intend to publish this package to CRAN.
 
 ## Citation
 

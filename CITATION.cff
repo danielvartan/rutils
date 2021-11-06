@@ -1,0 +1,43 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.1.0
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "gutils" in publications use:'
+type: software
+license: MIT
+title: 'gutils: An R Package with Utility Functions Created by the GIPSO Dev Team'
+version: 0.0.0.9000
+abstract: An R package to store and organize utility functions created by the GIPSO
+  developer team.
+authors:
+- family-names: Vartanian
+  given-names: Daniel
+  email: danvartan@gmail.com
+  orcid: https://orcid.org/0000-0001-7782-759X
+- family-names: Pedrazzoli
+  given-names: Mario
+  email: pedrazzo@usp.br
+  orcid: https://orcid.org/0000-0002-5257-591X
+preferred-citation:
+  type: unpublished
+  title: 'gutils: an R package with utility functions created by the GIPSO developer
+    team'
+  authors:
+  - family-names: Vartanian
+    given-names: Daniel
+  - family-names: Pedrazzoli
+    given-names: Mario
+  year: '2021'
+  url: https://gipso.github.io/gutils/
+repository-code: https://github.com/gipso/gutils/issues/
+url: https://gipso.github.io/gutils/
+contact:
+- family-names: Vartanian
+  given-names: Daniel
+  email: danvartan@gmail.com
+  orcid: https://orcid.org/0000-0001-7782-759X
+identifiers:
+- type: url
+  value: https://github.com/gipso/gutils/
