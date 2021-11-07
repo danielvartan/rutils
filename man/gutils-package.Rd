@@ -4,7 +4,7 @@
 \name{gutils-package}
 \alias{gutils}
 \alias{gutils-package}
-\title{gutils: An R Package with Utility Functions Created by the GIPSO Dev Team}
+\title{gutils: Utility Functions Created by the GIPSO Dev Team}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 

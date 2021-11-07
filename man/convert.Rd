@@ -452,7 +452,7 @@ Van der Loo, M., & De Jonge, E. (2018).
 Wiley & Sons. \doi{10.1002/9781118897126}.
 
 Wickham, H., & Grolemund, G. (n.d.). \emph{R for data science}. Sebastopol, CA:
-O'Reilly Media. Retrieved from \url{https://r4ds.had.co.nz}.
+O'Reilly Media. \url{https://r4ds.had.co.nz}
 }
 \seealso{
 Other utility functions: 

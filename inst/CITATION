@@ -10,13 +10,13 @@ citEntry(
   year        = "2021",
   url         = paste0("https://gipso.github.io/",
                        "gutils/"),
-  textVersion = paste0("Vartanian, D.", ", ",
+  textVersion = paste0("Vartanian, D.", ", & ",
                        "Pedrazzoli, M.", " ",
                        "(2021)",  ". ",
                        "{gutils}:", " ",
                        "an R package with utility functions created by", " ",
                        "the GIPSO developer team", ". ",
                        "https://gipso.github.io/",
-                       "gutils/", "."),
+                       "gutils/"),
   note        = "Lifecycle: experimental"
 )

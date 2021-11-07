@@ -73,6 +73,16 @@ get_names <- function(...) {
     gsub("\\\"","", out)
 }
 
+na_replace <- function(x, replacement = "") {
+    checkmate::assert_atomic(x, min.len = 1)
+    checkmate::assert_atomic(replacement, len = 1)
+    checkmate::assert_class(replacement, class(x))
+
+    x[which(is.na(x))] <- replacement
+
+    x
+}
+
 return_duplications <- function(x, rm_na = TRUE) {
     if (anyDuplicated(x) == 0) {
         NULL
