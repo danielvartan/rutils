@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# gutils <a href='https://gipso.github.io/gutils'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# gutils
 
 <!-- badges: start -->
 
@@ -32,9 +32,10 @@ source code to see them all.
 
 ## Installation
 
-`gutils` will always be at the
+`gutils` is still at the
 [experimental](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-stage of development. We don’t intend to publish this package to CRAN.
+stage of development. That means people can use the package and provide
+feedback, but it comes with no promises for long term stability.
 
 You can install `gutils` from GitHub with:
 
@@ -42,6 +43,8 @@ You can install `gutils` from GitHub with:
 # install.packages("remotes")
 remotes::install_github("gipso/gutils")
 ```
+
+We don’t intend to publish this package to CRAN.
 
 ## Citation
 
@@ -54,9 +57,9 @@ citation("gutils")
 #> 
 #> To cite {gutils} in publications use:
 #> 
-#>   Vartanian, D., Pedrazzoli, M. (2021). {gutils}: an R package with
+#>   Vartanian, D., & Pedrazzoli, M. (2021). {gutils}: an R package with
 #>   utility functions created by the GIPSO developer team.
-#>   https://gipso.github.io/gutils/.
+#>   https://gipso.github.io/gutils/
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
