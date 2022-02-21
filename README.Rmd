@@ -29,13 +29,11 @@ library(gutils)
 
 ## Overview
 
-`gutils` is an R package to store and to organize utility functions created by the GIPSO developer team.
+`gutils` is an R package to store and organize utility functions created by the GIPSO developer team.
 
-Please note that some utility functions are not documented. Access the source code to see them all.
+Please note that some functions are not documented. Access the source code to see them all.
 
 ## Installation
-
-`gutils` is still at the [experimental](https://lifecycle.r-lib.org/articles/stages.html#experimental) stage of development. That means people can use the package and provide feedback, but it comes with no promises for long term stability.
 
 You can install `gutils` from GitHub with:
 
@@ -53,15 +51,3 @@ If you use `gutils` in your research, please consider citing it. We put a lot of
 ```{r}
 citation("gutils")
 ```
-
-## Support `gutils`
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/danielvartan)
-
-Working with science in Brazil is a daily challenge. There are few funding opportunities available and their value is not enough to live on. Added to this, every day Brazilian science suffers from deep cuts in funding, which requires researchers to always look for other sources of income.
-
-If this package helps you in any way or you simply want to support the author's work, please consider donating or even creating a membership subscription (if you can!). Your support will help with the author's scientific pursuit and with the package maintenance.
-
-To make a donation click on the [Ko-fi](https://ko-fi.com/danielvartan) button above. Please indicate the `gutils` package in your donation message.
-
-Thank you!

@@ -6,8 +6,6 @@
 \alias{gutils-package}
 \title{gutils: Utility Functions Created by the GIPSO Dev Team}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
-
 An R package to store and organize utility functions created by the GIPSO developer team.
 }
 \seealso{

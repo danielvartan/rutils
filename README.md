@@ -5,9 +5,8 @@
 
 <!-- badges: start -->
 
-![CRAN status](https://www.r-pkg.org/badges/version/gutils) [![Project
-Status: WIP – Initial development is in progress, but there has not yet
-been a stable, usable release suitable for the
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -24,18 +23,13 @@ button](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](h
 
 ## Overview
 
-`gutils` is an R package to store and to organize utility functions
-created by the GIPSO developer team.
+`gutils` is an R package to store and organize utility functions created
+by the GIPSO developer team.
 
-Please note that some utility functions are not documented. Access the
-source code to see them all.
+Please note that some functions are not documented. Access the source
+code to see them all.
 
 ## Installation
-
-`gutils` is still at the
-[experimental](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-stage of development. That means people can use the package and provide
-feedback, but it comes with no promises for long term stability.
 
 You can install `gutils` from GitHub with:
 
@@ -57,7 +51,7 @@ citation("gutils")
 #> 
 #> To cite {gutils} in publications use:
 #> 
-#>   Vartanian, D., & Pedrazzoli, M. (2021). {gutils}: an R package with
+#>   Vartanian, D., & Pedrazzoli, M. (2022). {gutils}: an R package with
 #>   utility functions created by the GIPSO developer team.
 #>   https://gipso.github.io/gutils/
 #> 
@@ -66,29 +60,8 @@ citation("gutils")
 #>   @Unpublished{,
 #>     title = {{gutils}: an R package with utility functions created by the GIPSO developer team},
 #>     author = {Daniel Vartanian and Mario Pedrazzoli},
-#>     year = {2021},
+#>     year = {2022},
 #>     url = {https://gipso.github.io/gutils/},
 #>     note = {Lifecycle: experimental},
 #>   }
 ```
-
-## Support `gutils`
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/danielvartan)
-
-Working with science in Brazil is a daily challenge. There are few
-funding opportunities available and their value is not enough to live
-on. Added to this, every day Brazilian science suffers from deep cuts in
-funding, which requires researchers to always look for other sources of
-income.
-
-If this package helps you in any way or you simply want to support the
-author’s work, please consider donating or even creating a membership
-subscription (if you can!). Your support will help with the author’s
-scientific pursuit and with the package maintenance.
-
-To make a donation click on the [Ko-fi](https://ko-fi.com/danielvartan)
-button above. Please indicate the `gutils` package in your donation
-message.
-
-Thank you!
