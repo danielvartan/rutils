@@ -8,7 +8,7 @@ raw_data_1(file = NULL, package = "insert_package_name")
 }
 \arguments{
 \item{file}{(optional) a \code{character} object indicating the raw data file
-name(s). If \code{NULL}, all raw data file names will be printed (default:
+name(s). If \code{NULL}, all raw data file names will be returned (default:
 \code{NULL}).}
 
 \item{package}{(optional) a string indicating the target package. If not
@@ -16,10 +16,8 @@ assigned, the function will try to use the name of the active project
 directory (requires the \code{rstudioapi} package).}
 }
 \value{
-\itemize{
-\item If \code{file = NULL}, a \code{character} object with all file names available.
-\item If \code{file != NULL}, a string with the file name path.
-}
+If \code{file == NULL}, a \code{\link[=character]{character}} object with all file
+names available. Else, a string with the file name path.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}

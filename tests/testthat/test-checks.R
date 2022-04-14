@@ -62,7 +62,7 @@ test_that("*_whole_number() | general test", {
     checkmate::expect_string(check_whole_number(c(1, NA), any.missing = FALSE),
                              pattern = "'c\\(1, NA\\)' cannot have missing ")
     checkmate::expect_string(check_whole_number(NULL, null.ok = FALSE),
-                             "'NULL' cannot have 'NULL' values")
+                             "'NULL' cannot be 'NULL'")
     checkmate::expect_string(check_whole_number(c(1, 1.5)),
                              pattern = "'c\\(1, 1.5\\)' must consist of whole ")
     expect_true(check_whole_number(c(1, 1)))
@@ -91,7 +91,7 @@ test_that("*_numeric_() | general test", {
     checkmate::expect_string(check_numeric_(c(1, NA), any.missing = FALSE),
                              "'c\\(1, NA\\)' cannot have missing values")
     checkmate::expect_string(check_numeric_(NULL, null.ok = FALSE),
-                             "'NULL' cannot have 'NULL' values")
+                             "'NULL' cannot be 'NULL'")
     checkmate::expect_string(check_numeric_(1, lower = 2),
                              "Element 1 is not <= ")
     checkmate::expect_string(check_numeric_(1, upper = 0),
@@ -126,7 +126,7 @@ test_that("*_duration() | general test", {
     checkmate::expect_string(check_duration(c(1, NA), any.missing = FALSE),
                              "'c\\(1, NA\\)' cannot have missing values")
     checkmate::expect_string(check_duration(NULL, null.ok = FALSE),
-                             "'NULL' cannot have 'NULL' values")
+                             "'NULL' cannot be 'NULL'")
     checkmate::expect_string(check_duration(lubridate::dhours(1),
                                             lower = lubridate::dhours(2)),
                              "Element 1 is not <= ")
@@ -166,7 +166,7 @@ test_that("*_hms() | general test", {
     checkmate::expect_string(check_hms(c(1, NA), any.missing = FALSE),
                              "'c\\(1, NA\\)' cannot have missing values")
     checkmate::expect_string(check_hms(NULL, null.ok = FALSE),
-                             "'NULL' cannot have 'NULL' values")
+                             "'NULL' cannot be 'NULL'")
     checkmate::expect_string(check_hms(hms::hms(1),
                                        lower = hms::hms(2)),
                              "Element 1 is not <= ")
@@ -203,18 +203,20 @@ test_that("*_posixt() | general test", {
     expect_false(test_posixt(lubridate::as_datetime(1),
                              upper = lubridate::as_datetime(0)))
 
-    checkmate::expect_string(check_posixt(c(1, NA), any.missing = FALSE),
-                             "'c\\(1, NA\\)' cannot have missing values")
+    checkmate::expect_string(
+        check_posixt(c(1, NA), any.missing = FALSE),
+        pattern = "'c\\(1, NA\\)' cannot have missing values")
     checkmate::expect_string(check_posixt(NULL, null.ok = FALSE),
-                             "'NULL' cannot have 'NULL' values")
+                             pattern = "'NULL' cannot be 'NULL'")
     checkmate::expect_string(check_posixt(lubridate::as_datetime(1),
                                           lower = lubridate::as_datetime(2)),
-                             "Element 1 is not <= ")
+                             pattern = "Element 1 is not >= ")
     checkmate::expect_string(check_posixt(lubridate::as_datetime(1),
                                           upper = lubridate::as_datetime(0)),
-                             "Element 1 is not >= ")
-    checkmate::expect_string(check_posixt(c(1, 1)),
-                             "Must be of type 'POSIXct' or 'POSIXlt', ")
+                             pattern = "Element 1 is not <= ")
+    checkmate::expect_string(
+        check_posixt(c(1, 1)),
+        pattern = "Must be of type 'POSIXct' or 'POSIXlt', ")
     expect_true(check_posixt(c(lubridate::as_datetime(1),
                                lubridate::as_datetime(1))))
     expect_true(check_posixt(NULL, null.ok = TRUE))
@@ -222,8 +224,70 @@ test_that("*_posixt() | general test", {
     expect_equal(assert_posixt(c(lubridate::as_datetime(1),
                                  lubridate::as_datetime(1))),
                  c(lubridate::as_datetime(1), lubridate::as_datetime(1)))
-    expect_error(assert_posixt(c(1, 1)),
-                 "Assertion on 'c\\(1, 1\\)' failed")
+    expect_error(assert_posixt(c(1, 1)), "Assertion on 'c\\(1, 1\\)' failed")
+})
+
+test_that("*_posixt() | error test", {
+    # checkmate::assert_flag(any.missing)
+    expect_error(test_posixt(lubridate::as_datetime(1), any.missing = 1))
+    expect_error(check_posixt(lubridate::as_datetime(1), any.missing = 1))
+
+    # checkmate::assert_flag(null.ok)
+    expect_error(test_posixt(lubridate::as_datetime(1), null.ok = 1))
+    expect_error(check_posixt(lubridate::as_datetime(1), null.ok = 1))
+})
+
+test_that("*_interval() | general test", {
+    int <- lubridate::interval(
+        as.POSIXct("2020-01-01 00:00:00"), as.POSIXct("2020-01-02 00:00:00"))
+    int_lower <- lubridate::interval(
+        as.POSIXct("2020-01-01 01:00:00"), as.POSIXct("2020-01-02 00:00:00"))
+    int_upper <- lubridate::interval(
+        as.POSIXct("2020-01-01 00:00:00"), as.POSIXct("2020-01-02 01:00:00"))
+
+    expect_true(test_interval(int))
+    expect_true(test_interval(c(int, lubridate::as.interval(NA)),
+                              any.missing = TRUE))
+    expect_true(test_interval(NULL, null.ok = TRUE))
+    expect_true(test_interval(int, lower = int_lower))
+    expect_true(test_interval(int, upper = int_upper))
+    expect_false(test_interval("a"))
+    expect_false(test_interval(1))
+    expect_false(test_interval(lubridate::hours()))
+    expect_false(test_interval(hms::hms(1)))
+    expect_false(test_interval(datasets::iris))
+    expect_false(test_interval(c(int, NA), any.missing = FALSE))
+    expect_false(test_interval(NULL, null.ok = FALSE))
+    expect_false(test_interval(int, lower = int_upper))
+    expect_false(test_interval(int, upper = int_lower))
+
+    checkmate::expect_string(
+        check_interval(c(1, NA), any.missing = FALSE),
+        pattern = "'c\\(1, NA\\)' cannot have missing values"
+        )
+    checkmate::expect_string(check_interval(NULL, null.ok = FALSE),
+                             pattern = "'NULL' cannot be 'NULL'")
+    checkmate::expect_string(check_interval(int, lower = int_upper),
+                             pattern = "Element 1 is not >= ")
+    checkmate::expect_string(check_interval(int, upper = int_lower),
+                             pattern = "Element 1 is not <= ")
+    checkmate::expect_string(check_interval(c(1, 1)),
+                             pattern = "Must be of type 'Interval'")
+    expect_true(check_interval(c(int, int_lower)))
+    expect_true(check_interval(NULL, null.ok = TRUE))
+
+    expect_equal(assert_interval(c(int, int_lower)), c(int, int_lower))
+    expect_error(assert_interval(c(1, 1)), "Assertion on 'c\\(1, 1\\)' failed")
+})
+
+test_that("*_interval() | error test", {
+    # checkmate::assert_flag(any.missing)
+    expect_error(test_interval(lubridate::as_datetime(1), any.missing = 1))
+    expect_error(check_interval(lubridate::as_datetime(1), any.missing = 1))
+
+    # checkmate::assert_flag(null.ok)
+    expect_error(test_interval(lubridate::as_datetime(1), null.ok = 1))
+    expect_error(check_interval(lubridate::as_datetime(1), null.ok = 1))
 })
 
 test_that("*_temporal() | general test", {
@@ -258,7 +322,7 @@ test_that("*_temporal() | general test", {
     checkmate::expect_string(check_temporal(c(1, NA), any.missing = FALSE),
                              pattern = "'c\\(1, NA\\)' cannot have missing ")
     checkmate::expect_string(check_temporal(NULL, null.ok = FALSE),
-                             pattern = "'NULL' cannot have 'NULL' values")
+                             pattern = "'NULL' cannot be 'NULL'")
     expect_true(check_temporal(c(lubridate::hours(1), lubridate::hours(1))))
     expect_true(check_temporal(NULL, null.ok = TRUE))
 

@@ -8,16 +8,14 @@
 #' package.
 #'
 #' @param file (optional) a `character` object indicating the raw data file
-#'   name(s). If `NULL`, all raw data file names will be printed (default:
+#'   name(s). If `NULL`, all raw data file names will be returned (default:
 #'   `NULL`).
 #' @param package (optional) a string indicating the target package. If not
 #'   assigned, the function will try to use the name of the active project
 #'   directory (requires the `rstudioapi` package).
 #'
-#' @return
-#'
-#' * If `file = NULL`, a `character` object with all file names available.
-#' * If `file != NULL`, a string with the file name path.
+#' @return If `file == NULL`, a [`character`][character()] object with all file
+#'   names available. Else, a string with the file name path.
 #'
 #' @family R system functions
 #' @export
@@ -32,7 +30,7 @@
 #'
 #' raw_data_1(raw_data()[1])}
 raw_data_1 <- function(file = NULL, package = "insert_package_name") {
-    checkmate::assert_character(file, min.len = 1, null.ok = TRUE)
+    checkmate::assert_character(file, any.missing = FALSE, null.ok = TRUE)
     checkmate::assert_string(package, null.ok = TRUE)
 
     if (is.null(package)) package <- get_package_name()
@@ -86,7 +84,7 @@ raw_data_2 <- function(type = NULL, file = NULL,
     choices <- list.files(find_path("extdata", package))
 
     checkmate::assert_choice(type, choices, null.ok = TRUE)
-    checkmate::assert_character(file, min.len = 1, null.ok = TRUE)
+    checkmate::assert_character(file, any.missing = FALSE, null.ok = TRUE)
     checkmate::assert_string(package, null.ok = TRUE)
 
     if (is.null(package)) package <- get_package_name()

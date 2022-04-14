@@ -1,6 +1,6 @@
 # Sort functions by type or use the alphabetical order.
 
-find_path <- function(dir, package = encryptrpak:::get_package_name()) {
+find_path <- function(dir, package = get_package_name()) {
     root <- system.file(package = package)
 
     if (!stringr::str_detect(root, "inst/?$") &&
