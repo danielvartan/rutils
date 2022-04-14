@@ -67,7 +67,7 @@ package.</p>
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>(optional) a <code>character</code> object indicating the raw data file
-name(s). If <code>NULL</code>, all raw data file names will be printed (default:
+name(s). If <code>NULL</code>, all raw data file names will be returned (default:
 <code>NULL</code>).</p></dd>
 <dt>package</dt>
 <dd><p>(optional) a string indicating the target package. If not
@@ -76,9 +76,9 @@ directory (requires the <code>rstudioapi</code> package).</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <ul><li><p>If <code>file = NULL</code>, a <code>character</code> object with all file names available.</p></li>
-<li><p>If <code>file != NULL</code>, a string with the file name path.</p></li>
-</ul></div>
+    <p>If <code>file == NULL</code>, a <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></code> object with all file
+names available. Else, a string with the file name path.</p>
+    </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p>Other R system functions: 
