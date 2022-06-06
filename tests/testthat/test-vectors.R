@@ -1,13 +1,23 @@
 # Sort tests by type or use the alphabetical order.
 
 test_that("class_collapse() | general test", {
-    expect_equal(class_collapse("test"),
-                 single_quote_(paste0(class("test"), collapse = "/")))
-    expect_equal(class_collapse(1),
-                 single_quote_(paste0(class(1), collapse = "/")))
-    expect_equal(class_collapse(lubridate::dhours()),
-                 single_quote_(paste0(class(lubridate::dhours()),
-                                      collapse = "/")))
+    expect_equal(class_collapse(
+        x = "test"
+    ),
+    single_quote_(paste0(class("test"), collapse = "/"))
+    )
+
+    expect_equal(class_collapse(
+        x = 1
+    ),
+    single_quote_(paste0(class(1), collapse = "/"))
+    )
+
+    expect_equal(class_collapse(
+        x = lubridate::dhours()
+    ),
+    single_quote_(paste0(class(lubridate::dhours()), collapse = "/"))
+    )
 })
 
 test_that("paste_collapse() | general test", {
@@ -69,7 +79,7 @@ test_that("close_round() | general test", {
 })
 
 test_that("count_na() | general test", {
-    expect_equal(count_na(c(1, NA, 1, NA)), 2)
+    expect_equal(count_na(x = c(1, NA, 1, NA)), 2)
 })
 
 test_that("fix_character() | general test", {
@@ -82,12 +92,19 @@ test_that("fix_character() | error test", {
 })
 
 test_that("get_class() | general test", {
-    expect_equal(get_class(1), "numeric")
-    expect_equal(get_class(datasets::iris),
-                 vapply(datasets::iris, function(x) class(x)[1], character(1)))
-    expect_equal(get_class(list(a = 1, b = 1)),
-                 vapply(list(a = 1, b = 1), function(x) class(x)[1],
-                        character(1)))
+    expect_equal(get_class(x = 1), "numeric")
+
+    expect_equal(get_class(
+        x = datasets::iris
+    ),
+    vapply(datasets::iris, function(x) class(x)[1], character(1))
+    )
+
+    expect_equal(get_class(
+        x = list(a = 1, b = 1)
+    ),
+    vapply(list(a = 1, b = 1), function(x) class(x)[1], character(1))
+    )
 })
 
 test_that("get_names() | general test", {

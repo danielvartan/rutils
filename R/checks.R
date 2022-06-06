@@ -17,6 +17,17 @@ check_has_length <- function(x, any.missing = TRUE,
 
 assert_has_length <- checkmate::makeAssertionFunction(check_has_length)
 
+assert_internet <- function() {
+    if (isFALSE(has_internet())) {
+        cli::cli_abort(paste0(
+            "No internet connection was found. ",
+            "You must have an internet connection to run this function."
+        ))
+    } else {
+        invisible(TRUE)
+    }
+}
+
 assert_identical <- function(..., type = "value", any.missing = TRUE,
                              null.ok = FALSE) {
 
