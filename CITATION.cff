@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.1
+# CITATION file created with {cffr} R package, v0.3.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -55,7 +55,7 @@ references:
   url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.0'
+  version: '>= 4.1'
 - type: software
   title: checkmate
   abstract: 'checkmate: Fast and Versatile Argument Checks'
@@ -67,7 +67,7 @@ references:
     orcid: https://orcid.org/0000-0001-9754-0393
   year: '2022'
   url: https://CRAN.R-project.org/package=checkmate
-  version: '>= 2.0.0'
+  version: '>= 2.1.0'
 - type: software
   title: cli
   abstract: 'cli: Helpers for Developing Command Line Interfaces'
@@ -78,7 +78,19 @@ references:
     email: csardi.gabor@gmail.com
   year: '2022'
   url: https://CRAN.R-project.org/package=cli
-  version: '>= 3.1.0'
+  version: '>= 3.4.1'
+- type: software
+  title: curl
+  abstract: 'curl: A Modern and Flexible Web Client for R'
+  notes: Imports
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2022'
+  url: https://CRAN.R-project.org/package=curl
+  version: '>= 4.3.3'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
@@ -98,7 +110,7 @@ references:
     orcid: https://orcid.org/0000-0002-1416-3412
   year: '2022'
   url: https://CRAN.R-project.org/package=dplyr
-  version: '>= 1.0.7'
+  version: '>= 1.0.10'
 - type: software
   title: hms
   abstract: 'hms: Pretty Time of Day'
@@ -106,10 +118,23 @@ references:
   authors:
   - family-names: Müller
     given-names: Kirill
-    email: krlmlr+r@mailbox.org
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
   year: '2022'
   url: https://CRAN.R-project.org/package=hms
-  version: '>= 1.1.1'
+  version: '>= 1.1.2'
+- type: software
+  title: jsonlite
+  abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  notes: Imports
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2022'
+  url: https://CRAN.R-project.org/package=jsonlite
+  version: '>= 1.8.3'
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -124,7 +149,7 @@ references:
     orcid: https://orcid.org/0000-0003-4757-117X
   year: '2022'
   url: https://CRAN.R-project.org/package=lifecycle
-  version: '>= 1.0.1'
+  version: '>= 1.0.3'
 - type: software
   title: lubridate
   abstract: 'lubridate: Make Dealing with Dates a Little Easier'
@@ -139,7 +164,7 @@ references:
     given-names: Hadley
   year: '2022'
   url: https://CRAN.R-project.org/package=lubridate
-  version: '>= 1.8.0'
+  version: '>= 1.9.0'
 - type: software
   title: mctq
   abstract: 'mctq: Tools to Process the Munich ChronoType Questionnaire (MCTQ)'
@@ -158,7 +183,7 @@ references:
     email: pedrazzo@usp.br
     orcid: https://orcid.org/0000-0002-5257-591X
   year: '2022'
-  version: '>= 0.1.0'
+  version: '>= 0.3.1'
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
@@ -169,7 +194,7 @@ references:
     email: hadley@rstudio.com
   year: '2022'
   url: https://CRAN.R-project.org/package=stringr
-  version: '>= 1.4.0'
+  version: '>= 1.4.1'
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
@@ -180,7 +205,7 @@ references:
     email: james.f.hester@gmail.com
   year: '2022'
   url: https://CRAN.R-project.org/package=covr
-  version: '>= 3.5.1'
+  version: '>= 3.6.1'
 - type: software
   title: crayon
   abstract: 'crayon: Colored Terminal Output'
@@ -191,7 +216,7 @@ references:
     email: csardi.gabor@gmail.com
   year: '2022'
   url: https://CRAN.R-project.org/package=crayon
-  version: '>= 1.4.2'
+  version: '>= 1.5.2'
 - type: software
   title: datasets
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -204,7 +229,7 @@ references:
   url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.0.0'
+  version: '>= 4.1.0'
 - type: software
   title: emojifont
   abstract: 'emojifont: Emoji and Font Awesome in Graphics'
@@ -251,7 +276,7 @@ references:
     orcid: https://orcid.org/0000-0002-9415-4582
   year: '2022'
   url: https://CRAN.R-project.org/package=ggplot2
-  version: '>= 3.3.5'
+  version: '>= 3.4.0'
 - type: software
   title: grDevices
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -264,7 +289,7 @@ references:
   url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.0.0'
+  version: '>= 4.1.0'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -276,7 +301,7 @@ references:
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2022'
   url: https://CRAN.R-project.org/package=knitr
-  version: '>= 1.36'
+  version: '>= 1.40'
 - type: software
   title: mockr
   abstract: 'mockr: Mocking in R'
@@ -287,7 +312,7 @@ references:
     email: krlmlr+r@mailbox.org
   year: '2022'
   url: https://CRAN.R-project.org/package=mockr
-  version: '>= 0.1'
+  version: '>= 0.2.0'
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -327,7 +352,7 @@ references:
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2022'
   url: https://CRAN.R-project.org/package=rmarkdown
-  version: '>= 2.11'
+  version: '>= 2.18'
 - type: software
   title: rstudioapi
   abstract: 'rstudioapi: Safely Access the RStudio API'
@@ -347,7 +372,7 @@ references:
     email: gary@rstudio.com
   year: '2022'
   url: https://CRAN.R-project.org/package=rstudioapi
-  version: '>= 0.13'
+  version: '>= 0.14'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
@@ -373,7 +398,7 @@ references:
     email: hadley@rstudio.com
   year: '2022'
   url: https://CRAN.R-project.org/package=testthat
-  version: '>= 3.0.0'
+  version: '>= 3.1.5'
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -386,7 +411,7 @@ references:
   url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.0.0'
+  version: '>= 4.1.0'
 identifiers:
 - type: url
   value: https://github.com/gipso/gutils/

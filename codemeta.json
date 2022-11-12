@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.1 (2021-08-10)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -64,7 +64,7 @@
       "@type": "SoftwareApplication",
       "identifier": "covr",
       "name": "covr",
-      "version": ">= 3.5.1",
+      "version": ">= 3.6.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -77,7 +77,7 @@
       "@type": "SoftwareApplication",
       "identifier": "crayon",
       "name": "crayon",
-      "version": ">= 1.4.2",
+      "version": ">= 1.5.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -90,7 +90,7 @@
       "@type": "SoftwareApplication",
       "identifier": "datasets",
       "name": "datasets",
-      "version": ">= 4.0.0"
+      "version": ">= 4.1.0"
     },
     {
       "@type": "SoftwareApplication",
@@ -109,7 +109,7 @@
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
-      "version": ">= 3.3.5",
+      "version": ">= 3.4.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -122,13 +122,13 @@
       "@type": "SoftwareApplication",
       "identifier": "grDevices",
       "name": "grDevices",
-      "version": ">= 4.0.0"
+      "version": ">= 4.1.0"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
-      "version": ">= 1.36",
+      "version": ">= 1.40",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -141,7 +141,7 @@
       "@type": "SoftwareApplication",
       "identifier": "mockr",
       "name": "mockr",
-      "version": ">= 0.1",
+      "version": ">= 0.2.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -154,7 +154,7 @@
       "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
       "name": "rmarkdown",
-      "version": ">= 2.11",
+      "version": ">= 2.18",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -167,7 +167,7 @@
       "@type": "SoftwareApplication",
       "identifier": "rstudioapi",
       "name": "rstudioapi",
-      "version": ">= 0.13",
+      "version": ">= 0.14",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -193,7 +193,7 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "version": ">= 3.0.0",
+      "version": ">= 3.1.5",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -206,7 +206,7 @@
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils",
-      "version": ">= 4.0.0"
+      "version": ">= 4.1.0"
     }
   ],
   "softwareRequirements": {
@@ -214,13 +214,13 @@
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 4.0"
+      "version": ">= 4.1"
     },
     "2": {
       "@type": "SoftwareApplication",
       "identifier": "checkmate",
       "name": "checkmate",
-      "version": ">= 2.0.0",
+      "version": ">= 2.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -233,7 +233,7 @@
       "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
-      "version": ">= 3.1.0",
+      "version": ">= 3.4.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -244,9 +244,22 @@
     },
     "4": {
       "@type": "SoftwareApplication",
+      "identifier": "curl",
+      "name": "curl",
+      "version": ">= 4.3.3",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=curl"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
-      "version": ">= 1.0.7",
+      "version": ">= 1.0.10",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -255,11 +268,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "hms",
       "name": "hms",
-      "version": ">= 1.1.1",
+      "version": ">= 1.1.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -268,11 +281,24 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=hms"
     },
-    "6": {
+    "7": {
+      "@type": "SoftwareApplication",
+      "identifier": "jsonlite",
+      "name": "jsonlite",
+      "version": ">= 1.8.3",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    },
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
-      "version": ">= 1.0.1",
+      "version": ">= 1.0.3",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -281,11 +307,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "7": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
-      "version": ">= 1.8.0",
+      "version": ">= 1.9.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -294,11 +320,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "8": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "mctq",
       "name": "mctq",
-      "version": ">= 0.1.0",
+      "version": ">= 0.3.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -307,11 +333,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=mctq"
     },
-    "9": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
-      "version": ">= 1.4.0",
+      "version": ">= 1.4.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -322,7 +348,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "189.51KB",
+  "fileSize": "203.671KB",
   "citation": [
     {
       "@type": "CreativeWork",
