@@ -70,192 +70,219 @@ Check the Details section to learn more.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for character</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  orders <span class="op">=</span> <span class="cn">NULL</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  input_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for numeric</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  orders <span class="op">=</span> <span class="cn">NULL</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  input_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for Duration</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for Period</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for difftime</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for hms</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for Date</span>
-<span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">...</span>, tz <span class="op">=</span> <span class="st">"UTC"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-
-<span class="co"># S3 method for POSIXt</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for Interval</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for data.frame</span>
-<span class="fu">convert</span><span class="op">(</span>
-  <span class="va">x</span>,
-  <span class="va">class</span>,
-  <span class="va">...</span>,
-  cols <span class="op">=</span> <span class="cn">NULL</span>,
-  where <span class="op">=</span> <span class="cn">NULL</span>,
-  orders <span class="op">=</span> <span class="cn">NULL</span>,
-  tz <span class="op">=</span> <span class="st">"UTC"</span>,
-  input_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  output_unit <span class="op">=</span> <span class="cn">NULL</span>,
-  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,
-  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,
-  close_round <span class="op">=</span> <span class="cn">TRUE</span>,
-  quiet <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-
-<span class="fu">convert_tu</span><span class="op">(</span><span class="va">x</span>, <span class="va">output_unit</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">convert_ut</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">input_unit</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">convert_uu</span><span class="op">(</span><span class="va">x</span>, <span class="va">input_unit</span>, <span class="va">output_unit</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">convert_pt</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">orders</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">convert_pu</span><span class="op">(</span><span class="va">x</span>, <span class="va">orders</span>, <span class="va">output_unit</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for character</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  orders <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  input_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for numeric</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  orders <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  input_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for Duration</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for Period</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for difftime</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for hms</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for Date</span></span>
+<span><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">...</span>, tz <span class="op">=</span> <span class="st">"UTC"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for POSIXt</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for Interval</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for data.frame</span></span>
+<span><span class="fu">convert</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">class</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  cols <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  where <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  orders <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  tz <span class="op">=</span> <span class="st">"UTC"</span>,</span>
+<span>  input_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  output_unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  month_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dmonths</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  year_length <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dyears</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  close_round <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">convert_tu</span><span class="op">(</span><span class="va">x</span>, <span class="va">output_unit</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">convert_ut</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">input_unit</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">convert_uu</span><span class="op">(</span><span class="va">x</span>, <span class="va">input_unit</span>, <span class="va">output_unit</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">convert_pt</span><span class="op">(</span><span class="va">x</span>, <span class="va">class</span>, <span class="va">orders</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">convert_pu</span><span class="op">(</span><span class="va">x</span>, <span class="va">orders</span>, <span class="va">output_unit</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>Any R object, provided that convert() has a method to it.</p></dd>
+
+
 <dt>class</dt>
 <dd><p>A string indicating the class of the output.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>(optional) additional arguments to be passed to or from methods.</p></dd>
+
+
 <dt>orders</dt>
 <dd><p>(optional) a <code>character</code> object of date/time formats to parse a
 <code>x</code> object of class <code>character</code> or <code>numeric</code>.</p></dd>
+
+
 <dt>tz</dt>
 <dd><p>(optional) a string indicating the time zone with which to
 convert/parse <code>x</code> (default: <code>"UTC"</code>).</p></dd>
+
+
 <dt>input_unit</dt>
 <dd><p>(optional) a string indicating the unit of <code>x</code>.</p></dd>
+
+
 <dt>output_unit</dt>
 <dd><p>(optional) a string indicating the desire output unit.</p></dd>
+
+
 <dt>month_length</dt>
 <dd><p>(optional) a <code>Duration</code> value <strong>or</strong> a non-negative
 <code>numeric</code> value corresponding to the number of seconds equivalent to the
 month length (default: <code><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">lubridate::dmonths()</a></code>, which is equivalent to
 30.4375 days or 2629800 seconds).</p></dd>
+
+
 <dt>year_length</dt>
 <dd><p>(optional) a <code>Duration</code> value <strong>or</strong> a non-negative
 <code>numeric</code> value corresponding to the number of seconds equivalent to the
 year length (default: <code><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">lubridate::dyears()</a></code>, which is equivalent to 365.25
 days or 31557600 seconds).</p></dd>
+
+
 <dt>close_round</dt>
 <dd><p>(optional) a <code>logical</code> value indicating if numbers with
 decimals starting with three leading 0s or 9s must be rounded
 (e.g., 1.999) (default: <code>TRUE</code>).</p></dd>
+
+
 <dt>quiet</dt>
 <dd><p>(optional) a <code>logical</code> value indicating if warnings or messages
 must be suppressed (default: <code>FALSE</code>).</p></dd>
+
+
 <dt>cols</dt>
 <dd><p>(optional) a <code>character</code> object indicating the column names in
 <code>x</code> to transform (default: <code>NULL</code>).</p></dd>
+
+
 <dt>where</dt>
 <dd><p>(optional) a function to apply in a <code><a href="https://tidyselect.r-lib.org/reference/where.html" class="external-link">tidyselect::where()</a></code> call
 that flags the column names in <code>x</code> to transform them (default: <code>NULL</code>).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An object of the indicated class in <code>class</code>.</p>
+    
+
+<p>An object of the indicated class in <code>class</code>.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -410,140 +437,140 @@ O'Reilly Media. <a href="https://r4ds.had.co.nz" class="external-link">https://r
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Converting from date/time objects to units</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dhours</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"M"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Converting from date/time objects to units</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dhours</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"M"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 60</span>
-<span class="r-in"><span class="co">#&gt; [1] 60 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/period.html" class="external-link">days</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 60 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/period.html" class="external-link">days</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6.283185</span>
-<span class="r-in"><span class="co">#&gt; [1] 6.283185 # Expected</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html" class="external-link">as_datetime</a></span><span class="op">(</span><span class="st">"1985-10-20 12:00:00"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"d"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 6.283185 # Expected</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html" class="external-link">as_datetime</a></span><span class="op">(</span><span class="st">"1985-10-20 12:00:00"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"d"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5</span>
-<span class="r-in"><span class="co">#&gt; [1] 0.5 # Expected</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html" class="external-link">as_datetime</a></span><span class="op">(</span><span class="st">"1985-10-20 12:00:00"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"d"</span>, ignore_date <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 0.5 # Expected</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html" class="external-link">as_datetime</a></span><span class="op">(</span><span class="st">"1985-10-20 12:00:00"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"d"</span>, ignore_date <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5771.5</span>
-<span class="r-in"><span class="co">#&gt; [1] 5771.5 # Expected (days since the UNIX epoch)</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fu">hms</span><span class="fu">::</span><span class="fu"><a href="https://hms.tidyverse.org/reference/parse_hms.html" class="external-link">parse_hm</a></span><span class="op">(</span><span class="st">"15:45:00"</span><span class="op">)</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 5771.5 # Expected (days since the UNIX epoch)</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fu">hms</span><span class="fu">::</span><span class="fu"><a href="https://hms.tidyverse.org/reference/parse_hms.html" class="external-link">parse_hm</a></span><span class="op">(</span><span class="st">"15:45:00"</span><span class="op">)</span>, <span class="st">"numeric"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 15.75</span>
-<span class="r-in"><span class="co">#&gt; [1] 15.75 # Expected</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Converting from units to date/time objects</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">360</span>, <span class="st">"Period"</span>, input_unit <span class="op">=</span> <span class="st">"deg"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 15.75 # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Converting from units to date/time objects</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">360</span>, <span class="st">"Period"</span>, input_unit <span class="op">=</span> <span class="st">"deg"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1d 0H 0M 0S"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1d 0H 0M 0S" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">6.5</span>, <span class="st">"POSIXct"</span>, input_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1d 0H 0M 0S" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">6.5</span>, <span class="st">"POSIXct"</span>, input_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1970-01-01 06:30:00 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1970-01-01 06:30:00 UTC" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">365.25</span>, <span class="st">"hms"</span>, input_unit <span class="op">=</span> <span class="st">"d"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1970-01-01 06:30:00 UTC" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">365.25</span>, <span class="st">"hms"</span>, input_unit <span class="op">=</span> <span class="st">"d"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8766:00:00</span>
-<span class="r-in"><span class="co">#&gt; 8766:00:00 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"Posixlt"</span>, input_unit <span class="op">=</span> <span class="st">"W"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; 8766:00:00 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"Posixlt"</span>, input_unit <span class="op">=</span> <span class="st">"W"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1970-01-08 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1970-01-08 UTC" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">1.308997</span>, <span class="st">"Duration"</span>, input_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1970-01-08 UTC" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">1.308997</span>, <span class="st">"Duration"</span>, input_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "18000s (~5 hours)"</span>
-<span class="r-in"><span class="co">#&gt; [1] "18000s (~5 hours)" # Expected</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Converting between date/time objects</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dseconds</a></span><span class="op">(</span><span class="fl">120</span><span class="op">)</span>, <span class="st">"hms"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "18000s (~5 hours)" # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Converting between date/time objects</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/duration.html" class="external-link">dseconds</a></span><span class="op">(</span><span class="fl">120</span><span class="op">)</span>, <span class="st">"hms"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 00:02:00</span>
-<span class="r-in"><span class="co">#&gt; 00:02:00 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fu">hms</span><span class="fu">::</span><span class="fu"><a href="https://hms.tidyverse.org/reference/hms.html" class="external-link">as_hms</a></span><span class="op">(</span><span class="st">"13:45:05"</span><span class="op">)</span>, <span class="st">"POSIXct"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; 00:02:00 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fu">hms</span><span class="fu">::</span><span class="fu"><a href="https://hms.tidyverse.org/reference/hms.html" class="external-link">as_hms</a></span><span class="op">(</span><span class="st">"13:45:05"</span><span class="op">)</span>, <span class="st">"POSIXct"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1970-01-01 13:45:05 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1970-01-01 13:45:05 UTC" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/period.html" class="external-link">seconds</a></span><span class="op">(</span><span class="fl">60</span><span class="op">)</span>, <span class="st">"POSIXct"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1970-01-01 13:45:05 UTC" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/period.html" class="external-link">seconds</a></span><span class="op">(</span><span class="fl">60</span><span class="op">)</span>, <span class="st">"POSIXct"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1970-01-01 00:01:00 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1970-01-01 00:01:00 UTC" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html" class="external-link">as_date</a></span><span class="op">(</span><span class="st">"1765-10-05"</span><span class="op">)</span>, <span class="st">"POSIXct"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1970-01-01 00:01:00 UTC" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html" class="external-link">as_date</a></span><span class="op">(</span><span class="st">"1765-10-05"</span><span class="op">)</span>, <span class="st">"POSIXct"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1765-10-05 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1765-10-05 UTC" # Expected</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html" class="external-link">ymd_hms</a></span><span class="op">(</span><span class="st">"2020-01-01 12:31:05"</span>, tz <span class="op">=</span> <span class="st">"EST"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="st">"POSIXct"</span>, tz <span class="op">=</span> <span class="st">"UTC"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1765-10-05 UTC" # Expected</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html" class="external-link">ymd_hms</a></span><span class="op">(</span><span class="st">"2020-01-01 12:31:05"</span>, tz <span class="op">=</span> <span class="st">"EST"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="va">x</span>, <span class="st">"POSIXct"</span>, tz <span class="op">=</span> <span class="st">"UTC"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-01-01 12:31:05 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "2020-01-01 12:31:05 UTC" # Expected</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Converting between units</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">1.308997</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"rad"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "2020-01-01 12:31:05 UTC" # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Converting between units</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">1.308997</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"rad"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
-<span class="r-in"><span class="co">#&gt; [1] 5 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">60</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"deg"</span>, output_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 5 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">60</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"deg"</span>, output_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.047198</span>
-<span class="r-in"><span class="co">#&gt; [1] 1.047198 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"m"</span>, output_unit <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 1.047198 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"m"</span>, output_unit <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.08333333</span>
-<span class="r-in"><span class="co">#&gt; [1] 0.08333333 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">0.2617994</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"rad"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 0.08333333 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">0.2617994</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"rad"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
-<span class="r-in"><span class="co">#&gt; [1] 1 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">40</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"d"</span>, output_unit <span class="op">=</span> <span class="st">"deg"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 1 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">40</span>, <span class="st">"numeric"</span>, input_unit <span class="op">=</span> <span class="st">"d"</span>, output_unit <span class="op">=</span> <span class="st">"deg"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 14400</span>
-<span class="r-in"><span class="co">#&gt; [1] 14400 # Expected</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Converting from 'character' or 'numeric' to date/time objects</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"19:55:17"</span>, <span class="st">"Duration"</span>, orders <span class="op">=</span> <span class="st">"HMS"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 14400 # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Converting from 'character' or 'numeric' to date/time objects</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"19:55:17"</span>, <span class="st">"Duration"</span>, orders <span class="op">=</span> <span class="st">"HMS"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "71717s (~19.92 hours)"</span>
-<span class="r-in"><span class="co">#&gt; [1] "71717s (~19.92 hours)" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"21:00"</span>, <span class="st">"Period"</span>, orders <span class="op">=</span> <span class="st">"HM"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "71717s (~19.92 hours)" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"21:00"</span>, <span class="st">"Period"</span>, orders <span class="op">=</span> <span class="st">"HM"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "21H 0M 0S"</span>
-<span class="r-in"><span class="co">#&gt; [1] "21H 0M 0S" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"difftime"</span>, orders <span class="op">=</span> <span class="st">"H"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "21H 0M 0S" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"difftime"</span>, orders <span class="op">=</span> <span class="st">"H"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of 3600 secs</span>
-<span class="r-in"><span class="co">#&gt; Time difference of 3600 secs # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"10:00 PM"</span>, <span class="st">"hms"</span>, orders <span class="op">=</span> <span class="st">"IMp"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; Time difference of 3600 secs # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"10:00 PM"</span>, <span class="st">"hms"</span>, orders <span class="op">=</span> <span class="st">"IMp"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22:00:00</span>
-<span class="r-in"><span class="co">#&gt; 22:00:00 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"2020-01-01 10:00:00"</span>, <span class="st">"Date"</span>, orders <span class="op">=</span> <span class="st">"ymd HMS"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; 22:00:00 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"2020-01-01 10:00:00"</span>, <span class="st">"Date"</span>, orders <span class="op">=</span> <span class="st">"ymd HMS"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-01-01"</span>
-<span class="r-in"><span class="co">#&gt; [1] "2020-01-01" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">13</span>, <span class="st">"POSIXct"</span>, orders <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "2020-01-01" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">13</span>, <span class="st">"POSIXct"</span>, orders <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1970-01-01 13:00:00 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1970-01-01 13:00:00 UTC" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"2020-01-01 12:31:05"</span>, <span class="st">"POSIXct"</span>, orders <span class="op">=</span> <span class="st">"ymd HMS"</span>, tz <span class="op">=</span> <span class="st">"EST"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1970-01-01 13:00:00 UTC" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"2020-01-01 12:31:05"</span>, <span class="st">"POSIXct"</span>, orders <span class="op">=</span> <span class="st">"ymd HMS"</span>, tz <span class="op">=</span> <span class="st">"EST"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-01-01 12:31:05 EST"</span>
-<span class="r-in"><span class="co">#&gt; [1] "2020-01-01 12:31:05 EST" # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"03/07/1982 13:00"</span>, <span class="st">"POSIXlt"</span>, orders <span class="op">=</span> <span class="st">"dmy HM"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "2020-01-01 12:31:05 EST" # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"03/07/1982 13:00"</span>, <span class="st">"POSIXlt"</span>, orders <span class="op">=</span> <span class="st">"dmy HM"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1982-07-03 13:00:00 UTC"</span>
-<span class="r-in"><span class="co">#&gt; [1] "1982-07-03 13:00:00 UTC" # Expected</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Converting from 'character' or 'numeric' objects to units</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"0145"</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"HM"</span>, output_unit <span class="op">=</span> <span class="st">"M"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "1982-07-03 13:00:00 UTC" # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Converting from 'character' or 'numeric' objects to units</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"0145"</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"HM"</span>, output_unit <span class="op">=</span> <span class="st">"M"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 105</span>
-<span class="r-in"><span class="co">#&gt; [1] 105 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">45</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"M"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 105 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">45</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"M"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.75</span>
-<span class="r-in"><span class="co">#&gt; [1] 0.75 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="fl">4500</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"HM"</span>, output_unit <span class="op">=</span> <span class="st">"d"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 0.75 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="fl">4500</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"HM"</span>, output_unit <span class="op">=</span> <span class="st">"d"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.875</span>
-<span class="r-in"><span class="co">#&gt; [1] 1.875 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"2020-03-15 02"</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"ymd H"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 1.875 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"2020-03-15 02"</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"ymd H"</span>, output_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
-<span class="r-in"><span class="co">#&gt; [1] 2 # Expected</span></span>
-<span class="r-in"><span class="fu">convert</span><span class="op">(</span><span class="st">"01:00"</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"HM"</span>, output_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 2 # Expected</span></span></span>
+<span class="r-in"><span><span class="fu">convert</span><span class="op">(</span><span class="st">"01:00"</span>, <span class="st">"numeric"</span>, orders <span class="op">=</span> <span class="st">"HM"</span>, output_unit <span class="op">=</span> <span class="st">"rad"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.2617994</span>
-<span class="r-in"><span class="co">#&gt; [1] 0.261799 # Expected</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Converting columns of a data frame</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">data</span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] 0.261799 # Expected</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Converting columns of a data frame</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">data</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a b</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">convert</span><span class="op">(</span><span class="va">data</span>, <span class="st">"duration"</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, orders <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">out</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">convert</span><span class="op">(</span><span class="va">data</span>, <span class="st">"duration"</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>, orders <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  a b</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 3600s (~1 hours) 2</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">convert</span><span class="op">(</span><span class="va">data</span>, <span class="st">"hms"</span>, where <span class="op">=</span> <span class="va">is.numeric</span>, input_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">out</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">convert</span><span class="op">(</span><span class="va">data</span>, <span class="st">"hms"</span>, where <span class="op">=</span> <span class="va">is.numeric</span>, input_unit <span class="op">=</span> <span class="st">"H"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          a        b</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 01:00:00 02:00:00</span>
 </code></pre></div>
@@ -560,7 +587,7 @@ O'Reilly Media. <a href="https://r4ds.had.co.nz" class="external-link">https://r
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
