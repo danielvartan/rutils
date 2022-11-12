@@ -1,8 +1,8 @@
-pandoc: 2.7.3
+pandoc: 2.19.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-11-12T18:53Z
+last_built: 2022-11-12T19:02Z
 urls:
   reference: https://gipso.github.io/gutils/reference
   article: https://gipso.github.io/gutils/articles
