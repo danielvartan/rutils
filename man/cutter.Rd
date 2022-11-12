@@ -33,7 +33,9 @@ A \code{list} object with the cut pieces as elements.
 }
 \details{
 \code{cutter()} can perform different kinds of cuts. Here are some examples.
-\subsection{Cutting by index values}{\preformatted{cutter(seq(10), c(3, 9))
+\subsection{Cutting by index values}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{cutter(seq(10), c(3, 9))
 
    cut         cut
     |           |
@@ -42,10 +44,12 @@ A \code{list} object with the cut pieces as elements.
 Element 1: 1, 2
 Element 2: 4, 5, 6, 7, 8
 Element 3: 10
-}
+}\if{html}{\out{</div>}}
 }
 
-\subsection{Cutting between index values}{\preformatted{cutter(seq(10), c(3, 9), between = "left")
+\subsection{Cutting between index values}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{cutter(seq(10), c(3, 9), between = "left")
 
   cut         cut
    |           |
@@ -54,7 +58,9 @@ Element 3: 10
 Element 1: 1, 2
 Element 2: 3, 4, 5, 6, 7, 8
 Element 3: 9, 10
-}\preformatted{cutter(seq(10), c(3, 9), between = "right")
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{cutter(seq(10), c(3, 9), between = "right")
 
     cut         cut
      |           |
@@ -63,10 +69,12 @@ Element 3: 9, 10
 Element 1: 1, 2, 3
 Element 2: 4, 5, 6, 7, 8, 9
 Element 3: 10
-}
+}\if{html}{\out{</div>}}
 }
 
-\subsection{Removing tips}{\preformatted{cutter(seq(20), c(7, 16), rm_start = TRUE, rm_end = TRUE)
+\subsection{Removing tips}{
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{cutter(seq(20), c(7, 16), rm_start = TRUE, rm_end = TRUE)
 
            cut                      cut
             |                        |
@@ -75,7 +83,7 @@ Element 3: 10
  start tip                               end tip
 
 Element 1: 8, 9, 10, 11, 12, 13, 14, 15
-}
+}\if{html}{\out{</div>}}
 }
 }
 \examples{

@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Daniel",
              family = "Vartanian",
-             role = c("aut", "cph", "cre"),
+             role = c("aut", "cre", "ccp", "cph"),
              email = "danvartan@gmail.com",
              comment = c(ORCID = "0000-0001-7782-759X")),
       person(given = "Mario",
@@ -23,32 +23,32 @@ URL: https://gipso.github.io/gutils/,
      https://github.com/gipso/gutils/
 BugReports: https://github.com/gipso/gutils/issues/
 Depends:
-    R (>= 4.0)
+    R (>= 4.2)
 Imports: 
-    checkmate (>= 2.0.0),
-    cli (>= 3.1.0),
-    curl (>= 4.3.2),
-    dplyr (>= 1.0.7),
-    hms (>= 1.1.1),
-    jsonlite (>= 1.8.0),
-    lifecycle (>= 1.0.1),
-    lubridate (>= 1.8.0),
-    mctq (>= 0.1.0),
-    stringr (>= 1.4.0)
+    checkmate (>= 2.1.0),
+    cli (>= 3.4.1),
+    curl (>= 4.3.3),
+    dplyr (>= 1.0.10),
+    hms (>= 1.1.2),
+    jsonlite (>= 1.8.3),
+    lifecycle (>= 1.0.3),
+    lubridate (>= 1.9.0),
+    mctq (>= 0.3.1),
+    stringr (>= 1.4.1)
 Suggests: 
-    covr (>= 3.5.1),
-    crayon (>= 1.4.2),
-    datasets (>= 4.0.0),
+    covr (>= 3.6.1),
+    crayon (>= 1.5.2),
+    datasets (>= 4.2.0),
     emojifont (>= 0.5.5),
-    ggplot2 (>= 3.3.5),
-    grDevices (>= 4.0.0),
-    knitr (>= 1.36),
-    mockr (>= 0.1),
-    rmarkdown (>= 2.11),
-    rstudioapi (>= 0.13),
+    ggplot2 (>= 3.4.0),
+    grDevices (>= 4.2.0),
+    knitr (>= 1.40),
+    mockr (>= 0.2.0),
+    rmarkdown (>= 2.18),
+    rstudioapi (>= 0.14),
     spelling (>= 2.2),
-    testthat (>= 3.0.0),
-    utils (>= 4.0.0)
+    testthat (>= 3.1.5),
+    utils (>= 4.2.0)
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
@@ -56,4 +56,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.2
