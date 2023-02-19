@@ -8,12 +8,12 @@ template:
 navbar:
   structure:
     left:
-      - home
-      - intro
-      - reference
-      - articles
-      - news
-      right: github
+    - home
+    - intro
+    - reference
+    - articles
+    - news
+    right: github
   components:
     home: ~
     intro: ~
