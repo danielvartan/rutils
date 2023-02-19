@@ -2,13 +2,51 @@
 % Please edit documentation in R/na_as.R
 \name{na_as}
 \alias{na_as}
+\alias{na_as.logical}
+\alias{na_as.character}
+\alias{na_as.integer}
+\alias{na_as.numeric}
+\alias{na_as.Duration}
+\alias{na_as.Period}
+\alias{na_as.difftime}
+\alias{na_as.hms}
+\alias{na_as.Date}
+\alias{na_as.POSIXct}
+\alias{na_as.POSIXlt}
+\alias{na_as.Interval}
 \title{Return a \code{NA} value with the same characteristics of an R object}
 \usage{
 na_as(x)
+
+\method{na_as}{logical}(x)
+
+\method{na_as}{character}(x)
+
+\method{na_as}{integer}(x)
+
+\method{na_as}{numeric}(x)
+
+\method{na_as}{Duration}(x)
+
+\method{na_as}{Period}(x)
+
+\method{na_as}{difftime}(x)
+
+\method{na_as}{hms}(x)
+
+\method{na_as}{Date}(x)
+
+\method{na_as}{hms}(x)
+
+\method{na_as}{POSIXct}(x)
+
+\method{na_as}{POSIXlt}(x)
+
+\method{na_as}{Interval}(x)
 }
 \arguments{
 \item{x}{An \link[checkmate:checkAtomicVector]{atomic vector}, provided that
-\code{na_as()} have a method for it.}
+\code{na_as()} has a method for it.}
 }
 \value{
 A \code{NA} value with the same class and attributes of \code{x}.
@@ -16,8 +54,10 @@ A \code{NA} value with the same class and attributes of \code{x}.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
 
-\code{na_as()} returns a \code{NA} value of the same characteristics of an R object.
-It really helps when you need to assign \code{NA}s dynamically.
+\code{na_as()} returns a \code{NA} value with the same he same class and attributes of
+an R object.
+
+This function was made to facilitate assigning \code{NA}s dynamically.
 }
 \examples{
 na_as(TRUE)
