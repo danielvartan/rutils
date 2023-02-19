@@ -4,32 +4,21 @@
 \name{gutils-package}
 \alias{gutils}
 \alias{gutils-package}
-\title{gutils: Utility Functions Created by the GIPSO Dev Team}
+\title{gutils: Utility Functions Created by the GIPERBIO Developer Team}
 \description{
-An R package to store and organize utility functions created by the GIPSO developer team.
+This is an R package made to store and organize utility functions created by the GIPERBIO developer team. We don’t intend to publish this package to CRAN.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://gipso.github.io/gutils/}
-  \item \url{https://github.com/gipso/gutils/}
-  \item Report bugs at \url{https://github.com/gipso/gutils/issues/}
+  \item \url{https://giperbio.github.io/gutils/}
+  \item \url{https://github.com/giperbio/gutils/}
+  \item Report bugs at \url{https://github.com/giperbio/gutils/issues/}
 }
 
 }
 \author{
 \strong{Maintainer}: Daniel Vartanian \email{danvartan@gmail.com} (\href{https://orcid.org/0000-0001-7782-759X}{ORCID}) [conceptor, copyright holder]
-
-Authors:
-\itemize{
-  \item Mario Pedrazzoli \email{pedrazzo@usp.br} (\href{https://orcid.org/0000-0002-5257-591X}{ORCID}) [scientific advisor]
-}
-
-Other contributors:
-\itemize{
-  \item Interdisciplinary Sleep Research Group (GIPSO) [funder]
-  \item University of Sao Paulo (USP) [funder]
-}
 
 }
 \keyword{internal}

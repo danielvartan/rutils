@@ -1,53 +1,48 @@
 Package: gutils
-Title: Utility Functions Created by the GIPSO Dev Team
+Title: Utility Functions Created by the GIPERBIO Developer Team
 Version: 0.0.0.9000
 Authors@R: 
-    c(person(given = "Daniel",
-             family = "Vartanian",
-             role = c("aut", "cre", "ccp", "cph"),
-             email = "danvartan@gmail.com",
-             comment = c(ORCID = "0000-0001-7782-759X")),
-      person(given = "Mario",
-             family = "Pedrazzoli",
-             email = "pedrazzo@usp.br",
-             role = c("aut", "sad"),
-             comment = c(ORCID = "0000-0002-5257-591X")),
-      person(given = "Interdisciplinary Sleep Research Group (GIPSO)",
-             role = "fnd"),
-      person(given = "University of Sao Paulo (USP)",
-             role = "fnd"))
-Description: An R package to store and organize utility functions created by 
-     the GIPSO developer team.
+    c(
+        utils::person(
+            given = "Daniel",
+            family = "Vartanian",
+            role = c("aut", "cre", "ccp", "cph"),
+            email = "danvartan@gmail.com",
+            comment = c(ORCID = "0000-0001-7782-759X")
+            )
+    )
+Description: This is an R package made to store and organize utility functions 
+    created by the GIPERBIO developer team. We don’t intend to publish this 
+    package to CRAN.
 License: MIT + file LICENSE
-URL: https://gipso.github.io/gutils/, 
-     https://github.com/gipso/gutils/
-BugReports: https://github.com/gipso/gutils/issues/
+URL: https://giperbio.github.io/gutils/, https://github.com/giperbio/gutils/
+BugReports: https://github.com/giperbio/gutils/issues/
 Depends:
     R (>= 4.1)
 Imports: 
     checkmate (>= 2.1.0),
-    cli (>= 3.4.1),
-    curl (>= 4.3.3),
-    dplyr (>= 1.0.10),
+    cli (>= 3.6.0),
+    curl (>= 5.0.0),
+    dplyr (>= 1.1.0),
+    ggplot2 (>= 3.4.1),
     hms (>= 1.1.2),
-    jsonlite (>= 1.8.3),
+    jsonlite (>= 1.8.4),
     lifecycle (>= 1.0.3),
-    lubridate (>= 1.9.0),
-    mctq (>= 0.3.1),
-    stringr (>= 1.4.1)
+    lubridate (>= 1.9.2),
+    stringr (>= 1.5.0)
 Suggests: 
     covr (>= 3.6.1),
     crayon (>= 1.5.2),
     datasets (>= 4.1.0),
     emojifont (>= 0.5.5),
-    ggplot2 (>= 3.4.0),
     grDevices (>= 4.1.0),
-    knitr (>= 1.40),
-    mockr (>= 0.2.0),
-    rmarkdown (>= 2.18),
+    knitr (>= 1.42),
+    mockr (>= 0.2.1),
+    rlang (>= 1.0.6),
+    rmarkdown (>= 2.20),
     rstudioapi (>= 0.14),
     spelling (>= 2.2),
-    testthat (>= 3.1.5),
+    testthat (>= 3.1.6),
     utils (>= 4.1.0)
 VignetteBuilder: 
     knitr
@@ -56,4 +51,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3

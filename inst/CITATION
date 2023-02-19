@@ -1,22 +1,32 @@
-citHeader("To cite {gutils} in publications use:")
-
-citEntry(
-  entry       = "Unpublished",
-  title       = paste0("{gutils}:", " ",
-                       "an R package with utility functions created by", " ",
-                       "the GIPSO developer team"),
-  author      = personList(as.person("Daniel Vartanian"),
-                           as.person("Mario Pedrazzoli")),
-  year        = "2022",
-  url         = paste0("https://gipso.github.io/",
-                       "gutils/"),
-  textVersion = paste0("Vartanian, D.", ", & ",
-                       "Pedrazzoli, M.", " ",
-                       "(2022)",  ". ",
-                       "{gutils}:", " ",
-                       "an R package with utility functions created by", " ",
-                       "the GIPSO developer team", ". ",
-                       "https://gipso.github.io/",
-                       "gutils/"),
-  note        = "Lifecycle: experimental"
+utils::bibentry(
+    header = "To cite {gutils} in publications use:",
+    bibtype  = "Unpublished",
+    title = paste0(
+        "{gutils}:", " ",
+        "utility functions created by the GIPERBIO developer team"
+    ),
+    author = c(
+        utils::person(
+            given = "Daniel",
+            family = "Vartanian",
+            role = c("aut", "cre", "ccp", "cph"),
+            email = "danvartan@gmail.com",
+            comment = c(ORCID = "0000-0001-7782-759X")
+        )
+    ),
+    year = "2023",
+    url = paste0(
+        "https://giperbio.github.io/",
+        "gutils/"
+    ),
+    note = "R package version 0.0.0.9000",
+    textVersion = paste0(
+        "Vartanian, D.", " ",
+        "(2023)",  ". ",
+        "{gutils}:", " ",
+        "utility functions created by the GIPERBIO developer team", ". ",
+        "R package version 0.0.0.9000", ". ",
+        "https://giperbio.github.io/",
+        "gutils/"
+        )
 )

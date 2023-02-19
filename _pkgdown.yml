@@ -1,25 +1,27 @@
-url: https://gipso.github.io/gutils/
+url: https://giperbio.github.io/gutils/
 
 template:
   params:
     bootswatch: cosmo
-    ganalytics: G-TRW2LLYTG7
     mathjax: true
-    noindex: false
 
 navbar:
   structure:
-    left:  [intro, reference, articles, news]
-    right: [github]
+    left:
+      - home
+      - intro
+      - reference
+      - articles
+      - news
+      right: github
   components:
     home: ~
-    news: ~
+    intro: ~
     articles: ~
 
 reference:
 - title: Parsing/conversion
   contents:
-  - convert
   - na_as
 
 - title: Subsetting
@@ -39,12 +41,6 @@ reference:
 authors:
   Daniel Vartanian:
     href: https://github.com/danielvartan
-  Mario Pedrazzoli:
-    href: https://github.com/pedrazzo
-  Interdisciplinary Sleep Research Group (GIPSO):
-    href: http://each.usp.br/gipso
-  University of Sao Paulo (USP):
-    href: http://usp.br
 
 development:
   mode: auto

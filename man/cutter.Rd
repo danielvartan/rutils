@@ -103,9 +103,4 @@ cutter(seq(10), c(3, 9), rm_start = TRUE)
 
 cutter(seq(10), c(3, 9), rm_end = TRUE)
 }
-\seealso{
-Other utility functions: 
-\code{\link{convert}()},
-\code{\link{na_as}()}
-}
-\concept{utility functions}
+\concept{subsetting functions}

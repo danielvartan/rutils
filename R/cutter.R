@@ -78,7 +78,7 @@
 #'
 #' @return A `list` object with the cut pieces as elements.
 #'
-#' @family utility functions
+#' @family subsetting functions
 #' @export
 #'
 #' @examples

@@ -2,11 +2,11 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "gutils",
-  "description": "An R package to store and organize utility functions created by the GIPSO developer team.",
-  "name": "gutils: Utility Functions Created by the GIPSO Dev Team",
-  "relatedLink": "https://gipso.github.io/gutils/",
-  "codeRepository": "https://github.com/gipso/gutils/",
-  "issueTracker": "https://github.com/gipso/gutils/issues/",
+  "description": "This is an R package made to store and organize utility functions created by the GIPERBIO developer team. We don’t intend to publish this package to CRAN.",
+  "name": "gutils: Utility Functions Created by the GIPERBIO Developer Team",
+  "relatedLink": "https://giperbio.github.io/gutils/",
+  "codeRepository": "https://github.com/giperbio/gutils/",
+  "issueTracker": "https://github.com/giperbio/gutils/issues/",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9000",
   "programmingLanguage": {
@@ -22,13 +22,6 @@
       "familyName": "Vartanian",
       "email": "danvartan@gmail.com",
       "@id": "https://orcid.org/0000-0001-7782-759X"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Mario",
-      "familyName": "Pedrazzoli",
-      "email": "pedrazzo@usp.br",
-      "@id": "https://orcid.org/0000-0002-5257-591X"
     }
   ],
   "copyrightHolder": [
@@ -38,16 +31,6 @@
       "familyName": "Vartanian",
       "email": "danvartan@gmail.com",
       "@id": "https://orcid.org/0000-0001-7782-759X"
-    }
-  ],
-  "funder": [
-    {
-      "@type": "Organization",
-      "name": "Interdisciplinary Sleep Research Group (GIPSO)"
-    },
-    {
-      "@type": "Organization",
-      "name": "University of Sao Paulo (USP)"
     }
   ],
   "maintainer": [
@@ -107,19 +90,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "ggplot2",
-      "name": "ggplot2",
-      "version": ">= 3.4.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=ggplot2"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "grDevices",
       "name": "grDevices",
       "version": ">= 4.1.0"
@@ -128,7 +98,7 @@
       "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
-      "version": ">= 1.40",
+      "version": ">= 1.42",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -141,7 +111,7 @@
       "@type": "SoftwareApplication",
       "identifier": "mockr",
       "name": "mockr",
-      "version": ">= 0.2.0",
+      "version": ">= 0.2.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -152,9 +122,22 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "rlang",
+      "name": "rlang",
+      "version": ">= 1.0.6",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rlang"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
       "name": "rmarkdown",
-      "version": ">= 2.18",
+      "version": ">= 2.20",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -193,7 +176,7 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "version": ">= 3.1.5",
+      "version": ">= 3.1.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -233,7 +216,7 @@
       "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
-      "version": ">= 3.4.1",
+      "version": ">= 3.6.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -246,7 +229,7 @@
       "@type": "SoftwareApplication",
       "identifier": "curl",
       "name": "curl",
-      "version": ">= 4.3.3",
+      "version": ">= 5.0.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -259,7 +242,7 @@
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
-      "version": ">= 1.0.10",
+      "version": ">= 1.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -269,6 +252,19 @@
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
     "6": {
+      "@type": "SoftwareApplication",
+      "identifier": "ggplot2",
+      "name": "ggplot2",
+      "version": ">= 3.4.1",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ggplot2"
+    },
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "hms",
       "name": "hms",
@@ -281,11 +277,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=hms"
     },
-    "7": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
-      "version": ">= 1.8.3",
+      "version": ">= 1.8.4",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -294,7 +290,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    "8": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -307,11 +303,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
-      "version": ">= 1.9.0",
+      "version": ">= 1.9.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -320,24 +316,11 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "10": {
-      "@type": "SoftwareApplication",
-      "identifier": "mctq",
-      "name": "mctq",
-      "version": ">= 0.3.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=mctq"
-    },
     "11": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
-      "version": ">= 1.4.1",
+      "version": ">= 1.5.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -348,31 +331,28 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "203.671KB",
+  "fileSize": "132.25KB",
   "citation": [
     {
       "@type": "CreativeWork",
-      "datePublished": "2022",
+      "datePublished": "2023",
       "author": [
         {
           "@type": "Person",
           "givenName": "Daniel",
-          "familyName": "Vartanian"
-        },
-        {
-          "@type": "Person",
-          "givenName": "Mario",
-          "familyName": "Pedrazzoli"
+          "familyName": "Vartanian",
+          "email": "danvartan@gmail.com",
+          "@id": "https://orcid.org/0000-0001-7782-759X"
         }
       ],
-      "name": "{gutils}: an R package with utility functions created by the GIPSO developer team",
-      "url": "https://gipso.github.io/gutils/",
-      "description": "Lifecycle: experimental"
+      "name": "{gutils}: utility functions created by the GIPERBIO developer team",
+      "url": "https://giperbio.github.io/gutils/",
+      "description": "R package version 0.0.0.9000"
     }
   ],
-  "releaseNotes": "https://github.com/gipso/gutils/blob/master/NEWS.md",
-  "readme": "https://github.com/gipso/gutils/blob/main/README.md",
-  "contIntegration": ["https://github.com/gipso/gutils/actions", "https://codecov.io/gh/gipso/gutils?branch=main"],
+  "releaseNotes": "https://github.com/giperbio/gutils/blob/master/NEWS.md",
+  "readme": "https://github.com/giperbio/gutils/blob/main/README.md",
+  "contIntegration": ["https://github.com/giperbio/gutils/actions", "https://codecov.io/gh/giperbio/gutils?branch=main"],
   "developmentStatus": ["https://www.repostatus.org/#wip", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
   "keywords": ["r-package", "utilities", "r", "rstats"]
 }
