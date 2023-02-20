@@ -4,7 +4,8 @@
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
-#' @importFrom dplyr %>%
+#' @importFrom dplyr across %>%
+#' @importFrom ggplot2 %+%
 #' @importFrom lifecycle deprecate_soft
 ## usethis namespace: end
 NULL

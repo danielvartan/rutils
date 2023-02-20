@@ -6,7 +6,7 @@
 \alias{gutils-package}
 \title{gutils: Utility Functions Created by the GIPERBIO Developer Team}
 \description{
-This is an R package made to store and organize utility functions created by the GIPERBIO developer team. We don’t intend to publish this package to CRAN.
+An R package made to store and organize utility functions created by the GIPERBIO developer team. We don’t intend to publish this package to CRAN.
 }
 \seealso{
 Useful links:

@@ -2,11 +2,13 @@
 
 label_jump <- function(x, type = "even") {
     checkmate::assert_atomic(x)
-    checkmate::assert_choice(type, c("even", "odd"))
+    checkmate::assert_choice(type, c("even", "odd", "one"))
 
-    if (type == "even") {
-        x[!seq_along(x) %% 2 == 0]
-    } else if (type == "odd") {
-        x[seq_along(x) %% 2 == 0]
-    }
+    x <- x %>% as.character()
+
+    if (type == "even") x[seq_along(x) %% 2 == 0] <- ""
+    if (type == "odd") x[!seq_along(x) %% 2 == 0] <- ""
+    if (type == "one") x[seq_along(x) %% 3 == 0] <- ""
+
+    x
 }

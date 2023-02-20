@@ -1,9 +1,8 @@
 Package: gutils
 Title: Utility Functions Created by the GIPERBIO Developer Team
 Version: 0.0.0.9000
-Authors@R: 
-    c(
-        utils::person(
+Authors@R: c(
+        person(
             given = "Daniel",
             family = "Vartanian",
             role = c("aut", "cre", "ccp", "cph"),
@@ -11,7 +10,7 @@ Authors@R:
             comment = c(ORCID = "0000-0001-7782-759X")
             )
     )
-Description: This is an R package made to store and organize utility functions 
+Description: An R package made to store and organize utility functions 
     created by the GIPERBIO developer team. We don’t intend to publish this 
     package to CRAN.
 License: MIT + file LICENSE
