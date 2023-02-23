@@ -20,10 +20,14 @@ test_that("stop_cluster() | general test", {
 })
 
 test_that("curl_download() | general test", {
-    checkmate::expect_file(curl_download(
-        url = "http://httpbin.org/cookies/set?foo=123&bar=ftw",
-        destfile = tempfile()
-    ))
+    if (has_internet()) {
+        checkmate::expect_file(
+            curl_download(
+                url = "https://api.github.com/users/giperbio",
+                destfile = tempfile()
+            )
+        )
+    }
 })
 
 test_that("curl_fetch_memory() | general test", {

@@ -1,4 +1,5 @@
 library(checkmate)
+library(curl)
 library(gutils)
 library(mockr)
 library(rlang)
