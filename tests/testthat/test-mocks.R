@@ -20,20 +20,25 @@ test_that("stop_cluster() | general test", {
 })
 
 test_that("curl_download() | general test", {
-    if (has_internet()) {
-        checkmate::expect_file(
-            curl_download(
-                url = "https://api.github.com/users/giperbio",
-                destfile = tempfile()
-            )
+    url <- paste0(
+        "https://api.stackexchange.com/2.2/answers?",
+        "order=desc&sort=activity&site=stackoverflow"
         )
+
+    if (curl::has_internet()) {
+        checkmate::expect_file(curl_download(url = url, destfile = tempfile()))
     }
 })
 
 test_that("curl_fetch_memory() | general test", {
-    checkmate::expect_list(curl_fetch_memory(
-        url = "http://httpbin.org/cookies/set?foo=123&bar=ftw"
-    ))
+    url <- paste0(
+        "https://api.stackexchange.com/2.2/answers?",
+        "order=desc&sort=activity&site=stackoverflow"
+    )
+
+    if (curl::has_internet()) {
+        checkmate::expect_list(curl_fetch_memory(url = url))
+    }
 })
 
 test_that("has_internet() | general test", {
