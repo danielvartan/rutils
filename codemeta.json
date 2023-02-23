@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "gutils",
-  "description": "This is an R package made to store and organize utility functions created by the GIPERBIO developer team. We don’t intend to publish this package to CRAN.",
+  "description": "An R package made to store and organize utility functions created by the GIPERBIO developer team. We don’t intend to publish this package to CRAN.",
   "name": "gutils: Utility Functions Created by the GIPERBIO Developer Team",
   "relatedLink": "https://giperbio.github.io/gutils/",
   "codeRepository": "https://github.com/giperbio/gutils/",
@@ -331,7 +331,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "132.25KB",
+  "fileSize": "133.406KB",
   "citation": [
     {
       "@type": "CreativeWork",

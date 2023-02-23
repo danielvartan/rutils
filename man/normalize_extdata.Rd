@@ -16,7 +16,7 @@ directory (requires the \code{rstudioapi} package).}
 
 \code{normalize_extdata()} normalize file names founded in the \verb{./inst/extdata/}
 folder of a package. \strong{This function must be used only with
-\href{https://www.rstudio.com/}{RStudio} IDE}.
+\href{https://posit.co/products/open-source/rstudio/}{RStudio} IDE}.
 
 The function lowercase the names, substitute \code{" - "} characters for \code{"_"},
 and substitute \code{" "} characters for \code{"-"}.

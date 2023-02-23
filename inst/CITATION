@@ -4,7 +4,7 @@ utils::bibentry(
     title = paste0(
         "{gutils}:", " ",
         "utility functions created by the GIPERBIO developer team"
-    ),
+        ),
     author = c(
         utils::person(
             given = "Daniel",
@@ -12,13 +12,13 @@ utils::bibentry(
             role = c("aut", "cre", "ccp", "cph"),
             email = "danvartan@gmail.com",
             comment = c(ORCID = "0000-0001-7782-759X")
-        )
-    ),
+            )
+        ),
     year = "2023",
     url = paste0(
         "https://giperbio.github.io/",
         "gutils/"
-    ),
+        ),
     note = "R package version 0.0.0.9000",
     textVersion = paste0(
         "Vartanian, D.", " ",

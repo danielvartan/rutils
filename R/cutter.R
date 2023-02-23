@@ -148,12 +148,12 @@ cut_between <- function(x, index, between) {
 
             if (i == index[1]) {
                 if (!i == 1) {
-                    out[[1]] <- x[seq(1 , i - 1)]
+                    out[[1]] <- x[seq(1, i - 1)]
                     j <- 2
                 }
 
                 if (length(index) == 1) {
-                    out[[j]] <- x[seq(i , length(x))]
+                    out[[j]] <- x[seq(i, length(x))]
                 } else {
                     out[[j]] <- x[seq(i, index[i_index + 1] - 1)]
                 }
@@ -172,7 +172,7 @@ cut_between <- function(x, index, between) {
                 out[[1]] <- x[seq(1, i)]
 
                 if (length(index) == 1) {
-                    out[[2]] <- x[seq(i + 1 , length(x))]
+                    out[[2]] <- x[seq(i + 1, length(x))]
                 }
             } else if (i == index[length(index)] && !i == length(x)) {
                 out[[j]] <- x[seq(index[i_index - 1] + 1, i)]
@@ -213,12 +213,12 @@ cut_by <- function(x, index) {
         j <- length(out) + 1
 
         if (i == index[1]) {
-            out[[j]] <- x[seq(1 , i - 1)]
+            out[[j]] <- x[seq(1, i - 1)]
 
             if (length(index) == 1) {
-                out[[j + 1]] <- x[seq(i + 1 , length(x))]
+                out[[j + 1]] <- x[seq(i + 1, length(x))]
             } else {
-                out[[j + 1]] <- x[seq(i + 1 , index[i_index + 1] - 1)]
+                out[[j + 1]] <- x[seq(i + 1, index[i_index + 1] - 1)]
             }
         } else if (i == index[length(index)]) {
             out[[j]] <- x[seq(i + 1, length(x))]

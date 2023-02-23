@@ -6,7 +6,7 @@
 #'
 #' `normalize_extdata()` normalize file names founded in the `./inst/extdata/`
 #' folder of a package. __This function must be used only with
-#' [RStudio](https://www.rstudio.com/) IDE__.
+#' [RStudio](https://posit.co/products/open-source/rstudio/) IDE__.
 #'
 #' The function lowercase the names, substitute `" - "` characters for `"_"`,
 #' and substitute `" "` characters for `"-"`.

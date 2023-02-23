@@ -3,7 +3,9 @@ test_that("qplot_walk() | general test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(data = utils::head(datasets::iris, 5)[[1]])}
+            {
+                qplot_walk(data = utils::head(datasets::iris, 5)[[1]])
+            }
             )
     }
 
@@ -12,7 +14,9 @@ test_that("qplot_walk() | general test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(data = c(rep("A", 5), rep("B", 4), rep("C", 3)))}
+            {
+                qplot_walk(data = c(rep("A", 5), rep("B", 4), rep("C", 3)))
+            }
         )
     }
 
@@ -22,10 +26,12 @@ test_that("qplot_walk() | general test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(
-                data = utils::head(datasets::iris, 5)[[1]],
-                xlab = "test"
-            )}
+            {
+                qplot_walk(
+                    data = utils::head(datasets::iris, 5)[[1]],
+                    xlab = "test"
+                )
+            }
         )
     }
 
@@ -36,7 +42,9 @@ test_that("qplot_walk() | general test", {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
             dialog_line = function(...) TRUE,
-            {qplot_walk(data = utils::head(datasets::iris, 5))}
+            {
+                qplot_walk(data = utils::head(datasets::iris, 5))
+            }
             )
     }
 
@@ -51,7 +59,9 @@ test_that("qplot_walk() | general test", {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
             dialog_line = function(...) TRUE,
-            {qplot_walk(data = data, pattern = ".+", xlab = "test")}
+            {
+                qplot_walk(data = data, pattern = ".+", xlab = "test")
+            }
             )
     }
 
@@ -63,7 +73,9 @@ test_that("qplot_walk() | error test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) FALSE,
-            {qplot_walk(data = utils::head(datasets::iris, 5))}
+            {
+                qplot_walk(data = utils::head(datasets::iris, 5))
+            }
             )
     }
 
@@ -76,7 +88,9 @@ test_that("qplot_walk() | error test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(data = utils::head(datasets::iris, 5), x = 1)}
+            {
+                qplot_walk(data = utils::head(datasets::iris, 5), x = 1)
+            }
             )
     }
 
@@ -89,10 +103,12 @@ test_that("qplot_walk() | error test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(
-                data = utils::head(datasets::iris, 5),
-                cols = "Sepal.Length", pattern = "\\."
-            )}
+            {
+                qplot_walk(
+                    data = utils::head(datasets::iris, 5),
+                    cols = "Sepal.Length", pattern = "\\."
+                )
+            }
         )
     }
 
@@ -102,7 +118,9 @@ test_that("qplot_walk() | error test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(data = list(1))}
+            {
+                qplot_walk(data = list(1))
+            }
         )
     }
 
@@ -115,10 +133,11 @@ test_that("qplot_walk() | error test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(
-                data = utils::head(datasets::iris, 5),
-                pattern = "^999$"
-            )}
+            {
+                qplot_walk(
+                    data = utils::head(datasets::iris, 5), pattern = "^999$"
+                    )
+            }
         )
     }
 
@@ -131,7 +150,11 @@ test_that("qplot_walk() | error test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(data = utils::head(datasets::iris, 5), ignore = ignore)}
+            {
+                qplot_walk(
+                    data = utils::head(datasets::iris, 5), ignore = ignore
+                    )
+            }
             )
     }
 
@@ -146,7 +169,9 @@ test_that("qplot_walk() | warning test", {
     mock <- function(.parent = parent.frame(), .env = topenv(.parent)) {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
-            {qplot_walk(data = utils::head(datasets::iris, 5)[[1]])}
+            {
+                qplot_walk(data = utils::head(datasets::iris, 5)[[1]])
+            }
         )
     }
 
@@ -160,9 +185,11 @@ test_that("qplot_walk() | warning test", {
         mockr::with_mock(
             is_interactive = function(...) TRUE,
             dialog_line = function(...) TRUE,
-            {qplot_walk(
-                data = utils::head(datasets::iris, 5), ignore = "factor"
-            )}
+            {
+                qplot_walk(
+                    data = utils::head(datasets::iris, 5), ignore = "factor"
+                    )
+            }
         )
     }
 

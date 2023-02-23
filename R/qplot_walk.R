@@ -232,7 +232,9 @@ qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
         }
 
         if (any(ignore %in% get_class(data[cols]))) {
+            # nolint start: object_usage_linter.
             match <- names(data[cols])[get_class(data[cols]) %in% ignore]
+            # nolint end
 
             cli::cli_alert_warning(paste0(
                 "{single_quote_(match)} will be ignored due to the ",
@@ -256,7 +258,7 @@ qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
     ))
     cli::cat_line()
 
-    dialog <- dialog_line(
+    dialog <- dialog_line( # nolint
         "Press 'esc' to exit or 'enter' to continue >",
         space_above = FALSE, space_below = FALSE)
 

@@ -98,7 +98,7 @@ raw_data_2 <- function(type = NULL, file = NULL,
         out <- file.path(find_path("extdata", package), type, file)
         checkmate::assert_file_exists(out)
         out
-    } else if (!is.null(file) & is.null(type)) {
+    } else if (!is.null(file) && is.null(type)) {
         cli::cli_abort(paste0(
             "When {cli::col_blue('file')} is assigned the ",
             "{cli::col_red('type')} argument cannot be ",

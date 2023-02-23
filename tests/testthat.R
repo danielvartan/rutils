@@ -18,9 +18,8 @@ test_check("gutils")
 # devtools::check_rhub()
 # devtools::check_rhub(platforms = c(
 #     "windows-x86_64-devel", "windows-x86_64-release",
-#     "macos-highsierra-release-cran", "ubuntu-gcc-devel",
-#     "ubuntu-gcc-release", "debian-clang-devel", "debian-gcc-release",
-#     "fedora-clang-devel", "solaris-x86-patched"
+#     "windows-x86_64-oldrel", "macos-highsierra-release-cran",
+#     "ubuntu-gcc-devel", "ubuntu-gcc-release"
 # ))
 # devtools::check_win_devel()
 # devtools::check_win_release()
@@ -30,6 +29,8 @@ test_check("gutils")
 # devtools::release()
 # devtools:test()
 # goodpractice::gp()
+# lintr::use_lintr(type = "tidyverse")
+# lintr::lint_package()
 # normalizePath(readClipboard(), "/", mustWork = FALSE)
 # pkgdown::build_article("mctq")
 # pkgdown::build_favicons(overwrite = TRUE)
@@ -41,12 +42,10 @@ test_check("gutils")
 # urlchecker::url_check()
 # usethis::use_coverage()
 # usethis::use_dev_version()
-# usethis::use_github_action("check-pak")
-# usethis::use_github_action("test-coverage-pak")
+# usethis::use_github_action("check-standard")
 # usethis::use_logo(file.choose())
 # usethis::use_release_issue("#.#.#")
 # usethis::use_dev_version()
 # usethis::use_revdep()
 # usethis::use_tidy_description()
 # usethis::use_version()
-
