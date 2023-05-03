@@ -23,8 +23,8 @@ dialog_line <- function(..., space_above = TRUE, space_below = TRUE,
     checkmate::assert_flag(space_below)
     checkmate::assert_flag(abort)
 
-    if (!is_interactive()) return(NULL)
-    if (isTRUE(abort)) return(NULL)
+    if (!is_interactive()) return(invisible(NULL))
+    if (isTRUE(abort)) return(invisible(NULL))
 
     line <- vapply(list(...), paste0, character(1), collapse = "")
     line <- paste0(line, collapse = "")

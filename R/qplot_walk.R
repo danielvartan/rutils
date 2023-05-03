@@ -104,6 +104,9 @@
 #'   [`character`][base::character()] object indicating which object classes the
 #'   function must ignore. This setting can be used with `cols` and `pattern`.
 #'   Assign `NULL` to disable this behavior (default: `"character"`).
+#' @param relative_freq (optional) a [`logical`][base::logical()] value
+#'   indicating if the `y` axis must  function must return the relative
+#'   frequency of the bins/bars (default: `FALSE`).
 #' @param remove_id (optional) (only for data frames) a
 #'   [`logical`][base::logical()] value indicating if the function must ignore
 #'   column names in `data` that match with the regular expression
@@ -139,17 +142,17 @@
 #' }
 qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
                        ignore = "character", remove_id = TRUE,
+                       relative_freq = FALSE,
                        midday_change = TRUE) {
     if (!is_interactive()) {
         cli::cli_abort("This function can only be used in interactive mode.")
     }
 
-    require_pkg("utils", "grDevices", "ggplot2")
+    require_pkg("utils", "grDevices", "ggplot2", "rlang")
 
     if (any(c("x", "y", "data") %in% names(list(...)))) {
         cli::cli_abort(paste0(
-            "'x', 'y' and `data` are reserved arguments for ",
-            "'qplot_walk()'."
+            "'x', 'y' and `data` are reserved arguments for 'qplot_walk()'."
         ))
     }
 
@@ -170,6 +173,7 @@ qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
         }
     }
 
+    checkmate::assert_flag(relative_freq)
     checkmate::assert_flag(midday_change)
 
     if (!is.atomic(data) && !is.data.frame(data)) {
@@ -189,6 +193,14 @@ qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
         }
     }
 
+    if (isTRUE(relative_freq)) {
+        y_lab <- "Relative frequency"
+        y_exp <- "count / sum(count)"
+    } else {
+        y_lab <- "Frequency"
+        y_exp <- "count"
+    }
+
     if (is.atomic(data)) {
         assert_has_length(data)
 
@@ -200,12 +212,18 @@ qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
         x <- transform(data, midday_change)
         xlab <- deparse(substitute(data))
         plot <- ggplot2::ggplot(mapping = ggplot2::aes(x)) +
-            ggplot2::labs(x = xlab, y = "Frequency")
+            ggplot2::labs(x = xlab, y = y_lab)
 
         if (is.double(x)) {
-            plot <- plot + ggplot2::geom_histogram()
+            plot <- plot + ggplot2::geom_histogram(ggplot2::aes(
+                y = ggplot2::after_stat(
+                    rlang::eval_tidy(rlang::parse_expr(y_exp))
+                )))
         } else {
-            plot <- plot + ggplot2::geom_bar()
+            plot <- plot + ggplot2::geom_bar(ggplot2::aes(
+                y = ggplot2::after_stat(
+                    rlang::eval_tidy(rlang::parse_expr(y_exp))
+                )))
         }
 
         shush(print(plot))
@@ -265,12 +283,19 @@ qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
     for (i in cols) {
         x <- transform(data[[i]], midday_change)
         plot <- ggplot2::ggplot(mapping = ggplot2::aes(x)) +
-            ggplot2::labs(x = i, y = "Frequency")
+            ggplot2::labs(x = i, y = y_lab)
 
         if (is.double(x)) {
-            plot <- plot + ggplot2::geom_histogram(...)
+            plot <- plot +
+                ggplot2::geom_histogram(ggplot2::aes(
+                    y = ggplot2::after_stat(
+                        rlang::eval_tidy(rlang::parse_expr(y_exp))
+                        )))
         } else {
-            plot <- plot + ggplot2::geom_bar(...)
+            plot <- plot + ggplot2::geom_bar(ggplot2::aes(
+                y = ggplot2::after_stat(
+                    rlang::eval_tidy(rlang::parse_expr(y_exp))
+                )))
         }
 
         shush(print(plot))

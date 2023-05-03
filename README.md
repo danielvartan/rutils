@@ -34,4 +34,4 @@ You can install `gutils` with:
 remotes::install_github("giperbio/gutils")
 ```
 
-We don’t intend to publish this package to CRAN.
+We don’t intend to publish this package on CRAN.

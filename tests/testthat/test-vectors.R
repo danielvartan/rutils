@@ -82,6 +82,10 @@ test_that("count_na() | general test", {
     expect_equal(count_na(x = c(1, NA, 1, NA)), 2)
 })
 
+test_that("drop_na() | general test", {
+    expect_equal(drop_na(c(NA, 1)), 1)
+})
+
 test_that("fix_character() | general test", {
     expect_equal(fix_character(c("1   ", "   1", "", "NA")),
                  c("1", "1", NA, NA))
@@ -109,8 +113,4 @@ test_that("get_class() | general test", {
 
 test_that("get_names() | general test", {
     expect_equal(get_names(x, y, z), noquote(c("x", "y", "z")))
-})
-
-test_that("rm_na() | general test", {
-    expect_equal(rm_na(c(NA, 1)), 1)
 })

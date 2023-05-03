@@ -11,6 +11,7 @@ qplot_walk(
   pattern = NULL,
   ignore = "character",
   remove_id = TRUE,
+  relative_freq = FALSE,
   midday_change = TRUE
 )
 }
@@ -41,6 +42,10 @@ Assign \code{NULL} to disable this behavior (default: \code{"character"}).}
 \code{\link[base:logical]{logical}} value indicating if the function must ignore
 column names in \code{data} that match with the regular expression
 \code{"^id$|[\\\\._-]id$"} (default: \code{TRUE}).}
+
+\item{relative_freq}{(optional) a \code{\link[base:logical]{logical}} value
+indicating if the \code{y} axis must  function must return the relative
+frequency of the bins/bars (default: \code{FALSE}).}
 
 \item{midday_change}{(optional) a \code{\link[base:logical]{logical}} value
 indicating if the function must apply a midday change for

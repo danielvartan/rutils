@@ -47,6 +47,8 @@ count_na <- function(x) {
     length(which(is.na(x)))
 }
 
+drop_na <- function(x) x[which(!is.na(x))]
+
 fix_character <- function(x) {
     checkmate::assert_character(x)
 
@@ -99,4 +101,8 @@ return_duplications <- function(x, rm_na = TRUE) {
     }
 }
 
-rm_na <- function(x) x[which(!is.na(x))]
+rm_na <- function(x) {
+    lifecycle::deprecate_soft("2023-05-02", "rm_na()", "drop_na()")
+
+    drop_na(x)
+}
