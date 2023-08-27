@@ -111,3 +111,22 @@ str_subset_ <- function(string, pattern, negate = FALSE, ignore_case = FALSE,
 
     if (length(out) == 0) as.character(NA) else out
 }
+
+get_file_ext <- function(file_path) {
+  checkmate::assert_string(file_path)
+
+  file_path |>
+    basename() |>
+    stringr::str_extract("\\.[[:alnum:]]+$")
+}
+
+get_file_name_without_ext <- function(file_path) {
+  checkmate::assert_string(file_path)
+
+  ext <- get_file_ext(file_path)
+
+  file_path |>
+    basename() |>
+    stringr::str_replace(paste0("\\", ext, "$"), "")
+
+}
