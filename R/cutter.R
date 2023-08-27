@@ -132,6 +132,23 @@ cutter <- function(x, index, between = NULL, rm_start = FALSE,
     x
 }
 
+cut_into_parts <- function(x, n) {
+  checkmate::assert_integerish(n, lower = 2)
+  checkmate::assert_atomic(x, min.len = n)
+
+  cut_size <- ceiling(length(x) / n)
+  cut_indexes <- cut_size
+
+  for (i in head(seq(n)[-1], -1)) {
+    cut_indexes <- append(
+      cut_indexes,
+      cut_indexes[length(cut_indexes)] + cut_size
+    )
+  }
+
+  cutter(x, cut_indexes, between = "right")
+}
+
 cut_between <- function(x, index, between) {
     checkmate::assert_atomic_vector(x, min.len = 1)
     checkmate::assert_integerish(index, lower = 1, upper = length(x),
