@@ -16,7 +16,7 @@ License: MIT + file LICENSE
 URL: https://danielvartan.github.io/rutils/, https://github.com/danielvartan/rutils/
 BugReports: https://github.com/danielvartan/rutils/issues/
 Depends:
-    R (>= 4.3)
+    R (>= 4.2)
 Imports: 
     checkmate (>= 2.2.0),
     cli (>= 3.6.1),
@@ -35,9 +35,9 @@ Imports:
 Suggests: 
     covr (>= 3.6.2),
     crayon (>= 1.5.2),
-    datasets (>= 4.3.0),
+    datasets (>= 4.2.0),
     emojifont (>= 0.5.5),
-    grDevices (>= 4.3.0),
+    grDevices (>= 4.2.0),
     knitr (>= 1.43),
     mockr (>= 0.2.1),
     rlang (>= 1.1.1),
@@ -45,7 +45,7 @@ Suggests:
     rstudioapi (>= 0.15.0),
     spelling (>= 2.2.1),
     testthat (>= 3.1.10),
-    utils (>= 4.3.0)
+    utils (>= 4.2.0)
 Remotes: 
     github::paleolimbot/rbbt
 VignetteBuilder: 

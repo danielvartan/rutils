@@ -46,7 +46,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.3'
+  version: '>= 4.2'
 - type: software
   title: checkmate
   abstract: 'checkmate: Fast and Versatile Argument Checks'
@@ -325,7 +325,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.3.0'
+  version: '>= 4.2.0'
 - type: software
   title: emojifont
   abstract: 'emojifont: Emoji and Font Awesome in Graphics'
@@ -350,7 +350,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.3.0'
+  version: '>= 4.2.0'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -495,7 +495,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.3.0'
+  version: '>= 4.2.0'
 identifiers:
 - type: url
   value: https://github.com/danielvartan/rutils/
