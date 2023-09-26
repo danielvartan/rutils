@@ -8,11 +8,10 @@
 ^codemeta\.json$
 ^cran-comments\.md$
 ^data-raw$
-^doc$
 ^docs$
-^gutils\.Rproj$
 ^LICENSE\.md$
 ^man-roxygen$
 ^Meta$
 ^pkgdown$
+^rutils\.Rproj$
 ^README\.Rmd$

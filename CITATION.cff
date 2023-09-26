@@ -1,16 +1,16 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.4.1
+# CITATION file created with {cffr} R package, v0.5.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
 cff-version: 1.2.0
-message: 'To cite package "gutils" in publications use:'
+message: 'To cite package "rutils" in publications use:'
 type: software
 license: MIT
-title: 'gutils: Utility Functions Created by the GIPERBIO Developer Team'
+title: 'rutils: Utility Functions for R'
 version: 0.0.0.9000
 abstract: An R package made to store and organize utility functions created by the
-  GIPERBIO developer team. We don<U+2019>t intend to publish this package to CRAN.
+  Daniel Vartanian.
 authors:
 - family-names: Vartanian
   given-names: Daniel
@@ -18,17 +18,17 @@ authors:
   orcid: https://orcid.org/0000-0001-7782-759X
 preferred-citation:
   type: unpublished
-  title: 'gutils: utility functions created by the GIPERBIO developer team'
+  title: 'rutils: Utility functions for R'
   authors:
   - family-names: Vartanian
     given-names: Daniel
     email: danvartan@gmail.com
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2023'
-  url: https://giperbio.github.io/gutils/
+  url: https://danielvartan.github.io/rutils/
   notes: R package version 0.0.0.9000
-repository-code: https://github.com/giperbio/gutils/issues/
-url: https://giperbio.github.io/gutils/
+repository-code: https://github.com/danielvartan/rutils/issues/
+url: https://danielvartan.github.io/rutils/
 contact:
 - family-names: Vartanian
   given-names: Daniel
@@ -46,7 +46,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.1'
+  version: '>= 4.3'
 - type: software
   title: checkmate
   abstract: 'checkmate: Fast and Versatile Argument Checks'
@@ -59,7 +59,7 @@ references:
     email: michellang@gmail.com
     orcid: https://orcid.org/0000-0001-9754-0393
   year: '2023'
-  version: '>= 2.1.0'
+  version: '>= 2.2.0'
 - type: software
   title: cli
   abstract: 'cli: Helpers for Developing Command Line Interfaces'
@@ -67,16 +67,16 @@ references:
   url: https://cli.r-lib.org
   repository: https://CRAN.R-project.org/package=cli
   authors:
-  - family-names: Csardi
-    given-names: Gabor
+  - family-names: Csárdi
+    given-names: Gábor
     email: csardi.gabor@gmail.com
   year: '2023'
-  version: '>= 3.6.0'
+  version: '>= 3.6.1'
 - type: software
   title: curl
   abstract: 'curl: A Modern and Flexible Web Client for R'
   notes: Imports
-  url: https://curl.se/libcurl/
+  url: https://jeroen.r-universe.dev/curl
   repository: https://CRAN.R-project.org/package=curl
   authors:
   - family-names: Ooms
@@ -84,7 +84,7 @@ references:
     email: jeroen@berkeley.edu
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2023'
-  version: '>= 5.0.0'
+  version: '>= 5.0.2'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
@@ -96,12 +96,12 @@ references:
     given-names: Hadley
     email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
-  - family-names: Francois
+  - family-names: François
     given-names: Romain
     orcid: https://orcid.org/0000-0002-2444-4226
   - family-names: Henry
     given-names: Lionel
-  - family-names: Muller
+  - family-names: Müller
     given-names: Kirill
     orcid: https://orcid.org/0000-0002-1416-3412
   - family-names: Vaughan
@@ -109,7 +109,7 @@ references:
     email: davis@posit.co
     orcid: https://orcid.org/0000-0003-4777-038X
   year: '2023'
-  version: '>= 1.1.0'
+  version: '>= 1.1.3'
 - type: software
   title: ggplot2
   abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
@@ -145,7 +145,7 @@ references:
     given-names: Dewey
     orcid: https://orcid.org/0000-0002-9415-4582
   year: '2023'
-  version: '>= 3.4.1'
+  version: '>= 3.4.3'
 - type: software
   title: hms
   abstract: 'hms: Pretty Time of Day'
@@ -153,17 +153,30 @@ references:
   url: https://hms.tidyverse.org/
   repository: https://CRAN.R-project.org/package=hms
   authors:
-  - family-names: Muller
+  - family-names: Müller
     given-names: Kirill
     email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
   year: '2023'
-  version: '>= 1.1.2'
+  version: '>= 1.1.3'
+- type: software
+  title: here
+  abstract: 'here: A Simpler Way to Find Your Files'
+  notes: Imports
+  url: https://here.r-lib.org/
+  repository: https://CRAN.R-project.org/package=here
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: krlmlr+r@mailbox.org
+    orcid: https://orcid.org/0000-0002-1416-3412
+  year: '2023'
+  version: '>= 1.0.1'
 - type: software
   title: jsonlite
   abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
   notes: Imports
-  url: https://arxiv.org/abs/1403.2805
+  url: https://jeroen.r-universe.dev/jsonlite
   repository: https://CRAN.R-project.org/package=jsonlite
   authors:
   - family-names: Ooms
@@ -171,7 +184,7 @@ references:
     email: jeroen@berkeley.edu
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2023'
-  version: '>= 1.8.4'
+  version: '>= 1.8.7'
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -205,6 +218,33 @@ references:
   year: '2023'
   version: '>= 1.9.2'
 - type: software
+  title: qpdf
+  abstract: 'qpdf: Split, Combine and Compress PDF Files'
+  notes: Imports
+  url: https://docs.ropensci.org/qpdf/
+  repository: https://CRAN.R-project.org/package=qpdf
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2023'
+  version: '>= 1.3.2'
+- type: software
+  title: rbbt
+  abstract: 'rbbt: R Interface to the Better BiBTex Zotero Connector'
+  notes: Imports
+  url: https://github.com/paleolimbot/rbbt
+  authors:
+  - family-names: Dunnington
+    given-names: Dewey
+    email: dewey@fishandwhistle.net
+  - family-names: Wiernik
+    given-names: Brenton M.
+    email: brenton@wiernik.org
+  year: '2023'
+  version: '>= 0.0.0.9000'
+- type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
   notes: Imports
@@ -217,6 +257,40 @@ references:
   year: '2023'
   version: '>= 1.5.0'
 - type: software
+  title: yaml
+  abstract: 'yaml: Methods to Convert R Data to YAML and Back'
+  notes: Imports
+  url: https://github.com/vubiostat/r-yaml/
+  repository: https://CRAN.R-project.org/package=yaml
+  authors:
+  - family-names: Garbett
+    given-names: Shawn P
+  - family-names: Stephens
+    given-names: Jeremy
+  - family-names: Simonov
+    given-names: Kirill
+  - family-names: Xie
+    given-names: Yihui
+  - family-names: Dong
+    given-names: Zhuoer
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: Horner
+    given-names: Jeffrey
+  - name: reikoch
+  - family-names: Beasley
+    given-names: Will
+  - family-names: O'Connor
+    given-names: Brendan
+  - family-names: Warnes
+    given-names: Gregory R.
+  - family-names: Quinn
+    given-names: Michael
+  - family-names: Kamvar
+    given-names: Zhian N.
+  year: '2023'
+  version: '>= 2.3.7'
+- type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
   notes: Suggests
@@ -227,7 +301,7 @@ references:
     given-names: Jim
     email: james.f.hester@gmail.com
   year: '2023'
-  version: '>= 3.6.1'
+  version: '>= 3.6.2'
 - type: software
   title: crayon
   abstract: 'crayon: Colored Terminal Output'
@@ -235,8 +309,8 @@ references:
   url: https://github.com/r-lib/crayon#readme
   repository: https://CRAN.R-project.org/package=crayon
   authors:
-  - family-names: Csardi
-    given-names: Gabor
+  - family-names: Csárdi
+    given-names: Gábor
     email: csardi.gabor@gmail.com
   year: '2023'
   version: '>= 1.5.2'
@@ -251,7 +325,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.1.0'
+  version: '>= 4.3.0'
 - type: software
   title: emojifont
   abstract: 'emojifont: Emoji and Font Awesome in Graphics'
@@ -276,7 +350,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.1.0'
+  version: '>= 4.3.0'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -289,7 +363,7 @@ references:
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2023'
-  version: '>= 1.42'
+  version: '>= 1.43'
 - type: software
   title: mockr
   abstract: 'mockr: Mocking in R'
@@ -297,7 +371,7 @@ references:
   url: https://krlmlr.github.io/mockr/
   repository: https://CRAN.R-project.org/package=mockr
   authors:
-  - family-names: M<U+00FC>ller
+  - family-names: Müller
     given-names: Kirill
     email: kirill@cynkra.com
   year: '2023'
@@ -311,12 +385,12 @@ references:
   authors:
   - family-names: Henry
     given-names: Lionel
-    email: lionel@rstudio.com
+    email: lionel@posit.co
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   year: '2023'
-  version: '>= 1.0.6'
+  version: '>= 1.1.1'
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -326,38 +400,41 @@ references:
   authors:
   - family-names: Allaire
     given-names: JJ
-    email: jj@rstudio.com
+    email: jj@posit.co
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
   - family-names: McPherson
     given-names: Jonathan
-    email: jonathan@rstudio.com
+    email: jonathan@posit.co
   - family-names: Luraschi
     given-names: Javier
-    email: javier@rstudio.com
   - family-names: Ushey
     given-names: Kevin
-    email: kevin@rstudio.com
+    email: kevin@posit.co
   - family-names: Atkins
     given-names: Aron
-    email: aron@rstudio.com
+    email: aron@posit.co
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   - family-names: Cheng
     given-names: Joe
-    email: joe@rstudio.com
+    email: joe@posit.co
   - family-names: Chang
     given-names: Winston
-    email: winston@rstudio.com
+    email: winston@posit.co
   - family-names: Iannone
     given-names: Richard
-    email: rich@rstudio.com
+    email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2023'
-  version: '>= 2.20'
+  version: '>= 2.24'
 - type: software
   title: rstudioapi
   abstract: 'rstudioapi: Safely Access the RStudio API'
@@ -370,15 +447,15 @@ references:
     email: kevin@rstudio.com
   - family-names: Allaire
     given-names: JJ
-    email: jj@rstudio.com
+    email: jj@posit.co
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   - family-names: Ritchie
     given-names: Gary
-    email: gary@rstudio.com
+    email: gary@posit.co
   year: '2023'
-  version: '>= 0.14'
+  version: '>= 0.15.0'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
@@ -394,7 +471,7 @@ references:
     given-names: Jim
     email: james.hester@rstudio.com
   year: '2023'
-  version: '>= 2.2'
+  version: '>= 2.2.1'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -404,9 +481,9 @@ references:
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   year: '2023'
-  version: '>= 3.1.6'
+  version: '>= 3.1.10'
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -418,7 +495,7 @@ references:
   year: '2023'
   institution:
     name: R Foundation for Statistical Computing
-  version: '>= 4.1.0'
+  version: '>= 4.3.0'
 identifiers:
 - type: url
-  value: https://github.com/giperbio/gutils/
+  value: https://github.com/danielvartan/rutils/

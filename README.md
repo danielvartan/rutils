@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# gutils
+# rutils
 
 <!-- badges: start -->
 
@@ -10,28 +10,26 @@ has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/giperbio/gutils/workflows/R-CMD-check/badge.svg)](https://github.com/giperbio/gutils/actions)
+[![R-CMD-check](https://github.com/danielvartan/rutils/workflows/R-CMD-check/badge.svg)](https://github.com/danielvartan/rutils/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/giperbio/gutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/giperbio/gutils?branch=main)
+coverage](https://codecov.io/gh/danielvartan/rutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/rutils?branch=main)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
 <!-- badges: end -->
 
 ## Overview
 
-`gutils` is an R package made to store and organize utility functions
-created by the [GIPERBIO](https://github.com/giperbio) developer team.
+`rutils` is an R package that I (Daniel Vartanian) use to store and
+organize my utility functions.
 
-Please note that not all functions are documented. Access the source
-code to see all of them.
+Please note that not all functions are exported or documented. Access
+the source code to see them all.
 
 ## Installation
 
-You can install `gutils` with:
+You can install `rutils` with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("giperbio/gutils")
+remotes::install_github("danielvartan/rutils")
 ```
-
-We don’t intend to publish this package on CRAN.

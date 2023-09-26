@@ -30,19 +30,19 @@
 #'
 #' raw_data_1(raw_data()[1])}
 raw_data_1 <- function(file = NULL, package = "insert_package_name") {
-    checkmate::assert_character(file, any.missing = FALSE, null.ok = TRUE)
-    checkmate::assert_string(package, null.ok = TRUE)
+  checkmate::assert_character(file, any.missing = FALSE, null.ok = TRUE)
+  checkmate::assert_string(package, null.ok = TRUE)
 
-    if (is.null(package)) package <- get_package_name()
-    assert_namespace(package)
+  if (is.null(package)) package <- get_package_name()
+  assert_namespace(package)
 
-    if (is.null(file)) {
-        list.files(find_path("extdata", package))
-    } else {
-        out <- file.path(find_path("extdata", package), file)
-        checkmate::assert_file_exists(out)
-        out
-    }
+  if (is.null(file)) {
+    list.files(find_path("extdata", package))
+  } else {
+    out <- file.path(find_path("extdata", package), file)
+    checkmate::assert_file_exists(out)
+    out
+  }
 }
 
 #' Get paths to `insert_package_name` raw data
@@ -81,28 +81,28 @@ raw_data_1 <- function(file = NULL, package = "insert_package_name") {
 #' }
 raw_data_2 <- function(type = NULL, file = NULL,
                        package = "insert_package_name") {
-    choices <- list.files(find_path("extdata", package))
+  choices <- list.files(find_path("extdata", package))
 
-    checkmate::assert_choice(type, choices, null.ok = TRUE)
-    checkmate::assert_character(file, any.missing = FALSE, null.ok = TRUE)
-    checkmate::assert_string(package, null.ok = TRUE)
+  checkmate::assert_choice(type, choices, null.ok = TRUE)
+  checkmate::assert_character(file, any.missing = FALSE, null.ok = TRUE)
+  checkmate::assert_string(package, null.ok = TRUE)
 
-    if (is.null(package)) package <- get_package_name()
-    assert_namespace(package)
+  if (is.null(package)) package <- get_package_name()
+  assert_namespace(package)
 
-    if (is.null(file) && is.null(type)) {
-        list.files(find_path("extdata", package))
-    } else if (is.null(file) && !is.null(type)) {
-        list.files(file.path(find_path("extdata", package), type))
-    } else if (!is.null(file) && !is.null(type)) {
-        out <- file.path(find_path("extdata", package), type, file)
-        checkmate::assert_file_exists(out)
-        out
-    } else if (!is.null(file) && is.null(type)) {
-        cli::cli_abort(paste0(
-            "When {cli::col_blue('file')} is assigned the ",
-            "{cli::col_red('type')} argument cannot be ",
-            "{cli::col_silver('NULL')}."
-        ))
-    }
+  if (is.null(file) && is.null(type)) {
+    list.files(find_path("extdata", package))
+  } else if (is.null(file) && !is.null(type)) {
+    list.files(file.path(find_path("extdata", package), type))
+  } else if (!is.null(file) && !is.null(type)) {
+    out <- file.path(find_path("extdata", package), type, file)
+    checkmate::assert_file_exists(out)
+    out
+  } else if (!is.null(file) && is.null(type)) {
+    cli::cli_abort(paste0(
+      "When {cli::col_blue('file')} is assigned the ",
+      "{cli::col_red('type')} argument cannot be ",
+      "{cli::col_silver('NULL')}."
+    ))
+  }
 }

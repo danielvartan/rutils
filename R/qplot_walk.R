@@ -144,168 +144,168 @@ qplot_walk <- function(data, ..., cols = NULL, pattern = NULL,
                        ignore = "character", remove_id = TRUE,
                        relative_freq = FALSE,
                        midday_change = TRUE) {
-    if (!is_interactive()) {
-        cli::cli_abort("This function can only be used in interactive mode.")
-    }
+  if (!is_interactive()) {
+    cli::cli_abort("This function can only be used in interactive mode.")
+  }
 
-    require_pkg("utils", "grDevices", "ggplot2", "rlang")
+  require_pkg("utils", "grDevices", "ggplot2", "rlang")
 
-    if (any(c("x", "y", "data") %in% names(list(...)))) {
-        cli::cli_abort(paste0(
-            "'x', 'y' and `data` are reserved arguments for 'qplot_walk()'."
-        ))
-    }
-
-    if (is.data.frame(data)) {
-        checkmate::assert_data_frame(data, all.missing = FALSE, min.rows = 1,
-                                     min.cols = 1)
-        checkmate::assert_subset(cols, names(data), empty.ok = TRUE)
-        checkmate::assert_string(pattern, null.ok = TRUE)
-        checkmate::assert_character(ignore, any.missing = FALSE, min.len = 1,
-                                    unique = TRUE, null.ok = TRUE)
-        checkmate::assert_flag(remove_id)
-
-        if (!is.null(cols) && !is.null(pattern)) {
-            cli::cli_abort(paste0(
-                "'cols' and 'pattern' can't both have values. ",
-                "You need to choose only one selection method."
-            ))
-        }
-    }
-
-    checkmate::assert_flag(relative_freq)
-    checkmate::assert_flag(midday_change)
-
-    if (!is.atomic(data) && !is.data.frame(data)) {
-        cli::cli_abort("'data' must be an 'atomic' object or a data frame.")
-    }
-
-    transform <- function(x, midday_change = TRUE) {
-        classes <- c("Duration", "Period", "difftime")
-
-        if (hms::is_hms(x) && isTRUE(midday_change) &&
-            any(x > hms::parse_hm("22:00"), na.rm = TRUE)) {
-            midday_change(x)
-        } else if (checkmate::test_multi_class(x, classes)) {
-            hms::hms(extract_seconds(x))
-        } else {
-            x
-        }
-    }
-
-    if (isTRUE(relative_freq)) {
-        y_lab <- "Relative frequency"
-        y_exp <- "count / sum(count)"
-    } else {
-        y_lab <- "Frequency"
-        y_exp <- "count"
-    }
-
-    if (is.atomic(data)) {
-        assert_has_length(data)
-
-        cli::cli_alert_warning(paste0(
-            "'data' is 'atomic'. All other arguments, except '...' and ",
-            "'midday_change', were ignored."
-        ))
-
-        x <- transform(data, midday_change)
-        xlab <- deparse(substitute(data))
-        plot <- ggplot2::ggplot(mapping = ggplot2::aes(x)) +
-            ggplot2::labs(x = xlab, y = y_lab)
-
-        if (is.double(x)) {
-            plot <- plot + ggplot2::geom_histogram(ggplot2::aes(
-                y = ggplot2::after_stat(
-                    rlang::eval_tidy(rlang::parse_expr(y_exp))
-                )))
-        } else {
-            plot <- plot + ggplot2::geom_bar(ggplot2::aes(
-                y = ggplot2::after_stat(
-                    rlang::eval_tidy(rlang::parse_expr(y_exp))
-                )))
-        }
-
-        shush(print(plot))
-        return(invisible(NULL))
-    }
-
-    if (is.null(cols) && is.null(pattern)) cols <- names(data)
-
-    if (!is.null(pattern)) {
-        cols <- grep(pattern, names(data), value = TRUE)
-
-        if (length(cols) == 0) {
-            cli::cli_abort("None match was found in 'names(data)'.")
-        }
-    }
-
-    if (!is.null(ignore)) {
-        if (all(unique(get_class(data[cols])) %in% ignore)) {
-            cli::cli_abort(paste0(
-                "You can't ignore all variables in 'cols' or in 'data'. ",
-                "Note that 'qplot_walk()' is set by default to ignore ",
-                "'character' objects. Please check your settings."
-            ))
-        }
-
-        if (any(ignore %in% get_class(data[cols]))) {
-            # nolint start: object_usage_linter.
-            match <- names(data[cols])[get_class(data[cols]) %in% ignore]
-            # nolint end
-
-            cli::cli_alert_warning(paste0(
-                "{single_quote_(match)} will be ignored due to the ",
-                "settings in the 'ignore' argument."
-            ))
-        }
-
-        cols <- names(data[cols])[!(get_class(data[cols]) %in% ignore)]
-
-    }
-
-    if (isTRUE(remove_id)) {
-        cols <- cols[!grepl("^id$|[\\._-]id$", cols, ignore.case = TRUE)]
-    }
-
-    cli::cat_line()
-    cli::cli_alert_warning(paste0(
-        "'qplot_walk()' clears all plots from your system ",
-        "after it runs. If you don't agree with this, press 'esc' to ",
-        "exit."
+  if (any(c("x", "y", "data") %in% names(list(...)))) {
+    cli::cli_abort(paste0(
+      "'x', 'y' and `data` are reserved arguments for 'qplot_walk()'."
     ))
-    cli::cat_line()
+  }
 
-    dialog <- dialog_line( # nolint
-        "Press 'esc' to exit or 'enter' to continue >",
-        space_above = FALSE, space_below = FALSE)
+  if (is.data.frame(data)) {
+    checkmate::assert_data_frame(data, all.missing = FALSE, min.rows = 1,
+                                 min.cols = 1)
+    checkmate::assert_subset(cols, names(data), empty.ok = TRUE)
+    checkmate::assert_string(pattern, null.ok = TRUE)
+    checkmate::assert_character(ignore, any.missing = FALSE, min.len = 1,
+                                unique = TRUE, null.ok = TRUE)
+    checkmate::assert_flag(remove_id)
 
-    for (i in cols) {
-        x <- transform(data[[i]], midday_change)
-        plot <- ggplot2::ggplot(mapping = ggplot2::aes(x)) +
-            ggplot2::labs(x = i, y = y_lab)
+    if (!is.null(cols) && !is.null(pattern)) {
+      cli::cli_abort(paste0(
+        "'cols' and 'pattern' can't both have values. ",
+        "You need to choose only one selection method."
+      ))
+    }
+  }
 
-        if (is.double(x)) {
-            plot <- plot +
-                ggplot2::geom_histogram(ggplot2::aes(
-                    y = ggplot2::after_stat(
-                        rlang::eval_tidy(rlang::parse_expr(y_exp))
-                        )))
-        } else {
-            plot <- plot + ggplot2::geom_bar(ggplot2::aes(
-                y = ggplot2::after_stat(
-                    rlang::eval_tidy(rlang::parse_expr(y_exp))
-                )))
-        }
+  checkmate::assert_flag(relative_freq)
+  checkmate::assert_flag(midday_change)
 
-        shush(print(plot))
+  if (!is.atomic(data) && !is.data.frame(data)) {
+    cli::cli_abort("'data' must be an 'atomic' object or a data frame.")
+  }
 
-        dialog <- dialog_line(
-            "Press 'esc' to exit or 'enter' to continue >",
-            space_above = FALSE, space_below = FALSE)
+  transform <- function(x, midday_change = TRUE) {
+    classes <- c("Duration", "Period", "difftime")
 
-        grDevices::dev.off()
+    if (hms::is_hms(x) && isTRUE(midday_change) &&
+        any(x > hms::parse_hm("22:00"), na.rm = TRUE)) {
+      midday_change(x)
+    } else if (checkmate::test_multi_class(x, classes)) {
+      hms::hms(extract_seconds(x))
+    } else {
+      x
+    }
+  }
+
+  if (isTRUE(relative_freq)) {
+    y_lab <- "Relative frequency"
+    y_exp <- "count / sum(count)"
+  } else {
+    y_lab <- "Frequency"
+    y_exp <- "count"
+  }
+
+  if (is.atomic(data)) {
+    assert_has_length(data)
+
+    cli::cli_alert_warning(paste0(
+      "'data' is 'atomic'. All other arguments, except '...' and ",
+      "'midday_change', were ignored."
+    ))
+
+    x <- transform(data, midday_change)
+    xlab <- deparse(substitute(data))
+    plot <- ggplot2::ggplot(mapping = ggplot2::aes(x)) +
+      ggplot2::labs(x = xlab, y = y_lab)
+
+    if (is.double(x)) {
+      plot <- plot + ggplot2::geom_histogram(ggplot2::aes(
+        y = ggplot2::after_stat(
+          rlang::eval_tidy(rlang::parse_expr(y_exp))
+        )))
+    } else {
+      plot <- plot + ggplot2::geom_bar(ggplot2::aes(
+        y = ggplot2::after_stat(
+          rlang::eval_tidy(rlang::parse_expr(y_exp))
+        )))
     }
 
-    invisible(NULL)
+    shush(print(plot))
+    return(invisible(NULL))
+  }
+
+  if (is.null(cols) && is.null(pattern)) cols <- names(data)
+
+  if (!is.null(pattern)) {
+    cols <- grep(pattern, names(data), value = TRUE)
+
+    if (length(cols) == 0) {
+      cli::cli_abort("None match was found in 'names(data)'.")
+    }
+  }
+
+  if (!is.null(ignore)) {
+    if (all(unique(get_class(data[cols])) %in% ignore)) {
+      cli::cli_abort(paste0(
+        "You can't ignore all variables in 'cols' or in 'data'. ",
+        "Note that 'qplot_walk()' is set by default to ignore ",
+        "'character' objects. Please check your settings."
+      ))
+    }
+
+    if (any(ignore %in% get_class(data[cols]))) {
+      # nolint start: object_usage_linter.
+      match <- names(data[cols])[get_class(data[cols]) %in% ignore]
+      # nolint end
+
+      cli::cli_alert_warning(paste0(
+        "{single_quote_(match)} will be ignored due to the ",
+        "settings in the 'ignore' argument."
+      ))
+    }
+
+    cols <- names(data[cols])[!(get_class(data[cols]) %in% ignore)]
+
+  }
+
+  if (isTRUE(remove_id)) {
+    cols <- cols[!grepl("^id$|[\\._-]id$", cols, ignore.case = TRUE)]
+  }
+
+  cli::cat_line()
+  cli::cli_alert_warning(paste0(
+    "'qplot_walk()' clears all plots from your system ",
+    "after it runs. If you don't agree with this, press 'esc' to ",
+    "exit."
+  ))
+  cli::cat_line()
+
+  dialog <- dialog_line( # nolint
+    "Press 'esc' to exit or 'enter' to continue >",
+    space_above = FALSE, space_below = FALSE)
+
+  for (i in cols) {
+    x <- transform(data[[i]], midday_change)
+    plot <- ggplot2::ggplot(mapping = ggplot2::aes(x)) +
+      ggplot2::labs(x = i, y = y_lab)
+
+    if (is.double(x)) {
+      plot <- plot +
+        ggplot2::geom_histogram(ggplot2::aes(
+          y = ggplot2::after_stat(
+            rlang::eval_tidy(rlang::parse_expr(y_exp))
+          )))
+    } else {
+      plot <- plot + ggplot2::geom_bar(ggplot2::aes(
+        y = ggplot2::after_stat(
+          rlang::eval_tidy(rlang::parse_expr(y_exp))
+        )))
+    }
+
+    shush(print(plot))
+
+    dialog <- dialog_line(
+      "Press 'esc' to exit or 'enter' to continue >",
+      space_above = FALSE, space_below = FALSE)
+
+    grDevices::dev.off()
+  }
+
+  invisible(NULL)
 }

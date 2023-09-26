@@ -1,11 +1,11 @@
 library(checkmate)
 library(curl)
-library(gutils)
 library(mockr)
 library(rlang)
+library(rutils)
 library(testthat)
 
-test_check("gutils")
+test_check("rutils")
 
 # # For development use only (comment the code after use (Ctrl + Shift + C)).
 #

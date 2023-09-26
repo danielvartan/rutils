@@ -1,9 +1,9 @@
 utils::bibentry(
-    header = "To cite {gutils} in publications use:",
+    header = "To cite {rutils} in publications use:",
     bibtype  = "Unpublished",
     title = paste0(
-        "{gutils}:", " ",
-        "utility functions created by the GIPERBIO developer team"
+        "{rutils}:", " ",
+        "Utility functions for R"
         ),
     author = c(
         utils::person(
@@ -16,17 +16,17 @@ utils::bibentry(
         ),
     year = "2023",
     url = paste0(
-        "https://giperbio.github.io/",
-        "gutils/"
+        "https://danielvartan.github.io/",
+        "rutils/"
         ),
     note = "R package version 0.0.0.9000",
     textVersion = paste0(
         "Vartanian, D.", " ",
         "(2023)",  ". ",
-        "{gutils}:", " ",
-        "utility functions created by the GIPERBIO developer team", ". ",
-        "R package version 0.0.0.9000", ". ",
-        "https://giperbio.github.io/",
-        "gutils/"
+        "{rutils}:", " ",
+        "Utility functions for R", " ",
+        "(R package version 0.0.0.9000)", ". ",
+        "https://danielvartan.github.io/",
+        "rutils/"
         )
     )

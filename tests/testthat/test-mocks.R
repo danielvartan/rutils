@@ -1,52 +1,52 @@
 test_that("cluster_map() | general test", {
-    x <- make_cluster(1)
-    object <- cluster_map(x, function(x) TRUE, 1)
-    stop_cluster(x)
+  x <- make_cluster(1)
+  object <- cluster_map(x, function(x) TRUE, 1)
+  stop_cluster(x)
 
-    checkmate::expect_list(object)
+  checkmate::expect_list(object)
 })
 
 test_that("make_cluster() | general test", {
-    object <- make_cluster(1)
-    stop_cluster(object)
+  object <- make_cluster(1)
+  stop_cluster(object)
 
-    checkmate::expect_class(object, "cluster")
+  checkmate::expect_class(object, "cluster")
 })
 
 test_that("stop_cluster() | general test", {
-    x <- make_cluster(1)
+  x <- make_cluster(1)
 
-    expect_null(stop_cluster(x))
+  expect_null(stop_cluster(x))
 })
 
 test_that("curl_download() | general test", {
-    url <- paste0(
-        "https://api.stackexchange.com/2.2/answers?",
-        "order=desc&sort=activity&site=stackoverflow"
-        )
+  url <- paste0(
+    "https://api.stackexchange.com/2.2/answers?",
+    "order=desc&sort=activity&site=stackoverflow"
+  )
 
-    if (curl::has_internet()) {
-        checkmate::expect_file(curl_download(url = url, destfile = tempfile()))
-    }
+  if (curl::has_internet()) {
+    checkmate::expect_file(curl_download(url = url, destfile = tempfile()))
+  }
 })
 
 test_that("curl_fetch_memory() | general test", {
-    url <- paste0(
-        "https://api.stackexchange.com/2.2/answers?",
-        "order=desc&sort=activity&site=stackoverflow"
-    )
+  url <- paste0(
+    "https://api.stackexchange.com/2.2/answers?",
+    "order=desc&sort=activity&site=stackoverflow"
+  )
 
-    if (curl::has_internet()) {
-        checkmate::expect_list(curl_fetch_memory(url = url))
-    }
+  if (curl::has_internet()) {
+    checkmate::expect_list(curl_fetch_memory(url = url))
+  }
 })
 
 test_that("has_internet() | general test", {
-    expect_equal(has_internet(), curl::has_internet())
+  expect_equal(has_internet(), curl::has_internet())
 })
 
 test_that("is_interactive() | general test", {
-    expect_equal(is_interactive(), interactive())
+  expect_equal(is_interactive(), interactive())
 })
 
 # test_that("from_json() | general test", {
@@ -70,17 +70,17 @@ test_that("is_interactive() | general test", {
 # })
 
 test_that("read_line() | general test", {
-    expect_equal(read_line(""), "")
+  expect_equal(read_line(""), "")
 })
 
 test_that("raw_to_char() | general test", {
-    expect_equal(raw_to_char(charToRaw("a")), "a")
+  expect_equal(raw_to_char(charToRaw("a")), "a")
 })
 
 
 test_that("require_namespace() | general test", {
-    expect_equal(
-        require_namespace("base"),
-        requireNamespace("base", quietly = TRUE)
-    )
+  expect_equal(
+    require_namespace("base"),
+    requireNamespace("base", quietly = TRUE)
+  )
 })

@@ -28,7 +28,7 @@
 #' class(na_as(as.Date("2020-01-01")))
 #' #> [1] "Date"  # Expected
 na_as <- function(x) {
-    UseMethod("na_as")
+  UseMethod("na_as")
 }
 
 #' @rdname na_as
@@ -58,7 +58,7 @@ na_as.Period <- function(x) lubridate::as.period(NA)
 #' @rdname na_as
 #' @export
 na_as.difftime <- function(x) {
-    as.difftime(as.numeric(NA), units = attributes(x)$units)
+  as.difftime(as.numeric(NA), units = attributes(x)$units)
 }
 
 #' @rdname na_as
@@ -84,5 +84,5 @@ na_as.POSIXlt <- function(x) as.POSIXlt(NA, tz = attributes(x)$tzone)
 #' @rdname na_as
 #' @export
 na_as.Interval <- function(x) {
-    lubridate::interval(NA, NA, tz = attributes(x)$tzone)
+  lubridate::interval(NA, NA, tz = attributes(x)$tzone)
 }
