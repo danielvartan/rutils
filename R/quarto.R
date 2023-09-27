@@ -480,36 +480,11 @@ transform_value_between_tags <- function(x,
     )
   }
 
-  if (inherits(fun, "character")) {
-    if (!length(fun) == length(inbetween_integers(begin_index, end_index))) {
-      cli::cli_abort(
-        paste0(
-          "{.strong {cli::col_red('fun')}} has a length of ",
-          "{.strong {length(fun)}}, ",
-          "but the space between tags has a length of ",
-          "{.strong {length(inbetween_integers(begin_index, end_index))}}. ",
-          "Both need to have the same lenght for the swap."
-        )
-      )
-    }
-  } else {
+  if (inherits(fun, "function")) {
     fun <- x[inbetween_integers(begin_index, end_index)] |> fun()
-
-    if (!length(fun) == length(inbetween_integers(begin_index, end_index))) {
-      cli::cli_abort(
-        paste0(
-          "The transformation of the funs between tags ",
-          "using the {.strong function} provided, ",
-          "has a length of {.strong {length(fun)}}, ",
-          "but the space between tags has a length of ",
-          "{.strong {length(inbetween_integers(begin_index, end_index))}}. ",
-          "Both need to have the same lenght for the swap."
-        )
-      )
-    }
   }
 
-  x[inbetween_integers(begin_index, end_index)] <- fun
-
-  x
+  x[seq(1, begin_index)] |>
+    append(fun) |>
+    append(x[seq(end_index, length(x))])
 }
