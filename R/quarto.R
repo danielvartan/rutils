@@ -257,7 +257,7 @@ update_quarto_wordlist <- function(wd = here::here(),
   if (!length(words_to_add) == 0) {
     cli::cli_h1(
       paste0(
-        "The following words will be ",
+        "The following {length(words_to_add)} words will be ",
         "{.strong {cli::col_blue('added')}} to the ",
         "wordlist", "\n"
       )
@@ -270,7 +270,7 @@ update_quarto_wordlist <- function(wd = here::here(),
   if (!length(words_to_remove) == 0) {
     cli::cli_h1(
       paste0(
-        "The following words will be ",
+        "The following {length(words_to_remove)} words will be ",
         "{.strong {cli::col_red('removed')}} from the ",
         "wordlist", "\n"
       )
