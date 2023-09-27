@@ -391,3 +391,40 @@ quarto_status <- function(type) {
     "\n"
   ))
 }
+
+find_and_apply <- function(wd = here::here(),
+                           dir = c("", "qmd"),
+                           pattern = "\\.qmd$",
+                           ignore = NULL,
+                           begin_tag = "%#%$ title begin %#%$",
+                           end_tag = "%#%$ title end %#%$",
+                           fun = stringr::str_to_upper) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+  checkmate::assert_string(begin_tag)
+  checkmate::assert_string(end_tag)
+  checkmate::assert_function(fun)
+
+  dir |>
+    lapply(function(x) {
+      setdiff(
+        list.files(file.path(wd, x), full.names = TRUE),
+        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
+      ) |>
+        stringr::str_subset(pattern)
+    }) |>
+    unlist() |>
+    lapply(function(x) {
+      content <- readLines(here::here(x))
+      begin_index <- grep(begin_tag, x = content)
+      end_index <- grep(end_tag, x = content)
+
+      content[inbetween_integers(begin_index, end_index)] |>
+        fun() |>
+        writeLines(x)
+    })
+}
