@@ -456,6 +456,8 @@ find_between_tags_and_apply <- function(wd = here::here(),
       ) |>
         writeLines(x)
     })
+
+  invisible()
 }
 
 # library(checkmate)
