@@ -132,16 +132,12 @@ gather_words_from_spell_check <- function(wd = here::here(),
   word <- NULL
   # nolint end
 
-  files <-
-    dir |>
-    lapply(function(x) {
-      setdiff(
-        list.files(file.path(wd, x), full.names = TRUE),
-        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
-      ) |>
-        stringr::str_subset(pattern)
-    }) |>
-    unlist()
+  files <- list_quarto_files(
+    wd = wd,
+    dir = dir,
+    pattern = pattern,
+    ignore = ignore
+  )
 
   bbt_citations <-
     bbt_scan_citation_keys(
@@ -392,13 +388,43 @@ quarto_status <- function(type) {
   ))
 }
 
-find_and_apply <- function(wd = here::here(),
-                           dir = c("", "qmd"),
-                           pattern = "\\.qmd$",
-                           ignore = NULL,
-                           begin_tag = "%#%$ title begin %#%$",
-                           end_tag = "%#%$ title end %#%$",
-                           fun = stringr::str_to_upper) {
+# library(checkmate)
+# library(here)
+# library(stringr)
+
+list_quarto_files <- function(wd = here::here(),
+                              dir = c("", "qmd"),
+                              pattern = "\\.qmd$",
+                              ignore = NULL) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+
+  dir |>
+    lapply(function(x) {
+      setdiff(
+        list.files(file.path(wd, x), full.names = TRUE),
+        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
+      ) |>
+        stringr::str_subset(pattern)
+    }) |>
+    unlist()
+}
+
+# library(checkmate)
+# library(here)
+# library(stringr)
+
+find_between_tags_and_apply <- function(wd = here::here(),
+                                        dir = c("", "qmd"),
+                                        pattern = "\\.qmd$",
+                                        ignore = NULL,
+                                        begin_tag = "%#%$ title begin %#%$",
+                                        end_tag = "%#%$ title end %#%$",
+                                        fun = stringr::str_to_upper) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd, access = "rw")
   checkmate::assert_character(dir)
@@ -409,22 +435,81 @@ find_and_apply <- function(wd = here::here(),
   checkmate::assert_string(end_tag)
   checkmate::assert_function(fun)
 
-  dir |>
+  list_quarto_files(
+    wd = wd,
+    dir = dir,
+    pattern = pattern,
+    ignore = ignore
+  ) |>
     lapply(function(x) {
-      setdiff(
-        list.files(file.path(wd, x), full.names = TRUE),
-        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
+      new_content <- transform_value_between_tags(
+        x = readLines(here::here(x)),
+        fun = fun,
+        begin_tag = begin_tag,
+        end_tag = end_tag
       ) |>
-        stringr::str_subset(pattern)
-    }) |>
-    unlist() |>
-    lapply(function(x) {
-      content <- readLines(here::here(x))
-      begin_index <- grep(begin_tag, x = content)
-      end_index <- grep(end_tag, x = content)
-
-      content[inbetween_integers(begin_index, end_index)] |>
-        fun() |>
         writeLines(x)
     })
+}
+
+# library(checkmate)
+# library(cli)
+
+transform_value_between_tags <- function(x,
+                                         fun,
+                                         begin_tag = "%#%$ title begin %#%$",
+                                         end_tag = "%#%$ title end %#%$") {
+  checkmate::assert_character(x)
+  checkmate::assert_multi_class(fun, c("character", "function"))
+  checkmate::assert_string(begin_tag)
+  checkmate::assert_string(end_tag)
+
+  begin_index <- grep("&&& title begin &&&", x = x)
+  end_index <- grep("&&& title end &&&", x = x)
+
+  if (length(begin_index) == 0 || length(end_index) == 0) {
+    cli::cli_abort("One or both of the tags were not found.")
+  }
+
+  if (!length(begin_index) == 1 || !length(end_index) == 1) {
+    cli::cli_abort(
+      paste0(
+        "More than one tag with the same value was found. ",
+        "Tags must be unique."
+      )
+    )
+  }
+
+  if (inherits(fun, "character")) {
+    if (!length(fun) == length(inbetween_integers(begin_index, end_index))) {
+      cli::cli_abort(
+        paste0(
+          "{.strong {cli::col_red('fun')}} has a length of ",
+          "{.strong {length(fun)}}, ",
+          "but the space between tags has a length of ",
+          "{.strong {length(inbetween_integers(begin_index, end_index))}}. ",
+          "Both need to have the same lenght for the swap."
+        )
+      )
+    }
+  } else {
+    fun <- x[inbetween_integers(begin_index, end_index)] |> fun()
+
+    if (!length(fun) == length(inbetween_integers(begin_index, end_index))) {
+      cli::cli_abort(
+        paste0(
+          "The transformation of the funs between tags ",
+          "using the {.strong function} provided, ",
+          "has a length of {.strong {length(fun)}}, ",
+          "but the space between tags has a length of ",
+          "{.strong {length(inbetween_integers(begin_index, end_index))}}. ",
+          "Both need to have the same lenght for the swap."
+        )
+      )
+    }
+  }
+
+  x[inbetween_integers(begin_index, end_index)] <- fun
+
+  x
 }
