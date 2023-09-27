@@ -403,7 +403,7 @@ list_quarto_files <- function(wd = here::here(),
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
 
-  dir |>
+  out <- dir |>
     lapply(function(x) {
       setdiff(
         list.files(file.path(wd, x), full.names = TRUE),
@@ -411,8 +411,13 @@ list_quarto_files <- function(wd = here::here(),
       ) |>
         stringr::str_subset(pattern)
     }) |>
-    unlist() |>
-    stringr::str_subset(ignore, negate = TRUE)
+    unlist()
+
+  if (!is.null(ignore)) {
+    out[stringr::str_detect(basename(out), "^_", negate = TRUE)]
+  } else {
+    out
+  }
 }
 
 # library(checkmate)
