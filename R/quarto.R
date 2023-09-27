@@ -411,7 +411,8 @@ list_quarto_files <- function(wd = here::here(),
       ) |>
         stringr::str_subset(pattern)
     }) |>
-    unlist()
+    unlist() |>
+    stringr::str_subset(ignore, negate = TRUE)
 }
 
 # library(checkmate)
@@ -421,9 +422,9 @@ list_quarto_files <- function(wd = here::here(),
 find_between_tags_and_apply <- function(wd = here::here(),
                                         dir = c("", "qmd"),
                                         pattern = "\\.qmd$",
-                                        ignore = NULL,
-                                        begin_tag = "%#%$ title begin %#%$",
-                                        end_tag = "%#%$ title end %#%$",
+                                        ignore = "^_",
+                                        begin_tag = "&&& title begin &&&",
+                                        end_tag = "&&& title end &&&",
                                         fun = stringr::str_to_upper) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd, access = "rw")
@@ -457,8 +458,8 @@ find_between_tags_and_apply <- function(wd = here::here(),
 
 transform_value_between_tags <- function(x,
                                          fun,
-                                         begin_tag = "%#%$ title begin %#%$",
-                                         end_tag = "%#%$ title end %#%$") {
+                                         begin_tag = "&&& title begin &&&$",
+                                         end_tag = "&&& title end &&&") {
   checkmate::assert_character(x)
   checkmate::assert_multi_class(fun, c("character", "function"))
   checkmate::assert_string(begin_tag)
