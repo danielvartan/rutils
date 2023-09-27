@@ -37,7 +37,48 @@ copy_file <- function(from,
     }
   }
 
-  invisible(NULL)
+  invisible()
+}
+
+# library(checkmate, quietly = TRUE)
+# library(cli, quietly = TRUE)
+
+create_file <- function(file) {
+  checkmate::assert_character(file)
+
+  for (i in file) {
+    checkmate::assert_directory_exists(dirname(i))
+  }
+
+  for (i in file) {
+    if (checkmate::test_file_exists(i)) {
+      cli::cli_alert_warning(
+        paste0(
+          "The file ",
+          "{.strong {cli::col_red(i)}} ",
+          "already exists."
+        )
+      )
+
+      file <- file[!file == i]
+    }
+  }
+
+  status <- file.create(file, showWarnings = FALSE)
+
+  for (i in seq_along(status)) {
+    if (isFALSE(status[i])) {
+      cli::cli_alert_warning(
+        paste0(
+          "The attempt to create the file ",
+          "{.strong {cli::col_red(file[i])}} ",
+          "was unsuccessful."
+        )
+      )
+    }
+  }
+
+  invisible()
 }
 
 # library(checkmate, quietly = TRUE)
@@ -60,7 +101,7 @@ delete_dir <- function(...) {
     }
   }
 
-  invisible(NULL)
+  invisible()
 }
 
 # library(checkmate, quietly = TRUE)
@@ -83,8 +124,10 @@ delete_file <- function(...) {
     }
   }
 
-  invisible(NULL)
+  invisible()
 }
+
+# library(tools)
 
 find_absolute_path <- function(relative_path) {
   require_pkg("tools")
@@ -106,6 +149,8 @@ find_path <- function(dir, package = get_package_name()) {
     system.file(dir, package = package)
   }
 }
+
+# library(rstudioapi)
 
 get_package_name <- function() {
   require_pkg("rstudioapi")

@@ -6,7 +6,7 @@
 \alias{rutils-package}
 \title{rutils: Utility Functions for R}
 \description{
-An R package made to store and organize utility functions created by the Daniel Vartanian.
+An R package made to store and organize utility functions created by Daniel Vartanian.
 }
 \seealso{
 Useful links:

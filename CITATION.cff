@@ -9,8 +9,8 @@ type: software
 license: MIT
 title: 'rutils: Utility Functions for R'
 version: 0.0.0.9000
-abstract: An R package made to store and organize utility functions created by the
-  Daniel Vartanian.
+abstract: An R package made to store and organize utility functions created by Daniel
+  Vartanian.
 authors:
 - family-names: Vartanian
   given-names: Daniel
@@ -218,6 +218,21 @@ references:
   year: '2023'
   version: '>= 1.9.2'
 - type: software
+  title: magrittr
+  abstract: 'magrittr: A Forward-Pipe Operator for R'
+  notes: Imports
+  url: https://magrittr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=magrittr
+  authors:
+  - family-names: Bache
+    given-names: Stefan Milton
+    email: stefan@stefanbache.dk
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2023'
+  version: '>= 2.0.3'
+- type: software
   title: qpdf
   abstract: 'qpdf: Split, Combine and Compress PDF Files'
   notes: Imports
@@ -243,7 +258,6 @@ references:
     given-names: Brenton M.
     email: brenton@wiernik.org
   year: '2023'
-  version: '>= 0.0.0.9000'
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'

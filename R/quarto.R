@@ -1,14 +1,18 @@
 # library(checkmate)
+# library(here)
 # library(rbbt)
 # library(stringr)
 
-# See <https://github.com/paleolimbot/rbbt>.
-bbt_write_quarto_bib <- function(bib_file, dir, pattern = "\\.qmd$") {
-  checkmate::assert_string(bib_file)
-  checkmate::assert_path_for_output(bib_file, overwrite = TRUE)
+bbt_scan_citation_keys <- function(wd = here::here(),
+                                   dir = c("", "qmd", "tex"),
+                                   pattern = "\\.qmd$|\\.tex$",
+                                   ignore = NULL) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
   checkmate::assert_character(dir)
-  for (i in dir) checkmate::assert_directory_exists(i)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
 
   bbt_types <- c(
     "article", "booklet", "conference", "inbook", "incollection",
@@ -16,12 +20,11 @@ bbt_write_quarto_bib <- function(bib_file, dir, pattern = "\\.qmd$") {
     "proceedings", "techreport", "unpublished"
   )
 
-  keys <-
-    dir |>
+  out <- dir |>
     lapply(function(x) {
       setdiff(
-        list.files(x, full.names = TRUE),
-        list.dirs(x, recursive = FALSE, full.names = TRUE)
+        list.files(file.path(wd, x), full.names = TRUE),
+        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
       ) |>
         stringr::str_subset(pattern)
     }) |>
@@ -29,9 +32,41 @@ bbt_write_quarto_bib <- function(bib_file, dir, pattern = "\\.qmd$") {
     rbbt::bbt_detect_citations() |>
     sort()
 
-  keys <-
-    keys[!keys %in% bbt_types] |>
+  out <-
+    out[!out %in% bbt_types] |>
     stringr::str_subset("^fig-|^sec-", negate = TRUE)
+
+  if (!is.null(ignore)) {
+    out |> stringr::str_subset(ignore, negate = TRUE)
+  } else {
+    out
+  }
+}
+
+# library(checkmate)
+# library(here)
+# library(rbbt)
+
+bbt_write_quarto_bib <- function(wd = here::here(),
+                                 bib_file = "references.json",
+                                 dir = c("", "qmd", "tex"),
+                                 pattern = "\\.qmd$|\\.tex$",
+                                 ignore = NULL) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_string(bib_file)
+  checkmate::assert_path_for_output(bib_file, overwrite = TRUE)
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+
+  keys <- bbt_scan_citation_keys(
+    wd = wd,
+    dir = dir,
+    pattern = pattern,
+    ignore = ignore
+  )
 
   rbbt::bbt_write_bib(
     path = bib_file,
@@ -39,7 +74,232 @@ bbt_write_quarto_bib <- function(bib_file, dir, pattern = "\\.qmd$") {
     overwrite = TRUE
   )
 
-  invisible(NULL)
+  invisible()
+}
+
+# library(checkmate)
+# library(cli)
+# library(here)
+
+set_quarto_speel_check <- function(wd = here::here()) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
+
+  if (checkmate::test_file_exists("WORDLIST", "r")) {
+    cli::cli_alert_info(
+      paste0(
+        "No need for setting. ",
+        "You already have a {.strong {cli::col_blue('WORDLIST')}} ",
+        "file on your project."
+      )
+    )
+  } else {
+    create_file(file.path(wd, "WORDLIST"))
+
+    cli::cli_alert_success(
+      paste0(
+        "All set! The wordlist file was created on ",
+        "{.strong {cli::col_blue(file.path(wd, 'WORDLIST'))}}. ",
+        "Use {.strong `spell_check_quarto()`} and ",
+        "{.strong `update_quarto_wordlist()`} ",
+        "to check the spelling of your Quarto documents."
+      )
+    )
+  }
+
+  invisible()
+}
+
+# library(checkmate)
+# library(dplyr)
+# library(here)
+# library(spelling)
+# library(stringr)
+
+gather_words_from_spell_check <- function(wd = here::here(),
+                                          dir = c("", "qmd", "tex"),
+                                          pattern = "\\.qmd$|\\.Rmd$|\\.tex$",
+                                          ignore = NULL) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+
+  # R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
+  # nolint start: object_usage_linter.
+  word <- NULL
+  # nolint end
+
+  files <-
+    dir |>
+    lapply(function(x) {
+      setdiff(
+        list.files(file.path(wd, x), full.names = TRUE),
+        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
+      ) |>
+        stringr::str_subset(pattern)
+    }) |>
+    unlist()
+
+  bbt_citations <-
+    bbt_scan_citation_keys(
+      wd = wd,
+      dir = dir,
+      pattern = pattern,
+      ignore = NULL
+    )
+
+  out <-
+    files |>
+    spelling::spell_check_files() |>
+    dplyr::filter(!word %in% bbt_citations,!word == "")
+
+  if (!is.null(ignore)) {
+    out |> dplyr::filter(stringr::str_detect(word, ignore, negate = TRUE))
+  } else {
+    out
+  }
+}
+
+# library(checkmate)
+# library(cli)
+# library(dplyr)
+# library(here)
+
+spell_check_quarto <- function(wd = here::here(),
+                               dir = c("", "qmd", "tex"),
+                               pattern = c("\\.qmd$|\\.Rmd$|\\.tex$"),
+                               ignore = NULL,
+                               wordlist = "WORDLIST") {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+  checkmate::assert_string(wordlist, null.ok = TRUE)
+
+  # R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
+  # nolint start: object_usage_linter.
+  word <- NULL
+  # nolint end
+
+  out <- gather_words_from_spell_check(
+    wd = wd,
+    dir = dir,
+    pattern = pattern,
+    ignore = ignore
+  )
+
+  if (!is.null(wordlist)) {
+    if (checkmate::test_file_exists(file.path(wd, wordlist), "r")) {
+      wordlist_char <- readLines(wordlist)
+
+      out <- out |> dplyr::filter(!word %in% wordlist_char)
+    } else {
+      cli::cli_alert_warning(
+        paste0(
+          "Wordlist file not found. ",
+          "You can create one with ",
+          "{.strong `set_quarto_speel_check()`}. ",
+          "Use `wordlist = NULL` to suppress this message."
+        )
+      )
+    }
+  }
+
+  if (length(out$word) == 0) {
+    cli::cli_alert_info(
+      paste0(
+        "No spelling errors were found. Good job! \U0001F389"
+      )
+    )
+  } else {
+    out
+  }
+}
+
+# library(checkmate)
+# library(cli)
+# library(here)
+# library(magrittr)
+
+update_quarto_wordlist <- function(wd = here::here(),
+                                   dir = c("", "qmd", "tex"),
+                                   pattern = c("\\.qmd$|\\.Rmd$|\\.tex$"),
+                                   ignore = NULL,
+                                   wordlist = "WORDLIST") {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+  checkmate::assert_string(wordlist, null.ok = TRUE)
+  checkmate::assert_file_exists(file.path(wd, wordlist), "r")
+
+  words <-
+    gather_words_from_spell_check(
+      wd = wd,
+      dir = dir,
+      pattern = pattern,
+      ignore = ignore
+    )|>
+    magrittr::extract2("word")
+
+  wordlist_char <- readLines(wordlist)
+  words_to_add <- words[is.na(match(words, wordlist_char))]
+  words_to_remove <- wordlist_char[is.na(match(wordlist_char, words))]
+  words_to_keep <- wordlist_char[!is.na(match(wordlist_char, words))]
+
+  if (!length(words_to_add) == 0) {
+    cli::cli_h1(
+      paste0(
+        "The following words will be ",
+        "{.strong {cli::col_blue('added')}} to the ",
+        "wordlist", "\n"
+      )
+    )
+    cli::cli_ul(sort(words_to_add))
+
+    ifelse(!length(words_to_remove) == 0, "", cli::cli_rule())
+  }
+
+  if (!length(words_to_remove) == 0) {
+    cli::cli_h1(
+      paste0(
+        "The following words will be ",
+        "{.strong {cli::col_red('removed')}} from the ",
+        "wordlist", "\n"
+      )
+    )
+    cli::cli_ul(sort(words_to_remove))
+    cli::cli_rule()
+  }
+
+  if (!length(words_to_add) == 0 || !length(words_to_remove) == 0) {
+    decision <- readline("Do you want to proceed? [Y/n] ")
+
+    while (!decision %in% c("Y", "n")) {
+      decision <- readline("Do you want to proceed? [Y/n] ")
+    }
+
+    if (decision == "n") {
+      return(invisible())
+    } else {
+      writeLines(sort(words), wordlist)
+    }
+  } else {
+    cli::cli_alert_info(
+      paste0(
+        "No spelling errors were found. Good job! \U0001F389"
+      )
+    )
+  }
+
+  invisible()
 }
 
 # library(checkmate, quietly = TRUE)
@@ -96,6 +356,7 @@ clean_quarto_mess <- function(wd = here::here(),
 # library(cli, quietly = TRUE)
 
 # use '#| output: asis'
+# Credits: <https://github.com/hadley/r4ds/blob/main/_common.R>.
 quarto_status <- function(type) {
   status <- switch(
     type,
