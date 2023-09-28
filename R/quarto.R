@@ -503,11 +503,11 @@ get_value_between_tags <- function(
 
 transform_value_between_tags <- function(
     x,
-    fun,
+    value,
     begin_tag = "%:::% .common h1 begin %:::%",
     end_tag = "%:::% .common h1 end %:::%") {
   checkmate::assert_character(x)
-  checkmate::assert_multi_class(fun, c("character", "function"))
+  checkmate::assert_multi_class(value, c("character", "function"))
   checkmate::assert_string(begin_tag)
   checkmate::assert_string(end_tag)
 
@@ -531,11 +531,11 @@ transform_value_between_tags <- function(
     )
   }
 
-  if (inherits(fun, "function")) {
-    fun <- x[inbetween_integers(begin_index, end_index)] |> fun()
+  if (inherits(value, "function")) {
+    value <- x[inbetween_integers(begin_index, end_index)] |> value()
   }
 
   x[seq(1, begin_index)] |>
-    append(fun) |>
+    append(value) |>
     append(x[seq(end_index, length(x))])
 }
