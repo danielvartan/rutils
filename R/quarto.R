@@ -8,7 +8,7 @@ bbt_scan_citation_keys <- function(wd = here::here(),
                                    pattern = "\\.qmd$|\\.tex$",
                                    ignore = NULL) {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
@@ -53,7 +53,7 @@ bbt_write_quarto_bib <- function(wd = here::here(),
                                  pattern = "\\.qmd$|\\.tex$",
                                  ignore = NULL) {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_string(bib_file)
   checkmate::assert_path_for_output(bib_file, overwrite = TRUE)
   checkmate::assert_character(dir)
@@ -83,7 +83,7 @@ bbt_write_quarto_bib <- function(wd = here::here(),
 
 set_quarto_speel_check <- function(wd = here::here()) {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
 
   if (checkmate::test_file_exists("WORDLIST", "r")) {
     cli::cli_alert_info(
@@ -121,7 +121,7 @@ gather_words_from_spell_check <- function(wd = here::here(),
                                           pattern = "\\.qmd$|\\.Rmd$|\\.tex$",
                                           ignore = NULL) {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
@@ -170,7 +170,7 @@ spell_check_quarto <- function(wd = here::here(),
                                ignore = NULL,
                                wordlist = "WORDLIST") {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
@@ -228,7 +228,7 @@ update_quarto_wordlist <- function(wd = here::here(),
                                    ignore = NULL,
                                    wordlist = "WORDLIST") {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
@@ -309,7 +309,7 @@ clean_quarto_mess <- function(wd = here::here(),
                               keep = NULL,
                               quarto_yaml = NULL) {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(file, null.ok = TRUE)
   checkmate::assert_character(dir, null.ok = TRUE)
   checkmate::assert_character(ext, null.ok = TRUE)
@@ -397,7 +397,7 @@ list_quarto_files <- function(wd = here::here(),
                               pattern = "\\.qmd$",
                               ignore = NULL) {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
@@ -434,7 +434,7 @@ find_between_tags_and_apply <- function(
     fun = stringr::str_to_upper
     ) {
   checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd, access = "rw")
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
@@ -450,7 +450,7 @@ find_between_tags_and_apply <- function(
     ignore = ignore
   ) |>
     lapply(function(x) {
-      transform_value_between_tags(
+      change_value_between_tags(
         x = readLines(here::here(x)),
         fun = fun,
         begin_tag = begin_tag,
@@ -475,9 +475,7 @@ get_value_between_tags <- function(
   checkmate::assert_string(begin_tag)
   checkmate::assert_string(end_tag)
 
-  if (length(x) == 1 && checkmate::test_file_exists(x)) {
-    x <- readLines(x)
-  }
+  if (length(x) == 1 && checkmate::test_file_exists(x)) x <- readLines(x)
 
   begin_index <- grep(begin_tag, x = x)
   end_index <- grep(end_tag, x = x)
@@ -501,7 +499,7 @@ get_value_between_tags <- function(
 # library(checkmate)
 # library(cli)
 
-transform_value_between_tags <- function(
+change_value_between_tags <- function(
     x,
     value,
     begin_tag = "%:::% .common h1 begin %:::%",
@@ -511,9 +509,7 @@ transform_value_between_tags <- function(
   checkmate::assert_string(begin_tag)
   checkmate::assert_string(end_tag)
 
-  if (length(x) == 1 && checkmate::test_file_exists(x)) {
-    x <- readLines(x)
-  }
+  if (length(x) == 1 && checkmate::test_file_exists(x)) x <- readLines(x)
 
   begin_index <- grep(begin_tag, x = x)
   end_index <- grep(end_tag, x = x)
@@ -538,4 +534,109 @@ transform_value_between_tags <- function(
   x[seq(1, begin_index)] |>
     append(value) |>
     append(x[seq(end_index, length(x))])
+}
+
+# library(checkmate)
+# library(dplyr)
+# library(stringr)
+
+update_quarto_file <- function(from,
+                               to,
+                               begin_tag,
+                               end_tag,
+                               value,
+                               wd = here::here()) {
+  checkmate::assert_string(from)
+  checkmate::assert_file_exists(from, "r")
+  checkmate::assert_string(to)
+  checkmate::assert_file_exists(to, "rw")
+  checkmate::assert_string(begin_tag)
+  checkmate::assert_string(end_tag)
+  checkmate::assert_multi_class(
+    value, c("character", "function"), null.ok = TRUE
+    )
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
+
+  # nolint start: object_usage_linter.
+  from_format <- to_format  <- NULL
+  # nolint end
+
+  if (!identical(from, to) && is.null(value)) {
+    value <- get_value_between_tags(
+      x = from,
+      begin_tag = begin_tag,
+      end_tag = end_tag
+    )
+  }
+
+  if (stringr::str_detect(to, "\\.tex$")) {
+    for (i in c("from", "to")) {
+      assign(
+        paste0(i, "_format"),
+        dplyr::case_when(
+          grepl("\\.qmd$|\\.Rmd$|\\.md$", get(i), ignore.case = TRUE) ~
+            "markdown",
+          grepl("\\.tex$", get(i), ignore.case = TRUE) ~ "latex",
+          TRUE ~ "markdown"
+        )
+      )
+    }
+
+    value <- object_pandoc_convert(
+      x = value,
+      from = from_format,
+      to = to_format,
+      wd = wd
+    )
+  }
+
+  change_value_between_tags(
+    x = to,
+    value = value,
+    begin_tag = begin_tag,
+    end_tag = end_tag
+  )|>
+    writeLines(to)
+
+  invisible()
+}
+
+# library(checkmate)
+# library(rmarkdown)
+
+# object_pandoc_convert("Hello [World](https://www.teste.com.br/)")
+object_pandoc_convert <- function(x,
+                                  from = "markdown",
+                                  to = "latex",
+                                  citeproc = FALSE,
+                                  options = NULL,
+                                  verbose = FALSE,
+                                  wd = here::here()) {
+  checkmate::assert_character(x)
+  checkmate::assert_string(from, null.ok = TRUE)
+  checkmate::assert_string(to, null.ok = TRUE)
+  checkmate::assert_flag(citeproc)
+  checkmate::assert_character(options, null.ok = TRUE)
+  checkmate::assert_flag(verbose)
+  checkmate::assert_string(wd, null.ok = TRUE)
+  if (!is.null(wd)) checkmate::assert_directory_exists(wd)
+
+  in_file <- tempfile()
+  out_file <- tempfile()
+  writeLines(x, in_file)
+
+  rmarkdown::pandoc_convert(
+    input = in_file,
+    to = to,
+    from = from,
+    output = out_file,
+    citeproc = citeproc,
+    options = options,
+    verbose = verbose,
+    wd = wd
+  ) |>
+    shush()
+
+  readLines(out_file)
 }
