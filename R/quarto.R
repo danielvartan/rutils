@@ -452,7 +452,7 @@ find_between_tags_and_apply <- function(
     lapply(function(x) {
       change_value_between_tags(
         x = readLines(here::here(x)),
-        fun = fun,
+        value = fun,
         begin_tag = begin_tag,
         end_tag = end_tag
       ) |>
