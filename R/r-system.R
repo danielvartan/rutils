@@ -24,7 +24,8 @@ copy_file <- function(from,
     recursive = recursive,
     copy.mode = copy.mode,
     copy.date = copy.date
-  )
+  ) |>
+    shush()
 
   for (i in seq_along(status)) {
     if (isFALSE(status[i])) {
@@ -64,7 +65,7 @@ create_file <- function(file) {
     }
   }
 
-  status <- file.create(file, showWarnings = FALSE)
+  status <- file.create(file, showWarnings = FALSE) |> shush()
 
   for (i in seq_along(status)) {
     if (isFALSE(status[i])) {
@@ -89,7 +90,7 @@ delete_dir <- function(...) {
   checkmate::assert_directory_exists(unlist(list(...)))
 
   dir <- unlist(list(...))
-  status <- suppressWarnings(unlink(dir, recursive = TRUE))
+  status <- unlink(dir, recursive = TRUE) |> shush()
 
   for (i in seq_along(status)) {
     if (status[i] == 1) {
@@ -112,7 +113,7 @@ delete_file <- function(...) {
   checkmate::assert_file_exists(unlist(list(...)))
 
   file <- unlist(list(...))
-  status <- suppressWarnings(file.remove(...))
+  status <- suppressWarnings(file.remove(...)) |> shush()
 
   for (i in seq_along(status)) {
     if (isFALSE(status[i])) {
@@ -204,7 +205,7 @@ rename_file <- function(from, to) {
   checkmate::assert_character(from)
   checkmate::assert_file_exists(from)
 
-  status <- file.rename(from, to)
+  status <- file.rename(from, to) |> shush()
 
   for (i in seq_along(status)) {
     if (isFALSE(status[i])) {

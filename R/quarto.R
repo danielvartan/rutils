@@ -428,8 +428,8 @@ find_between_tags_and_apply <- function(wd = here::here(),
                                         dir = c("", "qmd"),
                                         pattern = "\\.qmd$",
                                         ignore = "^_",
-                                        begin_tag = "&&& title begin &&&",
-                                        end_tag = "&&& title end &&&",
+                                        begin_tag = "%:::% title begin %:::%",
+                                        end_tag = "%:::% title end %:::%",
                                         fun = stringr::str_to_upper) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd, access = "rw")
@@ -448,13 +448,15 @@ find_between_tags_and_apply <- function(wd = here::here(),
     ignore = ignore
   ) |>
     lapply(function(x) {
-      new_content <- transform_value_between_tags(
+      transform_value_between_tags(
         x = readLines(here::here(x)),
         fun = fun,
         begin_tag = begin_tag,
         end_tag = end_tag
       ) |>
         writeLines(x)
+
+      invisible()
     })
 
   invisible()
@@ -465,15 +467,15 @@ find_between_tags_and_apply <- function(wd = here::here(),
 
 transform_value_between_tags <- function(x,
                                          fun,
-                                         begin_tag = "&&& title begin &&&$",
-                                         end_tag = "&&& title end &&&") {
+                                         begin_tag = "%:::% title begin %:::%$",
+                                         end_tag = "%:::% title end %:::%") {
   checkmate::assert_character(x)
   checkmate::assert_multi_class(fun, c("character", "function"))
   checkmate::assert_string(begin_tag)
   checkmate::assert_string(end_tag)
 
-  begin_index <- grep("&&& title begin &&&", x = x)
-  end_index <- grep("&&& title end &&&", x = x)
+  begin_index <- grep(begin_tag, x = x)
+  end_index <- grep(end_tag, x = x)
 
   if (length(begin_index) == 0 || length(end_index) == 0) {
     cli::cli_abort("One or both of the tags were not found.")
