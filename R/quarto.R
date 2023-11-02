@@ -545,7 +545,8 @@ update_quarto_file <- function(from,
                                begin_tag,
                                end_tag,
                                value,
-                               wd = here::here()) {
+                               wd = here::here(),
+                               pandoc_convert = TRUE) {
   checkmate::assert_string(from)
   checkmate::assert_file_exists(from, "r")
   checkmate::assert_string(to)
@@ -557,6 +558,7 @@ update_quarto_file <- function(from,
     )
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
+  checkmate::assert_flag(pandoc_convert)
 
   # nolint start: object_usage_linter.
   from_format <- to_format  <- NULL
@@ -570,7 +572,7 @@ update_quarto_file <- function(from,
     )
   }
 
-  if (stringr::str_detect(to, "\\.tex$")) {
+  if (isTRUE(pandoc_convert) && stringr::str_detect(to, "\\.tex$")) {
     for (i in c("from", "to")) {
       assign(
         paste0(i, "_format"),
@@ -640,3 +642,105 @@ object_pandoc_convert <- function(x,
 
   readLines(out_file)
 }
+
+# library(checkmate)
+# library(cli)
+# library(stringr)
+
+check_missing_dollar_sign <- function(file) {
+  checkmate::assert_file_exists(file)
+
+  data <- file |> readLines()
+
+  out <- character()
+
+  for (i in seq_along(data)) {
+    signs <-
+      data[i] |>
+      stringr::str_extract_all("\\$") |>
+      unlist()
+
+    if (!length(signs) %% 2 == 0) {
+      out <- out |> append(i)
+
+      cli::cli_alert_warning(paste0(
+        "A missing dollar sign was found in line ",
+        "{.strong {cli::col_red(i)}}."
+      ))
+    }
+  }
+
+  out
+}
+
+# library(checkmate)
+# library(cli)
+# library(stringr)
+
+check_missing_dollar_signs_in_dir <- function(
+    wd = here::here("_extensions"),
+    dir = c("", "tex"),
+    pattern = "\\.tex$",
+    ignore = NULL) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+
+  files <- dir |>
+    lapply(function(x) {
+      setdiff(
+        list.files(file.path(wd, x), full.names = TRUE),
+        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
+      ) |>
+        stringr::str_subset(pattern)
+    }) |>
+    unlist()
+
+  if (!is.null(ignore)) {
+    files <- files |> stringr::str_subset(ignore, negate = TRUE)
+  } else {
+    files
+  }
+
+  for (i in files) {
+    test <- shush(check_missing_dollar_sign(i))
+
+    if (!length(test) == 0) {
+      cli::cli_h1(paste0("File ", basename(i)))
+      check_missing_dollar_sign(i)
+    }
+  }
+
+  invisible()
+}
+
+# quarto::quarto_render(
+#   input = here::here("index.tex"),
+#   output_format = "pdf",
+#   output_file = here::here("pdf", "index-test.pdf"),
+#   execute = TRUE,
+#   execute_params = NULL,
+#   execute_dir = NULL,
+#   execute_daemon = NULL,
+#   execute_daemon_restart = FALSE,
+#   execute_debug = FALSE,
+#   use_freezer = FALSE,
+#   cache = NULL,
+#   cache_refresh = FALSE,
+#   debug = FALSE,
+#   quiet = FALSE,
+#   pandoc_args = NULL,
+#   as_job = getOption("quarto.render_as_job", "auto")
+# )
+#
+# tools::texi2pdf(
+#   file = here::here("index.tex"),
+#   clean = TRUE,
+#   quiet = TRUE,
+#   texi2dvi = "latex.exe",
+#   texinputs = NULL,
+#   index = TRUE
+# )
