@@ -133,3 +133,14 @@ get_file_name_without_ext <- function(file_path) {
       stringr::str_replace(paste0("\\", ext, "$"), "")
   }
 }
+
+extract_initials <- function(x, sep = ". ") {
+  checkmate::assert_string(x)
+
+  if (!grepl(" ", x)) {
+    substr(x, 1, 1)
+  } else {
+    x <- gsub("(?<=[A-Z])[^A-Z]+", sep, x, perl = TRUE)
+    trimws(x)
+  }
+}

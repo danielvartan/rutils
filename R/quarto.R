@@ -3,16 +3,16 @@
 # library(rbbt)
 # library(stringr)
 
-bbt_scan_citation_keys <- function(wd = here::here(),
-                                   dir = c("", "qmd", "tex"),
+bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
                                    pattern = "\\.qmd$|\\.tex$",
-                                   ignore = NULL) {
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
+                                   ignore = NULL,
+                                   wd = here::here()) {
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
 
   bbt_types <- c(
     "article", "booklet", "conference", "inbook", "incollection",
@@ -47,25 +47,25 @@ bbt_scan_citation_keys <- function(wd = here::here(),
 # library(here)
 # library(rbbt)
 
-bbt_write_quarto_bib <- function(wd = here::here(),
-                                 bib_file = "references.json",
+bbt_write_quarto_bib <- function(bib_file = "references.json",
                                  dir = c("", "qmd", "tex"),
                                  pattern = "\\.qmd$|\\.tex$",
-                                 ignore = NULL) {
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
+                                 ignore = NULL,
+                                 wd = here::here()) {
   checkmate::assert_string(bib_file)
   checkmate::assert_path_for_output(bib_file, overwrite = TRUE)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
 
   keys <- bbt_scan_citation_keys(
-    wd = wd,
     dir = dir,
     pattern = pattern,
-    ignore = ignore
+    ignore = ignore,
+    wd = wd
   )
 
   rbbt::bbt_write_bib(
@@ -116,10 +116,10 @@ set_quarto_speel_check <- function(wd = here::here()) {
 # library(spelling)
 # library(stringr)
 
-gather_words_from_spell_check <- function(wd = here::here(),
-                                          dir = c("", "qmd", "tex"),
+gather_words_from_spell_check <- function(dir = c("", "qmd", "tex"),
                                           pattern = "\\.qmd$|\\.Rmd$|\\.tex$",
-                                          ignore = NULL) {
+                                          ignore = NULL,
+                                          wd = here::here()) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
@@ -164,11 +164,11 @@ gather_words_from_spell_check <- function(wd = here::here(),
 # library(dplyr)
 # library(here)
 
-spell_check_quarto <- function(wd = here::here(),
-                               dir = c("", "qmd", "tex"),
+spell_check_quarto <- function(dir = c("", "qmd", "tex"),
                                pattern = c("\\.qmd$|\\.Rmd$|\\.tex$"),
                                ignore = NULL,
-                               wordlist = "WORDLIST") {
+                               wordlist = "WORDLIST",
+                               wd = here::here()) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
@@ -222,19 +222,19 @@ spell_check_quarto <- function(wd = here::here(),
 # library(here)
 # library(magrittr)
 
-update_quarto_wordlist <- function(wd = here::here(),
-                                   dir = c("", "qmd", "tex"),
+update_quarto_wordlist <- function(dir = c("", "qmd", "tex"),
                                    pattern = c("\\.qmd$|\\.Rmd$|\\.tex$"),
                                    ignore = NULL,
-                                   wordlist = "WORDLIST") {
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
+                                   wordlist = "WORDLIST",
+                                   wd = here::here()) {
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
   checkmate::assert_string(wordlist, null.ok = TRUE)
   checkmate::assert_file_exists(file.path(wd, wordlist), "r")
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
 
   words <-
     gather_words_from_spell_check(
@@ -302,34 +302,21 @@ update_quarto_wordlist <- function(wd = here::here(),
 # library(here, quietly = TRUE)
 # library(yaml, quietly = TRUE)
 
-clean_quarto_mess <- function(wd = here::here(),
-                              file = NULL,
-                              dir = c(".temp"),
-                              ext = c("aux", "cls", "loa", "log", "pdf", "tex"),
+clean_quarto_mess <- function(file = NULL,
+                              dir = NULL,
+                              ext = c("aux", "cls", "loa", "log"),
                               keep = NULL,
-                              quarto_yaml = NULL) {
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
+                              wd = here::here()) {
   checkmate::assert_character(file, null.ok = TRUE)
   checkmate::assert_character(dir, null.ok = TRUE)
   checkmate::assert_character(ext, null.ok = TRUE)
   checkmate::assert_character(keep, null.ok = TRUE)
-  checkmate::assert_string(quarto_yaml, null.ok = TRUE)
-
-  if (!is.null(quarto_yaml)) {
-    checkmate::assert_file_exists(quarto_yaml, access = "r", extension = "yml")
-    quarto_vars <- yaml::read_yaml("_quarto.yml")
-
-    if (isTRUE(quarto_vars$format$`tesesusp-pdf`$`keep-tex`)) {
-      keep <-
-        keep |>
-        append(list.files(wd, full.names = TRUE, pattern = ".tex$"))
-    }
-  }
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
 
   ext_files <- list.files(
     wd,
-    pattern = paste0("\\.", ext[!ext %in% keep], "$", collapse = "|")
+    pattern = paste0("\\.", ext, "$", collapse = "|")
   )
 
   if (!length(ext_files) == 0) file <- file |> append(ext_files)
@@ -346,7 +333,7 @@ clean_quarto_mess <- function(wd = here::here(),
     }
   }
 
-  invisible(NULL)
+  invisible()
 }
 
 # library(cli, quietly = TRUE)
@@ -450,7 +437,7 @@ find_between_tags_and_apply <- function(
     ignore = ignore
   ) |>
     lapply(function(x) {
-      change_value_between_tags(
+      swap_value_between_tags(
         x = readLines(here::here(x)),
         value = fun,
         begin_tag = begin_tag,
@@ -499,7 +486,7 @@ get_value_between_tags <- function(
 # library(checkmate)
 # library(cli)
 
-change_value_between_tags <- function(
+swap_value_between_tags <- function(
     x,
     value,
     begin_tag = "%:::% .common h1 begin %:::%",
@@ -540,13 +527,13 @@ change_value_between_tags <- function(
 # library(dplyr)
 # library(stringr)
 
-update_quarto_file <- function(from,
-                               to,
-                               begin_tag,
-                               end_tag,
-                               value,
-                               wd = here::here(),
-                               pandoc_convert = TRUE) {
+swap_value_between_files <- function(from,
+                                     to = from,
+                                     begin_tag,
+                                     end_tag,
+                                     value,
+                                     quarto_render = FALSE,
+                                     cite_method = "biblatex") {
   checkmate::assert_string(from)
   checkmate::assert_file_exists(from, "r")
   checkmate::assert_string(to)
@@ -556,9 +543,8 @@ update_quarto_file <- function(from,
   checkmate::assert_multi_class(
     value, c("character", "function"), null.ok = TRUE
     )
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
-  checkmate::assert_flag(pandoc_convert)
+  checkmate::assert_flag(quarto_render)
+  checkmate::assert_choice(cite_method, c("citeproc", "biblatex", "natbib"))
 
   # nolint start: object_usage_linter.
   from_format <- to_format  <- NULL
@@ -572,28 +558,17 @@ update_quarto_file <- function(from,
     )
   }
 
-  if (isTRUE(pandoc_convert) && stringr::str_detect(to, "\\.tex$")) {
-    for (i in c("from", "to")) {
-      assign(
-        paste0(i, "_format"),
-        dplyr::case_when(
-          grepl("\\.qmd$|\\.Rmd$|\\.md$", get(i), ignore.case = TRUE) ~
-            "markdown",
-          grepl("\\.tex$", get(i), ignore.case = TRUE) ~ "latex",
-          TRUE ~ "markdown"
-        )
-      )
-    }
-
-    value <- object_pandoc_convert(
+  if (isTRUE(quarto_render) &&
+      stringr::str_detect(from, "\\.tex$", negate = TRUE) &&
+      stringr::str_detect(to, "\\.tex$")) {
+    value <- object_quarto_render(
       x = value,
-      from = from_format,
-      to = to_format,
-      wd = wd
+      output_format = "latex",
+      cite_method = "biblatex"
     )
   }
 
-  change_value_between_tags(
+  swap_value_between_tags(
     x = to,
     value = value,
     begin_tag = begin_tag,
@@ -605,6 +580,59 @@ update_quarto_file <- function(from,
 }
 
 # library(checkmate)
+# library(quarto)
+
+# object_quarto_render("Hello [World](http://www.test.com). @test")
+object_quarto_render <- function(x,
+                                 output_format = "latex",
+                                 cite_method = "biblatex") {
+  checkmate::assert_character(x, min.len = 1)
+  checkmate::assert_choice(output_format, c("html", "latex"))
+  checkmate::assert_choice(cite_method, c("citeproc", "biblatex", "natbib"))
+
+  ext <- switch(
+    output_format,
+    html = ".html",
+    latex = ".tex"
+  )
+
+  in_file <- tempfile(fileext = ".qmd")
+  out_file <- file.path(
+    dirname(in_file),
+    paste0(get_file_name_without_ext(in_file), ext)
+    )
+
+  fake_content <- c(
+    "---",
+    "format:",
+    paste0("  ", output_format, ":"),
+    paste0("    cite-method: ", cite_method),
+    "---",
+    "",
+    "# Placeholder",
+    "",
+    "```{=latex}",
+    "%:::% clip start %:::%",
+    "```",
+    "",
+    x,
+    "",
+    "```{=latex}",
+    "%:::% clip end %:::%",
+    "```"
+  )
+
+  writeLines(fake_content, in_file)
+  quarto::quarto_render(input = in_file, quiet = TRUE)
+
+  get_value_between_tags(
+    x = readLines(out_file),
+    begin_tag = "%:::% clip start %:::%",
+    end_tag = "%:::% clip end %:::%"
+  )
+}
+
+# library(checkmate)
 # library(rmarkdown)
 
 # object_pandoc_convert("Hello [World](https://www.teste.com.br/)")
@@ -613,16 +641,13 @@ object_pandoc_convert <- function(x,
                                   to = "latex",
                                   citeproc = FALSE,
                                   options = NULL,
-                                  verbose = FALSE,
-                                  wd = here::here()) {
+                                  verbose = FALSE) {
   checkmate::assert_character(x)
   checkmate::assert_string(from, null.ok = TRUE)
   checkmate::assert_string(to, null.ok = TRUE)
   checkmate::assert_flag(citeproc)
   checkmate::assert_character(options, null.ok = TRUE)
   checkmate::assert_flag(verbose)
-  checkmate::assert_string(wd, null.ok = TRUE)
-  if (!is.null(wd)) checkmate::assert_directory_exists(wd)
 
   in_file <- tempfile()
   out_file <- tempfile()
@@ -636,7 +661,7 @@ object_pandoc_convert <- function(x,
     citeproc = citeproc,
     options = options,
     verbose = verbose,
-    wd = wd
+    wd = tempdir()
   ) |>
     shush()
 
@@ -644,11 +669,24 @@ object_pandoc_convert <- function(x,
 }
 
 # library(checkmate)
+# library(stringr)
+
+convert_quarto_ref_to_latex <- function(x) {
+  checkmate::assert_character(x, min.len = 1)
+
+  stringr::str_replace_all(
+    x,
+    "@.+",
+    ~ paste0("\\textcite{", substring(.x, 2), "}")
+  )
+}
+
+# library(checkmate)
 # library(cli)
 # library(stringr)
 
-check_missing_dollar_sign <- function(file) {
-  checkmate::assert_file_exists(file)
+check_missing_dollar_signs <- function(file) {
+  checkmate::assert_file_exists(file, "r")
 
   data <- file |> readLines()
 
@@ -678,22 +716,19 @@ check_missing_dollar_sign <- function(file) {
 # library(stringr)
 
 check_missing_dollar_signs_in_dir <- function(
-    wd = here::here("_extensions"),
-    dir = c("", "tex"),
+    dir = c(here::here("_extensions"), here::here("_extensions", "tex")),
     pattern = "\\.tex$",
     ignore = NULL) {
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
-  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  for (i in dir) checkmate::assert_directory_exists(i, "r")
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
 
   files <- dir |>
     lapply(function(x) {
       setdiff(
-        list.files(file.path(wd, x), full.names = TRUE),
-        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
+        list.files(x, full.names = TRUE),
+        list.dirs(x, recursive = FALSE, full.names = TRUE)
       ) |>
         stringr::str_subset(pattern)
     }) |>
@@ -706,41 +741,32 @@ check_missing_dollar_signs_in_dir <- function(
   }
 
   for (i in files) {
-    test <- shush(check_missing_dollar_sign(i))
+    test <- shush(check_missing_dollar_signs(i))
 
     if (!length(test) == 0) {
       cli::cli_h1(paste0("File ", basename(i)))
-      check_missing_dollar_sign(i)
+      check_missing_dollar_signs(i)
     }
   }
 
   invisible()
 }
 
-# quarto::quarto_render(
-#   input = here::here("index.tex"),
-#   output_format = "pdf",
-#   output_file = here::here("pdf", "index-test.pdf"),
-#   execute = TRUE,
-#   execute_params = NULL,
-#   execute_dir = NULL,
-#   execute_daemon = NULL,
-#   execute_daemon_restart = FALSE,
-#   execute_debug = FALSE,
-#   use_freezer = FALSE,
-#   cache = NULL,
-#   cache_refresh = FALSE,
-#   debug = FALSE,
-#   quiet = FALSE,
-#   pandoc_args = NULL,
-#   as_job = getOption("quarto.render_as_job", "auto")
-# )
-#
-# tools::texi2pdf(
-#   file = here::here("index.tex"),
-#   clean = TRUE,
-#   quiet = TRUE,
-#   texi2dvi = "latex.exe",
-#   texinputs = NULL,
-#   index = TRUE
-# )
+# library(checkmate)
+
+unfreeze_quarto_file <- function(file) {
+  checkmate::assert_file_exists(file, "rw")
+
+  unfreeze_tag <- "<!-- %:::% unfreeze-tag %:::% -->"
+  data <- readLines(file)
+
+  if (data[1] == unfreeze_tag) {
+    data <- data[-1]
+  } else {
+    data <- append(data, unfreeze_tag, 0)
+  }
+
+  data |> writeLines(file)
+
+  invisible()
+}
