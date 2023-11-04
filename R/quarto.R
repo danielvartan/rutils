@@ -7,12 +7,12 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
                                    pattern = "\\.qmd$|\\.tex$",
                                    ignore = NULL,
                                    wd = here::here()) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
 
   bbt_types <- c(
     "article", "booklet", "conference", "inbook", "incollection",
@@ -52,14 +52,14 @@ bbt_write_quarto_bib <- function(bib_file = "references.json",
                                  pattern = "\\.qmd$|\\.tex$",
                                  ignore = NULL,
                                  wd = here::here()) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_string(bib_file)
   checkmate::assert_path_for_output(bib_file, overwrite = TRUE)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
 
   keys <- bbt_scan_citation_keys(
     dir = dir,
@@ -111,6 +111,38 @@ set_quarto_speel_check <- function(wd = here::here()) {
 }
 
 # library(checkmate)
+# library(here)
+# library(stringr)
+
+list_quarto_files <- function(dir = c("", "qmd"),
+                              pattern = "\\.qmd$",
+                              ignore = NULL,
+                              wd = here::here()) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_string(pattern)
+  checkmate::assert_string(ignore, null.ok = TRUE)
+
+  out <- dir |>
+    lapply(function(x) {
+      setdiff(
+        list.files(file.path(wd, x), full.names = TRUE),
+        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
+      ) |>
+        stringr::str_subset(pattern)
+    }) |>
+    unlist()
+
+  if (!is.null(ignore)) {
+    out |> stringr::str_subset(ignore, negate = TRUE)
+  } else {
+    out
+  }
+}
+
+# library(checkmate)
 # library(dplyr)
 # library(here)
 # library(spelling)
@@ -133,30 +165,23 @@ gather_words_from_spell_check <- function(dir = c("", "qmd", "tex"),
   # nolint end
 
   files <- list_quarto_files(
-    wd = wd,
     dir = dir,
     pattern = pattern,
-    ignore = ignore
+    ignore = ignore,
+    wd = wd
   )
 
   bbt_citations <-
     bbt_scan_citation_keys(
-      wd = wd,
       dir = dir,
       pattern = pattern,
-      ignore = NULL
+      ignore = NULL,
+      wd = wd
     )
 
-  out <-
-    files |>
+  files |>
     spelling::spell_check_files() |>
     dplyr::filter(!word %in% bbt_citations,!word == "")
-
-  if (!is.null(ignore)) {
-    out |> dplyr::filter(stringr::str_detect(word, ignore, negate = TRUE))
-  } else {
-    out
-  }
 }
 
 # library(checkmate)
@@ -183,10 +208,10 @@ spell_check_quarto <- function(dir = c("", "qmd", "tex"),
   # nolint end
 
   out <- gather_words_from_spell_check(
-    wd = wd,
     dir = dir,
     pattern = pattern,
-    ignore = ignore
+    ignore = ignore,
+    wd = wd
   )
 
   if (!is.null(wordlist)) {
@@ -227,21 +252,21 @@ update_quarto_wordlist <- function(dir = c("", "qmd", "tex"),
                                    ignore = NULL,
                                    wordlist = "WORDLIST",
                                    wd = here::here()) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
   checkmate::assert_string(wordlist, null.ok = TRUE)
   checkmate::assert_file_exists(file.path(wd, wordlist), "r")
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
 
   words <-
     gather_words_from_spell_check(
-      wd = wd,
       dir = dir,
       pattern = pattern,
-      ignore = ignore
+      ignore = ignore,
+      wd = wd
     )|>
     magrittr::extract2("word")
 
@@ -288,11 +313,7 @@ update_quarto_wordlist <- function(dir = c("", "qmd", "tex"),
       writeLines(sort(words), wordlist)
     }
   } else {
-    cli::cli_alert_info(
-      paste0(
-        "No spelling errors were found. Good job! \U0001F389"
-      )
-    )
+    cli::cli_alert_info("No spelling errors were found. Good job! \U0001F389")
   }
 
   invisible()
@@ -305,14 +326,16 @@ update_quarto_wordlist <- function(dir = c("", "qmd", "tex"),
 clean_quarto_mess <- function(file = NULL,
                               dir = NULL,
                               ext = c("aux", "cls", "loa", "log"),
-                              keep = NULL,
+                              ignore = NULL,
                               wd = here::here()) {
-  checkmate::assert_character(file, null.ok = TRUE)
-  checkmate::assert_character(dir, null.ok = TRUE)
-  checkmate::assert_character(ext, null.ok = TRUE)
-  checkmate::assert_character(keep, null.ok = TRUE)
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
+  checkmate::assert_character(file, null.ok = TRUE)
+  for (i in dir) checkmate::assert_file_exists(file.path(wd, i))
+  checkmate::assert_character(dir)
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
+  checkmate::assert_character(ext, null.ok = TRUE)
+  checkmate::assert_character(ignore, null.ok = TRUE)
 
   ext_files <- list.files(
     wd,
@@ -321,13 +344,13 @@ clean_quarto_mess <- function(file = NULL,
 
   if (!length(ext_files) == 0) file <- file |> append(ext_files)
 
-  for (i in file[!file %in% keep]) {
+  for (i in file[!file %in% ignore]) {
     if (checkmate::test_file_exists(file.path(wd, i))) {
       delete_file(i)
     }
   }
 
-  for (i in dir[!dir %in% keep]) {
+  for (i in dir[!dir %in% ignore]) {
     if (checkmate::test_directory_exists(file.path(wd, i))) {
       delete_dir(i)
     }
@@ -338,7 +361,7 @@ clean_quarto_mess <- function(file = NULL,
 
 # library(cli, quietly = TRUE)
 
-# use '#| output: asis'
+# Use '#| output: asis'
 # Credits: <https://github.com/hadley/r4ds/blob/main/_common.R>.
 quarto_status <- function(type) {
   status <- switch(
@@ -379,46 +402,14 @@ quarto_status <- function(type) {
 # library(here)
 # library(stringr)
 
-list_quarto_files <- function(wd = here::here(),
-                              dir = c("", "qmd"),
-                              pattern = "\\.qmd$",
-                              ignore = NULL) {
-  checkmate::assert_string(wd)
-  checkmate::assert_directory_exists(wd)
-  checkmate::assert_character(dir)
-  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
-  checkmate::assert_string(pattern)
-  checkmate::assert_string(ignore, null.ok = TRUE)
-
-  out <- dir |>
-    lapply(function(x) {
-      setdiff(
-        list.files(file.path(wd, x), full.names = TRUE),
-        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
-      ) |>
-        stringr::str_subset(pattern)
-    }) |>
-    unlist()
-
-  if (!is.null(ignore)) {
-    out[stringr::str_detect(basename(out), "^_", negate = TRUE)]
-  } else {
-    out
-  }
-}
-
-# library(checkmate)
-# library(here)
-# library(stringr)
-
-find_between_tags_and_apply <- function(
-    wd = here::here(),
+apply_on_value_between_tags <- function(
     dir = c("", "qmd"),
     pattern = "\\.qmd$",
     ignore = "^_",
     begin_tag = "%:::% .common h1 begin %:::%",
     end_tag = "%:::% .common h1 end %:::%",
-    fun = stringr::str_to_upper
+    fun = stringr::str_to_upper,
+    wd = here::here()
     ) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
@@ -431,10 +422,10 @@ find_between_tags_and_apply <- function(
   checkmate::assert_function(fun)
 
   list_quarto_files(
-    wd = wd,
     dir = dir,
     pattern = pattern,
-    ignore = ignore
+    ignore = ignore,
+    wd = wd
   ) |>
     lapply(function(x) {
       swap_value_between_tags(
@@ -602,6 +593,14 @@ object_quarto_render <- function(x,
     paste0(get_file_name_without_ext(in_file), ext)
     )
 
+  if (output_format == "latex") {
+    begin_tag <- "%:::% clip start %:::%"
+    end_tag <- "%:::% clip end %:::%"
+  } else {
+    begin_tag <- "<-- %:::% clip start %:::% -->"
+    end_tag <- "<--%:::% clip end %:::% -->"
+  }
+
   fake_content <- c(
     "---",
     "format:",
@@ -611,15 +610,15 @@ object_quarto_render <- function(x,
     "",
     "# Placeholder",
     "",
-    "```{=latex}",
-    "%:::% clip start %:::%",
-    "```",
+    ifelse(output_format == "latex", "```{=latex}", ""),
+    begin_tag,
+    ifelse(output_format == "latex", "```", ""),
     "",
     x,
     "",
-    "```{=latex}",
-    "%:::% clip end %:::%",
-    "```"
+    ifelse(output_format == "latex", "```{=latex}", ""),
+    end_tag,
+    ifelse(output_format == "latex", "```", "")
   )
 
   writeLines(fake_content, in_file)
@@ -627,8 +626,8 @@ object_quarto_render <- function(x,
 
   get_value_between_tags(
     x = readLines(out_file),
-    begin_tag = "%:::% clip start %:::%",
-    end_tag = "%:::% clip end %:::%"
+    begin_tag = begin_tag,
+    end_tag = end_tag
   )
 }
 
@@ -689,7 +688,6 @@ check_missing_dollar_signs <- function(file) {
   checkmate::assert_file_exists(file, "r")
 
   data <- file |> readLines()
-
   out <- character()
 
   for (i in seq_along(data)) {
@@ -702,7 +700,7 @@ check_missing_dollar_signs <- function(file) {
       out <- out |> append(i)
 
       cli::cli_alert_warning(paste0(
-        "A missing dollar sign was found in line ",
+        "A missing dollar sign was found on line ",
         "{.strong {cli::col_red(i)}}."
       ))
     }
@@ -716,19 +714,22 @@ check_missing_dollar_signs <- function(file) {
 # library(stringr)
 
 check_missing_dollar_signs_in_dir <- function(
-    dir = c(here::here("_extensions"), here::here("_extensions", "tex")),
+    dir = c("_extensions", "_extensions/tex"),
     pattern = "\\.tex$",
-    ignore = NULL) {
+    ignore = NULL,
+    wd = here::here()) {
+  checkmate::assert_string(wd)
+  checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
-  for (i in dir) checkmate::assert_directory_exists(i, "r")
+  for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
 
   files <- dir |>
     lapply(function(x) {
       setdiff(
-        list.files(x, full.names = TRUE),
-        list.dirs(x, recursive = FALSE, full.names = TRUE)
+        list.files(file.path(wd, x), full.names = TRUE),
+        list.dirs(file.path(wd, x), recursive = FALSE, full.names = TRUE)
       ) |>
         stringr::str_subset(pattern)
     }) |>
@@ -754,10 +755,13 @@ check_missing_dollar_signs_in_dir <- function(
 
 # library(checkmate)
 
-unfreeze_quarto_file <- function(file) {
+unfreeze_quarto_file <- function(
+    file,
+    unfreeze_tag = "<!-- %:::% unfreeze-tag %:::% -->"
+    ) {
   checkmate::assert_file_exists(file, "rw")
+  checkmate::assert_string(unfreeze_tag)
 
-  unfreeze_tag <- "<!-- %:::% unfreeze-tag %:::% -->"
   data <- readLines(file)
 
   if (data[1] == unfreeze_tag) {
