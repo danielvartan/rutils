@@ -324,14 +324,14 @@ update_quarto_wordlist <- function(dir = c("", "qmd", "tex"),
 # library(yaml, quietly = TRUE)
 
 clean_quarto_mess <- function(file = NULL,
-                              dir = NULL,
+                              dir = c(""),
                               ext = c("aux", "cls", "loa", "log"),
                               ignore = NULL,
                               wd = here::here()) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
   checkmate::assert_character(file, null.ok = TRUE)
-  for (i in dir) checkmate::assert_file_exists(file.path(wd, i))
+  for (i in file) checkmate::assert_file_exists(file.path(wd, i))
   checkmate::assert_character(dir)
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_character(ext, null.ok = TRUE)
