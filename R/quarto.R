@@ -47,11 +47,18 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
 # library(here)
 # library(rbbt)
 
-bbt_write_quarto_bib <- function(bib_file = "references.json",
-                                 dir = c("", "qmd", "tex"),
-                                 pattern = "\\.qmd$|\\.tex$",
-                                 ignore = NULL,
-                                 wd = here::here()) {
+bbt_write_quarto_bib <- function(
+    bib_file = "references.json",
+    dir = c("", "qmd", "tex"),
+    pattern = "\\.qmd$|\\.tex$",
+    ignore = NULL,
+    translator = rbbt::bbt_guess_translator(bib_file),
+    library_id = getOption("rbbt.default.library_id", 1),
+    overwrite = TRUE,
+    filter = identity,
+    wd = here::here()) {
+  translator_choices <- c("json", "biblatex", "bibtex", "yaml")
+
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
   checkmate::assert_string(bib_file)
@@ -60,6 +67,10 @@ bbt_write_quarto_bib <- function(bib_file = "references.json",
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
+  checkmate::assert_choice(translator, translator_choices)
+  checkmate::assert_string(library_id)
+  checkmate::assert_flag(overwrite)
+  checkmate::assert_function(filter)
 
   keys <- bbt_scan_citation_keys(
     dir = dir,
@@ -71,7 +82,10 @@ bbt_write_quarto_bib <- function(bib_file = "references.json",
   rbbt::bbt_write_bib(
     path = bib_file,
     keys = keys,
-    overwrite = TRUE
+    translator = translator,
+    library_id = library_id,
+    overwrite = overwrite,
+    filter = filter
   )
 
   invisible()
@@ -361,11 +375,15 @@ clean_quarto_mess <- function(file = NULL,
   invisible()
 }
 
+# library(checkmate)
 # library(cli, quietly = TRUE)
 
 # Use '#| output: asis'
 # Credits: <https://github.com/hadley/r4ds/blob/main/_common.R>.
-quarto_status <- function(type) {
+quarto_status <- function(type, of_what = "of this thesis") {
+  checkmate::assert_string(type)
+  checkmate::assert_string(of_what)
+
   status <- switch(
     type,
     polishing = paste0(
@@ -393,7 +411,7 @@ quarto_status <- function(type) {
   cat(paste0(
     "\n",
     "::: {.callout-", class, "}", "\n",
-    "You are reading the work-in-progress of this thesis.", " ",
+    "You are reading the work-in-progress ", of_what, ". ",
     "This chapter ", status, ".", "\n",
     ":::",
     "\n"
