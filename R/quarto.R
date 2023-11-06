@@ -383,9 +383,12 @@ clean_quarto_mess <- function(file = NULL,
 
 # Use '#| output: asis'
 # Credits: <https://github.com/hadley/r4ds/blob/main/_common.R>.
-quarto_status <- function(type, of_what = "of this thesis") {
+quarto_status <- function(type,
+                          of_what = "of this book",
+                          latex_parskip = NULL) {
   checkmate::assert_string(type)
   checkmate::assert_string(of_what)
+  checkmate::assert_string(latex_parskip, null.ok = TRUE)
 
   status <- switch(
     type,
@@ -411,10 +414,17 @@ quarto_status <- function(type, of_what = "of this thesis") {
     complete = "note"
   )
 
+  if (!is.null(latex_parskip)) {
+    latex_parskip <- paste0("\n", latex_parskip, "\n\n")
+  } else {
+    latex_parskip <- ""
+  }
+
   cat(paste0(
     "\n",
     "::: {.callout-", class, "}", "\n",
-    "You are reading the work-in-progress ", of_what, ". ",
+    "You are reading the work-in-progress ", of_what, ".\n",
+    latex_parskip,
     "This chapter ", status, ".", "\n",
     ":::",
     "\n"
