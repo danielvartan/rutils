@@ -1,11 +1,13 @@
 # library(checkmate)
 # library(here)
 # library(rbbt)
+# library(readr)
 # library(stringr)
 
 bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
                                    pattern = "\\.qmd$|\\.tex$",
                                    ignore = NULL,
+                                   locale = readr::default_locale(),
                                    wd = here::here()) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
@@ -13,6 +15,7 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
   for (i in dir) checkmate::assert_directory_exists(file.path(wd, i))
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
+  checkmate::assert_class(locale, "locale")
 
   bbt_types <- c(
     "article", "booklet", "conference", "inbook", "incollection",
@@ -29,7 +32,7 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
         stringr::str_subset(pattern)
     }) |>
     unlist() |>
-    rbbt::bbt_detect_citations() |>
+    rbbt::bbt_detect_citations(locale = locale) |>
     sort()
 
   out <-
@@ -68,7 +71,7 @@ bbt_write_quarto_bib <- function(
   checkmate::assert_string(pattern)
   checkmate::assert_string(ignore, null.ok = TRUE)
   checkmate::assert_choice(translator, translator_choices)
-  checkmate::assert_string(library_id)
+  checkmate::assert_number(library_id)
   checkmate::assert_flag(overwrite)
   checkmate::assert_function(filter)
 
