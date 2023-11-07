@@ -23,6 +23,8 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
     "proceedings", "techreport", "unpublished"
   )
 
+  quarto_types <- c("fig-", "tbl-", "lst-")
+
   out <- dir |>
     lapply(function(x) {
       setdiff(
@@ -37,6 +39,7 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
 
   out <-
     out[!out %in% bbt_types] |>
+    out[!out %in% quarto_types] |>
     stringr::str_subset("^fig-|^sec-", negate = TRUE)
 
   if (!is.null(ignore)) {
