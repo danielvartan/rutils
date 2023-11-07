@@ -38,8 +38,7 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
     sort()
 
   out <-
-    out[!out %in% bbt_types] |>
-    out[!out %in% quarto_types] |>
+    out[!out %in% c(bbt_types, quarto_types)] |>
     stringr::str_subset("^fig-|^sec-", negate = TRUE)
 
   if (!is.null(ignore)) {
