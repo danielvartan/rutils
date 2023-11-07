@@ -23,7 +23,10 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
     "proceedings", "techreport", "unpublished"
   )
 
-  quarto_types <- c("fig-", "tbl-", "lst-")
+  quarto_types <- c(
+    "cnj-", "cor-", "def-", "eq-", "exm-","exr-", "fig-", "lem-", "lst-",
+    "prp-", "sec-", "tbl-", "thm-"
+    )
 
   out <- dir |>
     lapply(function(x) {
@@ -38,8 +41,10 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
     sort()
 
   out <-
-    out[!out %in% c(bbt_types, quarto_types)] |>
-    stringr::str_subset("^fig-|^sec-", negate = TRUE)
+    out[!out %in% bbt_types] |>
+    stringr::str_subset(
+      paste0("^", quarto_types, collapse = "|"), negate = TRUE
+      )
 
   if (!is.null(ignore)) {
     out |> stringr::str_subset(ignore, negate = TRUE)
