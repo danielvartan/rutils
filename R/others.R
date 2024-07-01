@@ -23,3 +23,20 @@ inbetween_integers <- function(x, y) {
 
   setdiff(lower_int:upper_int, sort(c(x, y)))
 }
+
+n_args <- function(fun) {
+  checkmate::assert_function(fun)
+
+  as.list(args(fun)) %>%
+    `[`(-length(.)) |>
+    names() |>
+    length()
+}
+
+args_names <- function(fun) {
+  checkmate::assert_function(fun)
+
+  as.list(args(fun)) %>%
+    `[`(-length(.)) |>
+    names()
+}

@@ -57,6 +57,10 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
 # library(here)
 # library(rbbt)
 
+# (2024-06-05)
+# This function only works with BetterBibTeX (BBT) for Zotero version v6.7.140
+# or lower.
+
 bbt_write_quarto_bib <- function(
     bib_file = "references.json",
     dir = c("", "qmd", "tex"),

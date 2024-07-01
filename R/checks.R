@@ -271,6 +271,58 @@ check_duration <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
 
 assert_duration <- checkmate::makeAssertionFunction(check_duration)
 
+test_period <- function(
+    x,
+    lower = - Inf,
+    upper = Inf,
+    any.missing = TRUE,
+    null.ok = FALSE
+  ) {
+  checkmate::assert_flag(any.missing)
+  checkmate::assert_flag(null.ok)
+
+  if (is.null(x) && isTRUE(null.ok)) {
+    TRUE
+  } else if (any(is.na(x)) && isFALSE(any.missing)) {
+    FALSE
+  } else if (lubridate::is.period(x) &&
+             !all(x >= lower & x <= upper, na.rm = TRUE)) {
+    FALSE
+  } else {
+    lubridate::is.period(x)
+  }
+}
+
+check_period <- function(
+    x,
+    lower = - Inf,
+    upper = Inf,
+    any.missing = TRUE,
+    null.ok = FALSE,
+    name = deparse(substitute(x))
+  ) {
+  checkmate::assert_flag(any.missing)
+  checkmate::assert_flag(null.ok)
+
+  if (is.null(x) && isTRUE(null.ok)) {
+    TRUE
+  } else if (any(is.na(x)) && isFALSE(any.missing)) {
+    paste0(single_quote_(name), " cannot have missing values")
+  } else if (is.null(x) && isFALSE(null.ok)) {
+    paste0(single_quote_(name), " cannot be 'NULL'")
+  } else if (lubridate::is.period(x) && !all(x >= lower, na.rm = TRUE)) {
+    paste0("Element ", which(x < lower)[1], " is not >= ", lower)
+  } else if (lubridate::is.period(x) && !all(x <= upper, na.rm = TRUE)) {
+    paste0("Element ", which(x > upper)[1], " is not <= ", upper)
+  } else  if (!test_period(x)) {
+    paste0("Must be of type 'Period', not ", class_collapse(x))
+  } else {
+    TRUE
+  }
+}
+
+assert_period <- checkmate::makeAssertionFunction(check_period)
+
 test_hms <- function(x, lower = - Inf, upper = Inf, any.missing = TRUE,
                      null.ok = FALSE) {
   checkmate::assert_flag(any.missing)
