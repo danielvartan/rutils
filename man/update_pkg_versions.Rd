@@ -29,7 +29,6 @@ with CI/CD.
 }
 \seealso{
 Other R system functions: 
-\code{\link{normalize_extdata}()},
 \code{\link{raw_data_1}()},
 \code{\link{raw_data_2}()}
 }

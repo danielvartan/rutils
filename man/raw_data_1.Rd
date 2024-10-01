@@ -37,7 +37,6 @@ raw_data_1(raw_data()[1])}
 }
 \seealso{
 Other R system functions: 
-\code{\link{normalize_extdata}()},
 \code{\link{raw_data_2}()},
 \code{\link{update_pkg_versions}()}
 }
