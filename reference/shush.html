@@ -69,9 +69,9 @@ It was designed to be used with pipes.</p>
 
 
 <dt id="arg-quiet">quiet<a class="anchor" aria-label="anchor" href="#arg-quiet"></a></dt>
-<dd><p>A <a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a> flag value indicating whether to
-suppress messages and warnings. This is can be used if condition messages
-and warnings inside functions (default: <code>TRUE</code>).</p></dd>
+<dd><p>(optional) A <a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a> flag value indicating
+whether to suppress messages and warnings. This is can be used for
+condition messages and warnings inside functions (default: <code>TRUE</code>).</p></dd>
 
 </dl></div>
     <div id="value">
@@ -89,8 +89,7 @@ and warnings inside functions (default: <code>TRUE</code>).</p></dd>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/warning.html" class="external-link">warning</a></span><span class="op">(</span><span class="st">"test"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">shush</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/warning.html" class="external-link">warning</a></span><span class="op">(</span><span class="st">"test"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">shush</span><span class="op">(</span>quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>test</span>
-<span class="r-in"><span><span class="co">#&gt; Warning message: # Expected</span></span></span>
-<span class="r-in"><span><span class="co">#&gt; In shush(warning("test"), quiet = FALSE) : test # Expected</span></span></span>
+<span class="r-in"><span><span class="co">#&gt; Warning: test # Expected</span></span></span>
 </code></pre></div>
     </div>
   </div>
