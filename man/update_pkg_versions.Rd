@@ -20,12 +20,12 @@ version of the current R version (default: \code{bump_back_r_version()}).}
 An invisible \code{NULL}. This function is used for its side effect.
 }
 \description{
-\code{update_pkg_versions()} updates the version of the packages in the
-\code{DESCRIPTION} file of R packages with their current version.
+\code{update_pkg_versions()} updates the version of packages listed in the
+\code{DESCRIPTION} file of R packages with their current versions.
 
-If the package is an R base package, the function will update the version to
-the previous minor version of the current R version. This is made to avoid
-errors with CI/CD.
+If the package is a base package, the function will update the version to the
+previous minor version of the current R version. This is made to avoid errors
+with CI/CD.
 }
 \seealso{
 Other R system functions: 

@@ -5,9 +5,9 @@
 #' It was designed to be used with pipes.
 #'
 #' @param x Any expression, usually a function call.
-#' @param quiet A [logical][base::as.logical()] flag value indicating whether to
-#'   suppress messages and warnings. This is can be used if condition messages
-#'   and warnings inside functions (default: `TRUE`).
+#' @param quiet (optional) A [logical][base::as.logical()] flag value indicating
+#'   whether to suppress messages and warnings. This is can be used for
+#'   condition messages and warnings inside functions (default: `TRUE`).
 #'
 #' @return The same object as `x` with messages and warnings suppressed.
 #'
@@ -21,8 +21,7 @@
 #'
 #' warning("test") |> shush()
 #' warning("test") |> shush(quiet = FALSE)
-#' #> Warning message: # Expected
-#' #> In shush(warning("test"), quiet = FALSE) : test # Expected
+#' #> Warning: test # Expected
 shush <- function(x, quiet = TRUE) {
   if (isTRUE(quiet)) {
     suppressMessages(suppressWarnings(x))

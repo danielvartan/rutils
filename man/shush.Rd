@@ -9,9 +9,9 @@ shush(x, quiet = TRUE)
 \arguments{
 \item{x}{Any expression, usually a function call.}
 
-\item{quiet}{A \link[base:logical]{logical} flag value indicating whether to
-suppress messages and warnings. This is can be used if condition messages
-and warnings inside functions (default: \code{TRUE}).}
+\item{quiet}{(optional) A \link[base:logical]{logical} flag value indicating
+whether to suppress messages and warnings. This is can be used for
+condition messages and warnings inside functions (default: \code{TRUE}).}
 }
 \value{
 The same object as \code{x} with messages and warnings suppressed.
@@ -28,7 +28,6 @@ message("test") |> shush(quiet = FALSE)
 
 warning("test") |> shush()
 warning("test") |> shush(quiet = FALSE)
-#> Warning message: # Expected
-#> In shush(warning("test"), quiet = FALSE) : test # Expected
+#> Warning: test # Expected
 }
 \concept{dialog functions}

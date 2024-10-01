@@ -389,7 +389,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "150.195KB",
+  "fileSize": "150.439KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -411,6 +411,6 @@
   "releaseNotes": "https://github.com/danielvartan/rutils/blob/master/NEWS.md",
   "readme": "https://github.com/danielvartan/rutils/blob/main/README.md",
   "contIntegration": ["https://github.com/danielvartan/rutils/actions", "https://app.codecov.io/gh/danielvartan/rutils?branch=main"],
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
+  "developmentStatus": ["https://www.repostatus.org/#wip", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
   "keywords": ["r-package", "utilities", "r", "rstats"]
 }

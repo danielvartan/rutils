@@ -2,12 +2,12 @@
 #'
 #' @description
 #'
-#' `update_pkg_versions()` updates the version of the packages in the
-#' `DESCRIPTION` file of R packages with their current version.
+#' `update_pkg_versions()` updates the version of packages listed in the
+#' `DESCRIPTION` file of R packages with their current versions.
 #'
-#' If the package is an R base package, the function will update the version to
-#' the previous minor version of the current R version. This is made to avoid
-#' errors with CI/CD.
+#' If the package is a base package, the function will update the version to the
+#' previous minor version of the current R version. This is made to avoid errors
+#' with CI/CD.
 #'
 #' @param file (optional) A string indicating the path to the `DESCRIPTION` file
 #'   (default: `here::here("DESCRIPTION")`).

@@ -21,9 +21,20 @@ navbar:
     articles: ~
 
 reference:
+- title: Dialogs
+  contents:
+  - shush
+
 - title: Parsing/conversion
   contents:
   - na_as
+
+- title: R packages
+  contents:
+  - normalize_extdata
+  - raw_data_1
+  - raw_data_2
+  - update_pkg_versions
 
 - title: Subsetting
   contents:
@@ -32,17 +43,6 @@ reference:
 - title: Visualization
   contents:
   - qplot_walk
-
-- title: Dialogs
-  contents:
-  - shush
-
-- title: R packages
-  contents:
-  - normalize_extdata
-  - raw_data_1
-  - raw_data_2
-  - update_pkg_versions
 
 authors:
   Daniel Vartanian:

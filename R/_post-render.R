@@ -8,9 +8,13 @@
 
 groomr::remove_blank_line_dups(here::here("README.md"))
 
-# Update `LICENSE` and `LICENSE.md` year -----
+# Update package year -----
 
-files <- c(here::here("LICENSE"), here::here("LICENSE.md"))
+files <- c(
+  here::here("LICENSE"),
+  here::here("LICENSE.md"),
+  here::here("inst", "CITATION")
+)
 
 for (i in files) {
   data <-
@@ -23,6 +27,11 @@ for (i in files) {
 
   data |> readr::write_lines(i)
 }
+
+# Update `cffr` and `codemeta` -----
+
+cffr::cff_write()
+codemetar::write_codemeta()
 
 # Check if the script ran successfully -----
 
