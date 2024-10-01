@@ -33,11 +33,16 @@ reference:
   contents:
   - qplot_walk
 
-- title: R system
+- title: Dialogs
+  contents:
+  - shush
+
+- title: R packages
   contents:
   - normalize_extdata
   - raw_data_1
   - raw_data_2
+  - update_pkg_versions
 
 authors:
   Daniel Vartanian:

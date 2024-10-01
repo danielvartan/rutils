@@ -42,6 +42,7 @@ raw_data_2()
 \seealso{
 Other R system functions: 
 \code{\link{normalize_extdata}()},
-\code{\link{raw_data_1}()}
+\code{\link{raw_data_1}()},
+\code{\link{update_pkg_versions}()}
 }
 \concept{R system functions}

@@ -1,24 +1,14 @@
----
-output: github_document
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
+```{r}
+#| label: setup
+#| include: false
 
 library(rutils)
 ```
 
 # rutils
-dscdsa
+
 <!-- badges: start -->
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/danielvartan/rutils/workflows/R-CMD-check/badge.svg)](https://github.com/danielvartan/rutils/actions)
 [![Codecov test coverage](https://codecov.io/gh/danielvartan/rutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/rutils?branch=main)
@@ -33,9 +23,10 @@ Please note that not all functions are exported or documented. Access the source
 
 ## Installation
 
-You can install `rutils` with:
+You can install `rutils` using the [`remotes`](https://github.com/r-lib/remotes) package:
 
-``` {r, eval = FALSE}
-# install.packages("remotes")
-remotes::install_github("danielvartan/rutils")
+``` {r}
+#| eval: false
+
+remotes::install_github("danielvartan/groomr")
 ```

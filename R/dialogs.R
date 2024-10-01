@@ -54,11 +54,3 @@ printer <- function(..., print = TRUE, clipboard = TRUE, abort = FALSE) {
 
   invisible(NULL)
 }
-
-shush <- function(x, quiet = TRUE) {
-  if (isTRUE(quiet)) {
-    suppressMessages(suppressWarnings(x))
-  } else {
-    x
-  }
-}

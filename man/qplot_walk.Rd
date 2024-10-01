@@ -164,4 +164,4 @@ qplot_walk(datasets::iris, cols = c("Petal.Length", "Petal.Width"))
 qplot_walk(datasets::iris, pattern = "\\\\.Width$")
 }
 }
-\concept{visualization functions}
+\concept{visualization functions.}

@@ -28,6 +28,7 @@ normalize_extdata()}
 \seealso{
 Other R system functions: 
 \code{\link{raw_data_1}()},
-\code{\link{raw_data_2}()}
+\code{\link{raw_data_2}()},
+\code{\link{update_pkg_versions}()}
 }
 \concept{R system functions}

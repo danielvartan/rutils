@@ -1,6 +1,8 @@
 ^\.github$
 ^\.lintr$
+^.quarto$
 ^\.Rproj\.user$
+^_quarto\.yml$
 ^_pkgdown\.yml$
 ^CITATION\.cff$
 ^CODE_OF_CONDUCT\.md$
@@ -8,10 +10,10 @@
 ^codemeta\.json$
 ^cran-comments\.md$
 ^data-raw$
+^doc$
 ^docs$
 ^LICENSE\.md$
 ^man-roxygen$
-^Meta$
 ^pkgdown$
 ^rutils\.Rproj$
-^README\.Rmd$
+^README\.qmd$

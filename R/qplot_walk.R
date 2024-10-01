@@ -118,7 +118,7 @@
 #'
 #' @return An invisible `NULL`. This function don't aim to return values.
 #'
-#' @family visualization functions
+#' @family visualization functions.
 #' @export
 #'
 #' @examples

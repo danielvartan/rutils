@@ -1,8 +1,21 @@
-docs/
-pkgdown/
+# See <https://git-scm.com/docs/gitignore> to learn more.
+
+*.knit.md
 .Rapp.history
 .RData
-.Rhistory
 .Renviron
-.Rproj.user/
+.Rhistory
 .Ruserdata
+*.utf8.md
+
+/*.Rcheck/
+.Rproj.user/
+*_cache/
+/cache/
+docs/
+pkgdown/
+revdep/
+vignettes/*.html
+vignettes/*.pdf
+
+/.quarto/
