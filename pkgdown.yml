@@ -1,9 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.0.9
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-07-01T02:37Z
+last_built: 2024-10-01T08:54Z
 urls:
   reference: https://danielvartan.github.io/rutils/reference
   article: https://danielvartan.github.io/rutils/articles
-

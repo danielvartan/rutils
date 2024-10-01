@@ -4,7 +4,7 @@ cutter() cut vectors into pieces by cutting points/indexes."><!-- mathjax --><sc
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -32,20 +32,20 @@ cutter() cut vectors into pieces by cutting points/indexes."><!-- mathjax --><sc
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/danielvartan/rutils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Cut a vector into pieces</h1>
-    <small class="dont-index">Source: <a href="https://github.com/danielvartan/rutils/blob/HEAD/R/cutter.R" class="external-link"><code>R/cutter.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/danielvartan/rutils/blob/main/R/cutter.R" class="external-link"><code>R/cutter.R</code></a></small>
     <div class="hidden name"><code>cutter.Rd</code></div>
     </div>
 
@@ -60,37 +60,37 @@ cutter() cut vectors into pieces by cutting points/indexes."><!-- mathjax --><sc
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>x</dt>
+
+
+<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>An <a href="https://mllg.github.io/checkmate/reference/checkAtomicVector.html" class="external-link">atomic vector</a> (<em>e.g.</em>,
 <code>character</code>, <code>integer</code>, <code>numeric</code>, <code>factor</code>, <code>POSIXct</code>).</p></dd>
 
 
-<dt>index</dt>
+<dt id="arg-index">index<a class="anchor" aria-label="anchor" href="#arg-index"></a></dt>
 <dd><p>An <a href="https://mllg.github.io/checkmate/reference/checkIntegerish.html" class="external-link">integerish</a> <code>numeric</code> object
 or an <code>integer</code> object with the indexes/cutting points.</p></dd>
 
 
-<dt>between</dt>
+<dt id="arg-between">between<a class="anchor" aria-label="anchor" href="#arg-between"></a></dt>
 <dd><p>(optional) A string object indicating the direction of the cut
 (choices: <code>"left"</code>, <code>"right"</code>). This argument only need to be assigned if
 the cut must be performed between the indexes values (default: <code>NULL</code>).</p></dd>
 
 
-<dt>rm_start</dt>
+<dt id="arg-rm-start">rm_start<a class="anchor" aria-label="anchor" href="#arg-rm-start"></a></dt>
 <dd><p>(optional) a <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> value indicating if the
 start element of the cut must be removed (default: <code>FALSE</code>).</p></dd>
 
 
-<dt>rm_end</dt>
+<dt id="arg-rm-end">rm_end<a class="anchor" aria-label="anchor" href="#arg-rm-end"></a></dt>
 <dd><p>(optional) a <code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code> value indicating if the end
 element of the cut must be removed (default: <code>FALSE</code>).</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A <code>list</code> object with the cut pieces as elements.</p>
+    <p>A <code>list</code> object with the cut pieces as elements.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -220,15 +220,15 @@ element of the cut must be removed (default: <code>FALSE</code>).</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

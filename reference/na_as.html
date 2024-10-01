@@ -6,7 +6,7 @@ This function was made to facilitate assigning NAs dynamically."><!-- mathjax --
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -34,20 +34,20 @@ This function was made to facilitate assigning NAs dynamically."><!-- mathjax --
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/danielvartan/rutils/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Return a <code>NA</code> value with the same characteristics of an R object</h1>
-    <small class="dont-index">Source: <a href="https://github.com/danielvartan/rutils/blob/HEAD/R/na_as.R" class="external-link"><code>R/na_as.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/danielvartan/rutils/blob/main/R/na_as.R" class="external-link"><code>R/na_as.R</code></a></small>
     <div class="hidden name"><code>na_as.Rd</code></div>
     </div>
 
@@ -61,58 +61,58 @@ an R object.</p>
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for logical</span></span>
+<span><span class="co"># S3 method for class 'logical'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for character</span></span>
+<span><span class="co"># S3 method for class 'character'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for integer</span></span>
+<span><span class="co"># S3 method for class 'integer'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for numeric</span></span>
+<span><span class="co"># S3 method for class 'numeric'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for Duration</span></span>
+<span><span class="co"># S3 method for class 'Duration'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for Period</span></span>
+<span><span class="co"># S3 method for class 'Period'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for difftime</span></span>
+<span><span class="co"># S3 method for class 'difftime'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for hms</span></span>
+<span><span class="co"># S3 method for class 'hms'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for Date</span></span>
+<span><span class="co"># S3 method for class 'Date'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for hms</span></span>
+<span><span class="co"># S3 method for class 'hms'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for POSIXct</span></span>
+<span><span class="co"># S3 method for class 'POSIXct'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for POSIXlt</span></span>
+<span><span class="co"># S3 method for class 'POSIXlt'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for Interval</span></span>
+<span><span class="co"># S3 method for class 'Interval'</span></span>
 <span><span class="fu">na_as</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>x</dt>
+
+
+<dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>An <a href="https://mllg.github.io/checkmate/reference/checkAtomicVector.html" class="external-link">atomic vector</a>, provided that
 <code>na_as()</code> has a method for it.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A <code>NA</code> value with the same class and attributes of <code>x</code>.</p>
+    <p>A <code>NA</code> value with the same class and attributes of <code>x</code>.</p>
     </div>
 
     <div id="ref-examples">
@@ -144,15 +144,15 @@ an R object.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
