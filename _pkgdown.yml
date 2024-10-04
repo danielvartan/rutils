@@ -14,7 +14,10 @@ navbar:
     - reference
     - articles
     - news
-    right: github
+    right:
+    - search
+    - lightswitch
+    - github
   components:
     home: ~
     intro: ~
