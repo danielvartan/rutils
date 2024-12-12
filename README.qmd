@@ -2,7 +2,14 @@
 #| label: setup
 #| include: false
 
+library(beepr)
+library(cffr)
+library(codemetar)
+library(groomr) # https://github.com/danielvartan/groomr
+library(here)
+library(readr)
 library(rutils)
+library(stringr)
 ```
 
 # rutils

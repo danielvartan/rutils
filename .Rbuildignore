@@ -15,5 +15,6 @@
 ^LICENSE\.md$
 ^man-roxygen$
 ^pkgdown$
+^R/\.post-render\.R$
 ^rutils\.Rproj$
 ^README\.qmd$

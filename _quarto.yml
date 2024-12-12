@@ -1,8 +1,7 @@
 editor: source
 
 project:
-  output-dir: "."
   render: [README.qmd]
-  post-render: "R/_post-render.R"
+  post-render: "R/.post-render.R"
 
 format: gfm
