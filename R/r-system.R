@@ -239,12 +239,15 @@ require_pkg <- function(...) {
   if (length(pkg) == 0) {
     invisible(NULL)
   } else {
-    cli::cli_abort(paste0(
-      "This function requires the {single_quote_(pkg)} package{?s} ",
-      "to run. You can install {?it/them} by running:", "\n\n",
-      "install.packages(",
-      "{paste(double_quote_(pkg), collapse = ', ')})"
-    ))
+    cli::cli_abort(
+      paste0(
+        "This function requires the {single_quote_(pkg)} package{?s} ",
+        "to run. You can install {?it/them} by running:", "\n\n",
+        "install.packages(c(",
+        "{paste(double_quote_(pkg), collapse = ', ')}",
+        "))"
+      )
+    )
   }
 }
 

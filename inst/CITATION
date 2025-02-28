@@ -14,7 +14,7 @@ utils::bibentry(
             comment = c(ORCID = "0000-0001-7782-759X")
             )
         ),
-    year = "2024",
+    year = "2025",
     url = paste0(
         "https://danielvartan.github.io/",
         "rutils/"
@@ -22,7 +22,7 @@ utils::bibentry(
     note = "R package",
     textVersion = paste0(
         "Vartanian, D.", " ",
-        "(2024)",  ". ",
+        "(2025)",  ". ",
         "{rutils}:", " ",
         "Utility functions for R", " ",
         "(R package)", ". ",

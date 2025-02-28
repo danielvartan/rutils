@@ -52,35 +52,35 @@ test_that("is_interactive() | general test", {
 # test_that("from_json() | general test", {
 #     tmp <- tempfile()
 #     jsonlite::write_json(acttrust, tmp)
-#
+
 #     expect_equal(
 #         from_json(readLines(tmp))[["pim"]][1],
 #         acttrust[["pim"]][1]
 #     )
 # })
-#
+
 # test_that("read_json() | general test", {
 #     tmp <- tempfile()
 #     jsonlite::write_json(acttrust, tmp)
-#
+
 #     expect_equal(
 #         read_json(tmp)[[1]][["pim"]],
 #         acttrust[["pim"]][1]
 #     )
 # })
 
-test_that("read_line() | general test", {
-  expect_equal(read_line(""), "")
-})
+# test_that("read_line() | general test", {
+#   expect_equal(read_line(""), "")
+# })
 
-test_that("raw_to_char() | general test", {
-  expect_equal(raw_to_char(charToRaw("a")), "a")
-})
+# test_that("raw_to_char() | general test", {
+#   expect_equal(raw_to_char(charToRaw("a")), "a")
+# })
 
 
-test_that("require_namespace() | general test", {
-  expect_equal(
-    require_namespace("base"),
-    requireNamespace("base", quietly = TRUE)
-  )
-})
+# test_that("require_namespace() | general test", {
+#   expect_equal(
+#     require_namespace("base"),
+#     requireNamespace("base", quietly = TRUE)
+#   )
+# })

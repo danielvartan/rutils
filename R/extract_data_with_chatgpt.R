@@ -1,6 +1,5 @@
 # library(chatgpt)
 # library(glue)
-# library(prettycheck) # github.com/danielvartan/prettycheck
 # library(rutils) # github.com/danielvartan/rutils
 
 extract_data_with_chatgpt <- function(
@@ -8,9 +7,9 @@ extract_data_with_chatgpt <- function(
     extract = "city",
     complement = "address"
 ) {
-  prettycheck:::assert_atomic(data)
-  prettycheck:::assert_string(extract)
-  prettycheck:::assert_string(complement)
+  checkmate::assert_atomic(data)
+  checkmate::assert_string(extract)
+  checkmate::assert_string(complement)
 
   chatgpt::reset_chat_session(
     system_role = paste0(
