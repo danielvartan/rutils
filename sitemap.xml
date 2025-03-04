@@ -1,18 +1,21 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://danielvartan.github.io/rutils/404.html</loc></url>
-<url><loc>https://danielvartan.github.io/rutils/CODE_OF_CONDUCT.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/LICENSE-text.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/LICENSE.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/authors.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/index.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/news/index.html</loc></url>
+<url><loc>https://danielvartan.github.io/rutils/reference/drop_na.html</loc></url>
+<url><loc>https://danielvartan.github.io/rutils/reference/grab_fun_par.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/index.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/na_as.html</loc></url>
-<url><loc>https://danielvartan.github.io/rutils/reference/qplot_walk.html</loc></url>
+<url><loc>https://danielvartan.github.io/rutils/reference/normalize_names.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/raw_data_1.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/raw_data_2.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/rutils-package.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/shush.html</loc></url>
+<url><loc>https://danielvartan.github.io/rutils/reference/swap_if.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/update_pkg_versions.html</loc></url>
+<url><loc>https://danielvartan.github.io/rutils/reference/vector_to_c.html</loc></url>
 </urlset>
 
