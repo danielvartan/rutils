@@ -3,7 +3,7 @@
 # library(rutils) # github.com/danielvartan/rutils
 
 extract_data_with_chatgpt <- function(
-    data,
+    data, #nolint
     extract = "city",
     complement = "address"
 ) {

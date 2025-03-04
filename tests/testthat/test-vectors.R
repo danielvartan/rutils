@@ -86,15 +86,6 @@ test_that("drop_na() | general test", {
   expect_equal(drop_na(c(NA, 1)), 1)
 })
 
-test_that("fix_character() | general test", {
-  expect_equal(fix_character(c("1   ", "   1", "", "NA")),
-               c("1", "1", NA, NA))
-})
-
-test_that("fix_character() | error test", {
-  expect_error(fix_character(1), "Assertion on 'x' failed")
-})
-
 test_that("get_class() | general test", {
   expect_equal(get_class(x = 1), "numeric")
 

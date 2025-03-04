@@ -24,9 +24,9 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
   )
 
   quarto_types <- c(
-    "cnj-", "cor-", "def-", "eq-", "exm-","exr-", "fig-", "lem-", "lst-",
+    "cnj-", "cor-", "def-", "eq-", "exm-", "exr-", "fig-", "lem-", "lst-",
     "prp-", "sec-", "tbl-", "thm-"
-    )
+  )
 
   out <-
     dir |>
@@ -45,7 +45,7 @@ bbt_scan_citation_keys <- function(dir = c("", "qmd", "tex"),
     out[!out %in% bbt_types] |>
     stringr::str_subset(
       paste0("^", quarto_types, collapse = "|"), negate = TRUE
-      )
+    )
 
   if (!is.null(ignore)) {
     out |> stringr::str_subset(ignore, negate = TRUE)
@@ -279,7 +279,7 @@ gather_words_from_spell_check <- function(dir = c("", "qmd", "tex"),
 
   files |>
     spelling::spell_check_files() |>
-    dplyr::filter(!word %in% bbt_citations,!word == "")
+    dplyr::filter(!word %in% bbt_citations, !word == "")
 }
 
 # library(checkmate)
@@ -365,13 +365,13 @@ update_quarto_wordlist <- function(dir = c("", "qmd", "tex"),
       pattern = pattern,
       ignore = ignore,
       wd = wd
-    )|>
+    ) |>
     magrittr::extract2("word")
 
   wordlist_char <- readLines(wordlist)
   words_to_add <- words[is.na(match(words, wordlist_char))]
   words_to_remove <- wordlist_char[is.na(match(wordlist_char, words))]
-  words_to_keep <- wordlist_char[!is.na(match(wordlist_char, words))]
+  words_to_keep <- wordlist_char[!is.na(match(wordlist_char, words))] #nolint
 
   if (!length(words_to_add) == 0) {
     cli::cli_h1(
@@ -517,14 +517,14 @@ quarto_status <- function(type,
 # library(stringr)
 
 apply_on_value_between_tags <- function(
-    dir = c("", "qmd"),
+    dir = c("", "qmd"), #nolint
     pattern = "\\.qmd$",
     ignore = "^_",
     begin_tag = "%:::% .common h1 begin %:::%",
     end_tag = "%:::% .common h1 end %:::%",
     fun = stringr::str_to_upper,
     wd = here::here()
-    ) {
+  ) {
   checkmate::assert_string(wd)
   checkmate::assert_directory_exists(wd)
   checkmate::assert_character(dir)
@@ -647,7 +647,7 @@ swap_value_between_files <- function(from,
   checkmate::assert_string(end_tag)
   checkmate::assert_multi_class(
     value, c("character", "function"), null.ok = TRUE
-    )
+  )
   checkmate::assert_flag(quarto_render)
   checkmate::assert_choice(cite_method, c("citeproc", "biblatex", "natbib"))
 
@@ -664,7 +664,7 @@ swap_value_between_files <- function(from,
   }
 
   if (isTRUE(quarto_render) &&
-      stringr::str_detect(from, "\\.tex$", negate = TRUE) &&
+      stringr::str_detect(from, "\\.tex$", negate = TRUE) && #nolint
       stringr::str_detect(to, "\\.tex$")) {
     value <- object_quarto_render(
       x = value,
@@ -678,7 +678,7 @@ swap_value_between_files <- function(from,
     value = value,
     begin_tag = begin_tag,
     end_tag = end_tag
-  )|>
+  ) |>
     writeLines(to)
 
   invisible()
@@ -702,10 +702,11 @@ object_quarto_render <- function(x,
   )
 
   in_file <- tempfile(fileext = ".qmd")
+
   out_file <- file.path(
     dirname(in_file),
     paste0(get_file_name_without_ext(in_file), ext)
-    )
+  )
 
   if (output_format == "latex") {
     begin_tag <- "%:::% clip start %:::%"
@@ -827,7 +828,7 @@ check_missing_dollar_signs <- function(file) {
 # library(cli)
 # library(stringr)
 
-check_missing_dollar_signs_in_dir <- function(
+check_missing_dollar_signs_in_dir <- function( #nolint
     dir = c("_extensions", "_extensions/tex"),
     pattern = "\\.tex$",
     ignore = NULL,
@@ -870,9 +871,9 @@ check_missing_dollar_signs_in_dir <- function(
 # library(checkmate)
 
 unfreeze_quarto_file <- function(
-    file,
+    file, #nolint
     unfreeze_tag = "<!-- %:::% unfreeze-tag %:::% -->"
-    ) {
+  ) {
   checkmate::assert_file_exists(file, "rw")
   checkmate::assert_string(unfreeze_tag)
 

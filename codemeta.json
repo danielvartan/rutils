@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "rutils",
-  "description": "An R package made to store and organize utility functions created by Daniel Vartanian.",
+  "description": "A collection of utility functions for R created by Daniel Vartanian.",
   "name": "rutils: Utility Functions for R",
   "relatedLink": "https://danielvartan.github.io/rutils/",
   "codeRepository": "https://github.com/danielvartan/rutils/",
@@ -64,12 +64,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "grDevices",
-      "name": "grDevices",
-      "version": ">= 4.2.0"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
       "version": ">= 1.49",
@@ -96,6 +90,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "rlang",
+      "name": "rlang",
+      "version": ">= 1.1.4",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rlang"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "version": ">= 3.2.2",
@@ -117,6 +124,19 @@
     },
     "2": {
       "@type": "SoftwareApplication",
+      "identifier": "chatgpt",
+      "name": "chatgpt",
+      "version": ">= 0.2.3",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=chatgpt"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
       "identifier": "checkmate",
       "name": "checkmate",
       "version": ">= 2.3.2",
@@ -128,7 +148,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=checkmate"
     },
-    "3": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
@@ -141,7 +161,20 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=cli"
     },
-    "4": {
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "clipr",
+      "name": "clipr",
+      "version": ">= 0.8.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=clipr"
+    },
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "curl",
       "name": "curl",
@@ -154,7 +187,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=curl"
     },
-    "5": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -167,7 +200,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "6": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -180,7 +213,20 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    "7": {
+    "9": {
+      "@type": "SoftwareApplication",
+      "identifier": "glue",
+      "name": "glue",
+      "version": ">= 1.8.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=glue"
+    },
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "hms",
       "name": "hms",
@@ -193,7 +239,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=hms"
     },
-    "8": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "here",
       "name": "here",
@@ -206,7 +252,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=here"
     },
-    "9": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -219,7 +265,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    "10": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -232,7 +278,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "11": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -245,7 +291,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "12": {
+    "15": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -258,7 +304,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "13": {
+    "16": {
       "@type": "SoftwareApplication",
       "identifier": "quarto",
       "name": "quarto",
@@ -271,7 +317,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=quarto"
     },
-    "14": {
+    "17": {
       "@type": "SoftwareApplication",
       "identifier": "qpdf",
       "name": "qpdf",
@@ -284,13 +330,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=qpdf"
     },
-    "15": {
+    "18": {
       "@type": "SoftwareApplication",
       "identifier": "rbbt",
       "name": "rbbt",
-      "sameAs": "https://github.com/paleolimbot/rbbt"
+      "sameAs": "https://github.com/wmoldham/rbbt"
     },
-    "16": {
+    "19": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -303,20 +349,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "17": {
-      "@type": "SoftwareApplication",
-      "identifier": "rlang",
-      "name": "rlang",
-      "version": ">= 1.1.4",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rlang"
-    },
-    "18": {
+    "20": {
       "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
       "name": "rmarkdown",
@@ -329,20 +362,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
-    "19": {
-      "@type": "SoftwareApplication",
-      "identifier": "rstudioapi",
-      "name": "rstudioapi",
-      "version": ">= 0.17.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rstudioapi"
-    },
-    "20": {
+    "21": {
       "@type": "SoftwareApplication",
       "identifier": "spelling",
       "name": "spelling",
@@ -355,7 +375,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=spelling"
     },
-    "21": {
+    "22": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -368,13 +388,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "22": {
+    "23": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils",
       "version": ">= 4.3"
     },
-    "23": {
+    "24": {
       "@type": "SoftwareApplication",
       "identifier": "yaml",
       "name": "yaml",
@@ -389,7 +409,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "137.872KB",
+  "fileSize": "98.792KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -404,13 +424,13 @@
         }
       ],
       "name": "{rutils}: Utility functions for R",
-      "url": "https://danielvartan.github.io/rutils/",
+      "url": "https://danielvartan.github.io/rutils",
       "description": "R package"
     }
   ],
   "releaseNotes": "https://github.com/danielvartan/rutils/blob/master/NEWS.md",
   "readme": "https://github.com/danielvartan/rutils/blob/main/README.md",
-  "contIntegration": ["https://github.com/danielvartan/rutils/actions", "https://app.codecov.io/gh/danielvartan/rutils?branch=main"],
-  "developmentStatus": ["https://www.repostatus.org/#wip", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
+  "contIntegration": ["https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml", "https://app.codecov.io/gh/danielvartan/rutils?branch=main"],
+  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
   "keywords": ["r-package", "utilities", "r", "rstats"]
 }

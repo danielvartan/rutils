@@ -1,25 +1,25 @@
-#' Update package versions in DESCRIPTION file
+#' Update package versions in the `DESCRIPTION`` file
 #'
 #' @description
 #'
 #' `update_pkg_versions()` updates the version of packages listed in the
-#' `DESCRIPTION` file of R packages with their current versions.
+#' `DESCRIPTION` file of an R package with their installed versions.
 #'
-#' If the package is a base package, the function will update the version to the
-#' previous minor version of the current R version. This is made to avoid errors
-#' with CI/CD.
+#' If the package comes with an typical installation of R (e.g., base, utils),
+#' the function will update the version to the previous minor version of the
+#' current R version. This is made to avoid errors with CI/CD.
 #'
-#' @param file (optional) A string indicating the path to the `DESCRIPTION` file
-#'   (default: `here::here("DESCRIPTION")`).
-#' @param old_r_version (optional) A string indicating the previous minor
-#'   version of the current R version (default: `bump_back_r_version()`).
+#' @param file (Optional) A string indicating the path to the `DESCRIPTION`
+#'   file.
+#' @param old_r_version (Optional) A string indicating the previous minor
+#'   version of the current R version.
 #'
 #' @return An invisible `NULL`. This function is used for its side effect.
 #'
-#' @family R system functions
+#' @family R package functions
 #' @export
 update_pkg_versions <- function(
-    file = here::here("DESCRIPTION"),
+    file = here::here("DESCRIPTION"), #nolint
     old_r_version = bump_back_r_version()
   ) {
   checkmate::assert_string(file)
@@ -27,9 +27,7 @@ update_pkg_versions <- function(
   checkmate::assert_string(old_r_version, pattern = "^\\d\\.\\d$")
 
   # R CMD Check variable bindings fix (see: https://bit.ly/3z24hbU)
-  # nolint start: object_usage_linter.
-  Priority <- NULL
-  # nolint end
+  Priority <- NULL #nolint
 
   lines <- readr::read_lines(file)
 
@@ -44,7 +42,7 @@ update_pkg_versions <- function(
 
       if (package %in% installed_packages$Package) {
         version <- stringr::str_extract(i, "(?<=\\().*(?=\\))")
-        complement <- stringr::str_extract(version, "^.* (?=[0-9.-])")
+        # complement <- stringr::str_extract(version, "^.* (?=[0-9.-])")
 
         if (package %in% base_packages$Package) {
           version <- stringr::str_replace(version, "[0-9.-]+$", old_r_version)

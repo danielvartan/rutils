@@ -1,31 +1,39 @@
+# rutils
+
+<!-- quarto render -->
+
 ```{r}
 #| label: setup
 #| include: false
 
+library(rutils)
+
+# Related to './R/.post-render.R'
 library(beepr)
 library(cffr)
 library(codemetar)
 library(groomr) # https://github.com/danielvartan/groomr
 library(here)
 library(readr)
-library(rutils)
+library(rutils) # https://github.com/danielvartan/rutils
 library(stringr)
 ```
 
-# rutils
-
 <!-- badges: start -->
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/danielvartan/rutils/workflows/R-CMD-check/badge.svg)](https://github.com/danielvartan/rutils/actions)
+[![R-CMD-check.yaml](https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml)
 [![Codecov test coverage](https://codecov.io/gh/danielvartan/rutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/rutils?branch=main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 <!-- badges: end -->
 
 ## Overview
 
-`rutils` is an R package that I (Daniel Vartanian) use to store and organize my utility functions.
+🧰🛠️🔧⚙️🧮📋📁🔗🧹📝💾🔢
+
+`rutils` is an R package that I (Daniel Vartanian) use to store and organize my utility functions until they are ready to be moved to their own package.
+
+This package is not intended for public use, but you are welcome to use it if you find it helpful.
 
 Please note that not all functions are exported or documented. Access the source code to see them all.
 
@@ -36,5 +44,12 @@ You can install `rutils` using the [`remotes`](https://github.com/r-lib/remotes)
 ``` {r}
 #| eval: false
 
-remotes::install_github("danielvartan/groomr")
+remotes::install_github("danielvartan/rutils")
 ```
+
+## License
+
+[![License:
+MIT](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/license/mit/)
+
+`rutils` code is released under the [MIT license](https://opensource.org/license/mit/).

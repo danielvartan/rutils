@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_pkg_versions.R
 \name{update_pkg_versions}
 \alias{update_pkg_versions}
-\title{Update package versions in DESCRIPTION file}
+\title{Update package versions in the `DESCRIPTION`` file}
 \usage{
 update_pkg_versions(
   file = here::here("DESCRIPTION"),
@@ -10,26 +10,26 @@ update_pkg_versions(
 )
 }
 \arguments{
-\item{file}{(optional) A string indicating the path to the \code{DESCRIPTION} file
-(default: \code{here::here("DESCRIPTION")}).}
+\item{file}{(Optional) A string indicating the path to the \code{DESCRIPTION}
+file.}
 
-\item{old_r_version}{(optional) A string indicating the previous minor
-version of the current R version (default: \code{bump_back_r_version()}).}
+\item{old_r_version}{(Optional) A string indicating the previous minor
+version of the current R version.}
 }
 \value{
 An invisible \code{NULL}. This function is used for its side effect.
 }
 \description{
 \code{update_pkg_versions()} updates the version of packages listed in the
-\code{DESCRIPTION} file of R packages with their current versions.
+\code{DESCRIPTION} file of an R package with their installed versions.
 
-If the package is a base package, the function will update the version to the
-previous minor version of the current R version. This is made to avoid errors
-with CI/CD.
+If the package comes with an typical installation of R (e.g., base, utils),
+the function will update the version to the previous minor version of the
+current R version. This is made to avoid errors with CI/CD.
 }
 \seealso{
-Other R system functions: 
+Other R package functions: 
 \code{\link{raw_data_1}()},
 \code{\link{raw_data_2}()}
 }
-\concept{R system functions}
+\concept{R package functions}

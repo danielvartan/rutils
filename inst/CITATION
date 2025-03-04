@@ -1,32 +1,32 @@
 utils::bibentry(
-    header = "To cite {rutils} in publications use:",
-    bibtype  = "Unpublished",
-    title = paste0(
-        "{rutils}:", " ",
-        "Utility functions for R"
-        ),
-    author = c(
-        utils::person(
-            given = "Daniel",
-            family = "Vartanian",
-            role = c("aut", "cre", "ccp", "cph"),
-            email = "danvartan@gmail.com",
-            comment = c(ORCID = "0000-0001-7782-759X")
-            )
-        ),
-    year = "2025",
-    url = paste0(
-        "https://danielvartan.github.io/",
-        "rutils/"
-        ),
-    note = "R package",
-    textVersion = paste0(
-        "Vartanian, D.", " ",
-        "(2025)",  ". ",
-        "{rutils}:", " ",
-        "Utility functions for R", " ",
-        "(R package)", ". ",
-        "https://danielvartan.github.io/",
-        "rutils/"
-        )
+  header = "To cite {brandr} in publications use:",
+  bibtype = "Misc",
+  title = paste0(
+    "{rutils}:", " ",
+    "Utility functions for R"
+  ),
+  author = c(
+    person(
+      given = "Daniel",
+      family = "Vartanian",
+      role = c("aut", "cre", "ccp", "cph"),
+      email = "danvartan@gmail.com",
+      comment = c(ORCID = "0000-0001-7782-759X")
     )
+  ),
+  year = "2025",
+  url = paste0(
+    "https://danielvartan.github.io/",
+    "rutils"
+  ),
+  note = "R package",
+  textVersion = paste0(
+    "Vartanian, D.", ". ",
+    "(2025)", ". ",
+    "{rutils}:", " ",
+    "Utility functions for R", ". ",
+    "R package", ". ",
+    "https://danielvartan.github.io/",
+    "rutils"
+  )
+)

@@ -5,9 +5,9 @@
 #' It was designed to be used with pipes.
 #'
 #' @param x Any expression, usually a function call.
-#' @param quiet (optional) A [logical][base::as.logical()] flag value indicating
+#' @param quiet (Optional) A [logical][base::as.logical()] flag value indicating
 #'   whether to suppress messages and warnings. This is can be used for
-#'   condition messages and warnings inside functions (default: `TRUE`).
+#'   condition messages and warnings inside functions (Default: `TRUE`).
 #'
 #' @return The same object as `x` with messages and warnings suppressed.
 #'

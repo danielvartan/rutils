@@ -1,15 +1,15 @@
-#' Return a `NA` value with the same characteristics of an R object
+#' Return a `NA` value of the same type of an R object
 #'
 #' @description
 #'
 #' `r lifecycle::badge("maturing")`
 #'
-#' `na_as()` returns a `NA` value with the same he same class and attributes of
-#' an R object.
+#' `na_as()` returns a `NA` value of the same class and attributes of a
+#' specific R object.
 #'
 #' This function was made to facilitate assigning `NA`s dynamically.
 #'
-#' @param x An [atomic vector][checkmate::test_atomic_vector()], provided that
+#' @param x An [atomic][checkmate::test_atomic] vector, provided that
 #'   `na_as()` has a method for it.
 #'
 #' @return A `NA` value with the same class and attributes of `x`.

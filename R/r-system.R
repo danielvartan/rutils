@@ -139,7 +139,14 @@ find_absolute_path <- function(relative_path) {
   )
 }
 
-find_path <- function(dir, package = get_package_name()) {
+# library(checkmate)
+# library(here)
+
+find_path <- function(dir, package = NULL) {
+  checkmate::assert_string(dir)
+  checkmate::assert_string(package, null.ok = TRUE)
+  if (is.null(package)) package <- here::here() |> basename()
+
   root <- system.file(package = package)
 
   if (!stringr::str_detect(root, "inst/?$") &&
@@ -149,14 +156,6 @@ find_path <- function(dir, package = get_package_name()) {
   } else {
     system.file(dir, package = package)
   }
-}
-
-# library(rstudioapi)
-
-get_package_name <- function() {
-  require_pkg("rstudioapi")
-
-  basename(rstudioapi::getActiveProject())
 }
 
 # library(checkmate, quietly = TRUE)

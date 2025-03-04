@@ -9,9 +9,9 @@ shush(x, quiet = TRUE)
 \arguments{
 \item{x}{Any expression, usually a function call.}
 
-\item{quiet}{(optional) A \link[base:logical]{logical} flag value indicating
+\item{quiet}{(Optional) A \link[base:logical]{logical} flag value indicating
 whether to suppress messages and warnings. This is can be used for
-condition messages and warnings inside functions (default: \code{TRUE}).}
+condition messages and warnings inside functions (Default: \code{TRUE}).}
 }
 \value{
 The same object as \code{x} with messages and warnings suppressed.

@@ -2,7 +2,7 @@
 
 change_name <- function(x, new_name) {
   checkmate::assert_character(new_name, min.len = 1)
-  assert_identical(names(x), new_name, type = "length")
+  # assert_identical(names(x), new_name, type = "length")
 
   names(x) <- new_name
 
@@ -38,27 +38,14 @@ close_round <- function(x, digits = 3) {
 
   dplyr::case_when(
     grepl(pattern_9, x) | grepl(pattern_0, x) ~ round(x),
-    TRUE ~ x)
+    TRUE ~ x
+  )
 }
 
 count_na <- function(x) {
   checkmate::assert_atomic(x)
 
   length(which(is.na(x)))
-}
-
-drop_na <- function(x) x[which(!is.na(x))]
-
-fix_character <- function(x) {
-  checkmate::assert_character(x)
-
-  x <- trimws(x)
-
-  for (i in c("", "NA")) {
-    x <- dplyr::na_if(x, i)
-  }
-
-  x
 }
 
 get_class <- function(x) {

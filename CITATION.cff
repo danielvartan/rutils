@@ -12,15 +12,14 @@ version: 0.0.0.9000
 identifiers:
 - type: url
   value: https://github.com/danielvartan/rutils/
-abstract: An R package made to store and organize utility functions created by Daniel
-  Vartanian.
+abstract: A collection of utility functions for R created by Daniel Vartanian.
 authors:
 - family-names: Vartanian
   given-names: Daniel
   email: danvartan@gmail.com
   orcid: https://orcid.org/0000-0001-7782-759X
 preferred-citation:
-  type: unpublished
+  type: generic
   title: 'rutils: Utility functions for R'
   authors:
   - family-names: Vartanian
@@ -28,7 +27,7 @@ preferred-citation:
     email: danvartan@gmail.com
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2025'
-  url: https://danielvartan.github.io/rutils/
+  url: https://danielvartan.github.io/rutils
   notes: R package
 repository-code: https://github.com/danielvartan/rutils/issues/
 url: https://danielvartan.github.io/rutils/
@@ -49,6 +48,19 @@ references:
     address: Vienna, Austria
   year: '2025'
   version: '>= 4.3'
+- type: software
+  title: chatgpt
+  abstract: 'chatgpt: Interface to ''ChatGPT'' from R'
+  notes: Imports
+  url: https://github.com/jcrodriguez1989/chatgpt
+  repository: https://CRAN.R-project.org/package=chatgpt
+  authors:
+  - family-names: Rodriguez
+    given-names: Juan Cruz
+    email: jcrodriguez@unc.edu.ar
+  year: '2025'
+  doi: 10.32614/CRAN.package.chatgpt
+  version: '>= 0.2.3'
 - type: software
   title: checkmate
   abstract: 'checkmate: Fast and Versatile Argument Checks'
@@ -76,6 +88,20 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.cli
   version: '>= 3.6.3'
+- type: software
+  title: clipr
+  abstract: 'clipr: Read and Write from the System Clipboard'
+  notes: Imports
+  url: http://matthewlincoln.net/clipr/
+  repository: https://CRAN.R-project.org/package=clipr
+  authors:
+  - family-names: Lincoln
+    given-names: Matthew
+    email: matthew.d.lincoln@gmail.com
+    orcid: https://orcid.org/0000-0002-4387-3384
+  year: '2025'
+  doi: 10.32614/CRAN.package.clipr
+  version: '>= 0.8.0'
 - type: software
   title: curl
   abstract: 'curl: A Modern and Flexible Web Client for R'
@@ -157,6 +183,23 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.ggplot2
   version: '>= 3.5.1'
+- type: software
+  title: glue
+  abstract: 'glue: Interpreted String Literals'
+  notes: Imports
+  url: https://glue.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=glue
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    orcid: https://orcid.org/0000-0002-2739-7082
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@posit.co
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2025'
+  doi: 10.32614/CRAN.package.glue
+  version: '>= 1.8.0'
 - type: software
   title: hms
   abstract: 'hms: Pretty Time of Day'
@@ -317,22 +360,6 @@ references:
   doi: 10.32614/CRAN.package.readr
   version: '>= 2.1.5'
 - type: software
-  title: rlang
-  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
-  notes: Imports
-  url: https://rlang.r-lib.org
-  repository: https://CRAN.R-project.org/package=rlang
-  authors:
-  - family-names: Henry
-    given-names: Lionel
-    email: lionel@posit.co
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  year: '2025'
-  doi: 10.32614/CRAN.package.rlang
-  version: '>= 1.1.4'
-- type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Imports
@@ -377,28 +404,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.rmarkdown
   version: '>= 2.29'
-- type: software
-  title: rstudioapi
-  abstract: 'rstudioapi: Safely Access the RStudio API'
-  notes: Imports
-  url: https://rstudio.github.io/rstudioapi/
-  repository: https://CRAN.R-project.org/package=rstudioapi
-  authors:
-  - family-names: Ushey
-    given-names: Kevin
-    email: kevin@rstudio.com
-  - family-names: Allaire
-    given-names: JJ
-    email: jj@posit.co
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Ritchie
-    given-names: Gary
-    email: gary@posit.co
-  year: '2025'
-  doi: 10.32614/CRAN.package.rstudioapi
-  version: '>= 0.17.1'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
@@ -505,17 +510,6 @@ references:
   year: '2025'
   version: '>= 4.3'
 - type: software
-  title: grDevices
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Suggests
-  authors:
-  - name: R Core Team
-  institution:
-    name: R Foundation for Statistical Computing
-    address: Vienna, Austria
-  year: '2025'
-  version: '>= 4.2.0'
-- type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
@@ -542,6 +536,22 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.mockr
   version: '>= 0.2.1'
+- type: software
+  title: rlang
+  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  notes: Suggests
+  url: https://rlang.r-lib.org
+  repository: https://CRAN.R-project.org/package=rlang
+  authors:
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.rlang
+  version: '>= 1.1.4'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'

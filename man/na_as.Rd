@@ -14,7 +14,7 @@
 \alias{na_as.POSIXct}
 \alias{na_as.POSIXlt}
 \alias{na_as.Interval}
-\title{Return a \code{NA} value with the same characteristics of an R object}
+\title{Return a \code{NA} value of the same type of an R object}
 \usage{
 na_as(x)
 
@@ -45,7 +45,7 @@ na_as(x)
 \method{na_as}{Interval}(x)
 }
 \arguments{
-\item{x}{An \link[checkmate:checkAtomicVector]{atomic vector}, provided that
+\item{x}{An \link[checkmate:checkAtomic]{atomic} vector, provided that
 \code{na_as()} has a method for it.}
 }
 \value{
@@ -54,8 +54,8 @@ A \code{NA} value with the same class and attributes of \code{x}.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
 
-\code{na_as()} returns a \code{NA} value with the same he same class and attributes of
-an R object.
+\code{na_as()} returns a \code{NA} value of the same class and attributes of a
+specific R object.
 
 This function was made to facilitate assigning \code{NA}s dynamically.
 }
