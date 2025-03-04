@@ -13,7 +13,7 @@
 #'
 #' @return A [`list`][base::list] with the swapped values.
 #'
-#' @family conditional functions.
+#' @family conditional functions
 #' @export
 #'
 #' @examples

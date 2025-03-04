@@ -51,10 +51,14 @@ reference:
   contents:
   - normalize_names
 
+- title: Conditionals
+  contents:
+  - swap_if
+  - swap_vector
+
 - title: Vectors
   contents:
   - drop_na
-  - swap_if
 
 authors:
   Daniel Vartanian:

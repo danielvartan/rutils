@@ -37,4 +37,8 @@ swap_if(1, 2, condition = FALSE)
 #> $y
 #> [1] 2
 }
-\concept{conditional functions.}
+\seealso{
+Other conditional functions: 
+\code{\link{swap_vector}()}
+}
+\concept{conditional functions}
