@@ -1,4 +1,4 @@
-#' Update package versions in the `DESCRIPTION`` file
+#' Update package versions in the `DESCRIPTION` file
 #'
 #' @description
 #'

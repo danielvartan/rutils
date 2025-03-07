@@ -1,5 +1,5 @@
 utils::bibentry(
-  header = "To cite {brandr} in publications use:",
+  header = "To cite {rutils} in publications use:",
   bibtype = "Misc",
   title = paste0(
     "{rutils}:", " ",

@@ -39,6 +39,6 @@ swap_if(1, 2, condition = FALSE)
 }
 \seealso{
 Other conditional functions: 
-\code{\link{swap_vector}()}
+\code{\link{vct_replace_all}()}
 }
 \concept{conditional functions}

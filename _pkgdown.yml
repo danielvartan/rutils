@@ -1,14 +1,18 @@
 # (2025-03-02) You may have to install the development version of `bslib` to
-# use `_brands.yml`.
+# use `_brands.yml` (`remotes::install_github("rstudio/bslib", force = TRUE)`).
 
 url: https://danielvartan.github.io/rutils/
 
 template:
   bslib:
     version: 5
+    brand: "./_brand.yml"
   math-rendering: mathjax
   light-switch: true
-
+  opengraph:
+    image:
+      src: man/figures/og-image.png
+      alt: "{brandr} logo"
   params:
     noindex: false
 
@@ -30,11 +34,24 @@ navbar:
     articles: ~
 
 reference:
+- title: Conditionals
+  contents:
+  - swap_if
+
 - title: Dialogs
   contents:
   - shush
 
-- title: Parsing/Conversion
+- title: Files
+  contents:
+  - normalize_names
+
+- title: Replacement
+  contents:
+  - list_replace_all
+  - vct_replace_all
+
+- title: Parsing & Conversion
   contents:
   - na_as
   - vector_to_c
@@ -47,16 +64,7 @@ reference:
   contents:
   - grab_fun_par
 
-- title: Files
-  contents:
-  - normalize_names
-
-- title: Conditionals
-  contents:
-  - swap_if
-  - swap_vector
-
-- title: Vectors
+- title: Subsetting
   contents:
   - drop_na
 

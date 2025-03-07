@@ -6,6 +6,8 @@
 \alias{rutils-package}
 \title{rutils: Utility Functions for R}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 A collection of utility functions for R created by Daniel Vartanian.
 }
 \seealso{

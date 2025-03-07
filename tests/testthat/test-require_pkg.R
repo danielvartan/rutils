@@ -1,10 +1,3 @@
-test_that("find_absolute_path() | general test", {
-  expect_equal(
-    find_absolute_path(list.files()[1]),
-    file.path(getwd(), list.files()[1])
-  )
-})
-
 test_that("require_pkg() | general test", {
   expect_null(require_pkg("base"))
   expect_error(require_pkg("test65464564"))
@@ -37,16 +30,4 @@ test_that("require_pkg() | error test", {
   ),
   "'...' cannot have duplicated values."
   )
-})
-
-test_that("shush() | general test", {
-  expect_equal(shush(x = "a", quiet = FALSE), "a")
-
-  test <- function() {
-    warning("test", call. = FALSE)
-    "test"
-  }
-
-  expect_equal(shush(x = test(), quiet = TRUE), "test")
-  expect_warning(shush(x = test(), quiet = FALSE), "test")
 })

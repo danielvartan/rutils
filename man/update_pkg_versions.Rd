@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_pkg_versions.R
 \name{update_pkg_versions}
 \alias{update_pkg_versions}
-\title{Update package versions in the `DESCRIPTION`` file}
+\title{Update package versions in the \code{DESCRIPTION} file}
 \usage{
 update_pkg_versions(
   file = here::here("DESCRIPTION"),

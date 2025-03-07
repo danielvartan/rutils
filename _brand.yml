@@ -1,0 +1,63 @@
+# For detailed documentation on the format, refer to:
+#
+# - https://posit-dev.github.io/brand-yml
+# - https://quarto.org/docs/authoring/brand.html
+
+meta:
+  name:
+    short: "{rutils}"
+    long: "{rutils}: Utility Functions for R"
+  link:
+    home: https://danielvartan.github.io/rutils
+    github: https://github.com/danielvartan/rutils
+  description: |
+    A collection of utility functions for R created by Daniel Vartanian.
+
+color:
+  palette:
+    red: "#D80000"
+    white: "#FFFFFF"
+    black: "#000000"
+  background: white
+  primary: red
+  secondary: black
+  tertiary: white
+  success: red
+  info: red
+  warning: red
+  danger: red
+  light: white
+  dark: black
+
+typography:
+  fonts:
+    - family: Archivo
+      source: google
+    - family: Archivo Black
+      source: google
+    - family: Archivo Narrow
+      source: google
+    - family: Source Code Pro
+      source: google
+  base: Archivo
+  headings: Archivo Black
+  link:
+    color: red
+    decoration: underline
+  monospace: Source Code Pro
+  monospace-inline: Source Code Pro
+  monospace-block: Source Code Pro
+
+defaults:
+  bootstrap:
+    defaults:
+      enable-rounded: false
+      navbar-bg: $brand-black
+    rules: |
+      .navbar {
+        background-color: $brand-black!important;
+      }
+
+      [data-bs-theme="dark"] pre, [data-bs-theme="dark"] code {
+        color: $brand-white;
+      }

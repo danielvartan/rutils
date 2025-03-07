@@ -1,4 +1,4 @@
-# rutils
+# rutils <a href = "https://danielvartan.github.io/brandr/"><img src = "man/figures/logo.svg" align="right" width="120" /></a>
 
 <!-- quarto render -->
 
@@ -17,7 +17,7 @@ MIT](https://img.shields.io/badge/license-MIT-green.png)](https://choosealicense
 
 ## Overview
 
-🧰🛠️🔧⚙️🧮📋📁🔗🧹📝💾🔢
+🧰🛠️🔧⚙️🔗🔨⛏️🪓🪚🪛🧱
 
 `rutils` is an R package that I (Daniel Vartanian) use to store and
 organize my utility functions until they are ready to be moved to their
