@@ -1,4 +1,4 @@
-# rutils <a href = "https://danielvartan.github.io/brandr/"><img src = "man/figures/logo.svg" align="right" width="120" /></a>
+# rutils <a href = "https://danielvartan.github.io/brandr/"><img src = "man/figures/logo.png" align="right" width="120" /></a>
 
 <!-- quarto render -->
 
