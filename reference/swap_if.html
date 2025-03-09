@@ -59,7 +59,7 @@ swap_if() swaps two values if a condition is met."><meta property="og:image" con
 
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
-<dd><p>Any type of R object.</p></dd>
+<dd><p>An R object of the same class and length as <code>x</code>.</p></dd>
 
 
 <dt id="arg-condition">condition<a class="anchor" aria-label="anchor" href="#arg-condition"></a></dt>
@@ -104,6 +104,23 @@ values should be swapped (Default: <code>TRUE</code>).</p></dd>
 <span class="r-in"><span><span class="co">#&gt;</span></span></span>
 <span class="r-in"><span><span class="co">#&gt; $y</span></span></span>
 <span class="r-in"><span><span class="co">#&gt; [1] 2</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">swap_if</span><span class="op">(</span><span class="va">letters</span>, <span class="va">LETTERS</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="fl">13</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="fl">13</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $x</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "n" "o" "p" "q" "r" "s"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "t" "u" "v" "w" "x" "y" "z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $y</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "N" "O" "P" "Q" "R" "S"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "T" "U" "V" "W" "X" "Y" "Z"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co">#&gt; $x</span></span></span>
+<span class="r-in"><span><span class="co">#&gt;  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "n"</span></span></span>
+<span class="r-in"><span><span class="co">#&gt; [15] "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"</span></span></span>
+<span class="r-in"><span><span class="co">#&gt;</span></span></span>
+<span class="r-in"><span><span class="co">#&gt; $y</span></span></span>
+<span class="r-in"><span><span class="co">#&gt;  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "N"</span></span></span>
+<span class="r-in"><span><span class="co">#&gt; [15] "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
