@@ -76,15 +76,15 @@ as is.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">col2hex</span><span class="op">(</span><span class="st">"red"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in assert_color(x, any_missing = TRUE):</span> could not find function "assert_color"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#FF0000"</span>
 <span class="r-in"><span><span class="co">#&gt; [1] "#FF0000"</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">col2hex</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in assert_color(x, any_missing = TRUE):</span> could not find function "assert_color"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#FF0000" "#00FF00" "#0000FF"</span>
 <span class="r-in"><span><span class="co">#&gt; [1] "#FF0000" "#00FF00" "#0000FF"</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">col2hex</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"#000"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in assert_color(x, any_missing = TRUE):</span> could not find function "assert_color"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#FF0000" "#000000"</span>
 <span class="r-in"><span><span class="co">#&gt; [1] "#FF0000" "#000000"</span></span></span>
 </code></pre></div>
     </div>
