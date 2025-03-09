@@ -32,18 +32,18 @@
 #' #> [1] "#FF0000" "#000000"
 col2hex <- function(x) {
   checkmate::assert_character(x)
-  assert_color(x, any_missing = TRUE)
+  # prettycheck::assert_color(x, any_missing = TRUE)
 
   dplyr::case_when(
     grepl("(?i)^#[a-f0-9]{8}$", x) ~ x,
     is.na(x) ~ NA_character_,
     TRUE ~
       x |>
-      grDevices::col2rgb() |>
-      t() |>
-      as.data.frame() |>
-      c(list(names = x, maxColorValue = 255)) |>
-      do.call(grDevices::rgb, args = _) |>
-      unname()
+        grDevices::col2rgb() |>
+        t() |>
+        as.data.frame() |>
+        c(list(names = x, maxColorValue = 255)) |>
+        do.call(grDevices::rgb, args = _) |>
+        unname()
   )
 }
