@@ -1,5 +1,9 @@
 #' Suppress messages and warnings
 #'
+#' @description
+#'
+#' `r lifecycle::badge("stable")`
+#'
 #' `shush()` is a wrapper around `suppressMessages()` and `suppressWarnings()`
 #' that allows you to suppress messages and warnings in a single function call.
 #' It was designed to be used with pipes.

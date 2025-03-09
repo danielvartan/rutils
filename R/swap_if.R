@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
+#' `r lifecycle::badge("stable")`
 #'
 #' `swap_if()` swaps two values if a condition is met.
 #'

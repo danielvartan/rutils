@@ -20,6 +20,8 @@ version of the current R version.}
 An invisible \code{NULL}. This function is used for its side effect.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
+
 \code{update_pkg_versions()} updates the version of packages listed in the
 \code{DESCRIPTION} file of an R package with their installed versions.
 

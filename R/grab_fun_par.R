@@ -32,7 +32,8 @@ grab_fun_par <- function() {
     dots <- list()
   }
 
-  args_names <- sapply(setdiff(args_names, "..."), as.name)
+  args_names <- setdiff(args_names, "...") |> lapply(as.name)
+  names(args_names) <- setdiff(args_names, "...")
 
   if (!length(args_names) == 0) {
     not_dots <- lapply(args_names, eval, envir = parent.frame())

@@ -36,7 +36,7 @@ position as the match.
 }
 \examples{
 list_replace_all(list(a = "", b = "b", c = list(d = "", e = "e")))
-#> $a
+#> $a # Expected
 #> NULL
 #>
 #> $b

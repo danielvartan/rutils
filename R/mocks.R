@@ -67,13 +67,9 @@ raw_to_char <- function(x, multiple = FALSE) {
   rawToChar(x = x, multiple = multiple)
 }
 
-is_interactive <- function(...) {
-  interactive()
-}
+is_interactive <- function(...) interactive()
 
-read_line <- function(prompt, ...) {
-  readline(prompt)
-}
+read_line <- function(prompt, ...) readline(prompt)
 
 require_namespace <- function(x, ..., quietly = TRUE) {
   requireNamespace(x, ..., quietly = quietly)

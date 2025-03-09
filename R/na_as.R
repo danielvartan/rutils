@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
+#' `r lifecycle::badge("stable")`
 #'
 #' `na_as()` returns a `NA` value of the same class and attributes of a
 #' specific R object.

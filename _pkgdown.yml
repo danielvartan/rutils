@@ -38,6 +38,10 @@ reference:
   contents:
   - swap_if
 
+- title: Colors
+  contents:
+  - col2hex
+
 - title: Dialogs
   contents:
   - shush

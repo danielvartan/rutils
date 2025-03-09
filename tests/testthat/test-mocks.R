@@ -1,4 +1,4 @@
-test_that("cluster_map() | general test", {
+test_that("cluster_map() | General test", {
   x <- make_cluster(1)
   object <- cluster_map(x, function(x) TRUE, 1)
   stop_cluster(x)
@@ -6,20 +6,20 @@ test_that("cluster_map() | general test", {
   checkmate::expect_list(object)
 })
 
-test_that("make_cluster() | general test", {
+test_that("make_cluster() | General test", {
   object <- make_cluster(1)
   stop_cluster(object)
 
   checkmate::expect_class(object, "cluster")
 })
 
-test_that("stop_cluster() | general test", {
+test_that("stop_cluster() | General test", {
   x <- make_cluster(1)
 
   expect_null(stop_cluster(x))
 })
 
-test_that("curl_download() | general test", {
+test_that("curl_download() | General test", {
   url <- paste0(
     "https://api.stackexchange.com/2.2/answers?",
     "order=desc&sort=activity&site=stackoverflow"
@@ -30,7 +30,7 @@ test_that("curl_download() | general test", {
   }
 })
 
-test_that("curl_fetch_memory() | general test", {
+test_that("curl_fetch_memory() | General test", {
   url <- paste0(
     "https://api.stackexchange.com/2.2/answers?",
     "order=desc&sort=activity&site=stackoverflow"
@@ -41,15 +41,15 @@ test_that("curl_fetch_memory() | general test", {
   }
 })
 
-test_that("has_internet() | general test", {
+test_that("has_internet() | General test", {
   expect_equal(has_internet(), curl::has_internet())
 })
 
-test_that("is_interactive() | general test", {
+test_that("is_interactive() | General test", {
   expect_equal(is_interactive(), interactive())
 })
 
-# test_that("from_json() | general test", {
+# test_that("from_json() | General test", {
 #     tmp <- tempfile()
 #     jsonlite::write_json(acttrust, tmp)
 
@@ -59,7 +59,7 @@ test_that("is_interactive() | general test", {
 #     )
 # })
 
-# test_that("read_json() | general test", {
+# test_that("read_json() | General test", {
 #     tmp <- tempfile()
 #     jsonlite::write_json(acttrust, tmp)
 
@@ -69,16 +69,16 @@ test_that("is_interactive() | general test", {
 #     )
 # })
 
-# test_that("read_line() | general test", {
+# test_that("read_line() | General test", {
 #   expect_equal(read_line(""), "")
 # })
 
-# test_that("raw_to_char() | general test", {
+# test_that("raw_to_char() | General test", {
 #   expect_equal(raw_to_char(charToRaw("a")), "a")
 # })
 
 
-# test_that("require_namespace() | general test", {
+# test_that("require_namespace() | General test", {
 #   expect_equal(
 #     require_namespace("base"),
 #     requireNamespace("base", quietly = TRUE)

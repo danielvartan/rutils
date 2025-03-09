@@ -2,6 +2,8 @@
 #'
 #' @description
 #'
+#' `r lifecycle::badge("maturing")`
+#'
 #' `update_pkg_versions()` updates the version of packages listed in the
 #' `DESCRIPTION` file of an R package with their installed versions.
 #'
