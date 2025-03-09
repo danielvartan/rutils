@@ -18,7 +18,7 @@
 #'
 #' @return A [`character`][base::character] vector of hexadecimal color codes.
 #'
-#' @family color functions.
+#' @family color functions
 #' @export
 #'
 #' @examples

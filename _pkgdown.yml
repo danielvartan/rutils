@@ -57,6 +57,7 @@ reference:
 
 - title: Parsing & Conversion
   contents:
+  - cut_interval_mean
   - na_as
   - vector_to_c
 

@@ -34,4 +34,4 @@ col2hex(c("red", "green", "blue"))
 col2hex(c("red", "#000"))
 #> [1] "#FF0000" "#000000"
 }
-\concept{color functions.}
+\concept{color functions}
