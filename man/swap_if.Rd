@@ -9,7 +9,7 @@ swap_if(x, y, condition = TRUE)
 \arguments{
 \item{x}{Any type of R object.}
 
-\item{y}{Any type of R object.}
+\item{y}{An R object of the same class and length as \code{x}.}
 
 \item{condition}{A \code{\link[base:logical]{logical}} flag indicating if the
 values should be swapped (Default: \code{TRUE}).}
@@ -36,6 +36,15 @@ swap_if(1, 2, condition = FALSE)
 #>
 #> $y
 #> [1] 2
+
+swap_if(letters, LETTERS, c(rep(TRUE, 13), rep(FALSE, 13)))
+#> $x
+#>  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "n"
+#> [15] "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
+#>
+#> $y
+#>  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "N"
+#> [15] "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
 }
 \seealso{
 Other conditional functions: 
