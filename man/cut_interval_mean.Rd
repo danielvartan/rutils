@@ -4,14 +4,17 @@
 \alias{cut_interval_mean}
 \title{Compute the interval means of a cut factor}
 \usage{
-cut_interval_mean(x, round = TRUE)
+cut_interval_mean(x, round = FALSE, names = FALSE)
 }
 \arguments{
 \item{x}{A \code{\link[base:factor]{factor}} or \code{\link[base:character]{character}} vector
 with \code{\link[base:cut]{cut}} intervals.}
 
 \item{round}{A \code{\link[base:logical]{logical}} flag indicating whether to round
-the means to \verb{0`` decimal places (Default: }TRUE`).}
+the means to \verb{0`` decimal places (Default: }FALSE`).}
+
+\item{names}{A \code{\link[base:logical]{logical}} flag indicating whether to name
+the output vector with the original intervals (Default: \code{FALSE}).}
 }
 \value{
 A \code{\link[base:numeric]{numeric}} vector with the interval means.
@@ -29,10 +32,15 @@ cut(1:5, breaks = 3)
 #> Levels: (0.996,2.33] (2.33,3.67] (3.67,5]
 
 cut(1:5, breaks = 3) |> cut_interval_mean()
-#> [1] 2 2 3 4 4 # Expected
-
-cut(1:5, breaks = 3) |> cut_interval_mean(round = FALSE)
 #> [1] 1.663 1.663 3.000 4.335 4.335 # Expected
+
+cut(1:5, breaks = 3) |> cut_interval_mean(names = TRUE)
+#> # Expected
+#> (0.996,2.33] (0.996,2.33]  (2.33,3.67]     (3.67,5]     (3.67,5]
+#>       1.663        1.663        3.000        4.335        4.335
+
+cut(1:5, breaks = 3) |> cut_interval_mean(round = TRUE)
+#> [1] 2 2 3 4 4 # Expected
 }
 \seealso{
 Other parsing/conversion functions: 

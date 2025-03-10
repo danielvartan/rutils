@@ -1,11 +1,16 @@
 testthat::test_that("cut_interval_mean() | General test", {
   cut(1:5, breaks = 3) |>
     cut_interval_mean() |>
-    testthat::expect_equal(c(2, 2, 3, 4, 4))
+    testthat::expect_equal(c(1.663, 1.663, 3, 4.335, 4.335))
 
   cut(1:5, breaks = 3) |>
-    cut_interval_mean(round = FALSE) |>
-    testthat::expect_equal(c(1.663, 1.663, 3, 4.335, 4.335))
+    cut_interval_mean(names = TRUE) |>
+    names() |>
+    testthat::expect_equal(as.character(cut(1:5, breaks = 3)))
+
+  cut(1:5, breaks = 3) |>
+    cut_interval_mean(round = TRUE) |>
+    testthat::expect_equal(c(2, 2, 3, 4, 4))
 })
 
 testthat::test_that("cut_interval_mean() | Error test", {
