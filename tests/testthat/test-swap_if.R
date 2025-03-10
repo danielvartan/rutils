@@ -13,12 +13,18 @@ test_that("swap_if() | General test", {
 })
 
 test_that("swap_if() | Error test", {
-  # if (class(x) != class(y)) ...
+  # if (!class(x)[1] == class(y)[1]) {
   swap_if(x = 1, y = "1", condition = TRUE) |>
     expect_error()
 
-  # if (length(x) != length(y) || length(x) != length(condition)) ...
+  swap_if(x = 1:10, y = letters[10], condition = TRUE) |>
+    expect_error()
+
+  # if (!all( ...
   swap_if(x = 1, y = 1:2, condition = TRUE) |>
+    expect_error()
+
+  swap_if(x = 1:10, y = 1, condition = TRUE) |>
     expect_error()
 
   # checkmate::assert_logical(condition)

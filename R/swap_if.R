@@ -44,16 +44,23 @@ swap_if <- function(x, y, condition = TRUE) {
   # prettycheck::assert_identical(x, y, condition, type = "length")
   checkmate::assert_logical(condition)
 
-  if (class(x) != class(y)) {
-    cli::cli_abort(
-      paste0(
-        "{.strong {cli::col_red('x')}} and ",
-        "{.strong {cli::col_red('y')}} must be of the same class."
+  if (!(class(x)[1] == class(y)[1])) {
+    if (!(is.numeric(x) && is.numeric(y))) {
+      cli::cli_abort(
+        paste0(
+          "{.strong {cli::col_red('x')}} and ",
+          "{.strong {cli::col_red('y')}} must be of the same class."
+        )
       )
-    )
+    }
   }
 
-  if (length(x) != length(y) || length(x) != length(condition)) {
+  if (!all(
+    length(x) == length(y) &&
+      length(x) == length(condition) &&
+      length(y) == length(condition),
+    na.rm = TRUE
+  )) {
     cli::cli_abort(
       paste0(
         "{.strong {cli::col_red('x')}}, ",
