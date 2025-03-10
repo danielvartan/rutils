@@ -38,6 +38,8 @@
 cut_interval_mean <- function(x, round = FALSE, names = FALSE) {
   checkmate::assert_multi_class(x, c("character", "factor"))
   checkmate::assert_character(as.character(x), pattern = "^\\[|^\\(")
+  checkmate::assert_flag(round)
+  checkmate::assert_flag(names)
 
   if (is.factor(x)) x <- as.character(x)
 

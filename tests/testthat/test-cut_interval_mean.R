@@ -15,8 +15,24 @@ testthat::test_that("cut_interval_mean() | General test", {
 
 testthat::test_that("cut_interval_mean() | Error test", {
   # checkmate::assert_multi_class(x, c("character", "factor"))
-  cut_interval_mean(1, TRUE) |> testthat::expect_error()
+  cut_interval_mean(1, FALSE, FALSE) |> testthat::expect_error()
 
   # checkmate::assert_character(as.character(x), pattern = "^\\[|^\\(")
-  cut_interval_mean("1", TRUE) |> testthat::expect_error()
+  cut_interval_mean("1", FALSE, FALSE) |> testthat::expect_error()
+
+  # checkmate::assert_flag(round)
+  cut_interval_mean(
+    cut(1:5, breaks = 3),
+    round = "TRUE",
+    names = FALSE
+  ) |>
+    testthat::expect_error()
+
+  # checkmate::assert_flag(names)
+  cut_interval_mean(
+    cut(1:5, breaks = 3),
+    round = FALSE,
+    names = "TRUE"
+  ) |>
+    testthat::expect_error()
 })
