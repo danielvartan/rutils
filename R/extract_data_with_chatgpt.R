@@ -30,7 +30,7 @@ extract_data_with_chatgpt <- function(
         "Extract and output ONLY the {extract} from the following: {i}."
       ) |>
         chatgpt::ask_chatgpt() |>
-        rutils::shush()
+        shush()
     )
   }
 

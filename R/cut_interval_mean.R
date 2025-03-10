@@ -43,17 +43,13 @@ cut_interval_mean <- function(x, round = FALSE, names = FALSE) {
 
   if (is.factor(x)) x <- as.character(x)
 
-  left <-
+  out <-
     x |>
-    stringr::str_extract("\\d+?\\.?\\d+(?=,)") |>
-    as.numeric()
-
-  right <-
-    x |>
-    stringr::str_extract("\\d+\\.?\\d*(?=\\D*\\]$)") |>
-    as.numeric()
-
-  out <- mapply(function(x, y) mean(c(x, y), na.rm = TRUE), left, right)
+    stringr::str_remove_all("\\(|\\[|\\)|\\]") |>
+    stringr::str_split(",") |>
+    lapply(as.numeric) |>
+    lapply(mean) |>
+    unlist()
 
   if (isTRUE(round)) out <- round(out)
   if (isTRUE(names)) names(out) <- x
