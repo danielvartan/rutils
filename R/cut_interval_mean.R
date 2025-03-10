@@ -16,7 +16,7 @@
 #'
 #' @return A [`numeric`][base::numeric] vector with the interval means.
 #'
-#' @family parsing/conversion functions
+#' @family stat functions
 #' @export
 #'
 #' @examples

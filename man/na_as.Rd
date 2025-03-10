@@ -70,8 +70,4 @@ na_as(as.Date("2020-01-01"))
 class(na_as(as.Date("2020-01-01")))
 #> [1] "Date"  # Expected
 }
-\seealso{
-Other parsing/conversion functions: 
-\code{\link{cut_interval_mean}()}
-}
 \concept{parsing/conversion functions}

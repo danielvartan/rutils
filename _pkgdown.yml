@@ -57,7 +57,6 @@ reference:
 
 - title: Parsing & Conversion
   contents:
-  - cut_interval_mean
   - na_as
   - vector_to_c
 
@@ -68,6 +67,11 @@ reference:
 - title: Scoping
   contents:
   - grab_fun_par
+
+- title: Stats
+  contents:
+  - cut_interval_mean
+  - std_error
 
 - title: Subsetting
   contents:

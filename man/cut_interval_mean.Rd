@@ -43,7 +43,7 @@ cut(1:5, breaks = 3) |> cut_interval_mean(round = TRUE)
 #> [1] 2 2 3 4 4 # Expected
 }
 \seealso{
-Other parsing/conversion functions: 
-\code{\link{na_as}()}
+Other stat functions: 
+\code{\link{std_error}()}
 }
-\concept{parsing/conversion functions}
+\concept{stat functions}
