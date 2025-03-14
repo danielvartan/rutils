@@ -39,8 +39,11 @@ update_pkg_versions <- function(
   out <- character()
 
   for (i in lines) {
-    if (stringr::str_detect(stringr::str_trim(i), "^[a-z0-9.]* \\(.+\\)")) {
-      package <- stringr::str_extract(stringr::str_trim(i), "^[a-zA-Z0-9.]*")
+    if (stringr::str_detect(stringr::str_trim(i), "(?i)^[a-z0-9.]+ \\(.+\\)")) {
+      package <- stringr::str_extract(
+        stringr::str_trim(i),
+        "(?i)^[a-zA-Z0-9.]+"
+      )
 
       if (package %in% installed_packages$Package) {
         version <- stringr::str_extract(i, "(?<=\\().*(?=\\))")
@@ -55,6 +58,13 @@ update_pkg_versions <- function(
             as.character(utils::packageVersion(package))
           )
         }
+
+        version <-
+          version |>
+          stringr::str_replace_all(
+            pattern = "\\.90[0-9]{2}$",
+            replacement = ""
+          )
 
         out <- append(
           out,
