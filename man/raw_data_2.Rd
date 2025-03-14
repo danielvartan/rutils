@@ -41,7 +41,8 @@ if (interactive()) {
 \seealso{
 Other R package functions: 
 \code{\link{raw_data_1}()},
-\code{\link{update_pkg_versions}()}
+\code{\link{update_pkg_versions}()},
+\code{\link{update_pkg_year}()}
 }
 \concept{R package functions}
 \keyword{internal}
