@@ -46,10 +46,6 @@ reference:
   contents:
   - shush
 
-- title: Files
-  contents:
-  - normalize_names
-
 - title: Replacement
   contents:
   - list_replace_all
@@ -68,6 +64,10 @@ reference:
 - title: Scoping
   contents:
   - grab_fun_par
+
+- title: Strings
+  contents:
+  - get_file_ext
 
 - title: Statistics
   contents:
