@@ -22,7 +22,7 @@
 #'
 #' @return A number representing the standard error.
 #'
-#' @family stat functions
+#' @family statistical functions
 #' @export
 #'
 #' @examples

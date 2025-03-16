@@ -69,10 +69,12 @@ reference:
   contents:
   - grab_fun_par
 
-- title: Stats
+- title: Statistics
   contents:
   - cut_interval_mean
   - std_error
+  - test_outlier
+  - remove_outliers
 
 - title: Subsetting
   contents:

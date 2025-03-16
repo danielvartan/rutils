@@ -1,0 +1,38 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ff0c0c",
+    "activityBar.background": "#ff0c0c",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#00df00",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#ff0c0c",
+    "statusBar.background": "#d80000",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#ff0c0c",
+    "statusBarItem.remoteBackground": "#d80000",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#d80000",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#d8000099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#D80000",
+  "cSpell.words": [
+    "brandr",
+    "bslib",
+    "lightswitch",
+    "mult",
+    "noindex",
+    "opengraph",
+    "Rapp",
+    "Rcheck",
+    "revdep",
+    "rstudio",
+    "Ruserdata",
+    "Subsetting",
+    "tcltk",
+    "usethis"
+  ]
+}

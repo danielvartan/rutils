@@ -33,7 +33,9 @@ can be estimated by the standard deviation of the sample
 #> [1] 2.90115 # Expected
 }
 \seealso{
-Other stat functions: 
-\code{\link{cut_interval_mean}()}
+Other statistical functions: 
+\code{\link{cut_interval_mean}()},
+\code{\link{remove_outliers}()},
+\code{\link{test_outlier}()}
 }
-\concept{stat functions}
+\concept{statistical functions}

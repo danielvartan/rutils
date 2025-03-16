@@ -43,7 +43,9 @@ cut(1:5, breaks = 3) |> cut_interval_mean(round = TRUE)
 #> [1] 2 2 3 4 4 # Expected
 }
 \seealso{
-Other stat functions: 
-\code{\link{std_error}()}
+Other statistical functions: 
+\code{\link{remove_outliers}()},
+\code{\link{std_error}()},
+\code{\link{test_outlier}()}
 }
-\concept{stat functions}
+\concept{statistical functions}
