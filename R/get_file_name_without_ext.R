@@ -19,6 +19,9 @@
 #' get_file_name_without_ext("/path/to/file.tar.gz")
 #' #> [1] "file.tar"  # Expected
 #'
+#' get_file_name_without_ext("no-extension")
+#' #> [1] "no-extension" # Expected
+#'
 #' get_file_name_without_ext(c("data.csv", "data.rds"))
 #' #> [1] "data" "data" # Expected
 get_file_name_without_ext <- function(file) {
@@ -26,7 +29,7 @@ get_file_name_without_ext <- function(file) {
 
   ext <- get_file_ext(file)
 
-  dplyr::if_else(
+  ifelse(
     is.na(ext),
     file |> basename(),
     file |>

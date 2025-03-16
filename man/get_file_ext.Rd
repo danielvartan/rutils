@@ -25,6 +25,9 @@ get_file_ext("example.txt")
 get_file_ext("/path/to/file.tar.gz")
 #> [1] ".gz"  # Expected
 
+get_file_ext("no-extension")
+#> [1] NA # Expected
+
 get_file_ext(c("data.csv", "data.rds"))
 #> [1] ".csv" ".rds" # Expected
 }
