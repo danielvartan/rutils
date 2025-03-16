@@ -1,12 +1,13 @@
-#' Get file extension
+#' Get file extensions
 #'
 #' @description
-#' `get_file_ext()` is similar to [`file_ext()`][tools::file_ext], but it
-#' returns the file extension with the dot separator (e.g., `.csv`).
+#' `get_file_ext()` is similar to [`file_ext()`][tools::file_ext], the
+#' difference is that it returns the file extension with the dot
+#' separator (e.g., `.csv`).
 #'
-#' @param file A [`character`][base::character] string with the file paths.
+#' @param file A [`character`][base::character] vector with file paths.
 #'
-#' @return A [`character`][base::character] string containing the file
+#' @return A [`character`][base::character] vector containing the file
 #'   extension of the files.
 #'
 #' @family string functions

@@ -2,20 +2,21 @@
 % Please edit documentation in R/get_file_ext.R
 \name{get_file_ext}
 \alias{get_file_ext}
-\title{Get file extension}
+\title{Get file extensions}
 \usage{
 get_file_ext(file)
 }
 \arguments{
-\item{file}{A \code{\link[base:character]{character}} string with the file paths.}
+\item{file}{A \code{\link[base:character]{character}} vector with file paths.}
 }
 \value{
-A \code{\link[base:character]{character}} string containing the file
+A \code{\link[base:character]{character}} vector containing the file
 extension of the files.
 }
 \description{
-\code{get_file_ext()} is similar to \code{\link[tools:fileutils]{file_ext()}}, but it
-returns the file extension with the dot separator (e.g., \code{.csv}).
+\code{get_file_ext()} is similar to \code{\link[tools:fileutils]{file_ext()}}, the
+difference is that it returns the file extension with the dot
+separator (e.g., \code{.csv}).
 }
 \examples{
 get_file_ext("example.txt")
@@ -26,5 +27,9 @@ get_file_ext("/path/to/file.tar.gz")
 
 get_file_ext(c("data.csv", "data.rds"))
 #> [1] ".csv" ".rds" # Expected
+}
+\seealso{
+Other string functions: 
+\code{\link{get_file_name_without_ext}()}
 }
 \concept{string functions}

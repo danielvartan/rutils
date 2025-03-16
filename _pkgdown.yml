@@ -68,6 +68,7 @@ reference:
 - title: Strings
   contents:
   - get_file_ext
+  - get_file_name_without_ext
 
 - title: Statistics
   contents:
