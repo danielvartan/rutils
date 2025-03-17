@@ -24,4 +24,9 @@ drop_na(c(1, NA, 2, 3, NA, 4))
 drop_na(c("a", NA, "b", "c"))
 #> [1] "a" "b" "c" # Expected
 }
+\seealso{
+Other vector functions.: 
+\code{\link{count_na}()},
+\code{\link{inbetween_integers}()}
+}
 \concept{vector functions.}

@@ -15,7 +15,7 @@
 #'
 #' @return The same object as `x` with messages and warnings suppressed.
 #'
-#' @family dialog functions
+#' @family dialog functions.
 #' @export
 #'
 #' @examples

@@ -32,4 +32,4 @@ warning("test") |> shush()
 warning("test") |> shush(quiet = FALSE)
 #> Warning: test # Expected
 }
-\concept{dialog functions}
+\concept{dialog functions.}

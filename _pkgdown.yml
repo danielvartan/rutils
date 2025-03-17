@@ -67,6 +67,7 @@ reference:
 
 - title: Strings
   contents:
+  - extract_initials
   - get_file_ext
   - get_file_name_without_ext
 
@@ -77,9 +78,11 @@ reference:
   - test_outlier
   - remove_outliers
 
-- title: Subsetting
+- title: Vectors
   contents:
+  - count_na
   - drop_na
+  - inbetween_integers
 
 authors:
   Daniel Vartanian:
