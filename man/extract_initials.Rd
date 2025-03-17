@@ -29,4 +29,8 @@ extract_initials(c("John Doe", "Jane Doe", "John Smith"))
 extract_initials(c("John Doe", "Jane Doe", "John Smith"), sep = ".")
 #> [1] "J.D." "J.D." "J.S." # Expected
 }
+\seealso{
+Other string functions.: 
+\code{\link{to_title_case_pt}()}
+}
 \concept{string functions.}

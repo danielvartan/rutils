@@ -32,7 +32,7 @@
 #' #> [1] "#FF0000" "#000000"
 col2hex <- function(x) {
   checkmate::assert_character(x)
-  # prettycheck::assert_color(x, any_missing = TRUE)
+  prettycheck::assert_color(x, any_missing = TRUE)
 
   dplyr::case_when(
     grepl("(?i)^#[a-f0-9]{8}$", x) ~ x,

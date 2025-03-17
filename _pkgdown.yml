@@ -70,9 +70,11 @@ reference:
   - extract_initials
   - get_file_ext
   - get_file_name_without_ext
+  - to_title_case_pt
 
 - title: Statistics
   contents:
+  - cohens_d
   - cut_interval_mean
   - std_error
   - test_outlier

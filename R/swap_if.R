@@ -40,8 +40,8 @@
 #' #>  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "N"
 #' #> [15] "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
 swap_if <- function(x, y, condition = TRUE) {
-  # prettycheck::assert_identical(x, y, type = "class")
-  # prettycheck::assert_identical(x, y, condition, type = "length")
+  prettycheck::assert_identical(x, y, type = "class")
+  prettycheck::assert_identical(x, y, condition, type = "length")
   checkmate::assert_logical(condition)
 
   if (!(class(x)[1] == class(y)[1])) {

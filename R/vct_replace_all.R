@@ -36,9 +36,9 @@ vct_replace_all <- function(
   ) {
   checkmate::assert_atomic(x)
   checkmate::assert_class(replacement, class(x)[1], null.ok = TRUE)
-  # if (!is.null(replacement)) prettycheck::assert_length(replacement, len = 1)
+  if (!is.null(replacement)) prettycheck::assert_length(replacement, len = 1)
   checkmate::assert_class(except, class(x)[1], null.ok = TRUE)
-  # if (!is.null(except)) prettycheck::assert_length(except, min_len = 1)
+  if (!is.null(except)) prettycheck::assert_length(except, min_len = 1)
   checkmate::assert_logical(preserve_nas)
 
   out <- NULL
