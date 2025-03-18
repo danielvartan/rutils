@@ -1,6 +1,9 @@
 #' Get file extensions
 #'
 #' @description
+#'
+#' `r lifecycle::badge("stable")`
+#'
 #' `get_file_ext()` is similar to [`file_ext()`][tools::file_ext], the
 #' difference is that it returns the file extension with the dot
 #' separator (e.g., `.csv`).

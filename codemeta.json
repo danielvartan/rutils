@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.2 (2024-10-31)",
+  "runtimePlatform": "R version 4.4.3 (2025-02-28)",
   "author": [
     {
       "@type": "Person",
@@ -103,6 +103,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "version": ">= 2.29",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "spelling",
       "name": "spelling",
       "version": ">= 2.3.1",
@@ -137,16 +150,16 @@
     },
     "2": {
       "@type": "SoftwareApplication",
-      "identifier": "chatgpt",
-      "name": "chatgpt",
-      "version": ">= 0.2.3",
+      "identifier": "broom",
+      "name": "broom",
+      "version": ">= 1.0.7",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=chatgpt"
+      "sameAs": "https://CRAN.R-project.org/package=broom"
     },
     "3": {
       "@type": "SoftwareApplication",
@@ -241,6 +254,12 @@
     },
     "10": {
       "@type": "SoftwareApplication",
+      "identifier": "grDevices",
+      "name": "grDevices",
+      "version": ">= 4.3"
+    },
+    "11": {
+      "@type": "SoftwareApplication",
       "identifier": "hms",
       "name": "hms",
       "version": ">= 1.1.3",
@@ -252,7 +271,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=hms"
     },
-    "11": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "here",
       "name": "here",
@@ -265,7 +284,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=here"
     },
-    "12": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -278,7 +297,20 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    "13": {
+    "14": {
+      "@type": "SoftwareApplication",
+      "identifier": "latex2exp",
+      "name": "latex2exp",
+      "version": ">= 0.9.6",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=latex2exp"
+    },
+    "15": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -291,7 +323,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "14": {
+    "16": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -304,7 +336,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "15": {
+    "17": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -317,7 +349,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "16": {
+    "18": {
+      "@type": "SoftwareApplication",
+      "identifier": "prettycheck",
+      "name": "prettycheck",
+      "sameAs": "https://github.com/danielvartan/prettycheck"
+    },
+    "19": {
       "@type": "SoftwareApplication",
       "identifier": "qpdf",
       "name": "qpdf",
@@ -330,7 +368,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=qpdf"
     },
-    "17": {
+    "20": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -343,20 +381,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "18": {
+    "21": {
       "@type": "SoftwareApplication",
-      "identifier": "rmarkdown",
-      "name": "rmarkdown",
-      "version": ">= 2.29",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+      "identifier": "stats",
+      "name": "stats",
+      "version": ">= 4.3"
     },
-    "19": {
+    "22": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -369,7 +400,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "20": {
+    "23": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils",
@@ -377,7 +408,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2721.825KB",
+  "fileSize": "2758.246KB",
   "citation": [
     {
       "@type": "CreativeWork",

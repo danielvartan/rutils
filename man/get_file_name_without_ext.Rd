@@ -14,6 +14,8 @@ A \code{\link[base:character]{character}} vector containing file names
 without the extension part.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+
 \code{get_file_name_without_ext()} returns file names without the extension
 part.
 }

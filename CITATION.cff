@@ -49,18 +49,26 @@ references:
   year: '2025'
   version: '>= 4.3'
 - type: software
-  title: chatgpt
-  abstract: 'chatgpt: Interface to ''ChatGPT'' from R'
+  title: broom
+  abstract: 'broom: Convert Statistical Objects into Tidy Tibbles'
   notes: Imports
-  url: https://github.com/jcrodriguez1989/chatgpt
-  repository: https://CRAN.R-project.org/package=chatgpt
+  url: https://broom.tidymodels.org/
+  repository: https://CRAN.R-project.org/package=broom
   authors:
-  - family-names: Rodriguez
-    given-names: Juan Cruz
-    email: jcrodriguez@unc.edu.ar
+  - family-names: Robinson
+    given-names: David
+    email: admiral.david@gmail.com
+  - family-names: Hayes
+    given-names: Alex
+    email: alexpghayes@gmail.com
+    orcid: https://orcid.org/0000-0002-4985-5160
+  - family-names: Couch
+    given-names: Simon
+    email: simon.couch@posit.co
+    orcid: https://orcid.org/0000-0001-5676-5107
   year: '2025'
-  doi: 10.32614/CRAN.package.chatgpt
-  version: '>= 0.2.3'
+  doi: 10.32614/CRAN.package.broom
+  version: '>= 1.0.7'
 - type: software
   title: checkmate
   abstract: 'checkmate: Fast and Versatile Argument Checks'
@@ -201,6 +209,17 @@ references:
   doi: 10.32614/CRAN.package.glue
   version: '>= 1.8.0'
 - type: software
+  title: grDevices
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 4.3'
+- type: software
   title: hms
   abstract: 'hms: Pretty Time of Day'
   notes: Imports
@@ -242,6 +261,19 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.jsonlite
   version: '>= 1.8.9'
+- type: software
+  title: latex2exp
+  abstract: 'latex2exp: Use LaTeX Expressions in Plots'
+  notes: Imports
+  url: https://www.stefanom.io/latex2exp/
+  repository: https://CRAN.R-project.org/package=latex2exp
+  authors:
+  - family-names: Meschiari
+    given-names: Stefano
+    email: stefano.meschiari@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.latex2exp
+  version: '>= 0.9.6'
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -293,6 +325,17 @@ references:
   doi: 10.32614/CRAN.package.magrittr
   version: '>= 2.0.3'
 - type: software
+  title: prettycheck
+  abstract: 'prettycheck: Pretty assertive programming'
+  notes: Imports
+  url: https://danielvartan.github.io/prettycheck/
+  authors:
+  - family-names: Vartanian
+    given-names: Daniel
+    email: danvartan@gmail.com
+    orcid: https://orcid.org/0000-0001-7782-759X
+  year: '2025'
+- type: software
   title: qpdf
   abstract: 'qpdf: Split, Combine and Compress PDF Files'
   notes: Imports
@@ -329,50 +372,16 @@ references:
   doi: 10.32614/CRAN.package.readr
   version: '>= 2.1.5'
 - type: software
-  title: rmarkdown
-  abstract: 'rmarkdown: Dynamic Documents for R'
+  title: stats
+  abstract: 'R: A Language and Environment for Statistical Computing'
   notes: Imports
-  url: https://pkgs.rstudio.com/rmarkdown/
-  repository: https://CRAN.R-project.org/package=rmarkdown
   authors:
-  - family-names: Allaire
-    given-names: JJ
-    email: jj@posit.co
-  - family-names: Xie
-    given-names: Yihui
-    email: xie@yihui.name
-    orcid: https://orcid.org/0000-0003-0645-5666
-  - family-names: Dervieux
-    given-names: Christophe
-    email: cderv@posit.co
-    orcid: https://orcid.org/0000-0003-4474-2498
-  - family-names: McPherson
-    given-names: Jonathan
-    email: jonathan@posit.co
-  - family-names: Luraschi
-    given-names: Javier
-  - family-names: Ushey
-    given-names: Kevin
-    email: kevin@posit.co
-  - family-names: Atkins
-    given-names: Aron
-    email: aron@posit.co
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Cheng
-    given-names: Joe
-    email: joe@posit.co
-  - family-names: Chang
-    given-names: Winston
-    email: winston@posit.co
-  - family-names: Iannone
-    given-names: Richard
-    email: rich@posit.co
-    orcid: https://orcid.org/0000-0003-3925-190X
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
   year: '2025'
-  doi: 10.32614/CRAN.package.rmarkdown
-  version: '>= 2.29'
+  version: '>= 4.3'
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
@@ -464,6 +473,51 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.rlang
   version: '>= 1.1.4'
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2025'
+  doi: 10.32614/CRAN.package.rmarkdown
+  version: '>= 2.29'
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'

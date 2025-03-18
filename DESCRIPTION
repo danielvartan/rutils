@@ -20,7 +20,6 @@ Depends:
   R (>= 4.3)
 Imports:
   broom (>= 1.0.7),
-  chatgpt (>= 0.2.3),
   checkmate (>= 2.3.2),
   cli (>= 3.6.3),
   clipr (>= 0.8.0),
