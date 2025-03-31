@@ -34,6 +34,11 @@ stats_summary <- function( #nolint
   x <- data |> dplyr::pull(col)
   x_sample <- x[1]
 
+  if (is.factor(x)) {
+    x <- as.character(x)
+    x_sample <- as.character(x)
+  }
+
   if (prettycheck::test_temporal(x)) {
     if (lubridate::is.POSIXt(x)) {
       x <- x |> as.numeric()
