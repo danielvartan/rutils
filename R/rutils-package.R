@@ -8,5 +8,6 @@
 #' @importFrom ggplot2 %+%
 #' @importFrom lubridate %within%
 #' @importFrom lifecycle deprecate_soft
+#' @importFrom  rlang !! := .data
 ## usethis namespace: end
 NULL
