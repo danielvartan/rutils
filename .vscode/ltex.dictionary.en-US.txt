@@ -1,0 +1,12 @@
+rutils
+href
+beepr
+cffr
+codemetar
+groomr
+readr
+stringr
+Codecov
+Vartanian
+eval
+danielvartan

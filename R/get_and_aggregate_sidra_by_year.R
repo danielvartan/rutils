@@ -2,6 +2,8 @@
 #'
 #' @description
 #'
+#' `r lifecycle::badge("maturing")`
+#'
 #' This function downloads data from the Brazilian Institute of Geography and
 #' Statistics ([IBGE](https://www.ibge.gov.br/)) Automatic Retrieval System
 #' ([SIDRA](https://sidra.ibge.gov.br/)) API for a given range of years.
@@ -21,8 +23,7 @@
 #'
 #' @return A [tibble][tibble::tibble()] with data from the SIDRA API.
 #'
-#' @author Daniel Vartanian
-#'
+#' @family other functions.
 #' @export
 #'
 #' @examples

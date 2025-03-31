@@ -70,7 +70,6 @@ reference:
   - extract_initials
   - get_file_ext
   - get_file_name_without_ext
-  - to_title_case_pt
 
 - title: Statistics
   contents:
@@ -85,6 +84,10 @@ reference:
   - count_na
   - drop_na
   - inbetween_integers
+
+- title: Others
+  contents:
+  - get_and_aggregate_sidra_by_year
 
 authors:
   Daniel Vartanian:
