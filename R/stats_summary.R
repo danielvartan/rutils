@@ -9,7 +9,7 @@ stats_summary <- function( #nolint
     threshold = hms::parse_hms("12:00:00"),
     as_list = FALSE
   ) {
-  checkmate::assert_tibble(data)
+  checkmate::assert_data_frame(data)
   checkmate::assert_string(col)
   checkmate::assert_choice(col, names(data))
   checkmate::assert_atomic(data[[col]])

@@ -5,7 +5,7 @@ normality_summary <- function(
     digits = 5,
     ...
   ) {
-  checkmate::assert_tibble(data)
+  checkmate::assert_data_frame(data)
   checkmate::assert_choice(col, names(data))
   prettycheck::assert_numeric(data[[col]])
   checkmate::assert_flag(round)

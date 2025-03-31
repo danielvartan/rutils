@@ -1,6 +1,6 @@
 md_named_tibble <- function(data, col_names = NULL, row_names = NULL) {
-  prettycheck:::assert_tibble(data, min.cols = 2)
-  prettycheck:::assert_character(data[[1]])
+  checkmate::assert_data_frame(data, min.cols = 2)
+  checkmate::assert_character(data[[1]])
 
   if (is.null(col_names)) {
     col_names <-

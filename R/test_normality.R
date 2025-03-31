@@ -13,7 +13,7 @@ test_normality <- function( #nolint
     "numeric", "integer", "Duration", "difftime", "hms", "POSIXt", "Interval"
   )
 
-  checkmate::assert_tibble(data)
+  checkmate::assert_data_frame(data)
   checkmate::assert_choice(col, names(data))
   checkmate::assert_multi_class(data[[col]], classes)
   checkmate::assert_string(name)
