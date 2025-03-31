@@ -1,19 +1,18 @@
 # See https://git-scm.com/docs/gitignore to learn more.
 
-/*.Rcheck/
-/.Rproj.user/
-/*_cache/
-/cache/
-/docs/
-/.quarto/
-/revdep/
-/vignettes/*.html
-/vignettes/*.pdf
-
-*.knit.md
 .Rapp.history
 .RData
 .Renviron
 .Rhistory
 .Ruserdata
+*.knit.md
 *.utf8.md
+/.quarto/
+/.Rproj.user/
+/*_cache/
+/*.Rcheck/
+/cache/
+/docs/
+/revdep/
+/vignettes/*.html
+/vignettes/*.pdf

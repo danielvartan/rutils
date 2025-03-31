@@ -6,6 +6,7 @@
 ## usethis namespace: start
 #' @importFrom dplyr across %>%
 #' @importFrom ggplot2 %+%
+#' @importFrom lubridate %within%
 #' @importFrom lifecycle deprecate_soft
 ## usethis namespace: end
 NULL
