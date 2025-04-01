@@ -460,6 +460,22 @@ references:
     orcid: https://orcid.org/0000-0002-5329-5987
   year: '2025'
 - type: software
+  title: parsnip
+  abstract: 'parsnip: A Common API to Modeling and Analysis Functions'
+  notes: Imports
+  url: https://parsnip.tidymodels.org/
+  repository: https://CRAN.R-project.org/package=parsnip
+  authors:
+  - family-names: Kuhn
+    given-names: Max
+    email: max@posit.co
+  - family-names: Vaughan
+    given-names: Davis
+    email: davis@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.parsnip
+  version: '>= 1.3.1'
+- type: software
   title: patchwork
   abstract: 'patchwork: The Composer of Plots'
   notes: Imports

@@ -90,19 +90,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "rlang",
-      "name": "rlang",
-      "version": ">= 1.1.4",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rlang"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
       "name": "rmarkdown",
       "version": ">= 2.29",
@@ -434,6 +421,19 @@
     },
     "26": {
       "@type": "SoftwareApplication",
+      "identifier": "parsnip",
+      "name": "parsnip",
+      "version": ">= 1.3.1",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=parsnip"
+    },
+    "27": {
+      "@type": "SoftwareApplication",
       "identifier": "patchwork",
       "name": "patchwork",
       "version": ">= 1.3.0",
@@ -445,19 +445,19 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=patchwork"
     },
-    "27": {
+    "28": {
       "@type": "SoftwareApplication",
       "identifier": "plotr",
       "name": "plotr",
       "sameAs": "https://github.com/danielvartan/plotr"
     },
-    "28": {
+    "29": {
       "@type": "SoftwareApplication",
       "identifier": "prettycheck",
       "name": "prettycheck",
       "sameAs": "https://github.com/danielvartan/prettycheck"
     },
-    "29": {
+    "30": {
       "@type": "SoftwareApplication",
       "identifier": "psychometric",
       "name": "psychometric",
@@ -470,7 +470,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=psychometric"
     },
-    "30": {
+    "31": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -483,7 +483,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "31": {
+    "32": {
       "@type": "SoftwareApplication",
       "identifier": "qpdf",
       "name": "qpdf",
@@ -496,7 +496,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=qpdf"
     },
-    "32": {
+    "33": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -509,7 +509,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "33": {
+    "34": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -522,7 +522,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "34": {
+    "35": {
       "@type": "SoftwareApplication",
       "identifier": "sidrar",
       "name": "sidrar",
@@ -535,13 +535,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sidrar"
     },
-    "35": {
+    "36": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats",
       "version": ">= 4.3"
     },
-    "36": {
+    "37": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -554,7 +554,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "37": {
+    "38": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -567,7 +567,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
     },
-    "38": {
+    "39": {
       "@type": "SoftwareApplication",
       "identifier": "tseries",
       "name": "tseries",
@@ -580,7 +580,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tseries"
     },
-    "39": {
+    "40": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils",
@@ -588,7 +588,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2782.304KB",
+  "fileSize": "2782.562KB",
   "citation": [
     {
       "@type": "CreativeWork",
