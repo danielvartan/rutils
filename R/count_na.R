@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `count_na()` counts the amount of `NA` values in a vector.
 #'
 #' @param x An [`atomic`][checkmate::assert_atomic] object of any type.

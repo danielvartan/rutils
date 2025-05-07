@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `drop_na()` remove all `NA` values from an atomic object.
 #'
 #' @param x An [`atomic`][checkmate::assert_atomic] object of any type.

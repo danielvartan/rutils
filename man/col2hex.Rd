@@ -15,8 +15,6 @@ as is.}
 A \code{\link[base:character]{character}} vector of hexadecimal color codes.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{col2hex()} converts a color name present in
 \code{\link[grDevices:colors]{grDevices::colors()}} to hexadecimal format.
 }

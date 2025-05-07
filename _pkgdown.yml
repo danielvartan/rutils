@@ -1,5 +1,6 @@
-# (2025-03-02) You may have to install the development version of `bslib` to
-# use `_brands.yml` (`remotes::install_github("rstudio/bslib", force = TRUE)`).
+# (2025-03-02)
+# You may have to install the development version of `bslib` to use
+# `_brands.yml` (`remotes::install_github("rstudio/bslib", force = TRUE)`).
 
 url: https://danielvartan.github.io/rutils/
 
@@ -75,6 +76,7 @@ reference:
   contents:
   - cohens_d
   - cut_interval_mean
+  - mode
   - std_error
   - test_outlier
   - remove_outliers
@@ -88,6 +90,11 @@ reference:
 - title: Others
   contents:
   - get_and_aggregate_sidra_by_year
+
+- title: Zotero
+  contents:
+  - find_orphan_files
+  - list_linked_files
 
 authors:
   Daniel Vartanian:

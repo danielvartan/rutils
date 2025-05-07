@@ -2,15 +2,13 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("experimental")`
-#'
 #' `raw_data_1()` returns the raw data paths of the `[INSERT PACKAGE NAME]`
 #' package.
 #'
-#' @param file (Optional) A [`character`][base::character] vector indicating
+#' @param file (optional) A [`character`][base::character] vector indicating
 #'   the file name(s) of the raw data. If `NULL`, all raw data file names will
 #'   be returned (Default: `NULL`).
-#' @param package (Optional) A [`character`][base::character] string indicating
+#' @param package (optional) A [`character`][base::character] string indicating
 #'   the package with the database data. If `NULL`, the function will try to
 #'   use the basename of the working directory (Default: `NULL`).
 #'
@@ -50,14 +48,12 @@ raw_data_1 <- function(file = NULL, package = NULL) {
 #'
 #' @description
 #'
-#' `r lifecycle::badge("experimental")`
-#'
 #' `raw_data_2()` returns the raw data paths of the `[INSERT PACKAGE NAME]`
 #' package.
 #'
-#' @param type (Optional) A [`character`][base::character] string indicating
+#' @param type (optional) A [`character`][base::character] string indicating
 #'   the file type of the raw data (Default: `NULL`).
-#' @param file (Optional) A [`character`][base::character] vector indicating
+#' @param file (optional) A [`character`][base::character] vector indicating
 #'   the file name(s) of the raw data (Default: `NULL`).
 #'
 #' @return

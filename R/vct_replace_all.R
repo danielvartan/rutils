@@ -2,15 +2,13 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `vct_replace_all()` replaces values in a vector with a specified value.
 #'
 #' @param x An [`atomic`][checkmate::test_atomic] vector.
-#' @param replacement (Optional) A single value to replace the values in `x`
+#' @param replacement (optional) A single value to replace the values in `x`
 #'   (Default: `na_as(x)`).
-#' @param except (Optional) A vector of values to exclude from replacement.
-#' @param preserve_nas (Optional) A [`logical`][base::logical] flag to
+#' @param except (optional) A vector of values to exclude from replacement.
+#' @param preserve_nas (optional) A [`logical`][base::logical] flag to
 #'   indicating if the function must preserve `NA` values in `x`
 #'   (Default: `FALSE`).
 #'
@@ -29,11 +27,11 @@
 #' vct_replace_all(c("a", "b", NA, "c"), replacement = "d", preserve_nas = TRUE)
 #' #> [1] "d" "d" NA  "d"
 vct_replace_all <- function(
-    x, #nolint
-    replacement = na_as(x),
-    except = NULL,
-    preserve_nas = FALSE
-  ) {
+  x,
+  replacement = na_as(x),
+  except = NULL,
+  preserve_nas = FALSE
+) {
   checkmate::assert_atomic(x)
   checkmate::assert_class(replacement, class(x)[1], null.ok = TRUE)
   if (!is.null(replacement)) prettycheck::assert_length(replacement, len = 1)

@@ -55,7 +55,7 @@ defaults:
       navbar-bg: $brand-black
     rules: |
       .navbar {
-        background-color: $brand-black!important;
+        background-color: $brand-black !important;
       }
 
       [data-bs-theme="dark"] pre, [data-bs-theme="dark"] code {

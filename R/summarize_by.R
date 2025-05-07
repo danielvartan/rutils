@@ -31,7 +31,7 @@ summarize_by <- function(data, col, col_group, col_n = NULL) {
     dplyr::group_split() |>
     purrr::map_dfr(
       .f = ~ .x |>
-        rutils:::stats_summary(
+        stats_summary(
           col = col,
           name = unique(.x[[col_group]]) |> as.character(),
           as_list = TRUE

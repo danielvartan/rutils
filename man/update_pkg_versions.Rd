@@ -10,18 +10,16 @@ update_pkg_versions(
 )
 }
 \arguments{
-\item{file}{(Optional) A string indicating the path to the \code{DESCRIPTION}
+\item{file}{(optional) A string indicating the path to the \code{DESCRIPTION}
 file.}
 
-\item{old_r_version}{(Optional) A string indicating the previous minor
+\item{old_r_version}{(optional) A string indicating the previous minor
 version of the current R version.}
 }
 \value{
 An invisible \code{NULL}. This function is used for its side effect.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{update_pkg_versions()} updates the version of packages listed in the
 \code{DESCRIPTION} file of an R package with their installed versions.
 

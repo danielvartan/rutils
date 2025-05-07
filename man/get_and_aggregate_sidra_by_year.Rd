@@ -21,8 +21,6 @@ that the year will be pasted after \code{api_start} and before \code{api_end}.}
 A \link[tibble:tibble]{tibble} with data from the SIDRA API.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 This function downloads data from the Brazilian Institute of Geography and
 Statistics (\href{https://www.ibge.gov.br/}{IBGE}) Automatic Retrieval System
 (\href{https://sidra.ibge.gov.br/}{SIDRA}) API for a given range of years.

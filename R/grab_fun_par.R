@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `grab_fun_par()` grabs all parameters defined in a function. It's
 #' particularly useful when you need to pass all parameters from one function
 #' to another (e.g., using [`do.call()`][base::do.call]).

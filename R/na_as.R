@@ -2,15 +2,13 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
+#' `na_as()` returns an `NA` value with the same class and attributes as a
+#' given R object.
 #'
-#' `na_as()` returns a `NA` value of the same class and attributes of a
-#' specific R object.
+#' This function is useful for dynamically assigning `NA` values that
+#' preserve the type and attributes of the original object.
 #'
-#' This function was made to facilitate assigning `NA`s dynamically.
-#'
-#' @param x An [atomic][checkmate::test_atomic] vector, provided that
-#'   `na_as()` has a method for it.
+#' @param x An [atomic][checkmate::test_atomic] vector.
 #'
 #' @return A `NA` value with the same class and attributes of `x`.
 #'
@@ -20,11 +18,13 @@
 #' @examples
 #' na_as(TRUE)
 #' #> [1] NA # Expected
+#'
 #' class(na_as(TRUE))
 #' #> [1] "logical" # Expected
 #'
 #' na_as(as.Date("2020-01-01"))
 #' #> [1] NA # Expected
+#'
 #' class(na_as(as.Date("2020-01-01")))
 #' #> [1] "Date"  # Expected
 na_as <- function(x) {

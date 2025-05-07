@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `vector_to_c()` put a vector into the [`c()`][base::c] function.
 #'
 #' This function is useful when you want to assign values in a vector

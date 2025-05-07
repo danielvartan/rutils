@@ -8,13 +8,11 @@ find_path <- function(dir, package = NULL) {
 
   root <- system.file(package = package)
 
-  #nolint start
   if (!stringr::str_detect(root, "inst/?$") &&
-      any(stringr::str_detect("^inst$", list.files(root)), na.rm = TRUE)) {
+        any(stringr::str_detect("^inst$", list.files(root)), na.rm = TRUE)) {
 
     system.file(paste0("inst/", dir), package = package)
   } else {
     system.file(dir, package = package)
   }
-  #nolint end
 }

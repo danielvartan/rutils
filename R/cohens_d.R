@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `cohens_d()` computes Cohen's d statistic for two independent samples.
 #'
 #'  This function is based on Cohen (1988) and Frey (2022) calculations
@@ -11,9 +9,9 @@
 #'
 #' @param x A [`numeric`][base::numeric] vector.
 #' @param y A [`numeric`][base::numeric] vector.
-#' @param t (Optional) A [`numeric`][base::numeric] value for the t statistic
+#' @param t (optional) A [`numeric`][base::numeric] value for the t statistic
 #'   (Default: `NULL`).
-#' @param abs (Optional) A [`logical`][base::logical] flag indicating whether
+#' @param abs (optional) A [`logical`][base::logical] flag indicating whether
 #'   to return the absolute value of the Cohen's d statistic (Default: `TRUE`).
 #'
 #' @return A [`numeric`][base::numeric] value representing the Cohen's d

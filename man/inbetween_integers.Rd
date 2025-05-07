@@ -16,8 +16,6 @@ An \code{\link[base:integer]{integer}} vector with all the integers between
 \code{x} and \code{y}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{inbetween_integers()} returns all the integers between two integers.
 This is useful while subsetting a vector.
 }

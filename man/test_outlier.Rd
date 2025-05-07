@@ -9,14 +9,14 @@ test_outlier(x, method = "iqr", iqr_mult = 1.5, sd_mult = 3)
 \arguments{
 \item{x}{A \code{\link[base:numeric]{numeric}} vector to test for outliers.}
 
-\item{method}{(Optional) A \code{\link[base:character]{character}} string specifying
+\item{method}{(optional) A \code{\link[base:character]{character}} string specifying
 the outlier detection method. Must be either \code{"iqr"} for interquartile
 range method or \code{"sd"} for standard deviation method (Default: \code{"iqr"}).}
 
-\item{iqr_mult}{(Optional) A \code{\link[base:numeric]{numeric}} multiplier for the
+\item{iqr_mult}{(optional) A \code{\link[base:numeric]{numeric}} multiplier for the
 IQR threshold (Default: \code{1.5}).}
 
-\item{sd_mult}{(Optional) A \code{\link[base:numeric]{numeric}} multiplier for the
+\item{sd_mult}{(optional) A \code{\link[base:numeric]{numeric}} multiplier for the
 standard deviation threshold (Default: \code{3}).}
 }
 \value{
@@ -24,8 +24,6 @@ A \code{\link[base:logical]{logical}} vector of the same length as \code{x} with
 \code{TRUE} for outliers and \code{FALSE} for non-outliers.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{test_outlier()} identifies outliers in a numeric vector using either the
 interquartile range (IQR) method or the standard deviation (SD) method.
 }

@@ -11,8 +11,6 @@ A \code{\link[base:list]{list}} containing the parameters of the function
 from which it was called.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{grab_fun_par()} grabs all parameters defined in a function. It's
 particularly useful when you need to pass all parameters from one function
 to another (e.g., using \code{\link[base:do.call]{do.call()}}).

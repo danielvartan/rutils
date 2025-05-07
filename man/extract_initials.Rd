@@ -17,8 +17,6 @@ A \code{\link[base:character]{character}} vector with the initials of
 names in \code{x}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{extract_initials()} extracts the initials of names in a character
 vector.
 }

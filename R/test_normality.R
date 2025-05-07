@@ -1,14 +1,14 @@
-test_normality <- function( #nolint
-    data, #nolint
-    col,
-    name = col,
-    remove_outliers = FALSE,
-    iqr_mult = 1.5,
-    log_transform = FALSE,
-    density_line = TRUE,
-    threshold = hms::parse_hms("12:00:00"),
-    print = TRUE
-  ) {
+test_normality <- function(
+  data,
+  col,
+  name = col,
+  remove_outliers = FALSE,
+  iqr_mult = 1.5,
+  log_transform = FALSE,
+  density_line = TRUE,
+  threshold = hms::parse_hms("12:00:00"),
+  print = TRUE
+) {
   classes <- c(
     "numeric", "integer", "Duration", "difftime", "hms", "POSIXt", "Interval"
   )

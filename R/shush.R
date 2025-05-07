@@ -2,14 +2,12 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `shush()` is a wrapper around `suppressMessages()` and `suppressWarnings()`
 #' that allows you to suppress messages and warnings in a single function call.
 #' It was designed to be used with pipes.
 #'
 #' @param x Any expression, usually a function call.
-#' @param quiet (Optional) A [logical][base::as.logical()] flag value indicating
+#' @param quiet (optional) A [logical][base::as.logical()] flag value indicating
 #'   whether to suppress messages and warnings. This is can be used for
 #'   condition messages and warnings inside functions (Default: `TRUE`).
 #'

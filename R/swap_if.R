@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `swap_if()` swaps two values if a condition is met.
 #'
 #' @param x Any type of R object.

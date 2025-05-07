@@ -45,28 +45,28 @@ na_as(x)
 \method{na_as}{Interval}(x)
 }
 \arguments{
-\item{x}{An \link[checkmate:checkAtomic]{atomic} vector, provided that
-\code{na_as()} has a method for it.}
+\item{x}{An \link[checkmate:checkAtomic]{atomic} vector.}
 }
 \value{
 A \code{NA} value with the same class and attributes of \code{x}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
+\code{na_as()} returns an \code{NA} value with the same class and attributes as a
+given R object.
 
-\code{na_as()} returns a \code{NA} value of the same class and attributes of a
-specific R object.
-
-This function was made to facilitate assigning \code{NA}s dynamically.
+This function is useful for dynamically assigning \code{NA} values that
+preserve the type and attributes of the original object.
 }
 \examples{
 na_as(TRUE)
 #> [1] NA # Expected
+
 class(na_as(TRUE))
 #> [1] "logical" # Expected
 
 na_as(as.Date("2020-01-01"))
 #> [1] NA # Expected
+
 class(na_as(as.Date("2020-01-01")))
 #> [1] "Date"  # Expected
 }

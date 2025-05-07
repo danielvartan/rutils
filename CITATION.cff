@@ -92,10 +92,10 @@ references:
   authors:
   - family-names: Csárdi
     given-names: Gábor
-    email: csardi.gabor@gmail.com
+    email: gabor@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.cli
-  version: '>= 3.6.3'
+  version: '>= 3.6.5'
 - type: software
   title: clipr
   abstract: 'clipr: Read and Write from the System Clipboard'
@@ -248,7 +248,7 @@ references:
     orcid: https://orcid.org/0000-0002-9335-7468
   year: '2025'
   doi: 10.32614/CRAN.package.ggplot2
-  version: '>= 3.5.1'
+  version: '>= 3.5.2'
 - type: software
   title: glue
   abstract: 'glue: Interpreted String Literals'
@@ -276,7 +276,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 4.3'
+  version: '>= 4.4'
 - type: software
   title: hms
   abstract: 'hms: Pretty Time of Day'
@@ -331,7 +331,7 @@ references:
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2025'
   doi: 10.32614/CRAN.package.jsonlite
-  version: '>= 1.8.9'
+  version: '>= 2.0.0'
 - type: software
   title: latex2exp
   abstract: 'latex2exp: Use LaTeX Expressions in Plots'
@@ -416,7 +416,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 4.3'
+  version: '>= 4.4'
 - type: software
   title: moments
   abstract: 'moments: Moments, Cumulants, Skewness, Kurtosis and Related Tests'
@@ -531,14 +531,14 @@ references:
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
   - family-names: Henry
     given-names: Lionel
-    email: lionel@rstudio.com
+    email: lionel@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.purrr
-  version: '>= 1.0.2'
+  version: '>= 1.0.4'
 - type: software
   title: qpdf
   abstract: 'qpdf: Split, Combine and Compress PDF Files'
@@ -551,9 +551,6 @@ references:
     email: jeroenooms@gmail.com
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2025'
-  identifiers:
-  - type: url
-    value: https://ropensci.r-universe.dev/qpdf
   doi: 10.32614/CRAN.package.qpdf
   version: '>= 1.3.5'
 - type: software
@@ -590,7 +587,7 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.rlang
-  version: '>= 1.1.4'
+  version: '>= 1.1.6'
 - type: software
   title: sidrar
   abstract: 'sidrar: An Interface to IBGE''s SIDRA API'
@@ -614,7 +611,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 4.3'
+  version: '>= 4.4'
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
@@ -647,6 +644,17 @@ references:
   doi: 10.32614/CRAN.package.tidyr
   version: '>= 1.3.1'
 - type: software
+  title: tcltk
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 4.4'
+- type: software
   title: tseries
   abstract: 'tseries: Time Series Analysis and Computational Finance'
   notes: Imports
@@ -672,7 +680,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 4.3'
+  version: '>= 4.4'
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
@@ -696,7 +704,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 4.3'
+  version: '>= 4.4'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -710,7 +718,7 @@ references:
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2025'
   doi: 10.32614/CRAN.package.knitr
-  version: '>= 1.49'
+  version: '>= 1.50'
 - type: software
   title: mockr
   abstract: 'mockr: Mocking in R'
@@ -723,7 +731,7 @@ references:
     email: kirill@cynkra.com
   year: '2025'
   doi: 10.32614/CRAN.package.mockr
-  version: '>= 0.2.1'
+  version: '>= 0.2.2'
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -784,9 +792,6 @@ references:
     given-names: Jim
     email: james.hester@rstudio.com
   year: '2025'
-  identifiers:
-  - type: url
-    value: https://docs.ropensci.org/spelling/
   doi: 10.32614/CRAN.package.spelling
   version: '>= 2.3.1'
 - type: software
@@ -801,5 +806,5 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.testthat
-  version: '>= 3.2.2'
+  version: '>= 3.2.3'
 

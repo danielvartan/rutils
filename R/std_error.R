@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `std_error()` computes the
 #' [standard error](https://en.wikipedia.org/wiki/Standard_error)
 #' of the sample mean.

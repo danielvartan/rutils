@@ -1,7 +1,11 @@
 # library(checkmate)
 
-inline_collapse <- function(x, last = "and", single_quote = TRUE,
-                            serial_comma = TRUE) {
+inline_collapse <- function(
+  x,
+  last = "and",
+  single_quote = TRUE,
+  serial_comma = TRUE
+) {
   checkmate::assert_string(last)
   checkmate::assert_flag(single_quote)
   checkmate::assert_flag(serial_comma)

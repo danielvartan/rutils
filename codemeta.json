@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.3 (2025-02-28)",
+  "runtimePlatform": "R version 4.5.0 (2025-04-11)",
   "author": [
     {
       "@type": "Person",
@@ -60,13 +60,13 @@
       "@type": "SoftwareApplication",
       "identifier": "datasets",
       "name": "datasets",
-      "version": ">= 4.3"
+      "version": ">= 4.4"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
-      "version": ">= 1.49",
+      "version": ">= 1.50",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -79,7 +79,7 @@
       "@type": "SoftwareApplication",
       "identifier": "mockr",
       "name": "mockr",
-      "version": ">= 0.2.1",
+      "version": ">= 0.2.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -118,7 +118,7 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
-      "version": ">= 3.2.2",
+      "version": ">= 3.2.3",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -165,7 +165,7 @@
       "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
-      "version": ">= 3.6.3",
+      "version": ">= 3.6.5",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -243,7 +243,7 @@
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
-      "version": ">= 3.5.1",
+      "version": ">= 3.5.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -269,7 +269,7 @@
       "@type": "SoftwareApplication",
       "identifier": "grDevices",
       "name": "grDevices",
-      "version": ">= 4.3"
+      "version": ">= 4.4"
     },
     "13": {
       "@type": "SoftwareApplication",
@@ -314,7 +314,7 @@
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
-      "version": ">= 1.8.9",
+      "version": ">= 2.0.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -385,7 +385,7 @@
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods",
-      "version": ">= 4.3"
+      "version": ">= 4.4"
     },
     "23": {
       "@type": "SoftwareApplication",
@@ -474,7 +474,7 @@
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
-      "version": ">= 1.0.2",
+      "version": ">= 1.0.4",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -513,7 +513,7 @@
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
-      "version": ">= 1.1.4",
+      "version": ">= 1.1.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -539,7 +539,7 @@
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats",
-      "version": ">= 4.3"
+      "version": ">= 4.4"
     },
     "37": {
       "@type": "SoftwareApplication",
@@ -569,6 +569,12 @@
     },
     "39": {
       "@type": "SoftwareApplication",
+      "identifier": "tcltk",
+      "name": "tcltk",
+      "version": ">= 4.4"
+    },
+    "40": {
+      "@type": "SoftwareApplication",
       "identifier": "tseries",
       "name": "tseries",
       "version": ">= 0.10.58",
@@ -580,15 +586,15 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tseries"
     },
-    "40": {
+    "41": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils",
-      "version": ">= 4.3"
+      "version": ">= 4.4"
     },
     "SystemRequirements": null
   },
-  "fileSize": "2782.562KB",
+  "fileSize": "2783.028KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -610,6 +616,6 @@
   "releaseNotes": "https://github.com/danielvartan/rutils/blob/master/NEWS.md",
   "readme": "https://github.com/danielvartan/rutils/blob/main/README.md",
   "contIntegration": ["https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml", "https://app.codecov.io/gh/danielvartan/rutils?branch=main"],
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
+  "developmentStatus": "https://www.repostatus.org/#active",
   "keywords": ["r-package", "utilities", "r", "rstats"]
 }

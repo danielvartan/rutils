@@ -14,8 +14,6 @@ An \code{\link[base:integer]{integer}} number with the amount of \code{NA} value
 in \code{x}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{count_na()} counts the amount of \code{NA} values in a vector.
 }
 \examples{

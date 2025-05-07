@@ -7,11 +7,11 @@
 raw_data_1(file = NULL, package = NULL)
 }
 \arguments{
-\item{file}{(Optional) A \code{\link[base:character]{character}} vector indicating
+\item{file}{(optional) A \code{\link[base:character]{character}} vector indicating
 the file name(s) of the raw data. If \code{NULL}, all raw data file names will
 be returned (Default: \code{NULL}).}
 
-\item{package}{(Optional) A \code{\link[base:character]{character}} string indicating
+\item{package}{(optional) A \code{\link[base:character]{character}} string indicating
 the package with the database data. If \code{NULL}, the function will try to
 use the basename of the working directory (Default: \code{NULL}).}
 }
@@ -20,8 +20,6 @@ If \code{file == NULL}, a \code{\link[=character]{character}} vector with all fi
 names available. Else, a string with the file name path.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
 \code{raw_data_1()} returns the raw data paths of the \verb{[INSERT PACKAGE NAME]}
 package.
 }

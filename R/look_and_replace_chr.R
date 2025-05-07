@@ -1,6 +1,7 @@
 # x <- c("BRT", "EST", "BRT")
 # paired_vector <- c("EST" = "EST", "BRT" = "America/Sao_Paulo")
 # look_and_replace_chr(x, paired_vector)
+
 look_and_replace_chr <- function(x, paired_vector) {
   checkmate::assert_atomic(x)
   checkmate::assert_atomic(paired_vector)

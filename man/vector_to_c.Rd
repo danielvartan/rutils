@@ -20,8 +20,6 @@ A \code{\link[base:character]{character}} string with all values from \code{x}
 inside the \code{\link[base:c]{c()}} function.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{vector_to_c()} put a vector into the \code{\link[base:c]{c()}} function.
 
 This function is useful when you want to assign values in a vector

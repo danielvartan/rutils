@@ -6,13 +6,13 @@
 # library(rutils) # github.com/danielvartan/rutils
 
 summarize_r2 <- function(
-    model = NULL, #nolint
-    r2 = NULL,
-    n,
-    k,
-    ci_level = 0.95,
-    rules = "cohen1988"
-  ) {
+  model = NULL,
+  r2 = NULL,
+  n,
+  k,
+  ci_level = 0.95,
+  rules = "cohen1988"
+) {
   rules_choices <- c("cohen1988", "falk1992", "chin1998", "hair2011")
 
   prettycheck::assert_pick(model, r2, pick = 1)

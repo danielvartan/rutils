@@ -9,12 +9,12 @@ vct_replace_all(x, replacement = na_as(x), except = NULL, preserve_nas = FALSE)
 \arguments{
 \item{x}{An \code{\link[checkmate:checkAtomic]{atomic}} vector.}
 
-\item{replacement}{(Optional) A single value to replace the values in \code{x}
+\item{replacement}{(optional) A single value to replace the values in \code{x}
 (Default: \code{na_as(x)}).}
 
-\item{except}{(Optional) A vector of values to exclude from replacement.}
+\item{except}{(optional) A vector of values to exclude from replacement.}
 
-\item{preserve_nas}{(Optional) A \code{\link[base:logical]{logical}} flag to
+\item{preserve_nas}{(optional) A \code{\link[base:logical]{logical}} flag to
 indicating if the function must preserve \code{NA} values in \code{x}
 (Default: \code{FALSE}).}
 }
@@ -22,8 +22,6 @@ indicating if the function must preserve \code{NA} values in \code{x}
 The same type of object in \code{x} with the values replaced.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{vct_replace_all()} replaces values in a vector with a specified value.
 }
 \examples{

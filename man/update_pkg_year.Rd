@@ -10,7 +10,7 @@ update_pkg_year(
 )
 }
 \arguments{
-\item{file}{(Optional) A \code{\link[base:character]{character}} vector indicating
+\item{file}{(optional) A \code{\link[base:character]{character}} vector indicating
 the path of the files that must be updated. Default to \code{LICENSE},
 \code{LICENSE.md}, and \code{inst/CITATION}.}
 }
@@ -18,8 +18,6 @@ the path of the files that must be updated. Default to \code{LICENSE},
 An invisible \code{NULL}. This function is used for its side effect.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{update_pkg_year()} updates the year in system files of a package.
 }
 \seealso{

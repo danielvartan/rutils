@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `remove_outliers()` removes outliers from a numeric vector using either the
 #' interquartile range (IQR) method or the standard deviation (SD) method.
 #'

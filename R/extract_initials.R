@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `extract_initials()` extracts the initials of names in a character
 #' vector.
 #'

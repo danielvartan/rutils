@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("maturing")`
-#'
 #' `update_pkg_versions()` updates the version of packages listed in the
 #' `DESCRIPTION` file of an R package with their installed versions.
 #'
@@ -11,9 +9,9 @@
 #' the function will update the version to the previous minor version of the
 #' current R version. This is made to avoid errors with CI/CD.
 #'
-#' @param file (Optional) A string indicating the path to the `DESCRIPTION`
+#' @param file (optional) A string indicating the path to the `DESCRIPTION`
 #'   file.
-#' @param old_r_version (Optional) A string indicating the previous minor
+#' @param old_r_version (optional) A string indicating the previous minor
 #'   version of the current R version.
 #'
 #' @return An invisible `NULL`. This function is used for its side effect.
@@ -21,9 +19,9 @@
 #' @family R package functions
 #' @export
 update_pkg_versions <- function(
-    file = here::here("DESCRIPTION"), #nolint
-    old_r_version = bump_back_r_version()
-  ) {
+  file = here::here("DESCRIPTION"),
+  old_r_version = bump_back_r_version()
+) {
   checkmate::assert_string(file)
   checkmate::assert_file_exists(file)
   checkmate::assert_string(old_r_version, pattern = "^\\d\\.\\d$")

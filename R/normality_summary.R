@@ -13,7 +13,7 @@ normality_summary <- function(
 
   stats <-
     data |>
-    rutils:::test_normality(col = col, print = FALSE, ...)
+    test_normality(col = col, print = FALSE, ...)
 
   out <- dplyr::tibble(
     test = c(

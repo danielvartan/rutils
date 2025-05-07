@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `inbetween_integers()` returns all the integers between two integers.
 #'  This is useful while subsetting a vector.
 #'

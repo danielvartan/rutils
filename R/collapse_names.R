@@ -3,19 +3,19 @@ library(glue)
 library(magrittr)
 
 collapse_names <- function(
-    ..., #nolint
-    deparsed = FALSE,
-    color = "red",
-    last = "or",
-    names = NULL
-  ) {
+  ...,
+  deparsed = FALSE,
+  color = "red",
+  last = "or",
+  names = NULL
+) {
   checkmate::assert_flag(deparsed)
   checkmate::assert_choice(color, cli_color_choices())
   checkmate::assert_choice(last, c("and", "or"))
   checkmate::assert_character(names, null.ok = TRUE)
 
-  # R CMD Check variable bindings fix (see: https://bit.ly/3z24hbU)
-  # nolint start: object_usage_linter.
+  # R CMD Check variable bindings fix
+  # nolint start
   . <- NULL
   # nolint end
 

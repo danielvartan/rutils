@@ -13,8 +13,6 @@ drop_na(x)
 An object of the same type as \code{x} with all \code{NA} values removed.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{drop_na()} remove all \code{NA} values from an atomic object.
 }
 \examples{

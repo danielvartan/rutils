@@ -20,8 +20,6 @@ A \code{\link[base:list]{list}} with matches replaced with the replacement
 value.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
 \code{list_replace_all()} replaces matches in \code{\link[base:is.recursive]{atomic}} vectors
 inside a list with a replacement value. If the list is nested, the function
 will recursively apply the replacement to all nested lists.

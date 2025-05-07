@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `get_file_name_without_ext()` returns file names without the extension
 #' part.
 #'

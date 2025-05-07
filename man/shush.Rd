@@ -9,7 +9,7 @@ shush(x, quiet = TRUE)
 \arguments{
 \item{x}{Any expression, usually a function call.}
 
-\item{quiet}{(Optional) A \link[base:logical]{logical} flag value indicating
+\item{quiet}{(optional) A \link[base:logical]{logical} flag value indicating
 whether to suppress messages and warnings. This is can be used for
 condition messages and warnings inside functions (Default: \code{TRUE}).}
 }
@@ -17,8 +17,6 @@ condition messages and warnings inside functions (Default: \code{TRUE}).}
 The same object as \code{x} with messages and warnings suppressed.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{shush()} is a wrapper around \code{suppressMessages()} and \code{suppressWarnings()}
 that allows you to suppress messages and warnings in a single function call.
 It was designed to be used with pipes.

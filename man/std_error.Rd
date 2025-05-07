@@ -13,8 +13,6 @@ std_error(x)
 A number representing the standard error.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{std_error()} computes the
 \href{https://en.wikipedia.org/wiki/Standard_error}{standard error}
 of the sample mean.

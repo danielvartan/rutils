@@ -14,8 +14,6 @@ A \code{\link[base:character]{character}} vector containing the file
 extension of the files.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{get_file_ext()} is similar to \code{\link[tools:fileutils]{file_ext()}}, the
 difference is that it returns the file extension with the dot
 separator (e.g., \code{.csv}).

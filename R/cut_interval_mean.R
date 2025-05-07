@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `cut_interval_mean()` computes the interval means of a [`cut`][base::cut]
 #' factor, regardless of the their open or closed nature.
 #'

@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `file_copy()` is an alternative for [`file_copy()`][fs::file_copy] from the
 #' [`fs`][fs] package. The main difference is that it can copy files
 #' recursively.
@@ -12,11 +10,11 @@
 #'   to be copied.
 #' @param to A [`character`][base::character] vector of paths indicating
 #'   the destination of the files to be copied.
-#' @param overwrite (Optional) A [`logical`][base::logical] flag indicating
+#' @param overwrite (optional) A [`logical`][base::logical] flag indicating
 #'   whether existing files should be overwritten.
-#' @param recursive (Optional) A [`logical`][base::logical] flag indicating
+#' @param recursive (optional) A [`logical`][base::logical] flag indicating
 #'   whether directories should be copied recursively.
-#' @param ... (Optional) Additional arguments to be passed to
+#' @param ... (optional) Additional arguments to be passed to
 #'   [`file.copy()`][base::file.copy].
 #'
 #' @return An invisible `NULL`. This function is used for its side effect.
@@ -42,12 +40,12 @@
 #'
 #' list.files(dir_2)
 file_copy <- function(
-    from, #nolint
-    to,
-    overwrite = TRUE,
-    recursive = FALSE,
-    ...
-  ) {
+  from,
+  to,
+  overwrite = TRUE,
+  recursive = FALSE,
+  ...
+) {
   checkmate::assert_character(from)
   checkmate::assert_file_exists(from)
   checkmate::assert_character(to)

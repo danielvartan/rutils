@@ -25,5 +25,5 @@ remove_pdf_cover <- function(input_file, output_file = input_file) {
 
   if (exists("temp_file")) suppressWarnings(file.remove(temp_file))
 
-  invisible(NULL)
+  invisible()
 }

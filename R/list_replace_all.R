@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("experimental")`
-#'
 #' `list_replace_all()` replaces matches in [`atomic`][base::is.atomic] vectors
 #' inside a list with a replacement value. If the list is nested, the function
 #' will recursively apply the replacement to all nested lists.

@@ -2,8 +2,6 @@
 #'
 #' @description
 #'
-#' `r lifecycle::badge("stable")`
-#'
 #' `col2hex()` converts a color name present in
 #' [`grDevices::colors()`][grDevices::colors] to hexadecimal format.
 #'

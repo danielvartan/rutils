@@ -20,8 +20,6 @@ the output vector with the original intervals (Default: \code{FALSE}).}
 A \code{\link[base:numeric]{numeric}} vector with the interval means.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{cut_interval_mean()} computes the interval means of a \code{\link[base:cut]{cut}}
 factor, regardless of the their open or closed nature.
 }

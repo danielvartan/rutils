@@ -11,10 +11,10 @@ cohens_d(x, y, t = NULL, abs = TRUE)
 
 \item{y}{A \code{\link[base:numeric]{numeric}} vector.}
 
-\item{t}{(Optional) A \code{\link[base:numeric]{numeric}} value for the t statistic
+\item{t}{(optional) A \code{\link[base:numeric]{numeric}} value for the t statistic
 (Default: \code{NULL}).}
 
-\item{abs}{(Optional) A \code{\link[base:logical]{logical}} flag indicating whether
+\item{abs}{(optional) A \code{\link[base:logical]{logical}} flag indicating whether
 to return the absolute value of the Cohen's d statistic (Default: \code{TRUE}).}
 }
 \value{
@@ -22,8 +22,6 @@ A \code{\link[base:numeric]{numeric}} value representing the Cohen's d
 statistic.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
-
 \code{cohens_d()} computes Cohen's d statistic for two independent samples.
 
 This function is based on Cohen (1988) and Frey (2022) calculations
@@ -39,5 +37,9 @@ Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences}
 
 Frey, B. B. (Ed.). (2022). _The SAGE encyclopedia of research design
 (2. ed.). SAGE Publications. \doi{10.4135/9781071812082}
+}
+\seealso{
+Other statistical functions.: 
+\code{\link{mode}()}
 }
 \concept{statistical functions.}

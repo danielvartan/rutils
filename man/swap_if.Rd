@@ -18,8 +18,6 @@ values should be swapped (Default: \code{TRUE}).}
 A \code{\link[base:list]{list}} with the swapped values.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-
 \code{swap_if()} swaps two values if a condition is met.
 }
 \examples{
