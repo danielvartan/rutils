@@ -1,7 +1,7 @@
 testthat::test_that("update_pkg_year() | General test", {
   file <- tempfile()
 
-  writeLines("2021", file)
+  writeLines('\"2021\"', file)
 
   update_pkg_year(file)
 
@@ -10,7 +10,8 @@ testthat::test_that("update_pkg_year() | General test", {
     testthat::expect_equal(
       Sys.Date() |>
         lubridate::year() |>
-        as.character()
+        as.character() |>
+        glue::double_quote()
     )
 })
 
