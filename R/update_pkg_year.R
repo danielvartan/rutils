@@ -27,7 +27,7 @@ update_pkg_year <- function(
       i |>
       readr::read_lines() |>
       stringr::str_replace_all(
-        pattern = "20\\d{2}",
+        pattern = '(?<=\")20\\d{2}(?=\")|(?<=\\()20\\d{2}(?=\\))',
         replacement = as.character(Sys.Date() |> lubridate::year())
       )
 
