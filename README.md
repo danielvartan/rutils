@@ -3,14 +3,14 @@
 <!-- quarto render -->
 
 <!-- badges: start -->
-[![Project Status: Active – The project has reached a stable, usable
+[![Project Status: Active - The project has reached a stable, usable
 state and is being actively
-developed.](https://img.shields.io/badge/Repo%20Status-Active-10D810.svg)](https://www.repostatus.org/#active)
-[![R-CMD-check.yaml](https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/danielvartan/rutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/rutils?branch=main)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![R build
+status](https://github.com/danielvartan/rutils/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danielvartan/rutils/actions)
+[![](https://codecov.io/gh/danielvartan/rutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/rutils)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-10D810.svg)](https://choosealicense.com/licenses/mit/)
+MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 <!-- badges: end -->
 
 ## Overview
@@ -20,11 +20,12 @@ organize my utility functions until they are ready to be moved to their
 own package.
 
 This package is primarily intended for personal use, but you are welcome
-to use it if you find it helpful. If you appreciate the project,
-consider giving it a star! (⭐)
+to use it if you find it helpful. Please note that not all functions are
+exported or documented. Access the source code to see them all.
 
-Please note that not all functions are exported or documented. Access
-the source code to see them all.
+> If you find this project useful, please consider giving it a star!  
+> [![GitHub repo
+> stars](https://img.shields.io/github/stars/danielvartan/rutils.png)](https://github.com/danielvartan/rutils/)
 
 ## Installation
 
@@ -37,8 +38,9 @@ remotes::install_github("danielvartan/rutils")
 
 ## License
 
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-10D810.svg)](https://choosealicense.com/licenses/mit/)
+[![](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 `rutils` code is released under the [MIT
-license](https://opensource.org/license/mit/).
+license](https://opensource.org/license/mit/). This means you can use,
+modify, and distribute the code as long as you include the original
+license in any copies of the software that you distribute.

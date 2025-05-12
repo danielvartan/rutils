@@ -8,31 +8,40 @@
 
 library(rutils)
 
-# Related to './R/.post-render.R'
+library(badger)
 library(beepr)
 library(cffr)
 library(codemetar)
 library(groomr) # https://github.com/danielvartan/groomr
 library(here)
-library(readr)
 library(rutils) # https://github.com/danielvartan/rutils
-library(stringr)
 ```
 
 <!-- badges: start -->
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://img.shields.io/badge/Repo%20Status-Active-10D810.svg)](https://www.repostatus.org/#active)
-[![R-CMD-check.yaml](https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/danielvartan/rutils/actions/workflows/check-standard.yaml)
-[![Codecov test coverage](https://codecov.io/gh/danielvartan/rutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/rutils?branch=main)
-[![License: MIT](https://img.shields.io/badge/License-MIT-10D810.svg)](https://choosealicense.com/licenses/mit/)
+```{r}
+#| echo: false
+#| output: asis
+
+cat(
+  badger::badge_repostatus("active"),
+  badger::badge_github_actions(action = "R-CMD-check.yaml"),
+  badger::badge_codecov() |> rutils::shush(),
+  badger::badge_license(
+    "MIT",
+    "green",
+    url = "https://choosealicense.com/licenses/mit/"
+  )
+)
+```
 <!-- badges: end -->
 
 ## Overview
 
 `rutils` is an R package that I (Daniel Vartanian) use to store and organize my utility functions until they are ready to be moved to their own package.
 
-This package is primarily intended for personal use, but you are welcome to use it if you find it helpful. If you appreciate the project, consider giving it a star! (⭐)
+This package is primarily intended for personal use, but you are welcome to use it if you find it helpful. Please note that not all functions are exported or documented. Access the source code to see them all.
 
-Please note that not all functions are exported or documented. Access the source code to see them all.
+> If you find this project useful, please consider giving it a star! &nbsp; [![GitHub repo stars](https://img.shields.io/github/stars/danielvartan/rutils)](https://github.com/danielvartan/rutils/)
 
 ## Installation
 
@@ -46,6 +55,17 @@ remotes::install_github("danielvartan/rutils")
 
 ## License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-10D810.svg)](https://choosealicense.com/licenses/mit/)
+```{r}
+#| echo: false
+#| output: asis
 
-`rutils` code is released under the [MIT license](https://opensource.org/license/mit/).
+cat(
+  badger::badge_license(
+    "MIT",
+    "green",
+    url = "https://choosealicense.com/licenses/mit/"
+  )
+)
+```
+
+`rutils` code is released under the [MIT license](https://opensource.org/license/mit/). This means you can use, modify, and distribute the code as long as you include the original license in any copies of the software that you distribute.

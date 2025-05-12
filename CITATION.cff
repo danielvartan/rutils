@@ -209,6 +209,24 @@ references:
   doi: 10.32614/CRAN.package.fBasics
   version: '>= 4041.97'
 - type: software
+  title: fs
+  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
+  notes: Imports
+  url: https://fs.r-lib.org
+  repository: https://CRAN.R-project.org/package=fs
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.fs
+  version: '>= 1.6.6'
+- type: software
   title: ggplot2
   abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
   notes: Imports
@@ -305,6 +323,19 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.here
   version: '>= 1.0.1'
+- type: software
+  title: httr
+  abstract: 'httr: Tools for Working with URLs and HTTP'
+  notes: Imports
+  url: https://httr.r-lib.org/
+  repository: https://CRAN.R-project.org/package=httr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.httr
+  version: '>= 1.4.7'
 - type: software
   title: janitor
   abstract: 'janitor: Simple Tools for Examining and Cleaning Dirty Data'
@@ -588,19 +619,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.rlang
   version: '>= 1.1.6'
-- type: software
-  title: sidrar
-  abstract: 'sidrar: An Interface to IBGE''s SIDRA API'
-  notes: Imports
-  url: https://github.com/rpradosiqueira/sidrar/
-  repository: https://CRAN.R-project.org/package=sidrar
-  authors:
-  - family-names: Prado Siqueira
-    given-names: Renato
-    email: rpradosiqueira@gmail.com
-  year: '2025'
-  doi: 10.32614/CRAN.package.sidrar
-  version: '>= 0.2.9'
 - type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'

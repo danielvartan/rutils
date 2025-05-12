@@ -35,6 +35,10 @@ navbar:
     articles: ~
 
 reference:
+- title: APIs
+  contents:
+  - download_sidra_by_year
+
 - title: Conditionals
   contents:
   - swap_if
@@ -46,6 +50,13 @@ reference:
 - title: Dialogs
   contents:
   - shush
+
+- title: Files
+  contents:
+  - download_file
+  - get_file_ext
+  - get_file_name_without_ext
+  - get_file_size
 
 - title: Replacement
   contents:
@@ -69,8 +80,6 @@ reference:
 - title: Strings
   contents:
   - extract_initials
-  - get_file_ext
-  - get_file_name_without_ext
 
 - title: Statistics
   contents:
@@ -86,10 +95,6 @@ reference:
   - count_na
   - drop_na
   - inbetween_integers
-
-- title: Others
-  contents:
-  - get_and_aggregate_sidra_by_year
 
 - title: Zotero
   contents:
