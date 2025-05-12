@@ -35,10 +35,6 @@ navbar:
     articles: ~
 
 reference:
-- title: APIs
-  contents:
-  - download_sidra_by_year
-
 - title: Conditionals
   contents:
   - swap_if
