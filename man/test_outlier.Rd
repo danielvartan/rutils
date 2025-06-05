@@ -56,6 +56,7 @@ test_outlier(c(1, 2, 3, 4, 100), method = "sd", sd_mult = 1)
 \seealso{
 Other statistical functions: 
 \code{\link{cut_interval_mean}()},
+\code{\link{prop}()},
 \code{\link{remove_outliers}()},
 \code{\link{std_error}()}
 }

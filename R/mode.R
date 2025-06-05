@@ -7,11 +7,10 @@
 #' If there are more than one mode, it returns all of them. If all values are
 #' unique, it returns `NA`.
 #'
-#' This function is based on
-#'
 #' @param x An [`atomic`][base::is.atomic()] vector.
 #'
-#' @return
+#' @return An [`atomic`][base::is.atomic()] vector containing the mode(s) of
+#'   `x`.
 #'
 #' @family statistical functions.
 #' @export

@@ -9,13 +9,15 @@ mode(x)
 \arguments{
 \item{x}{An \code{\link[base:is.recursive]{atomic}} vector.}
 }
+\value{
+An \code{\link[base:is.recursive]{atomic}} vector containing the mode(s) of
+\code{x}.
+}
 \description{
 \code{mode()} returns the most frequent value in a vector.
 
 If there are more than one mode, it returns all of them. If all values are
 unique, it returns \code{NA}.
-
-This function is based on
 }
 \examples{
 mode(c(1, 2, 3, 4, 5, 6))

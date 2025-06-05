@@ -42,6 +42,7 @@ cut(1:5, breaks = 3) |> cut_interval_mean(round = TRUE)
 }
 \seealso{
 Other statistical functions: 
+\code{\link{prop}()},
 \code{\link{remove_outliers}()},
 \code{\link{std_error}()},
 \code{\link{test_outlier}()}

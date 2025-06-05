@@ -82,6 +82,7 @@ reference:
   - cohens_d
   - cut_interval_mean
   - mode
+  - prop
   - std_error
   - test_outlier
   - remove_outliers
