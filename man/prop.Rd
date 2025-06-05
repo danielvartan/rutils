@@ -9,8 +9,8 @@ prop(x, value, na_rm = TRUE)
 \arguments{
 \item{x}{An \code{\link[base:vector]{atomic}} vector.}
 
-\item{value}{An \code{\link[base:vector]{atomic}} vector containing the unique values
-in \code{x} for which to compute proportions.}
+\item{value}{An \code{\link[base:vector]{atomic}} vector containing values for which
+to compute proportions.}
 
 \item{na_rm}{A \code{\link[base:logical]{logical}} flag indicating whether to
 remove \code{NA} values from \code{x} before computing proportions (default: \code{TRUE}).}
@@ -24,13 +24,13 @@ value in \code{value} relative to the total number of values in \code{x}.
 }
 \examples{
 prop(c("a", "b", "a", "c", "b", "a"), c("a", "b"))
-#> [1] 0.500000 0.3333333
+#> [1] 0.500000 0.3333333 # Expected
 
-prop(c(1, 2, 1, 2, 1), c(1, 2))
-#> [1] 0.6 0.4
+prop(c(1, 2, 1, 2, 1), c(1, 2, 5))
+#> [1] 0.6 0.4 NA # Expected
 
 prop(c(TRUE, TRUE, TRUE, FALSE), c(TRUE, FALSE))
-#> [1] 0.75 0.25
+#> [1] 0.75 0.25 # Expected
 }
 \seealso{
 Other statistical functions: 

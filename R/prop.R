@@ -6,8 +6,7 @@
 #'
 #' @param x An [`atomic`][base::atomic] vector.
 #' @param value An [`atomic`][base::atomic] vector containing values for which
-#'   to compute proportions. If `value` is not present in `x`, the
-#'   function will return `NA` for that value.
+#'   to compute proportions.
 #' @param na_rm A [`logical`][base::logical] flag indicating whether to
 #'   remove `NA` values from `x` before computing proportions (default: `TRUE`).
 #'
@@ -19,13 +18,13 @@
 #'
 #' @examples
 #' prop(c("a", "b", "a", "c", "b", "a"), c("a", "b"))
-#' #> [1] 0.500000 0.3333333
+#' #> [1] 0.500000 0.3333333 # Expected
 #'
 #' prop(c(1, 2, 1, 2, 1), c(1, 2, 5))
-#' #> [1] 0.6 0.4 NA
+#' #> [1] 0.6 0.4 NA # Expected
 #'
 #' prop(c(TRUE, TRUE, TRUE, FALSE), c(TRUE, FALSE))
-#' #> [1] 0.75 0.25
+#' #> [1] 0.75 0.25 # Expected
 prop <- function(x, value, na_rm = TRUE) {
   checkmate::assert_atomic_vector(x)
   prettycheck::assert_identical(x, value, type = "class")
