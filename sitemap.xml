@@ -1,6 +1,5 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://danielvartan.github.io/rutils/404.html</loc></url>
-<url><loc>https://danielvartan.github.io/rutils/LICENSE-text.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/LICENSE.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/authors.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/index.html</loc></url>
@@ -16,6 +15,7 @@
 <url><loc>https://danielvartan.github.io/rutils/reference/get_file_ext.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/get_file_name_without_ext.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/get_file_size.html</loc></url>
+<url><loc>https://danielvartan.github.io/rutils/reference/get_locale.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/grab_fun_par.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/inbetween_integers.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/index.html</loc></url>
@@ -28,6 +28,7 @@
 <url><loc>https://danielvartan.github.io/rutils/reference/raw_data_2.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/remove_outliers.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/rutils-package.html</loc></url>
+<url><loc>https://danielvartan.github.io/rutils/reference/set_en_us_locale.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/shush.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/std_error.html</loc></url>
 <url><loc>https://danielvartan.github.io/rutils/reference/swap_if.html</loc></url>
