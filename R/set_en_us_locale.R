@@ -43,7 +43,11 @@ set_en_us_locale <- function() {
     test <- Sys.setlocale(locale = i) |> suppressWarnings()
 
     if (!test == "" && Sys.getlocale("LC_TIME") == i) {
-      for (j in locale_keys) Sys.setlocale(j, i)
+      for (j in locale_keys) {
+        try(Sys.setlocale(j, i), silent = TRUE) |>
+          suppressWarnings()
+      }
+
       for (j in env_keys) do.call(Sys.setenv, as.list(stats::setNames(i, j)))
       Sys.setenv(LANG = "en")
       Sys.setenv(LANGUAGE = "en")
