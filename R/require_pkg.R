@@ -1,8 +1,11 @@
 require_pkg <- function(...) {
   out <- list(...)
 
-  lapply(out, checkmate::assert_string,
-         pattern = "^[A-Za-z][A-Za-z0-9.]+[A-Za-z0-9]$")
+  lapply(
+    out,
+    checkmate::assert_string,
+    pattern = "^[A-Za-z][A-Za-z0-9.]+[A-Za-z0-9]*$"
+  )
 
   if (!identical(unique(unlist(out)), unlist(out))) {
     cli::cli_abort("'...' cannot have duplicated values.")

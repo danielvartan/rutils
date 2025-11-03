@@ -75,7 +75,7 @@ reference:
 
 - title: Strings
   contents:
-  - extract_initials
+  - extract_initials # Move to `groomr`
 
 - title: Statistics
   contents:
@@ -86,6 +86,11 @@ reference:
   - std_error
   - test_outlier
   - remove_outliers
+
+- title: System
+  contents:
+  - get_locale
+  - set_en_us_locale
 
 - title: Vectors
   contents:

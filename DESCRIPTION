@@ -12,7 +12,7 @@ Authors@R: c(
   )
 Description: A collection of utility functions for R created by Daniel
   Vartanian.
-License: MIT + file LICENSE
+License: GPL (>= 3)
 URL: https://danielvartan.github.io/rutils/,
   https://github.com/danielvartan/rutils/
 BugReports: https://github.com/danielvartan/rutils/issues/
@@ -78,4 +78,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
