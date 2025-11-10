@@ -42,7 +42,18 @@ qr_code(
   link = "https://linktr.ee/danielvartan",
   file = file,
   logo = raw_data_1("linktree-icon.svg", "rutils"),
-  frame = raw_data_1("frame.svg", "rutils")
+  frame = raw_data_1("qr-code-frame.svg", "rutils")
+)
+
+file |>
+  image_read() |>
+  image_ggplot()
+
+qr_code(
+  link = "https://github.com/danielvartan",
+  file = file,
+  logo = raw_data_1("github-icon.svg", "rutils"),
+  frame = raw_data_1("qr-code-frame.svg", "rutils")
 )
 
 file |>
