@@ -20,7 +20,8 @@ the path to a logo image file.}
 the path to a frame file.}
 
 \item{offset}{(optional) A \code{\link[base:character]{character}} string indicating
-the offset for positioning the QR code within the frame.}
+the offset for positioning the QR code within the frame. See
+\code{\link[magick:composite]{image_composite()}} to learn more.}
 }
 \value{
 An invisible \code{NULL}. This function is called for its side effects.
@@ -36,18 +37,30 @@ frame is included.
 library(ggplot2)
 library(magick)
 
-file <- tempfile()
+link <- "https://github.com/danielvartan"
+file <- tempfile(fileext = ".png")
+
+# A Simple QR Code -----
+
+qr_code(link = link, file = file)
+
+file |>
+  image_read() |>
+  image_ggplot()
+
+# QR Code + Logo -----
 
 qr_code(
-  link = "https://linktr.ee/danielvartan",
+  link = link,
   file = file,
-  logo = raw_data_1("linktree-icon.svg", "rutils"),
-  frame = raw_data_1("qr-code-frame.svg", "rutils")
+  logo = raw_data_1("github-icon.svg", "rutils")
 )
 
 file |>
   image_read() |>
   image_ggplot()
+
+# QR Code + Logo + Frame -----
 
 qr_code(
   link = "https://github.com/danielvartan",

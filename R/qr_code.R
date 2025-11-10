@@ -23,7 +23,8 @@
 #' @param frame (optional) A [`character`][base::character] string indicating
 #'   the path to a frame file.
 #' @param offset (optional) A [`character`][base::character] string indicating
-#'   the offset for positioning the QR code within the frame.
+#'   the offset for positioning the QR code within the frame. See
+#'   [`image_composite()`][magick::image_composite] to learn more.
 #'
 #' @return An invisible `NULL`. This function is called for its side effects.
 #'
@@ -34,18 +35,30 @@
 #' library(ggplot2)
 #' library(magick)
 #'
-#' file <- tempfile()
+#' link <- "https://github.com/danielvartan"
+#' file <- tempfile(fileext = ".png")
+#'
+#' # A Simple QR Code -----
+#'
+#' qr_code(link = link, file = file)
+#'
+#' file |>
+#'   image_read() |>
+#'   image_ggplot()
+#'
+#' # QR Code + Logo -----
 #'
 #' qr_code(
-#'   link = "https://linktr.ee/danielvartan",
+#'   link = link,
 #'   file = file,
-#'   logo = raw_data_1("linktree-icon.svg", "rutils"),
-#'   frame = raw_data_1("qr-code-frame.svg", "rutils")
+#'   logo = raw_data_1("github-icon.svg", "rutils")
 #' )
 #'
 #' file |>
 #'   image_read() |>
 #'   image_ggplot()
+#'
+#' # QR Code + Logo + Frame -----
 #'
 #' qr_code(
 #'   link = "https://github.com/danielvartan",
@@ -100,14 +113,14 @@ qr_code <- function(
 
     qr_code <-
       qr_code_file |>
-      magick::image_read() |>
+      magick::image_read_svg(width = 530, height = 530) |>
       magick::image_trim() |>
       magick::image_resize("450x450!")
 
     # magick::image_info(qr_code)
     # magick::image_display(qr_code)
 
-    frame <- frame |> magick::image_read()
+    frame <- frame |> magick::image_read_svg(width = 550, height = 650)
 
     # magick::image_info(frame)
     # magick::image_display(frame)
@@ -125,12 +138,12 @@ qr_code <- function(
       magick::image_write(
         path = file,
         format = "png",
-        quality = 100,
-        flatten = TRUE
+        quality = 100
       )
   } else {
     qr_code_file |>
-      magick::image_read() |>
+      magick::image_read_svg(width = 530, height = 530) |>
+      magick::image_resize("500x500!") |>
       magick::image_write(
         path = file,
         format = "png",
