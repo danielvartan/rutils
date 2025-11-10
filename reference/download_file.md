@@ -61,9 +61,9 @@ if (has_internet()) {
 
   download_file(urls, dir)
 }
-#> ℹ Downloading 2 files to /tmp/RtmpeFNRmy/dir2392b6f9e81
+#> ℹ Downloading 2 files to /tmp/RtmpCFFpUx/dir23832c3695a0
 #> 
-#> Downloading data ■■■■■■■■■■■■■■■■                  50% | ETA:  8s
+#> Downloading data ■■■■■■■■■■■■■■■■                  50% | ETA:  5s
 #> Downloading data ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #> 
 ```
