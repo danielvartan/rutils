@@ -1,8 +1,3 @@
-# For detailed documentation on the format, refer to:
-#
-# - https://posit-dev.github.io/brand-yml
-# - https://quarto.org/docs/authoring/brand.html
-
 meta:
   name:
     short: "{rutils}"

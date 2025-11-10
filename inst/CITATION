@@ -2,7 +2,7 @@ utils::bibentry(
   header = "To cite {rutils} in publications use:",
   bibtype = "Misc",
   title = paste0(
-    "{rutils}:", " ",
+    "rutils:", " ",
     "Utility functions for R"
   ),
   author = c(
@@ -10,7 +10,7 @@ utils::bibentry(
       given = "Daniel",
       family = "Vartanian",
       role = c("aut", "cre", "ccp", "cph"),
-      email = "danvartan@gmail.com",
+      email = "danielvartan@proton.me",
       comment = c(ORCID = "0000-0001-7782-759X")
     )
   ),
@@ -21,11 +21,11 @@ utils::bibentry(
   ),
   note = "R package",
   textVersion = paste0(
-    "Vartanian, D.", ". ",
+    "Vartanian, D", ". ",
     "(2025)", ". ",
-    "{rutils}:", " ",
-    "Utility functions for R", ". ",
-    "R package", ". ",
+    "rutils:", " ",
+    "Utility functions for R", " ",
+    "[Computer software]", ". ",
     "https://danielvartan.github.io/",
     "rutils"
   )

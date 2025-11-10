@@ -10,7 +10,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 status](https://github.com/danielvartan/rutils/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danielvartan/rutils/actions)
 [![](https://codecov.io/gh/danielvartan/rutils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/rutils)
 [![License:
-MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+GPLv3](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- badges: end -->
 
 ## Overview
@@ -38,9 +38,20 @@ remotes::install_github("danielvartan/rutils")
 
 ## License
 
-[![](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![](https://img.shields.io/badge/license-GPLv3-bd0000.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-`rutils` code is released under the [MIT
-license](https://opensource.org/license/mit/). This means you can use,
-modify, and distribute the code as long as you include the original
-license in any copies of the software that you distribute.
+``` text
+Copyright (C) 2025 Daniel Vartanian
+
+rutils is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
+```

@@ -6,7 +6,7 @@
 cff-version: 1.2.0
 message: 'To cite package "rutils" in publications use:'
 type: software
-license: MIT
+license: GPL-3.0-or-later
 title: 'rutils: Utility Functions for R'
 version: 0.0.0.9000
 identifiers:
@@ -24,7 +24,7 @@ preferred-citation:
   authors:
   - family-names: Vartanian
     given-names: Daniel
-    email: danvartan@gmail.com
+    email: danielvartan@proton.me
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2025'
   url: https://danielvartan.github.io/rutils
@@ -68,7 +68,7 @@ references:
     orcid: https://orcid.org/0000-0001-5676-5107
   year: '2025'
   doi: 10.32614/CRAN.package.broom
-  version: '>= 1.0.8'
+  version: '>= 1.0.10'
 - type: software
   title: checkmate
   abstract: 'checkmate: Fast and Versatile Argument Checks'
@@ -82,7 +82,7 @@ references:
     orcid: https://orcid.org/0000-0001-9754-0393
   year: '2025'
   doi: 10.32614/CRAN.package.checkmate
-  version: '>= 2.3.2'
+  version: '>= 2.3.3'
 - type: software
   title: cli
   abstract: 'cli: Helpers for Developing Command Line Interfaces'
@@ -107,9 +107,9 @@ references:
     given-names: Matthew
     email: matthew.d.lincoln@gmail.com
     orcid: https://orcid.org/0000-0002-4387-3384
-  year: '2025'
   doi: 10.32614/CRAN.package.clipr
   version: '>= 0.8.0'
+  year: '2025'
 - type: software
   title: curl
   abstract: 'curl: A Modern and Flexible Web Client for R'
@@ -123,7 +123,7 @@ references:
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2025'
   doi: 10.32614/CRAN.package.curl
-  version: '>= 6.2.2'
+  version: '>= 7.0.0'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
@@ -187,7 +187,7 @@ references:
     orcid: https://orcid.org/0000-0002-7825-7573
   year: '2025'
   doi: 10.32614/CRAN.package.effectsize
-  version: '>= 1.0.0'
+  version: '>= 1.0.1'
 - type: software
   title: fBasics
   abstract: 'fBasics: Rmetrics - Markets and Basic Statistics'
@@ -266,7 +266,7 @@ references:
     orcid: https://orcid.org/0000-0002-9335-7468
   year: '2025'
   doi: 10.32614/CRAN.package.ggplot2
-  version: '>= 3.5.2'
+  version: '>= 4.0.0'
 - type: software
   title: glue
   abstract: 'glue: Interpreted String Literals'
@@ -318,11 +318,11 @@ references:
   authors:
   - family-names: Müller
     given-names: Kirill
-    email: krlmlr+r@mailbox.org
+    email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
   year: '2025'
   doi: 10.32614/CRAN.package.here
-  version: '>= 1.0.1'
+  version: '>= 1.0.2'
 - type: software
   title: httr
   abstract: 'httr: Tools for Working with URLs and HTTP'
@@ -422,6 +422,20 @@ references:
     orcid: https://orcid.org/0000-0001-7782-759X
   year: '2025'
 - type: software
+  title: magick
+  abstract: 'magick: Advanced Graphics and Image-Processing in R'
+  notes: Imports
+  url: https://docs.ropensci.org/magick/
+  repository: https://CRAN.R-project.org/package=magick
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2025'
+  doi: 10.32614/CRAN.package.magick
+  version: '>= 2.9.0'
+- type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'
   notes: Imports
@@ -433,10 +447,10 @@ references:
     email: stefan@stefanbache.dk
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.magrittr
-  version: '>= 2.0.3'
+  version: '>= 2.0.4'
 - type: software
   title: methods
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -505,7 +519,7 @@ references:
     email: davis@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.parsnip
-  version: '>= 1.3.1'
+  version: '>= 1.3.3'
 - type: software
   title: patchwork
   abstract: 'patchwork: The Composer of Plots'
@@ -519,7 +533,7 @@ references:
     orcid: https://orcid.org/0000-0002-5147-4711
   year: '2025'
   doi: 10.32614/CRAN.package.patchwork
-  version: '>= 1.3.0'
+  version: '>= 1.3.2'
 - type: software
   title: plotr
   abstract: 'plotr: Plots Made Easy'
@@ -569,7 +583,7 @@ references:
     email: lionel@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.purrr
-  version: '>= 1.0.4'
+  version: '>= 1.1.0'
 - type: software
   title: qpdf
   abstract: 'qpdf: Split, Combine and Compress PDF Files'
@@ -583,7 +597,24 @@ references:
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2025'
   doi: 10.32614/CRAN.package.qpdf
-  version: '>= 1.3.5'
+  version: '>= 1.4.1'
+- type: software
+  title: qrcode
+  abstract: 'qrcode: Generate QRcodes with R'
+  notes: Imports
+  url: https://thierryo.github.io/qrcode/
+  repository: https://CRAN.R-project.org/package=qrcode
+  authors:
+  - family-names: Onkelinx
+    given-names: Thierry
+    email: qrcode@muscardinus.be
+    orcid: https://orcid.org/0000-0001-8804-4216
+  - family-names: Teh
+    given-names: Victor
+    email: victorteh@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.qrcode
+  version: '>= 0.3.0'
 - type: software
   title: readr
   abstract: 'readr: Read Rectangular Text Data'
@@ -620,6 +651,21 @@ references:
   doi: 10.32614/CRAN.package.rlang
   version: '>= 1.1.6'
 - type: software
+  title: rsvg
+  abstract: 'rsvg: Render SVG Images into PDF, PNG, (Encapsulated) PostScript, or
+    Bitmap Arrays'
+  notes: Imports
+  url: https://docs.ropensci.org/rsvg/
+  repository: https://CRAN.R-project.org/package=rsvg
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2025'
+  doi: 10.32614/CRAN.package.rsvg
+  version: '>= 2.7.0'
+- type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'
   notes: Imports
@@ -642,7 +688,7 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.stringr
-  version: '>= 1.5.1'
+  version: '>= 1.5.2'
 - type: software
   title: tidyr
   abstract: 'tidyr: Tidy Messy Data'
@@ -811,7 +857,7 @@ references:
     email: james.hester@rstudio.com
   year: '2025'
   doi: 10.32614/CRAN.package.spelling
-  version: '>= 2.3.1'
+  version: '>= 2.3.2'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'

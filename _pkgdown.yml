@@ -54,6 +54,10 @@ reference:
   - get_file_name_without_ext
   - get_file_size
 
+- title: Images
+  contents:
+  - qr_code
+
 - title: Replacement
   contents:
   - list_replace_all

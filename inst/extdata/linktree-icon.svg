@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="1000"
+   viewBox="0 0 1000 999.99998"
+   style="display:block"
+   fill="none"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="linktree-icon.svg"
+   width="1000"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.42226563"
+     inkscape:cx="296.0222"
+     inkscape:cy="645.32839"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title1">Linktree Logo</title>
+  <desc
+     id="desc1">Linktree Logo Symbol and Word Mark</desc>
+  <rect
+     style="display:block;fill:#ffffff;fill-opacity:1;stroke-width:45.833;stroke-linecap:square;stroke-miterlimit:0"
+     id="rect1"
+     width="1000"
+     height="1000"
+     x="0"
+     y="0"
+     sodipodi:insensitive="true" />
+  <path
+     d="M 215.07478,387.05211 H 387.3526 L 264.87859,270.29536 332.64661,200.62202 449.40513,320.64495 V 150 h 101.24318 v 170.64495 l 116.75406,-119.75093 67.7147,69.40134 -122.41622,116.48475 h 172.22437 v 96.345 H 611.71865 L 734.95707,602.87426 667.40237,670.91782 500.02672,502.7204 332.64661,670.91782 264.87859,603.14981 388.16595,483.3971 H 215.07478 Z M 449.1296,621.38068 H 550.37722 V 850 H 449.1296 Z"
+     fill="#43e660"
+     id="path2"
+     inkscape:label="Icon"
+     style="stroke-width:44.4437" />
+  <metadata
+     id="metadata2">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Linktree Logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
