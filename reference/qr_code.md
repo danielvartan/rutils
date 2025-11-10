@@ -38,7 +38,9 @@ qr_code(link, file, logo = NULL, frame = NULL, offset = "+50+50")
 
   (optional) A [`character`](https://rdrr.io/r/base/character.html)
   string indicating the offset for positioning the QR code within the
-  frame.
+  frame. See
+  [`image_composite()`](https://docs.ropensci.org/magick/reference/composite.html)
+  to learn more.
 
 ## Value
 
@@ -54,18 +56,12 @@ library(magick)
 #> Disabled features: cairo, ghostscript, rsvg
 #> Using 4 threads
 
-file <- tempfile()
+link <- "https://github.com/danielvartan"
+file <- tempfile(fileext = ".png")
 
-qr_code(
-  link = "https://linktr.ee/danielvartan",
-  file = file,
-  logo = raw_data_1("linktree-icon.svg", "rutils"),
-  frame = raw_data_1("qr-code-frame.svg", "rutils")
-)
-#> Warning: ImageMagick was built without librsvg which causes poor quality of SVG rendering.
-#> For better results use image_read_svg() which uses the rsvg package.
-#> Warning: ImageMagick was built without librsvg which causes poor quality of SVG rendering.
-#> For better results use image_read_svg() which uses the rsvg package.
+# A Simple QR Code -----
+
+qr_code(link = link, file = file)
 
 file |>
   image_read() |>
@@ -77,16 +73,27 @@ file |>
 #>   Please report the issue at <https://github.com/ropensci/magick/issues>.
 
 
+# QR Code + Logo -----
+
+qr_code(
+  link = link,
+  file = file,
+  logo = raw_data_1("github-icon.svg", "rutils")
+)
+
+file |>
+  image_read() |>
+  image_ggplot()
+
+
+# QR Code + Logo + Frame -----
+
 qr_code(
   link = "https://github.com/danielvartan",
   file = file,
   logo = raw_data_1("github-icon.svg", "rutils"),
   frame = raw_data_1("qr-code-frame.svg", "rutils")
 )
-#> Warning: ImageMagick was built without librsvg which causes poor quality of SVG rendering.
-#> For better results use image_read_svg() which uses the rsvg package.
-#> Warning: ImageMagick was built without librsvg which causes poor quality of SVG rendering.
-#> For better results use image_read_svg() which uses the rsvg package.
 
 file |>
   image_read() |>
