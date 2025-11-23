@@ -87,6 +87,7 @@ reference:
   - cut_interval_mean
   - mode
   - prop
+  - stats_summary
   - std_error
   - test_outlier
   - remove_outliers

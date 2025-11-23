@@ -34,6 +34,7 @@ mode(c(1, 2, 3, 4, 5, 5, 6, 6))
 }
 \seealso{
 Other statistical functions.: 
-\code{\link{cohens_d}()}
+\code{\link{cohens_d}()},
+\code{\link{stats_summary}()}
 }
 \concept{statistical functions.}

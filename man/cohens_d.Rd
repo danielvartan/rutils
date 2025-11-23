@@ -40,6 +40,7 @@ Frey, B. B. (Ed.). (2022). _The SAGE encyclopedia of research design
 }
 \seealso{
 Other statistical functions.: 
-\code{\link{mode}()}
+\code{\link{mode}()},
+\code{\link{stats_summary}()}
 }
 \concept{statistical functions.}

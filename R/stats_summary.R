@@ -1,5 +1,72 @@
-stats_summary <- function( #nolint
-    data, #nolint
+# library(checkmate)
+# library(cli)
+# library(dplyr)
+# library(hms)
+# library(lubridate)
+# library(lubritime)
+# library(magrittr)
+# library(moments)
+# library(prettycheck)
+# library(purrr)
+# library(stats)
+# library(tibble)
+
+#' Compute summary statistics
+#'
+#' @description
+#'
+#' `stats_summary()` computes summary statistics for a specified column in a
+#' data frame.
+#'
+#' @param data A [`data.frame`][base::data.frame].
+#' @param col A [`character`][base::character] `string` specifying the column
+#'   name in `data` for which to compute summary statistics.
+#' @param name (optional) A [`character`][base::character] `string` with a
+#'   name to include in the summary statistics (default: `NULL`).
+#' @param na_rm A [`logical`][base::logical] flag indicating whether to remove
+#'   `NA` values when computing statistics (default: `TRUE`).
+#' @param remove_outliers A [`logical`][base::logical] flag indicating whether
+#'   to remove outliers using the IQR method (default: `FALSE`).
+#' @param iqr_mult A [`numeric`][base::numeric] value specifying the
+#'   Interquartile Range (IQR) multiplier for outlier detection
+#'   (default: `1.5`).
+#' @param hms_format A [`logical`][base::logical] flag indicating whether to
+#'   format temporal statistics as [`hms`][hms::hms] objects (default: `TRUE`).
+#' @param threshold A [`hms`][hms::hms] object specifying the threshold time
+#'   for linking times to a timeline when computing temporal statistics.
+#'   See [`link_to_timeline()`][lubritime::link_to_timeline()] to learn more
+#'   (default: `hms::parse_hms("12:00:00")`).
+#' @param as_list A [`logical`][base::logical] flag indicating whether to
+#'   return the summary statistics as a [`list`][base::list] (default: `FALSE`).
+#'
+#' @return If `as_list` is `TRUE`, a [`list`][base::list]  with the summary
+#'   statistics. Otherwise, a one-row [`tibble`][tibble::tibble] with the
+#'   summary statistics.
+#'
+#' @family statistical functions.
+#' @export
+#'
+#' @examples
+#' library(dplyr)
+#' library(hms)
+#'
+#' rnorm(1000) |>
+#'   as_tibble() |>
+#'   stats_summary("value") |>
+#'   print(n = Inf)
+#'
+#' letters |>
+#'   as_tibble() |>
+#'   stats_summary("value") |>
+#'   print(n = Inf)
+#'
+#' sample(0:86399, 1000) |>
+#'   as_hms() |>
+#'   as_tibble() |>
+#'   stats_summary("value") |>
+#'   print(n = Inf)
+stats_summary <- function(
+    data,
     col,
     name = NULL,
     na_rm = TRUE,
@@ -116,11 +183,13 @@ stats_summary <- function( #nolint
     for (i in data_count) {
       out <-
         i$n |>
-        magrittr::set_names(i$x) |>
+        magrittr::set_names( paste0("'", i$x, "'")) |>
         as.list() %>%
         c(out, .)
     }
   }
+
+  out <- append(out, list(class = class(x_sample)[1]), after = 0)
 
   if (!is.null(name)) out <- append(out, list(name = name), after = 0)
 
