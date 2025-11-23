@@ -49,7 +49,8 @@ Frey, B. B. (Ed.). (2022). \_The SAGE encyclopedia of research design
 ## See also
 
 Other statistical functions.:
-[`mode()`](https://danielvartan.github.io/rutils/reference/mode.md)
+[`mode()`](https://danielvartan.github.io/rutils/reference/mode.md),
+[`stats_summary()`](https://danielvartan.github.io/rutils/reference/stats_summary.md)
 
 ## Examples
 

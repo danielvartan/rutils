@@ -80,6 +80,8 @@
   Find the most frequent value in a vector
 - [`prop()`](https://danielvartan.github.io/rutils/reference/prop.md) :
   Compute the proportion of values in a vector
+- [`stats_summary()`](https://danielvartan.github.io/rutils/reference/stats_summary.md)
+  : Compute summary statistics
 - [`std_error()`](https://danielvartan.github.io/rutils/reference/std_error.md)
   : Compute the standard error of the sample mean
 - [`test_outlier()`](https://danielvartan.github.io/rutils/reference/test_outlier.md)

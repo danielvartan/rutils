@@ -61,9 +61,10 @@ if (has_internet()) {
 
   download_file(urls, dir)
 }
-#> ℹ Downloading 2 files to /tmp/RtmpCFFpUx/dir23832c3695a0
+#> ℹ Downloading 2 files to /tmp/RtmpUzw0mr/dir22c7754dcf6f
 #> 
-#> Downloading data ■■■■■■■■■■■■■■■■                  50% | ETA:  5s
+#> ℹ The file POPSBR00.zip could not be downloaded.
+#> Downloading data ■■■■■■■■■■■■■■■■                  50% | ETA: 10s
 #> Downloading data ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #> 
 ```

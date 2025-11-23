@@ -25,7 +25,8 @@ containing the mode(s) of `x`.
 ## See also
 
 Other statistical functions.:
-[`cohens_d()`](https://danielvartan.github.io/rutils/reference/cohens_d.md)
+[`cohens_d()`](https://danielvartan.github.io/rutils/reference/cohens_d.md),
+[`stats_summary()`](https://danielvartan.github.io/rutils/reference/stats_summary.md)
 
 ## Examples
 
