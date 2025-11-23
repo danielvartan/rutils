@@ -215,7 +215,7 @@ stats_summary <- function(
       lubridate::ddays()
     out$range <-
       max(x, na.rm = na_rm) |>
-      magrittr:::subtract(min(x, na.rm = na_rm)) |>
+      magrittr::subtract(min(x, na.rm = na_rm)) |>
       lubridate::ddays()
     out$skewness <- moments::skewness(x, na.rm = na_rm)
     out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)

@@ -11,6 +11,8 @@ stats_summary(
   na_rm = TRUE,
   remove_outliers = FALSE,
   iqr_mult = 1.5,
+  round = FALSE,
+  digits = 3,
   hms_format = TRUE,
   threshold = hms::parse_hms("12:00:00"),
   as_list = FALSE
@@ -34,6 +36,12 @@ to remove outliers using the IQR method (default: \code{FALSE}).}
 \item{iqr_mult}{A \code{\link[base:numeric]{numeric}} value specifying the
 Interquartile Range (IQR) multiplier for outlier detection
 (default: \code{1.5}).}
+
+\item{round}{A \code{\link[base:logical]{logical}} flag indicating whether to round
+the summary statistics (default: \code{FALSE}).}
+
+\item{digits}{An integer number specifying the number of decimal places to
+round to if \code{round} is \code{TRUE} (default: \code{2}).}
 
 \item{hms_format}{A \code{\link[base:logical]{logical}} flag indicating whether to
 format temporal statistics as \code{\link[hms:hms]{hms}} objects (default: \code{TRUE}).}
@@ -71,6 +79,12 @@ letters |>
 
 sample(0:86399, 1000) |>
   as_hms() |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+
+sample(0:20415, 1000) |>
+  as.Date() |>
   as_tibble() |>
   stats_summary("value") |>
   print(n = Inf)
