@@ -53,25 +53,76 @@
 #' @examples
 #' library(dplyr)
 #' library(hms)
+#' library(lubridate)
+#'
+#' ## `character` Example
+#'
+#' sample(letters, 1000, replace = TRUE) |>
+#'   as_tibble() |>
+#'   stats_summary("value") |>
+#'   print(n = Inf)
+#'
+#' ## `factor` Example
+#'
+#' sample(letters, 1000, replace = TRUE) |>
+#'   as.factor() |>
+#'   as_tibble() |>
+#'   stats_summary("value") |>
+#'   print(n = Inf)
+#'
+#' ## `numeric` Example
 #'
 #' rnorm(1000) |>
 #'   as_tibble() |>
 #'   stats_summary("value") |>
 #'   print(n = Inf)
 #'
-#' letters |>
+#' ## `duration` Examples
+#'
+#' sample(seq_len(86399), 1000) |>
+#'   as.duration() |>
 #'   as_tibble() |>
 #'   stats_summary("value") |>
 #'   print(n = Inf)
 #'
-#' sample(0:86399, 1000) |>
+#' sample(seq_len(86399), 1000) |>
+#'   as.duration() |>
+#'   as_tibble() |>
+#'   stats_summary(
+#'     col = "value",
+#'     hms_format = FALSE
+#'   ) |>
+#'   print(n = Inf)
+#'
+#' ## `hms` Examples
+#'
+#' sample(seq_len(86399), 1000) |>
 #'   as_hms() |>
 #'   as_tibble() |>
 #'   stats_summary("value") |>
 #'   print(n = Inf)
 #'
-#' sample(0:20415, 1000) |>
+#' sample(seq_len(86399), 1000) |>
+#'   as_hms() |>
+#'   as_tibble() |>
+#'   stats_summary(
+#'     col = "value",
+#'     threshold = hms::parse_hm("12:00")
+#'   ) |>
+#'   print(n = Inf)
+#'
+#' ## `Date` Example
+#'
+#' sample(seq_len(20415), 1000) |>
 #'   as.Date() |>
+#'   as_tibble() |>
+#'   stats_summary("value") |>
+#'   print(n = Inf)
+#'
+#' ## `POSIXct` Example
+#'
+#' sample(seq_len(Sys.time()), 1000) |>
+#'   as.POSIXct() |>
 #'   as_tibble() |>
 #'   stats_summary("value") |>
 #'   print(n = Inf)
@@ -85,7 +136,7 @@ stats_summary <- function(
     round = FALSE,
     digits = 3,
     hms_format = TRUE,
-    threshold = hms::parse_hms("12:00:00"),
+    threshold = NULL, # hms::parse_hms("12:00:00")
     as_list = FALSE
   ) {
   checkmate::assert_data_frame(data)
@@ -171,52 +222,41 @@ stats_summary <- function(
   }
 
   if (
-    prettycheck::test_temporal(x_sample, rm = "Date") &&
-      isTRUE(hms_format)
+    (lubridate::is.Date(x_sample) || lubridate::is.POSIXt(x_sample)) &&
+      !test_timeline_link(x)
   ) {
-    if (test_timeline_link(x)) {
-      out <- purrr::map(
-        .x = out,
-        .f = ~ hms::as_hms(lubridate::as_datetime(.x))
-      )
-    } else {
-      out <- purrr::map(.x = out, .f = hms::hms)
-    }
-
-    out$n <- length(x)
-    out$n_rm_na <- length(x[!is.na(x)])
-    out$n_na <- length(x[is.na(x)])
-    out$skewness <- moments::skewness(x, na.rm = na_rm)
-    out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)
-
-    if (isTRUE(round)) {
-      out$skewness <- out$skewness |> round(digits = digits)
-      out$kurtosis <- out$kurtosis |> round(digits = digits)
-    }
-  }
-
-  if (lubridate::is.Date(x_sample)) {
+    if (lubridate::is.Date(x_sample)) {
     out <- purrr::map(
       .x = out,
       .f = ~ lubridate::as_date(.x)
     )
+
+      duration_fun <- lubridate::ddays
+    } else {
+    out <- purrr::map(
+      .x = out,
+      .f = ~ lubridate::as_datetime(.x)
+    )
+
+      duration_fun <- lubridate::dseconds
+    }
 
     out$n <- length(x)
     out$n_rm_na <- length(x[!is.na(x)])
     out$n_na <- length(x[is.na(x)])
     out$var <-
       stats::var(x, na.rm = na_rm) |>
-      lubridate::ddays()
+      duration_fun()
     out$sd <-
       stats::sd(x, na.rm = na_rm) |>
-      lubridate::ddays()
+      duration_fun()
     out$iqr <-
       stats::IQR(x, na.rm = na_rm) |>
-      lubridate::ddays()
+      duration_fun()
     out$range <-
       max(x, na.rm = na_rm) |>
       magrittr::subtract(min(x, na.rm = na_rm)) |>
-      lubridate::ddays()
+      duration_fun()
     out$skewness <- moments::skewness(x, na.rm = na_rm)
     out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)
 
@@ -228,9 +268,29 @@ stats_summary <- function(
       out$skewness <- out$skewness |> round(digits = digits)
       out$kurtosis <- out$kurtosis |> round(digits = digits)
     }
-  }
+  } else if ( prettycheck::test_temporal(x_sample, rm = "Date")) {
+    if (test_timeline_link(x)) {
+      out <- purrr::map(
+        .x = out,
+        .f = ~ hms::as_hms(lubridate::as_datetime(.x))
+      )
+    } else if (hms::is_hms(x_sample) || isTRUE(hms_format)) {
+      out <- purrr::map(.x = out, .f = hms::hms)
+    } else if (lubridate::is.duration(x_sample)) {
+      out <- purrr::map(.x = out, .f = lubridate::as.duration)
+    }
 
-  if (!is.numeric(x_sample) && !prettycheck::test_temporal(x_sample)) {
+    out$n <- length(x)
+    out$n_rm_na <- length(x[!is.na(x)])
+    out$n_na <- length(x[is.na(x)])
+    out$skewness <- moments::skewness(x, na.rm = na_rm)
+    out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)
+
+    if (isTRUE(round)) {
+      out$skewness <- out$skewness |> round(digits = digits)
+      out$kurtosis <- out$kurtosis |> round(digits = digits)
+    }
+  } else if (!is.numeric(x_sample) && !prettycheck::test_temporal(x_sample)) {
     out <- c(
       out,
       list(

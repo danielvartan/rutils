@@ -14,7 +14,7 @@ stats_summary(
   round = FALSE,
   digits = 3,
   hms_format = TRUE,
-  threshold = hms::parse_hms("12:00:00"),
+  threshold = NULL,
   as_list = FALSE
 )
 }
@@ -66,25 +66,76 @@ data frame.
 \examples{
 library(dplyr)
 library(hms)
+library(lubridate)
+
+## `character` Example
+
+sample(letters, 1000, replace = TRUE) |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+
+## `factor` Example
+
+sample(letters, 1000, replace = TRUE) |>
+  as.factor() |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+
+## `numeric` Example
 
 rnorm(1000) |>
   as_tibble() |>
   stats_summary("value") |>
   print(n = Inf)
 
-letters |>
+## `duration` Examples
+
+sample(seq_len(86399), 1000) |>
+  as.duration() |>
   as_tibble() |>
   stats_summary("value") |>
   print(n = Inf)
 
-sample(0:86399, 1000) |>
+sample(seq_len(86399), 1000) |>
+  as.duration() |>
+  as_tibble() |>
+  stats_summary(
+    col = "value",
+    hms_format = FALSE
+  ) |>
+  print(n = Inf)
+
+## `hms` Examples
+
+sample(seq_len(86399), 1000) |>
   as_hms() |>
   as_tibble() |>
   stats_summary("value") |>
   print(n = Inf)
 
-sample(0:20415, 1000) |>
+sample(seq_len(86399), 1000) |>
+  as_hms() |>
+  as_tibble() |>
+  stats_summary(
+    col = "value",
+    threshold = hms::parse_hm("12:00")
+  ) |>
+  print(n = Inf)
+
+## `Date` Example
+
+sample(seq_len(20415), 1000) |>
   as.Date() |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+
+## `POSIXct` Example
+
+sample(seq_len(Sys.time()), 1000) |>
+  as.POSIXct() |>
   as_tibble() |>
   stats_summary("value") |>
   print(n = Inf)
