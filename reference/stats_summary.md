@@ -13,6 +13,8 @@ stats_summary(
   na_rm = TRUE,
   remove_outliers = FALSE,
   iqr_mult = 1.5,
+  round = FALSE,
+  digits = 3,
   hms_format = TRUE,
   threshold = hms::parse_hms("12:00:00"),
   as_list = FALSE
@@ -53,6 +55,16 @@ stats_summary(
   A [`numeric`](https://rdrr.io/r/base/numeric.html) value specifying
   the Interquartile Range (IQR) multiplier for outlier detection
   (default: `1.5`).
+
+- round:
+
+  A [`logical`](https://rdrr.io/r/base/logical.html) flag indicating
+  whether to round the summary statistics (default: `FALSE`).
+
+- digits:
+
+  An integer number specifying the number of decimal places to round to
+  if `round` is `TRUE` (default: `2`).
 
 - hms_format:
 
@@ -190,4 +202,29 @@ sample(0:86399, 1000) |>
 #> 14 range    23:58:47           
 #> 15 skewness -0.0105501531038544
 #> 16 kurtosis 1.81463198446254   
+
+sample(0:20415, 1000) |>
+  as.Date() |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+#> # A tibble: 16 × 2
+#>    name     value                              
+#>    <chr>    <chr>                              
+#>  1 class    Date                               
+#>  2 n        1000                               
+#>  3 n_rm_na  1000                               
+#>  4 n_na     0                                  
+#>  5 mean     1998-08-22                         
+#>  6 var      2976435185193.17s (~94317.54 years)
+#>  7 sd       507113399.547566s (~16.07 years)   
+#>  8 min      1970-01-27                         
+#>  9 q_1      1984-12-21                         
+#> 10 median   1999-01-05                         
+#> 11 q_3      2012-07-07                         
+#> 12 max      2025-11-19                         
+#> 13 iqr      869162400s (~27.54 years)          
+#> 14 range    1761264000s (~55.81 years)         
+#> 15 skewness -0.0247433643455438                
+#> 16 kurtosis 1.81505332179621                   
 ```
