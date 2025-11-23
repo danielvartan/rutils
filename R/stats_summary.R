@@ -65,6 +65,12 @@
 #'   as_tibble() |>
 #'   stats_summary("value") |>
 #'   print(n = Inf)
+#'
+#' sample(0:20415, 1000) |>
+#'   as.Date() |>
+#'   as_tibble() |>
+#'   stats_summary("value") |>
+#'   print(n = Inf)
 stats_summary <- function(
     data,
     col,
@@ -107,7 +113,7 @@ stats_summary <- function(
   }
 
   if (prettycheck::test_temporal(x)) {
-    if (lubridate::is.POSIXt(x)) {
+    if (lubridate::is.Date(x) || lubridate::is.POSIXt(x)) {
       x <- x |> as.numeric()
     } else if (hms::is_hms(x)) {
       x <-
@@ -148,7 +154,10 @@ stats_summary <- function(
       ))
   }
 
-  if (prettycheck::test_temporal(x_sample) && isTRUE(hms_format)) {
+  if (
+    prettycheck::test_temporal(x_sample, rm = "Date") &&
+      isTRUE(hms_format)
+  ) {
     if (test_timeline_link(x)) {
       out <- purrr::map(
         .x = out,
@@ -161,6 +170,32 @@ stats_summary <- function(
     out$n <- length(x)
     out$n_rm_na <- length(x[!is.na(x)])
     out$n_na <- length(x[is.na(x)])
+    out$skewness <- moments::skewness(x, na.rm = na_rm)
+    out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)
+  }
+
+  if (lubridate::is.Date(x_sample)) {
+    out <- purrr::map(
+      .x = out,
+      .f = ~ lubridate::as_date(.x)
+    )
+
+    out$n <- length(x)
+    out$n_rm_na <- length(x[!is.na(x)])
+    out$n_na <- length(x[is.na(x)])
+    out$var <-
+      stats::var(x, na.rm = na_rm) |>
+      lubridate::ddays()
+    out$sd <-
+      stats::sd(x, na.rm = na_rm) |>
+      lubridate::ddays()
+    out$iqr <-
+      stats::IQR(x, na.rm = na_rm) |>
+      lubridate::ddays()
+    out$range <-
+      max(x, na.rm = na_rm) |>
+      magrittr:::subtract(min(x, na.rm = na_rm)) |>
+      lubridate::ddays()
     out$skewness <- moments::skewness(x, na.rm = na_rm)
     out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)
   }
