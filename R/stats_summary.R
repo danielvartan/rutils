@@ -30,6 +30,10 @@
 #' @param iqr_mult A [`numeric`][base::numeric] value specifying the
 #'   Interquartile Range (IQR) multiplier for outlier detection
 #'   (default: `1.5`).
+#' @param round A [`logical`][base::logical] flag indicating whether to round
+#'   the summary statistics (default: `FALSE`).
+#' @param digits An integer number specifying the number of decimal places to
+#'   round to if `round` is `TRUE` (default: `2`).
 #' @param hms_format A [`logical`][base::logical] flag indicating whether to
 #'   format temporal statistics as [`hms`][hms::hms] objects (default: `TRUE`).
 #' @param threshold A [`hms`][hms::hms] object specifying the threshold time
@@ -78,6 +82,8 @@ stats_summary <- function(
     na_rm = TRUE,
     remove_outliers = FALSE,
     iqr_mult = 1.5,
+    round = FALSE,
+    digits = 3,
     hms_format = TRUE,
     threshold = hms::parse_hms("12:00:00"),
     as_list = FALSE
@@ -90,6 +96,8 @@ stats_summary <- function(
   checkmate::assert_flag(na_rm)
   checkmate::assert_flag(remove_outliers)
   checkmate::assert_number(iqr_mult, lower = 1)
+  checkmate::assert_flag(round)
+  checkmate::assert_int(digits, lower = 0)
   checkmate::assert_flag(hms_format)
 
   prettycheck::assert_hms(
@@ -152,6 +160,14 @@ stats_summary <- function(
         skewness = moments::skewness(x, na.rm = na_rm),
         kurtosis = moments::kurtosis(x, na.rm = na_rm)
       ))
+
+    if (isTRUE(round)) {
+      out <-
+        out |>
+        purrr::map(
+          .f = \(x) ifelse(is.numeric(x), round(x, digits = digits), x)
+        )
+    }
   }
 
   if (
@@ -172,6 +188,11 @@ stats_summary <- function(
     out$n_na <- length(x[is.na(x)])
     out$skewness <- moments::skewness(x, na.rm = na_rm)
     out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)
+
+    if (isTRUE(round)) {
+      out$skewness <- out$skewness |> round(digits = digits)
+      out$kurtosis <- out$kurtosis |> round(digits = digits)
+    }
   }
 
   if (lubridate::is.Date(x_sample)) {
@@ -198,6 +219,15 @@ stats_summary <- function(
       lubridate::ddays()
     out$skewness <- moments::skewness(x, na.rm = na_rm)
     out$kurtosis <- moments::kurtosis(x, na.rm = na_rm)
+
+    if (isTRUE(round)) {
+      out$var <- out$var |> round(digits = digits)
+      out$sd <- out$sd |> round(digits = digits)
+      out$iqr <- out$iqr |> round(digits = digits)
+      out$range <- out$range |> round(digits = digits)
+      out$skewness <- out$skewness |> round(digits = digits)
+      out$kurtosis <- out$kurtosis |> round(digits = digits)
+    }
   }
 
   if (!is.numeric(x_sample) && !prettycheck::test_temporal(x_sample)) {
