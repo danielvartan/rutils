@@ -16,7 +16,7 @@ stats_summary(
   round = FALSE,
   digits = 3,
   hms_format = TRUE,
-  threshold = hms::parse_hms("12:00:00"),
+  threshold = NULL,
   as_list = FALSE
 )
 ```
@@ -113,6 +113,134 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 library(hms)
+library(lubridate)
+#> 
+#> Attaching package: ‘lubridate’
+#> The following object is masked from ‘package:hms’:
+#> 
+#>     hms
+#> The following objects are masked from ‘package:base’:
+#> 
+#>     date, intersect, setdiff, union
+
+## `character` Example
+
+sample(letters, 1000, replace = TRUE) |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+#> # A tibble: 64 × 2
+#>    name     value    
+#>    <chr>    <chr>    
+#>  1 class    character
+#>  2 n        1000     
+#>  3 n_rm_na  1000     
+#>  4 n_na     0        
+#>  5 n_unique 26       
+#>  6 mode     a        
+#>  7 'a'      49       
+#>  8 'b'      39       
+#>  9 'c'      35       
+#> 10 'd'      34       
+#> 11 'e'      40       
+#> 12 'f'      39       
+#> 13 'g'      40       
+#> 14 'h'      37       
+#> 15 'i'      38       
+#> 16 'j'      49       
+#> 17 'k'      43       
+#> 18 'l'      47       
+#> 19 'm'      32       
+#> 20 'n'      38       
+#> 21 'o'      32       
+#> 22 'p'      36       
+#> 23 'q'      35       
+#> 24 'r'      36       
+#> 25 's'      39       
+#> 26 't'      37       
+#> 27 'u'      32       
+#> 28 'v'      36       
+#> 29 'w'      38       
+#> 30 'x'      37       
+#> 31 'y'      36       
+#> 32 'z'      46       
+#> 33 class    character
+#> 34 n        1000     
+#> 35 n_rm_na  1000     
+#> 36 n_na     0        
+#> 37 n_unique 26       
+#> 38 mode     j        
+#> 39 'a'      49       
+#> 40 'b'      39       
+#> 41 'c'      35       
+#> 42 'd'      34       
+#> 43 'e'      40       
+#> 44 'f'      39       
+#> 45 'g'      40       
+#> 46 'h'      37       
+#> 47 'i'      38       
+#> 48 'j'      49       
+#> 49 'k'      43       
+#> 50 'l'      47       
+#> 51 'm'      32       
+#> 52 'n'      38       
+#> 53 'o'      32       
+#> 54 'p'      36       
+#> 55 'q'      35       
+#> 56 'r'      36       
+#> 57 's'      39       
+#> 58 't'      37       
+#> 59 'u'      32       
+#> 60 'v'      36       
+#> 61 'w'      38       
+#> 62 'x'      37       
+#> 63 'y'      36       
+#> 64 'z'      46       
+
+## `factor` Example
+
+sample(letters, 1000, replace = TRUE) |>
+  as.factor() |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+#> # A tibble: 32 × 2
+#>    name     value    
+#>    <chr>    <chr>    
+#>  1 class    character
+#>  2 n        1000     
+#>  3 n_rm_na  1000     
+#>  4 n_na     0        
+#>  5 n_unique 26       
+#>  6 mode     i        
+#>  7 'a'      47       
+#>  8 'b'      36       
+#>  9 'c'      41       
+#> 10 'd'      40       
+#> 11 'e'      33       
+#> 12 'f'      35       
+#> 13 'g'      41       
+#> 14 'h'      35       
+#> 15 'i'      55       
+#> 16 'j'      44       
+#> 17 'k'      32       
+#> 18 'l'      30       
+#> 19 'm'      32       
+#> 20 'n'      42       
+#> 21 'o'      37       
+#> 22 'p'      44       
+#> 23 'q'      44       
+#> 24 'r'      28       
+#> 25 's'      31       
+#> 26 't'      50       
+#> 27 'u'      37       
+#> 28 'v'      31       
+#> 29 'w'      43       
+#> 30 'x'      32       
+#> 31 'y'      41       
+#> 32 'z'      39       
+
+## `numeric` Example
 
 rnorm(1000) |>
   as_tibble() |>
@@ -125,60 +253,77 @@ rnorm(1000) |>
 #>  2 n        1000               
 #>  3 n_rm_na  1000               
 #>  4 n_na     0                  
-#>  5 mean     0.00415779520813434
-#>  6 var      0.989635961402831  
-#>  7 sd       0.994804484008205  
-#>  8 min      -3.70984946627182  
-#>  9 q_1      -0.691392247383182 
-#> 10 median   0.0289577747834712 
-#> 11 q_3      0.675476195395744  
-#> 12 max      3.39150881898844   
-#> 13 iqr      1.36686844277893   
-#> 14 range    7.10135828526026   
-#> 15 skewness -0.0496126045969755
-#> 16 kurtosis 2.99809892189888   
+#>  5 mean     0.00882103199869792
+#>  6 var      0.916157801739654  
+#>  7 sd       0.957161324824428  
+#>  8 min      -2.94908378424355  
+#>  9 q_1      -0.652478558272966 
+#> 10 median   -0.0222078965814481
+#> 11 q_3      0.667215146071814  
+#> 12 max      3.00809273739028   
+#> 13 iqr      1.31969370434478   
+#> 14 range    5.95717652163384   
+#> 15 skewness 0.032714596279281  
+#> 16 kurtosis 2.83812827363449   
 
-letters |>
+## `duration` Examples
+
+sample(seq_len(86399), 1000) |>
+  as.duration() |>
   as_tibble() |>
   stats_summary("value") |>
   print(n = Inf)
-#> # A tibble: 32 × 2
-#>    name     value    
-#>    <chr>    <chr>    
-#>  1 class    character
-#>  2 n        26       
-#>  3 n_rm_na  26       
-#>  4 n_na     0        
-#>  5 n_unique 26       
-#>  6 mode     NA       
-#>  7 'a'      1        
-#>  8 'b'      1        
-#>  9 'c'      1        
-#> 10 'd'      1        
-#> 11 'e'      1        
-#> 12 'f'      1        
-#> 13 'g'      1        
-#> 14 'h'      1        
-#> 15 'i'      1        
-#> 16 'j'      1        
-#> 17 'k'      1        
-#> 18 'l'      1        
-#> 19 'm'      1        
-#> 20 'n'      1        
-#> 21 'o'      1        
-#> 22 'p'      1        
-#> 23 'q'      1        
-#> 24 'r'      1        
-#> 25 's'      1        
-#> 26 't'      1        
-#> 27 'u'      1        
-#> 28 'v'      1        
-#> 29 'w'      1        
-#> 30 'x'      1        
-#> 31 'y'      1        
-#> 32 'z'      1        
+#> # A tibble: 16 × 2
+#>    name     value              
+#>    <chr>    <chr>              
+#>  1 class    Duration           
+#>  2 n        1000               
+#>  3 n_rm_na  1000               
+#>  4 n_na     0                  
+#>  5 mean     12:03:15.724       
+#>  6 var      162508:39:07.629453
+#>  7 sd       06:43:07.417134    
+#>  8 min      00:04:06           
+#>  9 q_1      06:13:20.75        
+#> 10 median   12:14:13.5         
+#> 11 q_3      17:42:24.25        
+#> 12 max      23:59:54           
+#> 13 iqr      11:29:03.5         
+#> 14 range    23:55:48           
+#> 15 skewness 0.00921503015087464
+#> 16 kurtosis 1.81970971422038   
 
-sample(0:86399, 1000) |>
+sample(seq_len(86399), 1000) |>
+  as.duration() |>
+  as_tibble() |>
+  stats_summary(
+    col = "value",
+    hms_format = FALSE
+  ) |>
+  print(n = Inf)
+#> # A tibble: 16 × 2
+#>    name     value                           
+#>    <chr>    <chr>                           
+#>  1 class    Duration                        
+#>  2 n        1000                            
+#>  3 n_rm_na  1000                            
+#>  4 n_na     0                               
+#>  5 mean     43328.929s (~12.04 hours)       
+#>  6 var      614793868.644604s (~19.48 years)
+#>  7 sd       24795.0371777217s (~6.89 hours) 
+#>  8 min      8s                              
+#>  9 q_1      22103s (~6.14 hours)            
+#> 10 median   42948.5s (~11.93 hours)         
+#> 11 q_3      64350.5s (~17.88 hours)         
+#> 12 max      86396s (~24 hours)              
+#> 13 iqr      42247.5s (~11.74 hours)         
+#> 14 range    86388s (~24 hours)              
+#> 15 skewness 0.00739270223785435             
+#> 16 kurtosis 1.79346270718159                
+
+## `hms` Examples
+
+sample(seq_len(86399), 1000) |>
   as_hms() |>
   as_tibble() |>
   stats_summary("value") |>
@@ -190,20 +335,50 @@ sample(0:86399, 1000) |>
 #>  2 n        1000               
 #>  3 n_rm_na  1000               
 #>  4 n_na     0                  
-#>  5 mean     23:55:26.109       
-#>  6 var      02:09:59.672792    
-#>  7 sd       06:53:29.70374     
-#>  8 min      12:00:14           
-#>  9 q_1      18:00:45.75        
-#> 10 median   23:44:11           
-#> 11 q_3      05:58:27.25        
-#> 12 max      11:59:01           
-#> 13 iqr      11:57:41.5         
-#> 14 range    23:58:47           
-#> 15 skewness -0.0105501531038544
-#> 16 kurtosis 1.81463198446254   
+#>  5 mean     11:28:06.288       
+#>  6 var      169802:02:58.241297
+#>  7 sd       06:52:04.226545    
+#>  8 min      00:00:42           
+#>  9 q_1      05:41:43.75        
+#> 10 median   11:05:19.5         
+#> 11 q_3      17:20:15.5         
+#> 12 max      23:59:19           
+#> 13 iqr      11:38:31.75        
+#> 14 range    23:58:37           
+#> 15 skewness 0.107281125691469  
+#> 16 kurtosis 1.84102649790014   
 
-sample(0:20415, 1000) |>
+sample(seq_len(86399), 1000) |>
+  as_hms() |>
+  as_tibble() |>
+  stats_summary(
+    col = "value",
+    threshold = hms::parse_hm("12:00")
+  ) |>
+  print(n = Inf)
+#> # A tibble: 16 × 2
+#>    name     value             
+#>    <chr>    <chr>             
+#>  1 class    hms               
+#>  2 n        1000              
+#>  3 n_rm_na  1000              
+#>  4 n_na     0                 
+#>  5 mean     23:46:32.93       
+#>  6 var      10:23:38.209309   
+#>  7 sd       06:53:54.665655   
+#>  8 min      12:00:28          
+#>  9 q_1      18:02:41          
+#> 10 median   23:38:37.5        
+#> 11 q_3      05:59:57.25       
+#> 12 max      11:59:43          
+#> 13 iqr      11:57:16.25       
+#> 14 range    23:59:15          
+#> 15 skewness 0.0200625840500226
+#> 16 kurtosis 1.82635100590631  
+
+## `Date` Example
+
+sample(seq_len(20415), 1000) |>
   as.Date() |>
   as_tibble() |>
   stats_summary("value") |>
@@ -215,16 +390,43 @@ sample(0:20415, 1000) |>
 #>  2 n        1000                               
 #>  3 n_rm_na  1000                               
 #>  4 n_na     0                                  
-#>  5 mean     1998-08-22                         
-#>  6 var      2976435185193.17s (~94317.54 years)
-#>  7 sd       507113399.547566s (~16.07 years)   
-#>  8 min      1970-01-27                         
-#>  9 q_1      1984-12-21                         
-#> 10 median   1999-01-05                         
-#> 11 q_3      2012-07-07                         
-#> 12 max      2025-11-19                         
-#> 13 iqr      869162400s (~27.54 years)          
-#> 14 range    1761264000s (~55.81 years)         
-#> 15 skewness -0.0247433643455438                
-#> 16 kurtosis 1.81505332179621                   
+#>  5 mean     1998-03-09                         
+#>  6 var      3083334102303.05s (~97704.96 years)
+#>  7 sd       516139580.384011s (~16.36 years)   
+#>  8 min      1970-01-04                         
+#>  9 q_1      1983-11-13                         
+#> 10 median   1998-08-01                         
+#> 11 q_3      2012-01-07                         
+#> 12 max      2025-11-17                         
+#> 13 iqr      888408000s (~28.15 years)          
+#> 14 range    1763078400s (~55.87 years)         
+#> 15 skewness -0.016469922094564                 
+#> 16 kurtosis 1.79479612698249                   
+
+## `POSIXct` Example
+
+sample(seq_len(Sys.time()), 1000) |>
+  as.POSIXct() |>
+  as_tibble() |>
+  stats_summary("value") |>
+  print(n = Inf)
+#> # A tibble: 16 × 2
+#>    name     value                                     
+#>    <chr>    <chr>                                     
+#>  1 class    POSIXct                                   
+#>  2 n        1000                                      
+#>  3 n_rm_na  1000                                      
+#>  4 n_na     0                                         
+#>  5 mean     1998-11-10 21:08:51.096                   
+#>  6 var      257713360628507136s (~8166443602.44 years)
+#>  7 sd       507654765.198267s (~16.09 years)          
+#>  8 min      1970-01-21 14:40:13                       
+#>  9 q_1      1985-04-24 15:47:10.25                    
+#> 10 median   1999-02-08 21:08:54.5                     
+#> 11 q_3      2012-06-28 05:16:20.5                     
+#> 12 max      2025-11-15 16:42:20                       
+#> 13 iqr      857654950.25s (~27.18 years)              
+#> 14 range    1761444127s (~55.82 years)                
+#> 15 skewness -0.060698797874797                        
+#> 16 kurtosis 1.84974587052492                          
 ```
