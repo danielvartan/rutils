@@ -95,6 +95,11 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
   Put a vector into [`c()`](https://rdrr.io/r/base/c.html)
 
+- [`list_as_tibble()`](https://danielvartan.github.io/rutils/reference/list_as_tibble.md)
+  :
+
+  Convert a `list` to a `tibble` in long format
+
 ## R Packages
 
 - [`update_pkg_versions()`](https://danielvartan.github.io/rutils/reference/update_pkg_versions.md)

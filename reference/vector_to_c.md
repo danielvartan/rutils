@@ -36,6 +36,11 @@ A [`character`](https://rdrr.io/r/base/character.html) string with all
 values from `x` inside the [`c()`](https://rdrr.io/r/base/c.html)
 function.
 
+## See also
+
+Other parsing/conversion functions.:
+[`list_as_tibble()`](https://danielvartan.github.io/rutils/reference/list_as_tibble.md)
+
 ## Examples
 
 ``` r
