@@ -67,6 +67,7 @@ reference:
   contents:
   - na_as
   - vector_to_c
+  - list_as_tibble
 
 - title: R Packages
   contents:

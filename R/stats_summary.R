@@ -327,6 +327,8 @@ stats_summary <- function(
 
 test_timeline_link <- function(x, threshold = hms::parse_hm("12:00")) {
   checkmate::assert_multi_class(x, c("numeric", "POSIXt"))
+  prettycheck::assert_length(threshold, len = 1)
+
   prettycheck::assert_hms(
     threshold,
     lower = hms::hms(0),

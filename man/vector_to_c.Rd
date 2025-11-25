@@ -32,4 +32,8 @@ vector_to_c(letters[1:5], clipboard = FALSE)
 vector_to_c(1:5, quote = FALSE, clipboard = FALSE)
 #> c(1, 2, 3, 4, 5) # Expected
 }
+\seealso{
+Other parsing/conversion functions.: 
+\code{\link{list_as_tibble}()}
+}
 \concept{parsing/conversion functions.}
