@@ -116,6 +116,11 @@
 - [`inbetween_integers()`](https://danielvartan.github.io/rutils/reference/inbetween_integers.md)
   : Get all the integers between two integers
 
+## Zenodo
+
+- [`zenodo_webhook_push()`](https://danielvartan.github.io/rutils/reference/zenodo_webhook_push.md)
+  : Push the a GitHub release to Zenodo via webhook
+
 ## Zotero
 
 - [`find_orphan_files()`](https://danielvartan.github.io/rutils/reference/find_orphan_files.md)

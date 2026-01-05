@@ -11,13 +11,13 @@
 Source:
 [`inst/CITATION`](https://github.com/danielvartan/rutils/blob/main/inst/CITATION)
 
-Vartanian, D. (2025). rutils: Utility functions for R \[Computer
+Vartanian, D. (2026). rutils: Utility functions for R \[Computer
 software\]. https://danielvartan.github.io/rutils
 
     @Misc{,
       title = {rutils: Utility functions for R},
       author = {Daniel Vartanian},
-      year = {2025},
+      year = {2026},
       url = {https://danielvartan.github.io/rutils},
       note = {R package},
     }
