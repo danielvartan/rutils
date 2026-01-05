@@ -1,4 +1,4 @@
-require_pkg <- function(...) {
+require_package <- function(...) {
   out <- list(...)
 
   lapply(
@@ -8,24 +8,35 @@ require_pkg <- function(...) {
   )
 
   if (!identical(unique(unlist(out)), unlist(out))) {
-    cli::cli_abort("'...' cannot have duplicated values.")
+    cli::cli_abort(
+      "{.strong {cli::col_red('...')}} cannot have duplicated values."
+    )
   }
 
-  pkg <- unlist(out)
-  namespace <- vapply(pkg, require_namespace, logical(1),
-                      quietly = TRUE, USE.NAMES = FALSE)
-  pkg <- pkg[!namespace]
+  package <- unlist(out)
 
-  if (length(pkg) == 0) {
-    invisible(NULL)
+  namespace <- vapply(
+    package,
+    require_namespace,
+    logical(1),
+    quietly = TRUE,
+    USE.NAMES = FALSE
+  )
+
+  package <- package[!namespace]
+
+  if (length(package) == 0) {
+    invisible()
   } else {
     cli::cli_abort(
       paste0(
-        "This function requires the {single_quote_(pkg)} package{?s} ",
-        "to run. You can install {?it/them} by running:", "\n\n",
-        "install.packages(c(",
-        "{paste(double_quote_(pkg), collapse = ', ')}",
-        "))"
+        "This function requires the ",
+        "{.strong {cli::col_red(package)}} package{?s} ",
+        "to run. You can install {?it/them} by running:",
+        "\n\n",
+        "install.packages(",
+        "c({paste(glue::double_quote(package), collapse = ', ')})",
+        ")"
       )
     )
   }

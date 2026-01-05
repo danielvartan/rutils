@@ -17,8 +17,9 @@ URL: https://danielvartan.github.io/rutils/,
   https://github.com/danielvartan/rutils/
 BugReports: https://github.com/danielvartan/rutils/issues/
 Depends:
-  R (>= 4.3)
+  R (>= 4.4)
 Imports:
+  askpass (>= 1.2.1),
   broom (>= 1.0.10),
   checkmate (>= 2.3.3),
   cli (>= 3.6.5),
@@ -28,12 +29,13 @@ Imports:
   effectsize (>= 1.0.1),
   fBasics (>= 4041.97),
   fs (>= 1.6.6),
-  ggplot2 (>= 4.0.0),
+  ggplot2 (>= 4.0.1),
   glue (>= 1.8.0),
   grDevices (>= 4.4),
-  hms (>= 1.1.3),
+  hms (>= 1.1.4),
   here (>= 1.0.2),
   httr (>= 1.4.7),
+  httr2 (>= 1.2.1),
   janitor (>= 2.2.1),
   jsonlite (>= 2.0.0),
   latex2exp (>= 0.9.6),
@@ -51,26 +53,26 @@ Imports:
   plotr,
   prettycheck,
   psychometric (>= 2.4),
-  purrr (>= 1.1.0),
+  purrr (>= 1.2.0),
   qpdf (>= 1.4.1),
   qrcode (>= 0.3.0),
-  readr (>= 2.1.5),
+  readr (>= 2.1.6),
   rlang (>= 1.1.6),
   rsvg (>= 2.7.0),
   stats (>= 4.4),
-  stringr (>= 1.5.2),
+  stringr (>= 1.6.0),
   tidyr (>= 1.3.1),
   tcltk (>= 4.4),
   tseries (>= 0.10.58),
   utils (>= 4.4)
 Suggests:
-  covr (>= 3.6.4),
+  covr (>= 3.6.5),
   datasets (>= 4.4),
   knitr (>= 1.50),
   mockr (>= 0.2.2),
-  rmarkdown (>= 2.29),
+  rmarkdown (>= 2.30),
   spelling (>= 2.3.2),
-  testthat (>= 3.2.3)
+  testthat (>= 3.3.0)
 Remotes:
     github::danielvartan/lubritime,
     github::danielvartan/plotr,
