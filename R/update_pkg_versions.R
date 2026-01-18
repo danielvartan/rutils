@@ -13,6 +13,8 @@
 #'   file.
 #' @param old_r_version (optional) A string indicating the previous minor
 #'   version of the current R version.
+#' @param ignore (optional) A character vector of package names to ignore when
+#'   updating versions.
 #'
 #' @return An invisible `NULL`. This function is used for its side effect.
 #'
@@ -20,11 +22,13 @@
 #' @export
 update_pkg_versions <- function(
   file = here::here("DESCRIPTION"),
-  old_r_version = bump_back_r_version()
+  old_r_version = bump_back_r_version(),
+  ignore = NULL
 ) {
   checkmate::assert_string(file)
   checkmate::assert_file_exists(file)
   checkmate::assert_string(old_r_version, pattern = "^\\d\\.\\d$")
+  checkmate::assert_character(ignore, null.ok = TRUE)
 
   # R CMD Check variable bindings fix (see: https://bit.ly/3z24hbU)
   Priority <- NULL #nolint
@@ -34,10 +38,28 @@ update_pkg_versions <- function(
   installed_packages <- utils::installed.packages() |> dplyr::as_tibble()
   base_packages <- installed_packages |> dplyr::filter(Priority == "base")
 
+  ignore <-
+    ignore |>
+    stringr::str_escape() |>
+    paste(collapse = "|")
+
   out <- character()
 
   for (i in lines) {
-    if (stringr::str_detect(stringr::str_trim(i), "(?i)^[a-z0-9.]+ \\(.+\\)")) {
+    i_check <-
+      i |>
+      stringr::str_trim() |>
+      stringr::str_detect("(?i)^[a-z0-9.]+ \\(.+\\)")
+
+    if (ignore != "") {
+      i_check <-
+        i_check |>
+        magrittr::and(
+          !stringr::str_detect(i, ignore)
+        )
+    }
+
+    if (isTRUE(i_check)) {
       package <- stringr::str_extract(
         stringr::str_trim(i),
         "(?i)^[a-zA-Z0-9.]+"
@@ -48,13 +70,16 @@ update_pkg_versions <- function(
         # complement <- stringr::str_extract(version, "^.* (?=[0-9.-])")
 
         if (package %in% base_packages$Package) {
-          version <- stringr::str_replace(version, "[0-9.-]+$", old_r_version)
+          version <-
+            version |>
+            stringr::str_replace("[0-9.-]+$", old_r_version)
         } else {
-          version <- stringr::str_replace(
-            version,
-            "[0-9.-]+$",
-            as.character(utils::packageVersion(package))
-          )
+          version <-
+            version |>
+            stringr::str_replace(
+              pattern = "[0-9.-]+$",
+              replacement = as.character(utils::packageVersion(package))
+            )
         }
 
         version <-
@@ -64,14 +89,15 @@ update_pkg_versions <- function(
             replacement = ""
           )
 
-        out <- append(
-          out,
-          stringr::str_replace(
-            i,
-            "\\(.*\\)",
-            paste0("(", version, ")")
+        out <-
+          out |>
+          append(
+            stringr::str_replace(
+              i,
+              "\\(.*\\)",
+              paste0("(", version, ")")
+            )
           )
-        )
       } else {
         out <- append(out, i)
       }

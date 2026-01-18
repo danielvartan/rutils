@@ -6,7 +6,8 @@
 \usage{
 update_pkg_versions(
   file = here::here("DESCRIPTION"),
-  old_r_version = bump_back_r_version()
+  old_r_version = bump_back_r_version(),
+  ignore = NULL
 )
 }
 \arguments{
@@ -15,6 +16,9 @@ file.}
 
 \item{old_r_version}{(optional) A string indicating the previous minor
 version of the current R version.}
+
+\item{ignore}{(optional) A character vector of package names to ignore when
+updating versions.}
 }
 \value{
 An invisible \code{NULL}. This function is used for its side effect.
