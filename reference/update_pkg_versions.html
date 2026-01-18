@@ -64,7 +64,8 @@ current R version. This is made to avoid errors with CI/CD.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">update_pkg_versions</span><span class="op">(</span></span>
 <span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span><span class="op">)</span>,</span>
-<span>  old_r_version <span class="op">=</span> <span class="fu">bump_back_r_version</span><span class="op">(</span><span class="op">)</span></span>
+<span>  old_r_version <span class="op">=</span> <span class="fu">bump_back_r_version</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  ignore <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -80,6 +81,11 @@ file.</p></dd>
 <dt id="arg-old-r-version">old_r_version<a class="anchor" aria-label="anchor" href="#arg-old-r-version"></a></dt>
 <dd><p>(optional) A string indicating the previous minor
 version of the current R version.</p></dd>
+
+
+<dt id="arg-ignore">ignore<a class="anchor" aria-label="anchor" href="#arg-ignore"></a></dt>
+<dd><p>(optional) A character vector of package names to ignore when
+updating versions.</p></dd>
 
 </dl></div>
     <div class="section level2">

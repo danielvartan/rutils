@@ -13,7 +13,8 @@ CI/CD.
 ``` r
 update_pkg_versions(
   file = here::here("DESCRIPTION"),
-  old_r_version = bump_back_r_version()
+  old_r_version = bump_back_r_version(),
+  ignore = NULL
 )
 ```
 
@@ -27,6 +28,11 @@ update_pkg_versions(
 
   (optional) A string indicating the previous minor version of the
   current R version.
+
+- ignore:
+
+  (optional) A character vector of package names to ignore when updating
+  versions.
 
 ## Value
 
