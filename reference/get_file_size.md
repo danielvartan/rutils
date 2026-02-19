@@ -1,12 +1,17 @@
 # Get the sizes of local files or files from URLs
 
 `get_file_size()` returns the sizes of files in bytes. It works with
-local files and URLs.
+local and remote files.
 
 ## Usage
 
 ``` r
-get_file_size(file)
+get_file_size(
+  file,
+  connection_timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE
+)
 ```
 
 ## Arguments
@@ -15,6 +20,22 @@ get_file_size(file)
 
   A [`character`](https://rdrr.io/r/base/character.html) vector of file
   paths. The function also works with URLs.
+
+- connection_timeout:
+
+  (optional) A [`numeric`](https://rdrr.io/r/base/numeric.html) value
+  specifying the connection timeout in seconds for HTTP requests
+  (default: `10`).
+
+- max_tries:
+
+  (optional) A [`numeric`](https://rdrr.io/r/base/numeric.html) value
+  specifying the maximum number of retry attempts (default: `3`).
+
+- retry_on_failure:
+
+  (optional) A [`logical`](https://rdrr.io/r/base/logical.html) value
+  indicating whether to retry on failure (default: `TRUE`).
 
 ## Value
 
@@ -31,11 +52,6 @@ Other file functions:
 ``` r
 library(fs)
 library(readr)
-#> 
-#> Attaching package: ‘readr’
-#> The following object is masked from ‘package:curl’:
-#> 
-#>     parse_date
 
 files <- c("file1.txt", "file2.txt", "file3.txt")
 
@@ -43,7 +59,9 @@ dir <- tempfile("dir")
 dir.create(dir)
 
 for (i in files) {
-  write_lines(rep(letters, sample(1000:10000, 1)), file.path(dir, i))
+  letters |>
+    rep(sample(1000:10000, 1)) |>
+    write_lines(file.path(dir, i))
 }
 
 urls <- c(

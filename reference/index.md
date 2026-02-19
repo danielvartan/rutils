@@ -18,7 +18,7 @@
 ## Files
 
 - [`download_file()`](https://danielvartan.github.io/rutils/reference/download_file.md)
-  : Download files from the internet to a local directory
+  : Download files
 - [`get_file_ext()`](https://danielvartan.github.io/rutils/reference/get_file_ext.md)
   : Get file extensions
 - [`get_file_name_without_ext()`](https://danielvartan.github.io/rutils/reference/get_file_name_without_ext.md)
