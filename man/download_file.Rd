@@ -2,47 +2,57 @@
 % Please edit documentation in R/download_file.R
 \name{download_file}
 \alias{download_file}
-\title{Download files from the internet to a local directory}
+\title{Download files}
 \usage{
-download_file(url, dir = ".", broken_links = FALSE)
+download_file(
+  url,
+  connection_timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE,
+  backoff = function(attempt) 5^attempt,
+  dir = tempdir()
+)
 }
 \arguments{
 \item{url}{A \code{\link[base:character]{character}} vector of URLs pointing to
-files.}
+remote files.}
+
+\item{connection_timeout}{(optional) A \code{\link[base:numeric]{numeric}} value
+specifying the connection timeout in seconds for HTTP requests
+(default: \code{10}).}
+
+\item{max_tries}{(optional) A \code{\link[base:numeric]{numeric}} value specifying
+the maximum number of retry attempts (default: \code{3}).}
+
+\item{retry_on_failure}{(optional) A \code{\link[base:logical]{logical}} value
+indicating whether to retry on failure (default: \code{TRUE}).}
+
+\item{backoff}{(optional) A \code{\link[base:function]{function}} that takes the
+current attempt number as input and returns the number of seconds to wait
+before the next attempt (default: \verb{\\(attempt) 5^attempt}).}
 
 \item{dir}{(optional) A string specifying the directory where the files
-should be downloaded (default: ".").}
-
-\item{broken_links}{(optional) A \code{\link[base:logical]{logical}} flag indicating
-whether to return a list of broken links (default: \code{FALSE}).}
+should be downloaded (default: \code{tempdir()}).}
 }
 \value{
-If \code{broken_links} is \code{TRUE}, an invisible
-\code{\link[base:character]{character}} vector of broken links. Otherwise, a
-invisible \code{\link[base:character]{character}} vector of file paths where
-the files were downloaded.
+A invisible \code{\link[base:character]{character}} vector of file paths
+where the files were downloaded.
 }
 \description{
-\code{download_file()} downloads files from the internet to a local directory. It
-can handle multiple files at once and provides progress updates during the
-download process.
-
-The function also checks for broken links and can return a list of any
-broken links encountered during the download.
+\code{download_file()} is a wrapper around the \code{httr2} package that provides a
+user-friendly interface for downloading files, with built-in error handling
+and progress reporting.
 }
 \examples{
-library(curl)
+library(httr2)
 
-if (has_internet()) {
-  urls <- paste0(
-    "ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POPSVS/",
+if (is_online()) {
+  urls <- file.path(
+    "ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POPSVS",
      c("POPSBR00.zip", "POPSBR01.zip")
   )
 
-  dir <- tempfile("dir")
-  dir.create(dir)
-
-  download_file(urls, dir)
+  download_file(urls)
 }
 }
 \seealso{

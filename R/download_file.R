@@ -1,61 +1,87 @@
-#' Download files from the internet to a local directory
+#' Download files
 #'
 #' @description
 #'
-#' `download_file()` downloads files from the internet to a local directory. It
-#' can handle multiple files at once and provides progress updates during the
-#' download process.
-#'
-#' The function also checks for broken links and can return a list of any
-#' broken links encountered during the download.
+#' `download_file()` is a wrapper around the `httr2` package that provides a
+#' user-friendly interface for downloading files, with built-in error handling
+#' and progress reporting.
 #'
 #' @param url A [`character`][base::character()] vector of URLs pointing to
-#'   files.
+#'   remote files.
+#' @param connection_timeout (optional) A [`numeric`][base::numeric()] value
+#'   specifying the connection timeout in seconds for HTTP requests
+#'   (default: `10`).
+#' @param max_tries (optional) A [`numeric`][base::numeric()] value specifying
+#'   the maximum number of retry attempts (default: `3`).
+#' @param retry_on_failure (optional) A [`logical`][base::logical()] value
+#'   indicating whether to retry on failure (default: `TRUE`).
+#' @param backoff (optional) A [`function`][base::function()] that takes the
+#'   current attempt number as input and returns the number of seconds to wait
+#'   before the next attempt (default: `\(attempt) 5^attempt`).
 #' @param dir (optional) A string specifying the directory where the files
-#'   should be downloaded (default: ".").
-#' @param broken_links (optional) A [`logical`][base::logical()] flag indicating
-#'   whether to return a list of broken links (default: `FALSE`).
+#'   should be downloaded (default: `tempdir()`).
 #'
-#' @return If `broken_links` is `TRUE`, an invisible
-#'   [`character`][base::character()] vector of broken links. Otherwise, a
-#'   invisible [`character`][base::character()] vector of file paths where
-#'   the files were downloaded.
+#' @return A invisible [`character`][base::character()] vector of file paths
+#'   where the files were downloaded.
 #'
 #' @family file functions
 #' @export
 #'
 #' @examples
-#' library(curl)
+#' library(httr2)
 #'
-#' if (has_internet()) {
-#'   urls <- paste0(
-#'     "ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POPSVS/",
+#' if (is_online()) {
+#'   urls <- file.path(
+#'     "ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POPSVS",
 #'      c("POPSBR00.zip", "POPSBR01.zip")
 #'   )
 #'
-#'   dir <- tempfile("dir")
-#'   dir.create(dir)
-#'
-#'   download_file(urls, dir)
+#'   download_file(urls)
 #' }
 download_file <- function(
   url,
-  dir = ".",
-  broken_links = FALSE
+  connection_timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE,
+  backoff = \(attempt) 5^attempt,
+  dir = tempdir()
 ) {
+  require_package("fs", "httr2")
+
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
     "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
   )
 
+  if (!is_online()) {
+    cli::cli_abort(
+      paste0(
+        "No internet connection. ",
+        "Please check your connection and try again."
+      )
+    )
+  }
+
   checkmate::assert_character(url, pattern = url_pattern, any.missing = FALSE)
   checkmate::assert_string(dir)
   checkmate::assert_directory_exists(dir, access = "w")
+  checkmate::assert_number(connection_timeout, lower = 1)
+  checkmate::assert_number(max_tries, lower = 1)
+  checkmate::assert_flag(retry_on_failure)
+  checkmate::assert_function(backoff)
 
   # R CMD Check variable bindings fix
   # nolint start
   . <- NULL
   # nolint end
+
+  file_sizes <-
+    url |>
+    get_file_size_by_url(
+      connection_timeout = connection_timeout,
+      max_tries = max_tries,
+      retry_on_failure = retry_on_failure
+    )
 
   cli::cli_alert_info(
     paste0(
@@ -66,10 +92,8 @@ download_file <- function(
     )
   )
 
-  if (length(url) > 1) cli::cat_line()
-
   cli::cli_progress_bar(
-    name = "Downloading data",
+    name = "Downloading files",
     total = length(url),
     clear = FALSE
   )
@@ -79,16 +103,27 @@ download_file <- function(
   for (i in url) {
     test <- try(
       i |>
-        curl::curl_download(
-          destfile = fs::path(dir, basename(i)),
-          quiet = TRUE
+        httr2::request() |>
+        httr2::req_options(connecttimeout = connection_timeout) |>
+        httr2::req_retry(
+          max_tries = max_tries,
+          retry_on_failure = retry_on_failure,
+          backoff = backoff
+        ) |>
+        httr2::req_progress() |>
+        httr2::req_perform(
+          path = fs::path(dir, basename(i)),
         ),
       silent = TRUE
     )
 
     if (inherits(test, "try-error")) {
-      cli::cli_alert_info(
-        "The file {.strong {basename(i)}} could not be downloaded."
+      cli::cli_alert_warning(
+        paste0(
+          "The file {.strong {cli::col_red(basename(i))}} ",
+          "could not be downloaded."
+        ),
+        wrap = TRUE
       )
 
       broken_links <- c(broken_links, i)
@@ -99,12 +134,8 @@ download_file <- function(
 
   cli::cli_progress_done()
 
-  if (isTRUE(broken_links)) {
-    invisible(broken_links)
-  } else {
-    url |>
-      magrittr::extract(!url %in% broken_links) %>%
-      fs::path(dir, basename(.)) |>
-      invisible()
-  }
+  url |>
+    magrittr::extract(!url %in% broken_links) %>%
+    fs::path(dir, basename(.)) |>
+    invisible()
 }

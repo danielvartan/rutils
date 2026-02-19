@@ -1,7 +1,5 @@
 meta:
-  name:
-    short: "{rutils}"
-    long: "{rutils}: Utility Functions for R"
+  name: "{rutils}: Utility Functions for R"
   link:
     home: https://danielvartan.github.io/rutils
     github: https://github.com/danielvartan/rutils

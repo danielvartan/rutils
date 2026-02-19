@@ -34,7 +34,6 @@ Imports:
   grDevices (>= 4.4),
   hms (>= 1.1.4),
   here (>= 1.0.2),
-  httr (>= 1.4.7),
   httr2 (>= 1.2.1),
   janitor (>= 2.2.1),
   jsonlite (>= 2.0.0),
@@ -66,6 +65,7 @@ Imports:
   tseries (>= 0.10.58),
   utils (>= 4.4)
 Suggests:
+  brand.yml (>= 0.1.0),
   covr (>= 3.6.5),
   datasets (>= 4.4),
   knitr (>= 1.50),

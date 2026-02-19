@@ -3,10 +3,11 @@
 #' @description
 #'
 #' `get_file_size()` returns the sizes of files in bytes. It works with local
-#' files and URLs.
+#' and remote files.
 #'
 #' @param file A [`character`][base::character()] vector of file paths.
 #'   The function also works with URLs.
+#' @inheritParams download_file
 #'
 #' @return A [`fs_bytes`][fs::fs_bytes()] vector of file sizes.
 #'
@@ -23,7 +24,9 @@
 #' dir.create(dir)
 #'
 #' for (i in files) {
-#'   write_lines(rep(letters, sample(1000:10000, 1)), file.path(dir, i))
+#'   letters |>
+#'     rep(sample(1000:10000, 1)) |>
+#'     write_lines(file.path(dir, i))
 #' }
 #'
 #' urls <- c(
@@ -38,46 +41,97 @@
 #' )
 #'
 #' c(urls, path(dir, files)) |> get_file_size()
-get_file_size <- function(file) {
+get_file_size <- function(
+  file,
+  connection_timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE
+) {
+  require_package("fs", "httr2")
+
   checkmate::assert_character(file)
+  checkmate::assert_number(connection_timeout, lower = 1)
+  checkmate::assert_number(max_tries, lower = 1)
+  checkmate::assert_flag(retry_on_failure)
 
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
     "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
   )
 
-  file <- stringr::str_trim(file)
+  file <- file |> stringr::str_trim()
   out <- character()
 
   for (i in seq_along(file)) {
     if (stringr::str_detect(file[i], url_pattern)) {
-      out[i] <- get_file_size_by_url(file[i])
+      out[i] <-
+        file[i] |>
+        get_file_size_by_url(
+          connection_timeout = connection_timeout,
+          max_tries = max_tries,
+          retry_on_failure = retry_on_failure
+        )
     } else {
-      out[i] <- fs::file_size(file[i])
+      out[i] <- file[i] |> fs::file_size()
     }
   }
 
   out |> fs::fs_bytes()
 }
 
-get_file_size_by_url <- function(file) {
+get_file_size_by_url <- function(
+  file,
+  connection_timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE
+) {
+  require_package("fs", "httr2")
+
   url_pattern <- paste0(
     "(http[s]?|ftp)://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|",
     "(?:%[0-9a-fA-F][0-9a-fA-F]))+"
   )
 
-  prettycheck::assert_internet()
   checkmate::assert_character(file, pattern = url_pattern)
+  checkmate::assert_number(connection_timeout, lower = 1)
+  checkmate::assert_number(max_tries, lower = 1)
+  checkmate::assert_flag(retry_on_failure)
+
+  if (!is_online()) {
+    cli::cli_abort(
+      paste0(
+        "No internet connection. ",
+        "Please check your connection and try again."
+      )
+    )
+  }
 
   out <- character()
 
   for (i in seq_along(file)) {
-    request <- try({file[i] |> httr::HEAD()}, silent = TRUE) #nolint
+    response <- try(
+      {
+        file[i] |>
+          httr2::request() |>
+          httr2::req_method("HEAD") |>
+          httr2::req_options(connecttimeout = connection_timeout) |>
+          httr2::req_retry(
+            max_tries = max_tries,
+            retry_on_failure = TRUE
+          ) |>
+          httr2::req_perform()
+      },
+      silent = TRUE
+    )
 
-    if (inherits(request, "try-error")) {
+    if (inherits(response, "try-error")) {
       out[i] <- NA
-    } else if (!is.null(request$headers$`Content-Length`)) {
-      out[i] <- as.numeric(request$headers$`content-length`)
+    } else if (!is.null(response$headers$`Content-Length`)) {
+      out[i] <-
+        response |>
+        httr2::resp_headers() |>
+        purrr::pluck("Content-Length") |>
+        as.numeric()
     } else {
       out[i] <- NA
     }

@@ -4,18 +4,33 @@
 \alias{get_file_size}
 \title{Get the sizes of local files or files from URLs}
 \usage{
-get_file_size(file)
+get_file_size(
+  file,
+  connection_timeout = 10,
+  max_tries = 3,
+  retry_on_failure = TRUE
+)
 }
 \arguments{
 \item{file}{A \code{\link[base:character]{character}} vector of file paths.
 The function also works with URLs.}
+
+\item{connection_timeout}{(optional) A \code{\link[base:numeric]{numeric}} value
+specifying the connection timeout in seconds for HTTP requests
+(default: \code{10}).}
+
+\item{max_tries}{(optional) A \code{\link[base:numeric]{numeric}} value specifying
+the maximum number of retry attempts (default: \code{3}).}
+
+\item{retry_on_failure}{(optional) A \code{\link[base:logical]{logical}} value
+indicating whether to retry on failure (default: \code{TRUE}).}
 }
 \value{
 A \code{\link[fs:fs_bytes]{fs_bytes}} vector of file sizes.
 }
 \description{
 \code{get_file_size()} returns the sizes of files in bytes. It works with local
-files and URLs.
+and remote files.
 }
 \examples{
 library(fs)
@@ -27,7 +42,9 @@ dir <- tempfile("dir")
 dir.create(dir)
 
 for (i in files) {
-  write_lines(rep(letters, sample(1000:10000, 1)), file.path(dir, i))
+  letters |>
+    rep(sample(1000:10000, 1)) |>
+    write_lines(file.path(dir, i))
 }
 
 urls <- c(

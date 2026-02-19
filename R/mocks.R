@@ -65,6 +65,12 @@ has_internet <- function(...) {
   curl::has_internet()
 }
 
+is_online <- function(...) {
+  require_package("httr2")
+
+  httr2::is_online()
+}
+
 from_json <- function(
   txt,
   simplifyVector = TRUE,
